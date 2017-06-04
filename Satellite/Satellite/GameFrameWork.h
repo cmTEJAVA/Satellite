@@ -1,11 +1,4 @@
 #pragma once
-enum ENUM_SCENE
-{
-	TITLE,
-	MENU,
-	GAME,
-	END
-};
 
 class CScene;
 

@@ -30,3 +30,11 @@
 #define RADIAN(X) ((PI / 180) * X)
 
 #define GAMEFPS			int(1000 / 60)
+
+enum class ENUM_SCENE
+{
+	TITLE,
+	MENU,
+	GAME,
+	END
+};

@@ -40,6 +40,9 @@
     <Filter Include="GameObject\BitmapObject\Sprite">
       <UniqueIdentifier>{3080e330-f2af-4b8f-b6d6-e188625ba59b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Menu">
+      <UniqueIdentifier>{8499592d-18b2-4a85-9916-d743f931b42b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -87,6 +90,9 @@
     <ClInclude Include="Sprite.h">
       <Filter>GameObject\BitmapObject\Sprite</Filter>
     </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>Scene\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -124,6 +130,9 @@
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
       <Filter>GameObject\BitmapObject\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>Scene\Menu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
