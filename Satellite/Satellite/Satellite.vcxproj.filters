@@ -25,6 +25,15 @@
     <Filter Include="Scene\Logo">
       <UniqueIdentifier>{03000b2d-536d-4906-9e11-47358595ed63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="operator">
+      <UniqueIdentifier>{1614eec8-a926-4b1e-92e7-a4c4f0ee945f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Point">
+      <UniqueIdentifier>{9549f899-5e3d-49f9-8c1a-1c58b7f7a512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\GameMoveObject">
+      <UniqueIdentifier>{5b532f66-1e0f-4ff9-a286-52b5022f0db6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -45,14 +54,26 @@
     <ClInclude Include="GameFrameWork.h">
       <Filter>GameFrameWork</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Logo.h">
       <Filter>Scene\Logo</Filter>
+    </ClInclude>
+    <ClInclude Include="operator.h">
+      <Filter>operator</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Point</Filter>
+    </ClInclude>
+    <ClInclude Include="Point3.h">
+      <Filter>Point</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMoveObject.h">
+      <Filter>GameObject\GameMoveObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,14 +86,26 @@
     <ClCompile Include="GameFrameWork.cpp">
       <Filter>GameFrameWork</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Logo.cpp">
       <Filter>Scene\Logo</Filter>
+    </ClCompile>
+    <ClCompile Include="operator.cpp">
+      <Filter>operator</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Point</Filter>
+    </ClCompile>
+    <ClCompile Include="Point3.cpp">
+      <Filter>Point</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMoveObject.cpp">
+      <Filter>GameObject\GameMoveObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

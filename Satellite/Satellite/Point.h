@@ -21,8 +21,11 @@ struct Point
 		//		Draw_2D::drawRect(hdc, x, y, 1, RED_2D);
 	}
 
-	Point operator*(const int&a) {
 
+	Point operator*(const int&a) {
+		return Point(x * a, y *a);
+	}
+	Point operator*(const float&a) {
 		return Point(x * a, y *a);
 	}
 
@@ -30,10 +33,22 @@ struct Point
 
 	Point& operator=(const Point&);
 
+	Point operator+=(const Point& rhs)
+	{
+		this->x = (this->x + rhs.x);
+		this->y = (this->y + rhs.y);
+		return *this;
+	}
 	Point operator/=(const float& rhs)
 	{
 		this->x = (this->x / rhs);
 		this->y = (this->y / rhs);
+		return *this;
+	}
+	Point operator*=(const float& rhs)
+	{
+		this->x = (this->x * rhs);
+		this->y = (this->y * rhs);
 		return *this;
 	}
 

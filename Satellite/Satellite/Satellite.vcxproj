@@ -141,20 +141,28 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameMoveObject.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Logo.h" />
+    <ClInclude Include="operator.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Point3.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="GameFrameWork.h" />
-    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Satellite.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameMoveObject.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Logo.cpp" />
+    <ClCompile Include="operator.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Point3.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="GameFrameWork.cpp" />
-    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Satellite.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

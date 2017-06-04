@@ -17,7 +17,7 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 	m_hInstance = hInstance;
 	::GetClientRect(hWnd, &m_rcClient);
 	
-	ChangScene(ENUM_SCENE::TITLE);
+	ChangeScene(ENUM_SCENE::TITLE);
 	
 
 
@@ -107,7 +107,7 @@ void CGameFrameWork::Command(WPARAM wParam)
 
 bool CGameFrameWork::Release()
 {
-	ChangScene(END);
+	ChangeScene(END);
 	return false;
 }
 
@@ -118,7 +118,7 @@ void CGameFrameWork::PopScene()
 }
 
 
-void CGameFrameWork::ChangScene(ENUM_SCENE iID)
+void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 {
 	PopScene();
 	switch (iID)

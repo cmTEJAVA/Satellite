@@ -35,7 +35,7 @@ public:
 
 	void PopScene();
 	
-	void ChangScene(ENUM_SCENE iID);
+	void ChangeScene(ENUM_SCENE iID);
 
 	RECT GetClientRect() const { return m_rcClient; }
 
