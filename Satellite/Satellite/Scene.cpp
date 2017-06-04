@@ -19,7 +19,7 @@ void CScene::Draw(HDC hDC)
 {
 }
 
-bool CScene::Keyboard(UINT message, WPARAM wParam, LPARAM lParam)
+bool CScene::Keyboard(UINT message, WPARAM wParam)
 {
 	return false;
 }

@@ -1,4 +1,11 @@
 #pragma once
+enum ENUM_SCENE
+{
+	TITLE,
+	MENU,
+	GAME,
+	END
+};
 
 class CScene;
 
@@ -27,6 +34,8 @@ public:
 	bool Release();
 
 	void PopScene();
+	
+	void ChangScene(ENUM_SCENE iID);
 
 	RECT GetClientRect() const { return m_rcClient; }
 
@@ -42,13 +51,14 @@ private:
 
 	RECT			m_rcClient{};
 
-	CScene			*m_Scenes[5];
-	int				 m_nCurrentScene{ 0 };
-	CScene			*m_pCurrentScene{ nullptr };
+	CScene			*m_Scenes;
+	//int				 m_nCurrentScene{ 0 };
+	//CScene			*m_pCurrentScene{ nullptr };
 	
 	void CGameFrameWork::EndPaint() {
 		BitBlt(m_hdc, 0, 0, m_rcClient.right, m_rcClient.bottom, m_memDC, 0, 0, SRCCOPY);
 		SelectObject(m_memDC, m_hOldBit);
+		DeleteObject(m_hBit);
 		DeleteDC(m_memDC);
 		::EndPaint(m_hWnd, &m_ps);
 	}

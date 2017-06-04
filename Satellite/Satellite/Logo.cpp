@@ -41,7 +41,7 @@ void CLogoScene::Draw(HDC hDC)
 	SetTextColor(hDC, txtColor);
 }
 
-bool CLogoScene::Keyboard(UINT message, WPARAM wParam, LPARAM lParam)
+bool CLogoScene::Keyboard(UINT message, WPARAM wParam)
 {
 	m_fFade = m_fMaxFade + 2.f;
 	return true;
