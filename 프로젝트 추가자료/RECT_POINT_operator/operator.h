@@ -10,6 +10,7 @@ const RECT operator-(const RECT& other, const POINT& other2);
 
 const RECT operator+(const POINT& other2, const RECT& other);
 const RECT operator-(const POINT& other2, const RECT& other);
+const RECT operator*(const RECT& other1, const float& other2);
 
 void operator+=(RECT& other, const POINT& other2);
 void operator-=(RECT& other, const POINT& other2);

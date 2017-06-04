@@ -28,6 +28,11 @@ const RECT operator-(const POINT& other2, const RECT& other)
 {
 	return RECT{ other.left - other2.x, other.top - other2.y,other.right - other2.x, other.bottom - other2.y };
 }
+const RECT operator*(const RECT & other1, const float & other2)
+{
+	return RECT{ LONG(other1.left*other2) ,  LONG(other1.top*other2)
+		, LONG(other1.right*other2) ,  LONG(other1.bottom*other2) };
+}
 
 void operator+=(RECT& other, const POINT& other2)
 {
