@@ -14,6 +14,7 @@ public:
 	void Render();
 	void Update(const float &frame_time = 0.017f);
 
+	//KeyÇÔ¼ö
 	void Key_Event(UINT iMessage, WPARAM wParam);
 	void Key_Down(WPARAM wParam);
 	void Key_Up(WPARAM wParam);
