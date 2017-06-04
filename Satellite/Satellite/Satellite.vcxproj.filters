@@ -34,6 +34,12 @@
     <Filter Include="GameObject\GameMoveObject">
       <UniqueIdentifier>{5b532f66-1e0f-4ff9-a286-52b5022f0db6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\BitmapObject">
+      <UniqueIdentifier>{e91d5eb5-215e-4277-813f-e01a1ac8caba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\BitmapObject\Sprite">
+      <UniqueIdentifier>{3080e330-f2af-4b8f-b6d6-e188625ba59b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -75,6 +81,12 @@
     <ClInclude Include="GameObject.h">
       <Filter>GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="BitmapObject.h">
+      <Filter>GameObject\BitmapObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>GameObject\BitmapObject\Sprite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -106,6 +118,12 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BitmapObject.cpp">
+      <Filter>GameObject\BitmapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>GameObject\BitmapObject\Sprite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

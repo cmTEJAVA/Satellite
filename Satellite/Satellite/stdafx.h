@@ -23,10 +23,10 @@
 #include <math.h>
 #include <atlimage.h>
 
-#define WIDTH 1000
-#define HEIGHT 700
+#define WIDTH 800
+#define HEIGHT 600
 
 #define PI 3.141592
-#define RADIAN(X) (PI / 180) * X
+#define RADIAN(X) ((PI / 180) * X)
 
 #define GAMEFPS			int(1000 / 60)

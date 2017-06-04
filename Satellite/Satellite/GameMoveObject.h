@@ -3,6 +3,7 @@
 class CGameMoveObject :
 	public CGameObject
 {
+protected:
 
 	float m_fspeed;
 	Point m_dir;//바라보는 방향도 있어.

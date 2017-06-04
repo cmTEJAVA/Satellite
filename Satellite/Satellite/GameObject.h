@@ -16,6 +16,8 @@ public:
 	void Setsizerate(const float& q) { m_fsizerate = q; }
 	const float Getsizerate() { return m_fsizerate; }
 
+	void SetObjRECT(const RECT& q) { m_rcobjsize = q; }
+
 	//GetRECTsize: sizerate가 적용된 오브젝트 사이즈
 	const RECT GetRECTsize() const { return m_rcobjsize*m_fsizerate; }
 
