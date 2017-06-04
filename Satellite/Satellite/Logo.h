@@ -12,7 +12,7 @@ public:
 
 	void Draw(HDC hDC) override;
 
-	bool Keyboard(UINT message, WPARAM wParam, LPARAM lParam) override;
+	bool Keyboard(UINT message, WPARAM wParam ) override;
 
 	bool Mouse(UINT message, WPARAM wParam, LPARAM lParam) override;
 

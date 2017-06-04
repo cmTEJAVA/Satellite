@@ -12,7 +12,7 @@ public:
 
 	virtual void Draw(HDC hDC);
 
-	virtual bool Keyboard(UINT message, WPARAM wParam, LPARAM lParam);
+	virtual bool Keyboard(UINT message, WPARAM wParam);
 
 	virtual bool Mouse(UINT message, WPARAM wParam, LPARAM lParam);
 
