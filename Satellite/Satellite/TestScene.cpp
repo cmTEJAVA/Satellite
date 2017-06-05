@@ -22,6 +22,13 @@ void CTestScene::Draw(HDC hDC)
 	m_test_sprite.draw(hDC);
 }
 
+bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
+{
+
+
+	return false;
+}
+
 
 bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {

@@ -13,6 +13,7 @@ public:
 	virtual void Update() override;
 
 	virtual void Draw(HDC hDC)override;
+	virtual bool Mouse(UINT message, WPARAM wParam, LPARAM lParam) override;
 
 	virtual bool Initialize(CGameFrameWork* pFramework, HWND hWnd)override;
 
