@@ -1,28 +1,23 @@
 #pragma once
 #include "GameObject.h"
+#include <atlimage.h>
 class CBitmapObject :
 	public CGameObject
 {
 protected:
+	CImage m_cimg;
 
-	HBITMAP m_bmp;
 	POINT m_bmpsize;
-	COLORREF m_delRGB;
 
 public:
 	CBitmapObject();
 	~CBitmapObject();
 
-	void OnCreatbmp(const HBITMAP& inbmp, COLORREF indel) {
-		m_bmp = inbmp;
-		m_delRGB = indel;
+	void OnCreatCimg(const LPCTSTR& pStream) {
 
-		BITMAP bit;
-		GetObject(m_bmp, sizeof(BITMAP), &bit);
-		m_bmpsize.y = bit.bmHeight;
-		m_bmpsize.x = bit.bmWidth;
-		SetObjRECT(RECT{ -(m_bmpsize.x) / 2,-(m_bmpsize.y) / 2
-						,(m_bmpsize.x) / 2,(m_bmpsize.y) / 2 });
+		m_cimg.Load(pStream);
+		m_bmpsize.x = m_cimg.GetWidth();
+		m_bmpsize.y = m_cimg.GetHeight();
 
 	}
 	virtual void draw(HDC hdc) override;

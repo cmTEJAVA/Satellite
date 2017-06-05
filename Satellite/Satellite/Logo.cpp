@@ -17,7 +17,7 @@ void CLogoScene::Update()
 	m_fFade += (1.f / GAMEFPS);
 	if (m_fFade > m_fMaxFade + 2.f)
 	{
-		m_Framework->ChangeScene(ENUM_SCENE::MENU);
+		m_Framework->ChangeScene(ENUM_SCENE::TEST);
 	}
 }
 

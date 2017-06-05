@@ -36,5 +36,6 @@ enum class ENUM_SCENE
 	TITLE,
 	MENU,
 	GAME,
+	TEST,
 	END
 };

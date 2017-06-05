@@ -43,6 +43,9 @@
     <Filter Include="Scene\Menu">
       <UniqueIdentifier>{8499592d-18b2-4a85-9916-d743f931b42b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\TEST">
+      <UniqueIdentifier>{e84acbf3-b6fe-46a5-8f43-bc1084bcbe73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -93,6 +96,9 @@
     <ClInclude Include="MenuScene.h">
       <Filter>Scene\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>Scene\TEST</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -133,6 +139,9 @@
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
       <Filter>Scene\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>Scene\TEST</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

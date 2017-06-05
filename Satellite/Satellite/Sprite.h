@@ -14,7 +14,7 @@ public:
 	void OnCreatSprite(float rate,int imgN,float frametime) {
 		
 		//if(!m_bmp){error!}
-		//OnCreatbmp먼저 할것
+		//OnCreatCimg먼저 할것
 
 		m_framenum = imgN;
 		m_oneframetime = frametime;
@@ -24,7 +24,6 @@ public:
 		Setsizerate(rate);
 	}
 	virtual void draw(HDC hdc) override;
-	void draw(HDC hdc, POINT q);
 	bool Update(float time = 0.2);
 
 };

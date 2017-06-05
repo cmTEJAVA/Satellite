@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "GameFrameWork.h"
 #include "Logo.h"
+#include "TestScene.h"
 
 CGameFrameWork::CGameFrameWork()
 {
@@ -107,7 +108,7 @@ void CGameFrameWork::Command(WPARAM wParam)
 
 bool CGameFrameWork::Release()
 {
-	ChangeScene(END);
+	ChangeScene(ENUM_SCENE::END);
 	return false;
 }
 
@@ -123,8 +124,12 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 	PopScene();
 	switch (iID)
 	{
-	case TITLE:
+	case ENUM_SCENE::TITLE:
 		m_Scenes = new CLogoScene;
+		m_Scenes->Initialize(this, m_hWnd);
+		break;
+	case ENUM_SCENE::TEST:
+		m_Scenes = new CTestScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
 	default:
