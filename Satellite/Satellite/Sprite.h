@@ -26,5 +26,7 @@ public:
 	virtual void draw(HDC hdc) override;
 	bool Update(float time = 0.2);
 
+	bool drawRotatImage(HDC hdc, double dblAngle);
+
 };
 

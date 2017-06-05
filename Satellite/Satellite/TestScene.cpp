@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "GameFrameWork.h"
 #include "TestScene.h"
 
 
@@ -24,20 +25,28 @@ void CTestScene::Draw(HDC hDC)
 
 bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 {
-
-
+	//m_Framework
+	switch (message)
+	{
+	case WM_LBUTTONUP:
+		m_Framework->ChangeScene(ENUM_SCENE::MENU);
+		break;
+	default:
+		break;
+	}
 	return false;
 }
 
 
 bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
-	CScene::Initialize(pFramework, hWnd);
+	if (!CScene::Initialize(pFramework, hWnd)) return false;
+	
 	GetClientRect(hWnd, &m_rcClient);
 	m_test_sprite.OnCreatCimg(L"Spritepngtest.png");
 	m_test_sprite.OnCreatSprite(2.f, 4, 0.3f);
 	m_test_sprite.SetPos(Point{ 100,100 });
-	return false;
+	return true;
 }
 
 void CTestScene::ReleaseObjects()

@@ -18,7 +18,8 @@ void CMenuScene::Update()
 void CMenuScene::Draw(HDC hDC)
 {
 
-	Rectangle(hDC, 10, 10, 50, 50);
+	RECT q{ 10,10,50,50 };
+	FillRect(hDC, &q, (HBRUSH)GetStockObject(WHITE_BRUSH));
 
 }
 
