@@ -5,6 +5,10 @@ class CMenuScene :
 {
 public:
 	CMenuScene();
-	~CMenuScene();
+	virtual ~CMenuScene()override;
+	virtual void Update()override;
+	virtual void Draw(HDC hDC)override;
+	virtual bool Initialize(CGameFrameWork* pFramework, HWND hWnd)override;
+
 };
 
