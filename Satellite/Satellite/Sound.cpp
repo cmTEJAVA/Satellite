@@ -15,7 +15,7 @@ Sound_Func::~Sound_Func()
 void Sound_Func::sound_init()
 {
 	System_Create(&pSystem);
-	pSystem->init(5, FMOD_INIT_NORMAL, NULL);
+	pSystem->init(SOUND_TYPE, FMOD_INIT_NORMAL, NULL);
 
 	pSystem->createSound(
 		"BENDY+AND+THE+INK+MACHINE+(Build+Our+Machine).mp3"
@@ -33,18 +33,19 @@ void Sound_Func::sound_init()
 
 }
 
-void Sound_Func::sound_playing(int i)
+void Sound_Func::sound_playing(ENUM_SOUND type)
 {
 	pSystem->update();
-	pSystem->playSound(FMOD_CHANNEL_FREE, pSound[i]
-		, false, &pChannel[i]);
+	pSystem->playSound(FMOD_CHANNEL_FREE, pSound[(int)type]
+		, false, &pChannel[(int)type]);
 }
 
 void Sound_Func::sound_del()
 {
-	pSound[0]->release();
-	pSound[1]->release();
-
+	for (int i = 0; i < SOUND_TYPE; ++i)
+	{
+		pSound[i]->release();
+	}
 	pSystem->release();
 
 	pSystem->close();

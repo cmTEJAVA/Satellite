@@ -16,11 +16,11 @@ public:
 
 public:
 	System * pSystem;
-	Sound * pSound[5];
-	Channel * pChannel[5];
+	Sound * pSound[SOUND_TYPE];
+	Channel * pChannel[SOUND_TYPE];
 
 	void sound_init();
-	void sound_playing(int i);
+	void sound_playing(ENUM_SOUND type);
 	void sound_del();
 };
 
