@@ -114,7 +114,7 @@ bool CSprite::drawRotatImage(HDC hdc, float fradian)
 
 
 	HDC hdcfff = CreateCompatibleDC(hdc);
-	HBITMAP hbmpfff = CreateCompatibleBitmap(hdc, CLIENT_WIDTH, CLIENT_HEIGHT);
+	HBITMAP hbmpfff = CreateCompatibleBitmap(hdc, WIDTH, HEIGHT);
 	auto oldfff = SelectObject(hdcfff, hbmpfff);
 
 
@@ -134,7 +134,7 @@ bool CSprite::drawRotatImage(HDC hdc, float fradian)
 
 	DeleteObject(SelectObject(hdcfff, oldpen2));
 
-	TransparentBlt(hdc, 0, 0, CLIENT_WIDTH, CLIENT_HEIGHT, hdcfff, 0, 0, CLIENT_WIDTH, CLIENT_HEIGHT, RGB(0, 0, 0));
+	TransparentBlt(hdc, 0, 0, WIDTH, HEIGHT, hdcfff, 0, 0, WIDTH, HEIGHT, RGB(0, 0, 0));
 
 	DeleteObject
 		(SelectObject(hdcfff, oldfff)
