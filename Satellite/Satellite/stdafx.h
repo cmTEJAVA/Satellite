@@ -31,6 +31,9 @@
 
 #define GAMEFPS			int(1000 / 60)
 
+#define SOUND_TYPE 5
+
+
 enum class ENUM_SCENE
 {
 	TITLE,
@@ -46,6 +49,5 @@ enum class ENUM_SOUND
 	, LASER
 	, ELECTRIC
 	, BULLET
-	, SHOCKWAVE
-	
+	, SHOCKWAVE	
 };
