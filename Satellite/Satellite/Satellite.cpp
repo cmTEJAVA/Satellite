@@ -106,7 +106,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    RECT rcWindow{};
    GetWindowRect(GetDesktopWindow(), &rcWindow);         
    RECT rcClient{ 0,0,WIDTH,HEIGHT };
-   AdjustWindowRect(&rcClient, dwStyle, true);        
+   AdjustWindowRect(&rcClient, dwStyle, false);        
 
 
 												

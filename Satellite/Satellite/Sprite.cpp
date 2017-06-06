@@ -18,8 +18,8 @@ CSprite::~CSprite()
 
 void CSprite::draw(HDC hdc)
 {
-	drawRotatImage(hdc, 10);
-	return;
+	//drawRotatImage(hdc, 10);
+	//return;
 	RECT rctmp = GetObjRECT();
 
 	m_cimg.Draw(hdc,

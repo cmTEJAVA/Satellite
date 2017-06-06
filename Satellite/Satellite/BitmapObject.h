@@ -18,6 +18,7 @@ public:
 		m_cimg.Load(pStream);
 		m_bmpsize.x = m_cimg.GetWidth();
 		m_bmpsize.y = m_cimg.GetHeight();
+		m_rcobjsize = RECT{ 0,0,m_bmpsize.x,m_bmpsize.y };
 
 		if (m_cimg.GetBPP() == 32)
 		{

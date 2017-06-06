@@ -1,8 +1,10 @@
 #pragma once
 #include "Scene.h"
+#include "BitmapObject.h"
 class CMenuScene :
 	public CScene
 {
+	CBitmapObject m_backbmp;
 public:
 	CMenuScene();
 	virtual ~CMenuScene()override;
