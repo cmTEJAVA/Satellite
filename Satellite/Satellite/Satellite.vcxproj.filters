@@ -49,6 +49,9 @@
     <Filter Include="Sound">
       <UniqueIdentifier>{a8e16326-cfb5-43cd-aa83-978113c4a52d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sound\Basic">
+      <UniqueIdentifier>{3129000a-a032-4e0e-9bcd-19b08e8c7395}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

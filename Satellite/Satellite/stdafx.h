@@ -39,3 +39,13 @@ enum class ENUM_SCENE
 	TEST,
 	END
 };
+
+enum class ENUM_SOUND
+{
+	BACK
+	, LASER
+	, ELECTRIC
+	, BULLET
+	, SHOCKWAVE
+	
+};
