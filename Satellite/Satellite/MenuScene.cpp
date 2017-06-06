@@ -11,17 +11,30 @@ CMenuScene::~CMenuScene()
 
 void CMenuScene::Update()
 {
+	m_fradian += 0.2;
+	if (m_fradian >= 2 * PI) {
+		m_fradian = 0;
+	}
+	
+
+	m_titletextpng.SetPos(Point{ 0.f,(float)(sin(m_fradian)*5.0)-9.0f });
 }
 
 void CMenuScene::Draw(HDC hDC)
 {
 	m_backbmp.draw(hDC);
-
+	m_titletextpng.draw(hDC);
+	m_testbutt.draw(hDC);
 }
 
 bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
+	m_fradian = 0;
 	m_backbmp.OnCreatCimg(L"Intro.bmp");
+	m_titletextpng.OnCreatCimg(L"Title.png");
+
+	m_testbutt.SetObjRECT( RECT{-50,-20,50,20} );
+	m_testbutt.SetPos(Point{ 500,500 });
 	CScene::Initialize(pFramework, hWnd);
 	return false;
 }
