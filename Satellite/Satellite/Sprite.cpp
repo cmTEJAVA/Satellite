@@ -51,87 +51,181 @@ bool CSprite::Update(float time)
 	return true;
 }
 
-bool CSprite::drawRotatImage(HDC hdc, double dblAngle)
+
+bool CSprite::drawRotatImage(HDC hdc, float fradian)
 {
-	Point S_Center = Getpos();
-	RECT rctmp = GetObjRECT();
-	Point originDest{ rctmp.left, rctmp.top };
+	RECT rcSorce = GetObjRECT();
+	POINT arr[3];
+	NewFunction(rcSorce, arr, fradian);
 
-	POINT apt[3];
-	double dblWidth = m_spritesize.x;
-	double dblHeight = m_spritesize.y;
+	/*
+	MoveToEx(hdc, arr[0].x, arr[0].y, nullptr);
+	LineTo(hdc, arr[1].x, arr[1].y);
+	MoveToEx(hdc, arr[0].x, arr[0].y, nullptr);
+	LineTo(hdc, arr[2].x, arr[2].y);
+	MoveToEx(hdc, arr[2].x + arr[1].x - arr[0].x,
+	arr[2].y + arr[1].y - arr[0].y, nullptr);
+	LineTo(hdc, arr[2].x, arr[2].y);
 
-	double dblRadian, dblx, dbly, dblxDest, dblyDest, cosVal, sinVal;
+	*/
 
-	dblRadian = dblAngle * PI / 180.0f;
-	cosVal = cos(dblRadian);
-	sinVal = sin(dblRadian);
+	RECT rcbacktmp = NewFunction2(arr);
+	POINT ptbacktmpsize{ rcbacktmp.right - rcbacktmp.left,rcbacktmp.bottom - rcbacktmp.top };
+	POINT backarr[3];
+	NewFunction(rcbacktmp, backarr, -fradian);
+	RECT rctmptest = NewFunction2(backarr);
+	//그리기
+
+	HDC testdc = CreateCompatibleDC(hdc);
+	HBITMAP testbmp = CreateCompatibleBitmap(hdc, ptbacktmpsize.x, ptbacktmpsize.y);
+	auto old = SelectObject(testdc, testbmp);
+
+	BitBlt(testdc, 0, 0, ptbacktmpsize.x, ptbacktmpsize.y, hdc, rcbacktmp.left, rcbacktmp.top, SRCCOPY);
 
 
-	Point S_RCenter;
-	S_RCenter.x = S_Center.x*cosVal - S_Center.y*sinVal;	//회전변환
-	S_RCenter.y = S_Center.x*sinVal + S_Center.y*cosVal;	//회전변환
-
-	S_RCenter.x -= S_Center.x;				//그리는 중심 맞추기
-	S_RCenter.y -= S_Center.y;				//그리는 중심 맞추기
+	HDC drawSdc = CreateCompatibleDC(hdc);
+	HBITMAP drawSbmp = CreateCompatibleBitmap(hdc, rcSorce.right - rcSorce.left, rcSorce.bottom - rcSorce.top);
+	auto drawold = SelectObject(drawSdc, drawSbmp);
 
 
-											//점 세개 회전변환해서 apt에 저장시키고
-	for (int i = 0; i < 3; ++i)
 	{
-		switch (i) {
-		case 0:
-			dblx = originDest.x;
-			dbly = originDest.y;
-			break;
-		case 1:
-			dblx = originDest.x + dblWidth;
-			dbly = originDest.y;
-			break;
-		case 2:
-			dblx = originDest.x;
-			dbly = originDest.y + dblHeight;
 
-			break;
+		RECT asdf = NewFunction2(backarr);
+
+		POINT pttmp{ rcSorce.right - rcSorce.left,rcSorce.bottom - rcSorce.top };
+		pttmp = POINT{ asdf.right - asdf.left,asdf.bottom - asdf.top }-pttmp;
+		pttmp.x /= 2;
+		pttmp.y /= 2;
+		pttmp.x += rctmptest.left;
+		pttmp.y += rctmptest.top;
+
+		for (int i = 0; i < 3; i++) {
+			backarr[i] = backarr[i] - pttmp;
 		}
-		dblxDest = dblx*cosVal - dbly*sinVal;	//각 꼭짓점 회전변환
-		dblyDest = dblx*sinVal + dbly*cosVal;	//각 꼭짓점 회전변환
-
-		apt[i].x = dblxDest - S_RCenter.x;		//그리는 중심 맞추기
-		apt[i].y = dblyDest - S_RCenter.y;		//그리는 중심 맞추기
 
 	}
-	POINT zroe{ apt[2].x,apt[0].y };
+
+	PlgBlt(drawSdc, backarr, testdc, 0, 0, ptbacktmpsize.x, ptbacktmpsize.y, 0, 0, 0);
+
+
+
+	m_cimg.Draw(drawSdc, 0, 0, rcSorce.right - rcSorce.left, rcSorce.bottom - rcSorce.top, m_spritesize.x*(m_drawframenum), 0, m_spritesize.x, m_spritesize.y);
+
+
+
+	HDC hdcfff = CreateCompatibleDC(hdc);
+	HBITMAP hbmpfff = CreateCompatibleBitmap(hdc, CLIENT_WIDTH, CLIENT_HEIGHT);
+	auto oldfff = SelectObject(hdcfff, hbmpfff);
+
+
+
+	PlgBlt(hdcfff, arr, drawSdc, 0, 0, rcSorce.right - rcSorce.left, rcSorce.bottom - rcSorce.top, 0, 0, 0);
+
+	HPEN hpen2 = CreatePen(PS_SOLID, 2, RGB(0, 0, 0));
+	auto oldpen2 = SelectObject(hdcfff, hpen2);
+
+	MoveToEx(hdcfff, arr[0].x, arr[0].y, nullptr);
+	LineTo(hdcfff, arr[1].x, arr[1].y);
+	MoveToEx(hdcfff, arr[0].x, arr[0].y, nullptr);
+	LineTo(hdcfff, arr[2].x, arr[2].y);
+	MoveToEx(hdcfff, arr[2].x + arr[1].x - arr[0].x,
+		arr[2].y + arr[1].y - arr[0].y, nullptr);
+	LineTo(hdcfff, arr[2].x, arr[2].y);
+
+	DeleteObject(SelectObject(hdcfff, oldpen2));
+
+	TransparentBlt(hdc, 0, 0, CLIENT_WIDTH, CLIENT_HEIGHT, hdcfff, 0, 0, CLIENT_WIDTH, CLIENT_HEIGHT, RGB(0, 0, 0));
+
+	DeleteObject
+		(SelectObject(hdcfff, oldfff)
+			);
+	DeleteDC(hdcfff);
+
+
+
+	DeleteObject
+		(SelectObject(testdc, testbmp))
+		;
+	DeleteDC(testdc);
+
+
+	DeleteObject
+		(SelectObject(testdc, old))
+		;
+	DeleteDC(testdc);
+
+
+
+	//PlgBlt(hdc, arr, hdc, rcSorce.left, rcSorce.top, rcSorce.right - rcSorce.left, rcSorce.bottom - rcSorce.top, 0, 0, 0);
+
+
+
+
+
+	return false;
+}
+
+const RECT CSprite::NewFunction2(POINT  *arr)
+{
+	RECT tmp{ MAXLONG,MAXLONG ,-MAXLONG,  -MAXLONG };
+	POINT pttmp[4];
 	for (int i = 0; i < 3; i++) {
-		apt[i]=apt[i] - zroe;
+		pttmp[i] = arr[i];
+	}
+	pttmp[3] = pttmp[2] + pttmp[1] - pttmp[0];
+	//POINT{ arr[2].x + arr[1].x - arr[0].x
+	//		,	arr[1].y + arr[2].y - arr[0].y };
+
+	for (int i = 0; i < 4; i++) {
+		if (pttmp[i].x < tmp.left) {
+			tmp.left = pttmp[i].x;
+		}
 	}
 
-	HDC RotateDC;		//회전시킨거 그리게할 DC
+	for (int i = 0; i < 4; i++) {
+		if (pttmp[i].x > tmp.right) {
+			tmp.right = pttmp[i].x;
+		}
+	}
+	for (int i = 0; i < 4; i++) {
+		if (pttmp[i].y < tmp.top) {
+			tmp.top = pttmp[i].y;
+		}
+	}
 
-	RotateDC = CreateCompatibleDC(hdc);
+	for (int i = 0; i < 4; i++) {
+		if (pttmp[i].y > tmp.bottom) {
+			tmp.bottom = pttmp[i].y;
+		}
+	}
+	return tmp;
+}
 
-	HBITMAP Old2;	//이거 옛날꺼 저장할 변수
+void CSprite::NewFunction(RECT rcSorce, POINT  *arr, const float& fradian)
+{
 
-	HBITMAP memBIT = CreateCompatibleBitmap(hdc, apt[1].x, apt[2].y+apt[1].y);
-	Old2 = (HBITMAP)SelectObject(RotateDC, memBIT);				//RotateDC는 memBIT쓸꺼임
+	POINT ptsorcepos{ rcSorce.right + rcSorce.left
+		,rcSorce.bottom + rcSorce.top };
+	ptsorcepos.x /= 2;
+	ptsorcepos.y /= 2;
+	rcSorce.left -= ptsorcepos.x;
+	rcSorce.right -= ptsorcepos.x;
+	rcSorce.top -= ptsorcepos.y;
+	rcSorce.bottom -= ptsorcepos.y;
 
-	RECT qqqq = {0,0,apt[1].x, apt[2].y + apt[1].y };
-	FillRect(RotateDC, &qqqq, (HBRUSH)GetStockObject(BLACK_BRUSH));
+	arr[0] = POINT{ rcSorce.left,rcSorce.top };
+	arr[1] = POINT{ rcSorce.right,rcSorce.top };
+	arr[2] = POINT{ rcSorce.left,rcSorce.bottom };
 
-	m_cimg.PlgBlt(RotateDC, apt, m_spritesize.x*(m_drawframenum), 0
-		, m_spritesize.x, m_spritesize.y);
-	
-	CImage alphacimg;
+	float cosx = cos(fradian);
+	float sinx = sin(fradian);
+	for (int i = 0; i < 3; i++) {
+		auto tmp = arr[i];
+		arr[i].x = tmp.x*cosx + tmp.y*sinx;
+		arr[i].y = -tmp.x*sinx + tmp.y*cosx;
+	}
 
-
-	StretchBlt(hdc, zroe.x, zroe.y, apt[1].x, apt[2].y + apt[1].y,
-		RotateDC, 0, 0, apt[1].x, apt[2].y + apt[1].y,SRCCOPY);
-
-
-	SelectObject(RotateDC, Old2);
-	DeleteObject(memBIT);
-	DeleteDC(RotateDC);
-
-
- 	return false;
+	for (int i = 0; i < 3; i++) {
+		arr[i] = arr[i] + ptsorcepos;
+	}
 }

@@ -26,7 +26,10 @@ public:
 	virtual void draw(HDC hdc) override;
 	bool Update(float time = 0.2);
 
-	bool drawRotatImage(HDC hdc, double dblAngle);
+	bool drawRotatImage(HDC hdc, float fradian);
 
+	const RECT NewFunction2(POINT  *arr);
+
+	void NewFunction(RECT rcSorce, POINT  *arr, const float& fradian);
 };
 
