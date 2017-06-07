@@ -1,7 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "BitmapObject.h"
-#include "Cbutton.h"
+#include "Button.h"
 #include <vector>
 
 class CMenuScene :

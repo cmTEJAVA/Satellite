@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "Cbutton.h"
+#include "Button.h"
 
 
 Cbutton::Cbutton():m_bon(false),m_bselect(false)

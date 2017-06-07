@@ -114,11 +114,11 @@
     <ClInclude Include="Sound.h">
       <Filter>Sound</Filter>
     </ClInclude>
-    <ClInclude Include="Cbutton.h">
-      <Filter>GameObject\button</Filter>
-    </ClInclude>
     <ClInclude Include="HlepScene.h">
       <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>GameObject\button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -167,11 +167,11 @@
     <ClCompile Include="Sound.cpp">
       <Filter>Sound</Filter>
     </ClCompile>
-    <ClCompile Include="Cbutton.cpp">
-      <Filter>GameObject\button</Filter>
-    </ClCompile>
     <ClCompile Include="HlepScene.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>GameObject\button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

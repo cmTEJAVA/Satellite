@@ -11,7 +11,7 @@ CMenuScene::CMenuScene()
 
 CMenuScene::~CMenuScene()
 {
-	popSceneLayer();
+
 }
 
 void CMenuScene::Update()
@@ -31,14 +31,14 @@ void CMenuScene::Draw(HDC hDC)
 	for(auto& q: m_listbutton)
 		q.draw(hDC);
 
-	if (m_SceneLayer)m_SceneLayer->Draw(hDC);
+
 
 }
 
 bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
 	m_fradian = 0;
-	m_SceneLayer = nullptr;
+
 	m_backbmp.OnCreatCimg(L"Resorce/Menu/Intro.bmp");
 	m_titletextpng.OnCreatCimg(L"Resorce/Menu/Title.png");
 
@@ -82,28 +82,41 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_LBUTTONUP:
 	{
 
-			//1번 버튼 체크
-			RECT tmp = m_listbutton[0].GetObjRECT();
+		for (int i = 0; i < 3; i++) {
+			RECT tmp = m_listbutton[i].GetObjRECT();
 			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			m_listbutton[0].SetOn(false);
+			m_listbutton[i].SetOn(false);
 
 			if (PtInRect(&tmp, ptmouse)) {
-				m_Framework->ChangeScene(ENUM_SCENE::TEST);
-			}
-			//1번 버튼 체크
+				m_listbutton[i].SetOn(true);
 
-			//2번 버튼 체크
-			tmp = m_listbutton[1].GetObjRECT();
-			m_listbutton[1].SetOn(false);
+				switch (i)
+				{
+				case 0:
 
-			if (PtInRect(&tmp, ptmouse)) {
-				//m_SceneLayer
-				m_SceneLayer = new CHlepScene;
-				m_SceneLayer->Initialize(m_Framework, m_hWnd);
+					m_Framework->ChangeScene(ENUM_SCENE::TEST);
+					break;
+
+				case 1:
+
+					m_Framework->ChangeScene(ENUM_SCENE::HLEP);
+
+					break;
+
+				case 2:
+					PostQuitMessage(NULL);
+					return false;
+					break;
+
+				default:
+					break;
+				}
+
+
+
 				return false;
-				
 			}
-			//2번 버튼 체크
+		}
 
 
 	}
@@ -122,12 +135,6 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	}
 
 
-	if (m_SceneLayer) {
-		if (m_SceneLayer->Mouse(message, wParam, lParam)) {
-//고쳐야해
-			popSceneLayer();
-		}
 
-	}
 	return false;
 }
