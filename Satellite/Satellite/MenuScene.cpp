@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "GameFrameWork.h"
 #include "MenuScene.h"
+
+
 CMenuScene::CMenuScene()
 {
 }
@@ -32,7 +34,7 @@ bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_fradian = 0;
 	m_backbmp.OnCreatCimg(L"Resorce/Menu/Intro.bmp");
 	m_titletextpng.OnCreatCimg(L"Resorce/Menu/Title.png");
-	m_testbutt.OnCreatCimg(L"Resorce/Menu/button.bmp");
+	m_testbutt.OnCreatCimg(L"Resorce/Menu/button.png");
 	m_testbutt.SetObjRECT( RECT{-50,-20,50,20} );
 	m_testbutt.SetPos(Point{ 500,500 });
 	CScene::Initialize(pFramework, hWnd);
@@ -54,6 +56,7 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 		}
 	}	break;
 
+
 	case WM_LBUTTONUP:
 	{
 		RECT tmp = m_testbutt.GetObjRECT();
@@ -66,6 +69,14 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 		}
 	}
 		break;
+	case WM_LBUTTONDOWN:
+	{
+		if(m_testbutt.GetOn(true) == true)
+		{ }
+		//	snd.Play_effect(ENUM_SOUND::CLICK);
+	}	break;
+
+
 
 	default:
 		break;
