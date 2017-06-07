@@ -45,12 +45,14 @@ enum class ENUM_SCENE
 
 enum class ENUM_SOUND
 {
-	BACK
+	LOGO
+	, INTRO
+	, BACK
 	, LASER
 	, ELECTRIC
 	, BULLET
 	, SHOCKWAVE	
-	, TEST
 	, EXPLOSION
 	, ATTACK
+	, TEST
 };

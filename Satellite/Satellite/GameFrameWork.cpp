@@ -24,7 +24,7 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 	
 	ChangeScene(ENUM_SCENE::TITLE);
 	snd.Add_sound();
-	snd.Play_bgm(ENUM_SOUND::BACK);
+	snd.Play_bgm(ENUM_SOUND::INTRO);
 
 	return false;
 }
@@ -69,7 +69,9 @@ void CGameFrameWork::Key_Down(WPARAM wParam)
 	case VK_SPACE:
 		snd.Play_effect(ENUM_SOUND::TEST);
 		break;
-
+	case VK_F1:
+		snd.Play_effect(ENUM_SOUND::LOGO);
+		break;
 	}
 
 }
@@ -98,8 +100,7 @@ void CGameFrameWork::Mouse_Event(UINT iMessage, WPARAM wParam, LPARAM lParam)
 	::ScreenToClient(m_hWnd, &pt);
 
 	switch (iMessage)
-	{
-
+	{	
 	default:
 		if (m_Scenes) m_Scenes->Mouse(iMessage, wParam, lParam);
 		break;
