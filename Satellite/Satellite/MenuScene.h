@@ -2,7 +2,7 @@
 #include "Scene.h"
 #include "BitmapObject.h"
 #include "Cbutton.h"
-
+#include <vector>
 
 class CMenuScene :
 	public CScene
@@ -10,7 +10,7 @@ class CMenuScene :
 	CBitmapObject m_backbmp;
 	CBitmapObject m_titletextpng;
 
-	Cbutton m_testbutt;
+	std::vector<Cbutton> m_listbutton;
 
 	float m_fradian;
 	

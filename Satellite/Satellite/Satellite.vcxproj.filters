@@ -52,6 +52,9 @@
     <Filter Include="GameObject\button">
       <UniqueIdentifier>{9ab20356-7e31-4c56-b82a-1e6351eaa722}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Game">
+      <UniqueIdentifier>{91994b32-ea84-4e5e-b7d4-c08a7b6fb054}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

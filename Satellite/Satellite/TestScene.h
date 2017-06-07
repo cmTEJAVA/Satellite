@@ -6,7 +6,7 @@ class CTestScene :
 {
 	CSprite m_test_sprite;
 	RECT				m_rcClient;
-
+	CScene * m_SceneLayer;
 public:
 	CTestScene();
 	virtual ~CTestScene();

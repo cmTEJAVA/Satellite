@@ -26,7 +26,8 @@ void CMenuScene::Draw(HDC hDC)
 {
 	m_backbmp.draw(hDC);
 	m_titletextpng.draw(hDC);
-	m_testbutt.draw(hDC);
+	for(auto& q: m_listbutton)
+		q.draw(hDC);
 }
 
 bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
@@ -34,9 +35,20 @@ bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_fradian = 0;
 	m_backbmp.OnCreatCimg(L"Resorce/Menu/Intro.bmp");
 	m_titletextpng.OnCreatCimg(L"Resorce/Menu/Title.png");
-	m_testbutt.OnCreatCimg(L"Resorce/Menu/button.png");
-	m_testbutt.SetObjRECT( RECT{-50,-20,50,20} );
-	m_testbutt.SetPos(Point{ 500,500 });
+
+	for (int i = 0; i < 3; i++) {
+		Cbutton m_testbutt;
+		m_listbutton.push_back(m_testbutt);
+	}
+
+	for (int i = 0; i < 3; i++) {
+		
+		m_listbutton[i].OnCreatCimg(L"Resorce/Menu/button.png");
+		m_listbutton[i].SetObjRECT(RECT{ -60 * 2,-20 * 2,60 * 2,20 * 2 });
+		m_listbutton[i].SetPos(Point{ 630, 320 + i * 80 + 50 });
+	}
+
+	
 	CScene::Initialize(pFramework, hWnd);
 	return false;
 }
@@ -47,32 +59,39 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_MOUSEMOVE:
 	{
-		RECT tmp=m_testbutt.GetObjRECT();
-		POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-		m_testbutt.SetOn(false);
+		for (auto& m_testbutt : m_listbutton)
+		{
 
-		if (PtInRect(&tmp, ptmouse)) {
-			m_testbutt.SetOn(true);
+			RECT tmp = m_testbutt.GetObjRECT();
+			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
+			m_testbutt.SetOn(false);
+
+			if (PtInRect(&tmp, ptmouse)) {
+				m_testbutt.SetOn(true);
+			}
 		}
 	}	break;
 
 
 	case WM_LBUTTONUP:
 	{
-		RECT tmp = m_testbutt.GetObjRECT();
-		POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-		m_testbutt.SetOn(false);
+		
+			RECT tmp = m_listbutton[0].GetObjRECT();
+			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
+			m_listbutton[0].SetOn(false);
 
-		if (PtInRect(&tmp, ptmouse)) {
-			m_Framework->ChangeScene(ENUM_SCENE::TEST);
-		}
+			if (PtInRect(&tmp, ptmouse)) {
+				m_Framework->ChangeScene(ENUM_SCENE::TEST);
+			}
+		
+		
 	}
 		break;
 	case WM_LBUTTONDOWN:
 	{
-		if(m_testbutt.GetOn(true) == true)
-		{ }
-		//	snd.Play_effect(ENUM_SOUND::CLICK);
+		//if(m_testbutt.GetOn(true) == true)
+		//{ }
+		////	snd.Play_effect(ENUM_SOUND::CLICK);
 	}	break;
 
 
