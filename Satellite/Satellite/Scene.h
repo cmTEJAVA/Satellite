@@ -20,8 +20,15 @@ public:
 
 	virtual void ReleaseObjects();
 
-protected:
+	void popSceneLayer() {
 
+		if (m_SceneLayer)delete m_SceneLayer;
+		m_SceneLayer = nullptr;
+	}
+
+protected:
+	CScene * m_ptparentScene{nullptr};
+	CScene * m_SceneLayer{ nullptr };
 	CGameFrameWork	*	m_Framework{ nullptr };
 	HWND				m_hWnd{ nullptr };
 };

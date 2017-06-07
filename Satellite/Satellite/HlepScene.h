@@ -1,28 +1,21 @@
 #pragma once
 #include "Scene.h"
 #include "BitmapObject.h"
-#include "Cbutton.h"
-#include <vector>
-
-class CMenuScene :
+#define HLEP_IMG_N 3
+class CHlepScene :
 	public CScene
 {
-	CBitmapObject m_backbmp;
-	CBitmapObject m_titletextpng;
-
-	std::vector<Cbutton> m_listbutton;
-
-	//CScene * m_SceneLayer;
-	float m_fradian;
-	
+	CBitmapObject m_bmphlep[HLEP_IMG_N];
+	size_t m_sizehlepindx;
 public:
-	CMenuScene();
-	virtual ~CMenuScene()override;
+	CHlepScene();
+	virtual ~CHlepScene()override;
 	virtual void Update()override;
 	virtual void Draw(HDC hDC)override;
 	virtual bool Initialize(CGameFrameWork* pFramework, HWND hWnd)override;
+	void InitSScene(CScene *pt) {
+		m_ptparentScene = pt;
+	}
 	virtual bool Mouse(UINT message, WPARAM wParam, LPARAM lParam) override;
-
-
 };
 

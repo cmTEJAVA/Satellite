@@ -55,6 +55,9 @@
     <Filter Include="Scene\Game">
       <UniqueIdentifier>{91994b32-ea84-4e5e-b7d4-c08a7b6fb054}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Hlep">
+      <UniqueIdentifier>{d8d82bdd-d0b8-4bb4-a302-94297f0190ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -114,6 +117,9 @@
     <ClInclude Include="Cbutton.h">
       <Filter>GameObject\button</Filter>
     </ClInclude>
+    <ClInclude Include="HlepScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -163,6 +169,9 @@
     </ClCompile>
     <ClCompile Include="Cbutton.cpp">
       <Filter>GameObject\button</Filter>
+    </ClCompile>
+    <ClCompile Include="HlepScene.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
