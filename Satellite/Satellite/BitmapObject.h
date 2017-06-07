@@ -17,8 +17,7 @@ public:
 
 		m_cimg.Load(pStream);
 		if (m_cimg.IsNull()) {
-			m_cimg.Load(L"Resorce/nullimg.bmp");
-
+			m_cimg.Load(L"Resorce/Menu/button.png");
 		}
 			//nullimg.bmp
 

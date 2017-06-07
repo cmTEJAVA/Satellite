@@ -18,5 +18,6 @@ public:
 	void Add_sound();
 	void Play_bgm(ENUM_SOUND type);
 	void Play_effect(ENUM_SOUND type);
+	void Stop_bgm(ENUM_SOUND type);
 };
 
