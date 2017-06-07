@@ -16,6 +16,12 @@ public:
 	void OnCreatCimg(const LPCTSTR& pStream) {
 
 		m_cimg.Load(pStream);
+		if (m_cimg.IsNull()) {
+			m_cimg.Load(L"Resorce/nullimg.bmp");
+
+		}
+			//nullimg.bmp
+
 		m_bmpsize.x = m_cimg.GetWidth();
 		m_bmpsize.y = m_cimg.GetHeight();
 		m_rcobjsize = RECT{ 0,0,m_bmpsize.x,m_bmpsize.y };

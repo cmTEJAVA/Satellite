@@ -74,7 +74,7 @@ bool CLogoScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 bool CLogoScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
-	m_bmplogo.OnCreatCimg(L"Logo.bmp");
+	m_bmplogo.OnCreatCimg(L"Resorce/Logo/Logo.bmp");
 	RECT rctmp;
 	GetClientRect(hWnd, &rctmp);
 	m_bmplogo.Setmidpos(rctmp);

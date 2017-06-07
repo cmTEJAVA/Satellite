@@ -109,7 +109,7 @@
       <Filter>Sound</Filter>
     </ClInclude>
     <ClInclude Include="Cbutton.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>GameObject\button</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -159,7 +159,7 @@
       <Filter>Sound</Filter>
     </ClCompile>
     <ClCompile Include="Cbutton.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>GameObject\button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
