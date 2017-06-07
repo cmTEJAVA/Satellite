@@ -19,9 +19,10 @@ void CHlepScene::Update()
 void CHlepScene::Draw(HDC hDC)
 {
 	m_bmphlep[m_sizehlepindx].draw(hDC);
-	for (auto & q : m_arrbutton) {
-		q.draw(hDC);
-	}
+	
+	if(m_sizehlepindx!=0)m_arrbutton[0].draw(hDC);
+	if (m_sizehlepindx != HLEP_IMG_N-1)m_arrbutton[1].draw(hDC);
+	m_arrbutton[2].draw(hDC);
 }
 
 bool CHlepScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)

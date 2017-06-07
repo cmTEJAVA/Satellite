@@ -19,7 +19,7 @@ void CPlayer::draw(HDC hdc)
 	HPEN hpen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
 	HPEN oldpen = (HPEN)SelectObject(hdc, hpen);
 	POINT tmp = m_imgplayer.Getpos().GetPOINT();
-	tmp.x += 1;
+//	tmp.x += 1;
 	int size = m_imgplayer.GetspriteWH().x;
 	size /= 2;
 	size = (size / 5) * 4;
