@@ -16,7 +16,6 @@ void CMenuScene::Update()
 		m_fradian = 0;
 	}
 	
-
 	m_titletextpng.SetPos(Point{ 0.f,(float)(sin(m_fradian)*5.0)-9.0f });
 }
 
