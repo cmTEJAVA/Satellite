@@ -43,7 +43,7 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
 	
 	GetClientRect(hWnd, &m_rcClient);
-	m_test_sprite.OnCreatCimg(L"Spritepngtest.png");
+	m_test_sprite.OnCreatCimg(L"Resorce/Test/Spritepngtest.png");
 	m_test_sprite.OnCreatSprite(2.f, 4, 0.3f);
 	m_test_sprite.SetPos(Point{ 100,100 });
 	return true;

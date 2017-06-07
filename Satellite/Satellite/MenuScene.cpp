@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "GameFrameWork.h"
 #include "MenuScene.h"
 CMenuScene::CMenuScene()
 {
@@ -52,6 +53,20 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 			m_testbutt.SetOn(true);
 		}
 	}	break;
+
+	case WM_LBUTTONUP:
+	{
+		RECT tmp = m_testbutt.GetObjRECT();
+		POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
+		m_testbutt.SetOn(false);
+
+		if (PtInRect(&tmp, ptmouse)) {
+			m_Framework->ChangeScene(ENUM_SCENE::TEST);
+
+		}
+	}
+		break;
+
 	default:
 		break;
 	}
