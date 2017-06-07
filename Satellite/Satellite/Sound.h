@@ -1,10 +1,6 @@
 #pragma once
 
-#include "FMOD_32\inc\fmod.h"
-#include "FMOD_32\inc\fmod.hpp"
-#include "FMOD_32\inc\fmod_errors.h"
-
-#pragma comment (lib, "FMOD_32/lib/fmodex_vc")
+#include "FMOD\include\fmod.hpp"
 
 using namespace FMOD;
 
@@ -19,8 +15,8 @@ public:
 	Sound * pSound[SOUND_TYPE];
 	Channel * pChannel[SOUND_TYPE];
 
-	void sound_init();
-	void sound_playing(ENUM_SOUND type);
-	void sound_del();
+	void Add_sound();
+	void Play_bgm(ENUM_SOUND type);
+	void Play_effect(ENUM_SOUND type);
 };
 
