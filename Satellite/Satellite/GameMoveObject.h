@@ -15,9 +15,9 @@ public:
 		m_dir.normalize();
 	}
 	Point GetDir() const { return m_dir; };
-	void SetSeeped(const float& q) { m_fspeed = q; }
+	void SetSpeed(const float& q) { m_fspeed = q; }
 
-	void Update() { m_ptpos += m_dir*m_fspeed; }
+	virtual void Update() { m_ptpos += m_dir*m_fspeed; }
 	CGameMoveObject();
 	~CGameMoveObject();
 };

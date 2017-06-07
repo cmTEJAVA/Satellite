@@ -4,7 +4,11 @@
 
 Point::Point() :x(0.0), y(0.0) {};
 
-Point::Point(float a, float b) :x(a), y(b) {};
+Point::Point(float a, float b) :x(a), y(b) {}
+Point::Point(double a, double b) : x(a), y(b)
+{
+}
+;
 Point::Point(int a, int b) :x((float)a), y((float)b) {};
 
 

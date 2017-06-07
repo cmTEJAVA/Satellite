@@ -58,6 +58,9 @@
     <Filter Include="Scene\Hlep">
       <UniqueIdentifier>{d8d82bdd-d0b8-4bb4-a302-94297f0190ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\GameMoveObject\Player">
+      <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -114,11 +117,14 @@
     <ClInclude Include="Sound.h">
       <Filter>Sound</Filter>
     </ClInclude>
-    <ClInclude Include="HlepScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>GameObject\button</Filter>
+    </ClInclude>
+    <ClInclude Include="HlepScene.h">
+      <Filter>Scene\Hlep</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -167,11 +173,14 @@
     <ClCompile Include="Sound.cpp">
       <Filter>Sound</Filter>
     </ClCompile>
-    <ClCompile Include="HlepScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>GameObject\button</Filter>
+    </ClCompile>
+    <ClCompile Include="HlepScene.cpp">
+      <Filter>Scene\Hlep</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

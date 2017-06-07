@@ -8,6 +8,10 @@ class CSprite :
 	float m_updatetime;
 	int m_drawframenum;
 	POINT m_spritesize;
+
+	const RECT NewFunction2(POINT  *arr);
+
+	void NewFunction(RECT rcSorce, POINT  *arr, const float& fradian);
 public:
 	CSprite();
 	~CSprite();
@@ -27,9 +31,8 @@ public:
 	bool Update(float time = 0.2);
 
 	bool drawRotatImage(HDC hdc, float fradian);
-
-	const RECT NewFunction2(POINT  *arr);
-
-	void NewFunction(RECT rcSorce, POINT  *arr, const float& fradian);
+	POINT GetspriteWH() {
+		return m_spritesize;
+	}
 };
 

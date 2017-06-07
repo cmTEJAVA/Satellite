@@ -1,12 +1,13 @@
 #pragma once
 #include "Scene.h"
-#include "Sprite.h"
+#include "Player.h"
 class CTestScene :
 	public CScene
 {
-	CSprite m_test_sprite;
+	CSprite				m_test_sprite;
+	CPlayer				m_test_player;
+
 	RECT				m_rcClient;
-	CScene * m_SceneLayer;
 public:
 	CTestScene();
 	virtual ~CTestScene();
