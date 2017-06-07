@@ -2,6 +2,8 @@
 #include "Scene.h"
 #include "BitmapObject.h"
 #include "Cbutton.h"
+
+
 class CMenuScene :
 	public CScene
 {

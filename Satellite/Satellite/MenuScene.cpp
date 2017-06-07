@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "MenuScene.h"
+
+
 CMenuScene::CMenuScene()
 {
 }
@@ -52,6 +54,15 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 			m_testbutt.SetOn(true);
 		}
 	}	break;
+
+	case WM_LBUTTONDOWN:
+	{
+		if(m_testbutt.GetOn(true) == true)
+		{ }
+		//	snd.Play_effect(ENUM_SOUND::CLICK);
+	}	break;
+
+
 	default:
 		break;
 	}

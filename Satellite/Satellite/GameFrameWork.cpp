@@ -69,9 +69,6 @@ void CGameFrameWork::Key_Down(WPARAM wParam)
 	case VK_SPACE:
 		snd.Play_effect(ENUM_SOUND::TEST);
 		break;
-	case VK_F1:
-		snd.Play_effect(ENUM_SOUND::LOGO);
-		break;
 	}
 
 }

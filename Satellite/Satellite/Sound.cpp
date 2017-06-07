@@ -41,7 +41,7 @@ void Sound_Func::Add_sound()
 		"Sound/Click.wav"
 		, FMOD_DEFAULT | FMOD_LOOP_OFF
 		, nullptr
-		, &pSound[(int)ENUM_SOUND::LOGO]
+		, &pSound[(int)ENUM_SOUND::CLICK]
 	);
 
 

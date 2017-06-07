@@ -31,7 +31,7 @@
 
 #define GAMEFPS			int(1000 / 60)
 
-#define SOUND_TYPE 10
+#define SOUND_TYPE 20
 
 
 enum class ENUM_SCENE
@@ -48,6 +48,7 @@ enum class ENUM_SOUND
 	LOGO
 	, INTRO
 	, BACK
+	, CLICK
 	, LASER
 	, ELECTRIC
 	, BULLET
