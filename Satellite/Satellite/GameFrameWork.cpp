@@ -3,6 +3,9 @@
 #include "Logo.h"
 #include "TestScene.h"
 #include "MenuScene.h"
+#include "Sound.h"
+
+Sound_Func snd;
 
 CGameFrameWork::CGameFrameWork()
 {
@@ -20,8 +23,8 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 	::GetClientRect(hWnd, &m_rcClient);
 	
 	ChangeScene(ENUM_SCENE::TITLE);
-	
-
+	snd.Add_sound();
+	snd.Play_bgm(ENUM_SOUND::BACK);
 
 	return false;
 }
@@ -60,9 +63,12 @@ void CGameFrameWork::Key_Event(UINT iMessage, WPARAM wParam)
 
 void CGameFrameWork::Key_Down(WPARAM wParam)
 {
+	
 	switch (wParam)
 	{
-	
+	case VK_SPACE:
+		snd.Play_effect(ENUM_SOUND::TEST);
+		break;
 
 	}
 
