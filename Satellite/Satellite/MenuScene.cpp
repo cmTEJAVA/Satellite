@@ -65,7 +65,6 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 		if (PtInRect(&tmp, ptmouse)) {
 			m_Framework->ChangeScene(ENUM_SCENE::TEST);
-
 		}
 	}
 		break;
