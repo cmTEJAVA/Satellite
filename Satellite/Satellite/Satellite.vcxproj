@@ -153,7 +153,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameMoveObject.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="HlepScene.h" />
+    <ClInclude Include="HelpScene.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="MenuScene.h" />
     <ClInclude Include="operator.h" />
@@ -175,7 +175,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameMoveObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="HlepScene.cpp" />
+    <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="MenuScene.cpp" />
     <ClCompile Include="operator.cpp" />

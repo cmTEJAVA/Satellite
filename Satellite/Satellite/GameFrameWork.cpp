@@ -3,7 +3,7 @@
 #include "Logo.h"
 #include "TestScene.h"
 #include "MenuScene.h"
-#include "HlepScene.h"
+#include "HELPScene.h"
 #include "Sound.h"
 
 Sound_Func snd;
@@ -139,15 +139,21 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
 	case ENUM_SCENE::TEST:
+		snd.Play_effect(ENUM_SOUND::CLICK);
+
 		m_Scenes = new CTestScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
 	case ENUM_SCENE::MENU:
+		snd.Play_effect(ENUM_SOUND::CLICK);
+
 		m_Scenes = new CMenuScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
-	case ENUM_SCENE::HLEP:
-		m_Scenes = new CHlepScene;
+	case ENUM_SCENE::HELP:
+		snd.Play_effect(ENUM_SOUND::CLICK);
+
+		m_Scenes = new CHELPScene;
 		m_Scenes->Initialize(this, m_hWnd);
 
 		break;

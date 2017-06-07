@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "GameFrameWork.h"
-#include "HlepScene.h"
+#include "HELPScene.h"
 #include "MenuScene.h"
 
 
@@ -50,11 +50,12 @@ bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	for (int i = 0; i < 3; i++) {
 		
 		m_listbutton[i].OnCreatCimg(L"Resorce/Menu/button.png");
+		
+
 		m_listbutton[i].SetObjRECT(RECT{ -60 * 2,-20 * 2,60 * 2,20 * 2 });
-		m_listbutton[i].SetPos(Point{ 630, 350 + i * (90)   });
+		m_listbutton[i].SetPos(Point{ 660, 350 + i * (90)   });
 	}
 
-	
 	CScene::Initialize(pFramework, hWnd);
 	return false;
 }
@@ -99,7 +100,7 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 				case 1:
 
-					m_Framework->ChangeScene(ENUM_SCENE::HLEP);
+					m_Framework->ChangeScene(ENUM_SCENE::HELP);
 
 					break;
 

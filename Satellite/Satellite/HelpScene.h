@@ -2,18 +2,18 @@
 #include "Scene.h"
 #include "BitmapObject.h"
 #include "Button.h"
-#define HLEP_IMG_N 3
-class CHlepScene :
+#define HELP_IMG_N 3
+class CHELPScene :
 	public CScene
 {
-	CBitmapObject m_bmphlep[HLEP_IMG_N];
-	size_t m_sizehlepindx;
+	CBitmapObject m_bmpHELP[HELP_IMG_N];
+	size_t m_sizeHELPindx;
 
 	Cbutton m_arrbutton[3];//0:< 1:> 2:menu
 
 public:
-	CHlepScene();
-	virtual ~CHlepScene()override;
+	CHELPScene();
+	virtual ~CHELPScene()override;
 	virtual void Update()override;
 	virtual void Draw(HDC hDC)override;
 	virtual bool Initialize(CGameFrameWork* pFramework, HWND hWnd)override;

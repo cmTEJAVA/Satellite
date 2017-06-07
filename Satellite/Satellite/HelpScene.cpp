@@ -1,41 +1,41 @@
 #include "stdafx.h"
 #include "GameFrameWork.h"
-#include "HlepScene.h"
+#include "HELPScene.h"
 
 
-CHlepScene::CHlepScene()
+CHELPScene::CHELPScene()
 {
 }
 
 
-CHlepScene::~CHlepScene()
+CHELPScene::~CHELPScene()
 {
 }
 
-void CHlepScene::Update()
+void CHELPScene::Update()
 {
 }
 
-void CHlepScene::Draw(HDC hDC)
+void CHELPScene::Draw(HDC hDC)
 {
-	m_bmphlep[m_sizehlepindx].draw(hDC);
+	m_bmpHELP[m_sizeHELPindx].draw(hDC);
 	
-	if(m_sizehlepindx!=0)m_arrbutton[0].draw(hDC);
-	if (m_sizehlepindx != HLEP_IMG_N-1)m_arrbutton[1].draw(hDC);
+	if(m_sizeHELPindx!=0)m_arrbutton[0].draw(hDC);
+	if (m_sizeHELPindx != HELP_IMG_N-1)m_arrbutton[1].draw(hDC);
 	m_arrbutton[2].draw(hDC);
 }
 
-bool CHlepScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
+bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
 
 	RECT rcClient;
 	GetClientRect(hWnd, &rcClient);
 
-	m_sizehlepindx = 0;
-	m_bmphlep[0].OnCreatCimg(L"Resorce/Test/help1.bmp");
-	m_bmphlep[1].OnCreatCimg(L"Resorce/Test/help2.bmp");
-	m_bmphlep[2].OnCreatCimg(L"Resorce/Test/help3.bmp");
+	m_sizeHELPindx = 0;
+	m_bmpHELP[0].OnCreatCimg(L"Resorce/Test/help1.bmp");
+	m_bmpHELP[1].OnCreatCimg(L"Resorce/Test/help2.bmp");
+	m_bmpHELP[2].OnCreatCimg(L"Resorce/Test/help3.bmp");
 	m_arrbutton[0].OnCreatCimg(L"null");
 	m_arrbutton[1].OnCreatCimg(L"null");
 	m_arrbutton[2].OnCreatCimg(L"null");
@@ -46,14 +46,14 @@ bool CHlepScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_arrbutton[1].SetPos(Point{ rcClient.right-70,rcClient.bottom - 50 });
 	m_arrbutton[2].SetPos(Point{50,20});
 
-	for (auto & q:m_bmphlep) {
+	for (auto & q:m_bmpHELP) {
 		q.SetObjRECT(rcClient);
 	}
 
 	return false;
 }
 
-bool CHlepScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
+bool CHELPScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
 	{
@@ -72,11 +72,11 @@ bool CHlepScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 				switch (i)
 				{
 				case 0:
-					m_sizehlepindx=max(0,int(m_sizehlepindx-1));
+					m_sizeHELPindx=max(0,int(m_sizeHELPindx-1));
 					break;
 
 				case 1:
-					m_sizehlepindx = min(HLEP_IMG_N-1, m_sizehlepindx+1);
+					m_sizeHELPindx = min(HELP_IMG_N-1, m_sizeHELPindx+1);
 
 					break;
 

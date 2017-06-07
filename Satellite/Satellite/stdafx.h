@@ -40,7 +40,7 @@ enum class ENUM_SCENE
 	MENU,
 	GAME,
 	TEST,
-	HLEP,
+	HELP,
 	END
 };
 

@@ -55,11 +55,11 @@
     <Filter Include="Scene\Game">
       <UniqueIdentifier>{91994b32-ea84-4e5e-b7d4-c08a7b6fb054}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\Hlep">
-      <UniqueIdentifier>{d8d82bdd-d0b8-4bb4-a302-94297f0190ab}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject\GameMoveObject\Player">
       <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Help">
+      <UniqueIdentifier>{d8d82bdd-d0b8-4bb4-a302-94297f0190ab}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -120,11 +120,11 @@
     <ClInclude Include="Button.h">
       <Filter>GameObject\button</Filter>
     </ClInclude>
-    <ClInclude Include="HlepScene.h">
-      <Filter>Scene\Hlep</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>GameObject\GameMoveObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScene.h">
+      <Filter>Scene\Help</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -176,11 +176,11 @@
     <ClCompile Include="Button.cpp">
       <Filter>GameObject\button</Filter>
     </ClCompile>
-    <ClCompile Include="HlepScene.cpp">
-      <Filter>Scene\Hlep</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>GameObject\GameMoveObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScene.cpp">
+      <Filter>Scene\Help</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
