@@ -1,29 +1,22 @@
 #pragma once
-#include "GameMoveObject.h"
+#include "Unit.h"
 #include "Sprite.h"
 class CPlayer :
-	public CGameMoveObject
+	public CUnit
 {
-	CSprite m_imgplayer;
 	float m_life;//1~0
-	float m_fradianplayer;
 public:
 	CPlayer();
 	~CPlayer();
 	virtual void draw(HDC hdc) override;
-	void OnCreatplayerimg(const Point& pos,const LPCTSTR& pStream,float imgsizerate,int spriteframeN,float frameupdatetime,float speed=0.01) {
-		m_imgplayer.OnCreatCimg(pStream);
-		m_imgplayer.OnCreatSprite(imgsizerate, spriteframeN, frameupdatetime);
-		
-		m_imgplayer.SetPos(pos);
-	//	SetObjRECT(m_imgplayer.GetObjRECT());
-	//	SetPos(pos);
-	//	m_rcobjsize=m_rcobjsize - pos.GetPOINT();
-		SetSpeed(speed);
-		m_fradianplayer = 0;
+	void OnCreatplayerimg(const Point& pos,const LPCTSTR& pStream
+		,float imgsizerate,int spriteframeN,float frameupdatetime
+		,float radianspeed=0.01,float speed=2.f) {
+		CUnit::OnCreatUnit(pos, pStream, imgsizerate, spriteframeN, frameupdatetime, radianspeed, speed);
 		m_life = 1;
 	}
-	void attack(float fPerdmg = 0.1) { m_life = max(0, m_life - fPerdmg); };
+	void attack(float fPerdmg = 0.05f) { m_life = max(0.f, m_life - fPerdmg); };
+	void cure(float fPerdmg = 0.05f) { m_life = min(1.f, m_life + fPerdmg); };
 	void Update()override;
 };
 

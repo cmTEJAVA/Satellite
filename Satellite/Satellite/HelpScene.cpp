@@ -38,7 +38,7 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_bmpHELP[2].OnCreatCimg(L"Resorce/Test/help3.bmp");
 	m_arrbutton[0].OnCreatCimg(L"null");
 	m_arrbutton[1].OnCreatCimg(L"null");
-	m_arrbutton[2].OnCreatCimg(L"null");
+	m_arrbutton[2].OnCreatCimg(L"Resorce/Menu/exit button.png");
 	for (auto & q : m_arrbutton) {
 		q.SetObjRECT(RECT{-50,-20,50,20});
 	}

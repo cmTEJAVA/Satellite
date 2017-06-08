@@ -61,6 +61,9 @@
     <Filter Include="Scene\Help">
       <UniqueIdentifier>{d8d82bdd-d0b8-4bb4-a302-94297f0190ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\GameMoveObject\Unit">
+      <UniqueIdentifier>{90c7415b-ddf2-40fe-b51b-a80720813bbd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -126,6 +129,9 @@
     <ClInclude Include="HelpScene.h">
       <Filter>Scene\Help</Filter>
     </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -181,6 +187,9 @@
     </ClCompile>
     <ClCompile Include="HelpScene.cpp">
       <Filter>Scene\Help</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,6 @@ void CMenuScene::Draw(HDC hDC)
 		q.draw(hDC);
 
 
-
 }
 
 bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
@@ -46,10 +45,12 @@ bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 		Cbutton m_testbutt;
 		m_listbutton.push_back(m_testbutt);
 	}
+	m_listbutton[0].OnCreatCimg(L"Resorce/Menu/start button.png");
+	m_listbutton[1].OnCreatCimg(L"Resorce/Menu/help button.png");
+	m_listbutton[2].OnCreatCimg(L"Resorce/Menu/exit button.png");
 
 	for (int i = 0; i < 3; i++) {
 		
-		m_listbutton[i].OnCreatCimg(L"Resorce/Menu/button.png");
 		
 
 		m_listbutton[i].SetObjRECT(RECT{ -60 * 2,-20 * 2,60 * 2,20 * 2 });

@@ -13,16 +13,17 @@ CPlayer::~CPlayer()
 
 void CPlayer::draw(HDC hdc)
 {
-	m_imgplayer.drawRotatImage(hdc, m_fradianplayer);
+	CUnit::draw(hdc);
+
 
 	HBRUSH oldbr = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
-	HPEN hpen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+	HPEN hpen = CreatePen(PS_SOLID, 2, RGB(0, 150, 255));
 	HPEN oldpen = (HPEN)SelectObject(hdc, hpen);
-	POINT tmp = m_imgplayer.Getpos().GetPOINT();
+	POINT tmp = m_imgUnit.Getpos().GetPOINT();
 //	tmp.x += 1;
-	int size = m_imgplayer.GetspriteWH().x;
+	int size = m_imgUnit.GetspriteWH().x;
 	size /= 2;
-	size = (size / 5) * 4;
+	size = (size / 5) * 3;
 	Ellipse(hdc,
 		tmp.x - size,
 		tmp.y - size,
@@ -35,7 +36,7 @@ void CPlayer::draw(HDC hdc)
 	DeleteObject(hpen); hpen = nullptr;
 
 	if (m_life < 1) {
-	hpen = CreatePen(PS_SOLID, 2, RGB(0, 0, 0));
+	hpen = CreatePen(PS_SOLID, 2, RGB(100, 0, 0));
 	oldpen = (HPEN)SelectObject(hdc, hpen);
 
 
@@ -62,9 +63,5 @@ void CPlayer::draw(HDC hdc)
 
 void CPlayer::Update()
 {
-	m_fradianplayer += m_fspeed;
-	if (m_fradianplayer >= PI * 2) {
-		m_fradianplayer = 0;
-	}
-	m_imgplayer.Update();
+	CUnit::Update();
 }

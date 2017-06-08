@@ -15,6 +15,7 @@ class CMenuScene :
 	//CScene * m_SceneLayer;
 	float m_fradian;
 	
+
 public:
 	CMenuScene();
 	virtual ~CMenuScene()override;
