@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Point.h"
 #include <math.h>
 
 class  Point3	//Vector3
@@ -84,16 +84,19 @@ public:
 
 		*this = P;
 	}
-	/*
 	Point GetPoint2() {
-
-		float rate = (CLIENT_Z - z) / (float)CLIENT_Z;
-		float x1 = CLIENT_WIDTH / 2 * (1 - rate);
-		float y1 = CLIENT_HEIGHT / 2 * (1 - rate);
-		return Point{ x1 + (x)* rate , y1 + (y)* rate };
+	//
+	//	float rate = (500 - z) / (float)500;
+	//	float x1 = WIDTH / 2 * (1 - rate);
+	//	float y1 = HEIGHT / 2 * (1 - rate);
+	//	return Point{ x1 + (x)* rate , y1 + (y)* rate };
+//	return Point{ (x),(y)};
+		Point tmp{ (x / z),(y / z)};
+		return tmp;
 	}
 
 
+	/*
 	Point GetPoint2(const Point3& uV, const Point3& pPos) {
 		float distance = uV.x*(x - pPos.x) + uV.y*(y - pPos.y) + uV.z*(z - pPos.z);
 		//float distance = sqrt((pPos.x - x)*(pPos.x - x) + (pPos.y - y)*(pPos.y - y) + (pPos.z - z)*(pPos.z - z)  );
@@ -116,15 +119,14 @@ public:
 	*/
 
 
-		/*
 		POINT GetPOINT(const Point3& pPos) {
 
 		*this = *this - pPos;
-
+		int CLIENT_Z = 500;
 		float rate = (CLIENT_Z - z) / (float)CLIENT_Z;
 		//float rate = (CLIENT_Z-distance) / (float)CLIENT_Z;
-		float x1 = CLIENT_WIDTH / 2 * (1 - rate);
-		float y1 = CLIENT_HEIGHT / 2 * (1 - rate);
+		float x1 = WIDTH / 2 * (1 - rate);
+		float y1 = HEIGHT / 2 * (1 - rate);
 		//return Point{ x1 + (x-pPos.x)* rate , y1 + (y-pPos.y)* rate };
 
 		return POINT{ LONG(x1 + (x)* rate) , LONG(y1 + (y)* rate) };
@@ -132,12 +134,14 @@ public:
 
 		POINT GetPOINT() 
 		{
+			int CLIENT_Z = 500;
 
 			float rate = (CLIENT_Z - z) / (float)CLIENT_Z;
-			float x1 = CLIENT_WIDTH / 2 * (1 - rate);
-			float y1 = CLIENT_HEIGHT / 2 * (1 - rate);
+			float x1 = WIDTH / 2 * (1 - rate);
+			float y1 = HEIGHT / 2 * (1 - rate);
 			return POINT{ LONG(x1 + (x)* rate) ,LONG(y1 + (y)* rate) };
 		}
+		/*
 		*/
 
 	};

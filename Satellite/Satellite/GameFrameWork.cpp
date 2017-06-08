@@ -4,6 +4,7 @@
 #include "TestScene.h"
 #include "MenuScene.h"
 #include "HELPScene.h"
+#include "Logo3DScene.h"
 #include "Sound.h"
 
 Sound_Func snd;
@@ -157,6 +158,13 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		m_Scenes->Initialize(this, m_hWnd);
 
 		break;
+
+	case ENUM_SCENE::TITLE3D:
+		m_Scenes = new CLogo3DScene;
+		m_Scenes->Initialize(this, m_hWnd);
+
+		break;
+
 	default:
 		break;
 	}

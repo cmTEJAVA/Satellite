@@ -64,6 +64,9 @@
     <Filter Include="GameObject\GameMoveObject\Unit\Player">
       <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\WrapLogo">
+      <UniqueIdentifier>{cb87aa29-b244-41f7-9157-c97018bc7786}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -132,6 +135,15 @@
     <ClInclude Include="Unit.h">
       <Filter>GameObject\GameMoveObject\Unit</Filter>
     </ClInclude>
+    <ClInclude Include="Logo3DScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Point</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>Point</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -190,6 +202,15 @@
     </ClCompile>
     <ClCompile Include="Unit.cpp">
       <Filter>GameObject\GameMoveObject\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo3DScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Point</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Point</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

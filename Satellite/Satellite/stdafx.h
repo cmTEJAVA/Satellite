@@ -41,6 +41,7 @@ enum class ENUM_SCENE
 	GAME,
 	TEST,
 	HELP,
+	TITLE3D,
 	END
 };
 
