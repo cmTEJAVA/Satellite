@@ -136,7 +136,7 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	for (int i = 0; i < 1; i++) {
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(
-			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },120,
+			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },100,
 			L"Resorce/Test/tesla.png",
 			0.6f, 1, 0.6f
 			);
