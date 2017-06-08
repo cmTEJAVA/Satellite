@@ -62,7 +62,10 @@ bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 					m_Framework->ChangeScene(ENUM_SCENE::MENU);
 					return false;
 					break;
+				case 1:
+					m_Framework->ChangeScene(ENUM_SCENE::TITLE3D);
 
+					break;
 				default:
 					break;
 				}

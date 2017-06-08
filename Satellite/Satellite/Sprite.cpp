@@ -145,9 +145,9 @@ bool CSprite::drawRotatImage(HDC hdc, float fradian)
 
 
 	DeleteObject
-		(SelectObject(testdc, testbmp))
+		(SelectObject(drawSdc, drawold))
 		;
-	DeleteDC(testdc);
+	DeleteDC(drawSdc);
 
 
 	DeleteObject
