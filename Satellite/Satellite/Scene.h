@@ -1,4 +1,5 @@
 #pragma once
+#include "ChildScene.h"
 
 class CGameFrameWork;
 
@@ -23,13 +24,13 @@ public:
 
 	void PopChildScene();
 
-	void ChangeChildScene(ENUM_SCENE iID);
+	void ChangeChildScene(ENUM_SCENE_CHILD iID);
 
 protected:
 
 	CGameFrameWork	*	m_Framework{ nullptr };
 	HWND				m_hWnd{ nullptr };
-	CScene			*	m_ChildScenes{ nullptr };
+	CChildScene			*	m_ChildScenes{ nullptr };
 
 };
 

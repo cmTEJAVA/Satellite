@@ -153,6 +153,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ChildScene.h" />
+    <ClInclude Include="EditChildScene.h" />
     <ClInclude Include="GameMoveObject.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameScene.h" />
@@ -181,6 +182,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ChildScene.cpp" />
+    <ClCompile Include="EditChildScene.cpp" />
     <ClCompile Include="GameMoveObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameScene.cpp" />

@@ -35,6 +35,9 @@ void CGameScene::Draw(HDC hDC)
 
 	for (auto&q : m_listUnits)
 		q.draw(hDC);
+
+	if (m_ChildScenes)m_ChildScenes->Draw(hDC);
+
 }
 
 bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
@@ -61,7 +64,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 					return false;
 					break;
 				case 1:
-					//	m_Framework->ChangeScene(ENUM_SCENE::TITLE3D);
+						ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
 					//	retrun;
 					return false;
 					break;

@@ -73,6 +73,9 @@
     <Filter Include="FrameWork&amp;Scene\GameFrameWork">
       <UniqueIdentifier>{4e9afde5-8381-4d56-bf3f-d42f505aa9e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene_Child\EditScene">
+      <UniqueIdentifier>{c9c73491-503c-4504-a72e-a008cf3a6fbb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -156,6 +159,9 @@
     <ClInclude Include="GameScene.h">
       <Filter>FrameWork&amp;Scene\Scene\Game</Filter>
     </ClInclude>
+    <ClInclude Include="EditChildScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -229,6 +235,9 @@
     </ClCompile>
     <ClCompile Include="GameScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EditChildScene.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -16,7 +16,7 @@ public:
 
 	virtual bool Mouse(UINT message, WPARAM wParam, LPARAM lParam);
 
-	virtual bool Initialize(CScene* pFramework, HWND hWnd);
+	virtual bool Initialize(CScene* pparentScene, HWND hWnd);
 
 	virtual void ReleaseObjects();
 

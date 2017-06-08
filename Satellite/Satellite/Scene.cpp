@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Scene.h"
-
+#include "EditChildScene.h"
 
 CScene::CScene()
 {
@@ -47,6 +47,20 @@ void CScene::PopChildScene()
 	m_ChildScenes = nullptr;
 }
 
-void CScene::ChangeChildScene(ENUM_SCENE iID)
+void CScene::ChangeChildScene(ENUM_SCENE_CHILD iID)
 {
+	PopChildScene();
+	switch (iID)
+	{
+	case ENUM_SCENE_CHILD::EDIT:
+		m_ChildScenes = new CEditChildScene;
+		m_ChildScenes->Initialize(this, m_hWnd);
+	
+
+		break;
+
+	default:
+		break;
+	}
+
 }
