@@ -58,7 +58,29 @@ bool CSprite::drawRotatImage(HDC hdc, float fradian)
 	RECT rcSorce = GetObjRECT();
 	POINT arr[3];
 	NewFunction(rcSorce, arr, fradian);
+	if (m_isBMP) {
+		HDC transhdc = CreateCompatibleDC(hdc);
+		HBITMAP transhbmp = CreateCompatibleBitmap(hdc, WIDTH, HEIGHT);
+		HBITMAP oldbmp = (HBITMAP)SelectObject(transhdc, transhbmp);
+		HBRUSH ff00ffbr = CreateSolidBrush(m_delRGB);
+		HBRUSH oldbr = (HBRUSH)SelectObject(transhdc, ff00ffbr);
 
+		RECT tmp{ 0,0, WIDTH, HEIGHT };
+		
+		FillRect(transhdc, &tmp, ff00ffbr);
+		m_cimg.PlgBlt(transhdc, arr, m_spritesize.x*(m_drawframenum), 0
+			, m_spritesize.x, m_spritesize.y);
+		TransparentBlt(hdc, 0, 0, WIDTH, HEIGHT, transhdc, 0, 0, WIDTH, HEIGHT, m_delRGB);
+
+
+		SelectObject(transhdc, oldbmp);
+		SelectObject(transhdc, oldbr);
+		DeleteObject(ff00ffbr);
+		DeleteObject(oldbmp);
+		DeleteDC(transhdc);
+		//		m_cimg.TransparentBlt(hdc,)
+		return true;
+	}
 	/*
 	MoveToEx(hdc, arr[0].x, arr[0].y, nullptr);
 	LineTo(hdc, arr[1].x, arr[1].y);

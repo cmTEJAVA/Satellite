@@ -4,6 +4,8 @@
 
 CBitmapObject::CBitmapObject()
 {
+	m_delRGB = RGB(255, 0, 255);
+	m_isBMP = false;
 }
 
 
@@ -27,5 +29,11 @@ void CBitmapObject::draw(HDC hdc)
 
 
 	RECT rctmp = GetObjRECT();
+	if (m_isBMP) {
+		m_cimg.TransparentBlt(hdc, rctmp, m_delRGB);
+	}
+	else {
+
 	m_cimg.Draw(hdc, rctmp);
+	}
 }

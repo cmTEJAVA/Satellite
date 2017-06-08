@@ -9,15 +9,25 @@ protected:
 
 	POINT m_bmpsize;
 
+	COLORREF m_delRGB;
+	bool m_isBMP;
 public:
 	CBitmapObject();
 	~CBitmapObject();
 
 	void OnCreatCimg(const LPCTSTR& pStream) {
 
+		CString strResult = PathFindExtension(pStream);
+		if (!lstrcmp(strResult.GetString(),L".bmp")) {
+			m_isBMP = true;
+		}
+
 		m_cimg.Load(pStream);
+
 		if (m_cimg.IsNull()) {
 			m_cimg.Load(L"Resorce/Menu/button.png");
+			m_isBMP = false;
+
 		}
 			//nullimg.bmp
 
@@ -26,27 +36,32 @@ public:
 		m_rcobjsize = RECT{ 0,0,m_bmpsize.x,m_bmpsize.y };
 //		m_ptpos = Point{ m_bmpsize.x / 2,m_bmpsize.y / 2 };
 //		m_rcobjsize -= m_ptpos.GetPOINT();
-		if (m_cimg.GetBPP() == 32)
-		{
-			unsigned char * pCol = 0;
-			long w = m_bmpsize.x;
-			long h = m_bmpsize.y;
-			for (long y = 0; y < h; y++)
+
+		if (!m_isBMP) {
+
+			if (m_cimg.GetBPP() == 32)
 			{
-				for (long x = 0; x < w; x++)
+				unsigned char * pCol = 0;
+				long w = m_bmpsize.x;
+				long h = m_bmpsize.y;
+				for (long y = 0; y < h; y++)
 				{
-					pCol = (unsigned char *)m_cimg.GetPixelAddress(x, y);
-					unsigned char alpha = pCol[3];
-					if (alpha != 255)
+					for (long x = 0; x < w; x++)
 					{
-						pCol[0] = ((pCol[0] * alpha) + 128) >> 8;
-						pCol[1] = ((pCol[1] * alpha) + 128) >> 8;
-						pCol[2] = ((pCol[2] * alpha) + 128) >> 8;
+						pCol = (unsigned char *)m_cimg.GetPixelAddress(x, y);
+						unsigned char alpha = pCol[3];
+						if (alpha != 255)
+						{
+							pCol[0] = ((pCol[0] * alpha) + 128) >> 8;
+							pCol[1] = ((pCol[1] * alpha) + 128) >> 8;
+							pCol[2] = ((pCol[2] * alpha) + 128) >> 8;
+						}
 					}
 				}
+				m_cimg.SetHasAlphaChannel(true);
 			}
-			m_cimg.SetHasAlphaChannel(true);
 		}
+		
 
 	}
 	void drawalpha(HDC hdc, BYTE  ifalpha);
