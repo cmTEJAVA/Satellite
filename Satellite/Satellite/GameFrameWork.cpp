@@ -26,7 +26,7 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 	
 	ChangeScene(ENUM_SCENE::TITLE);
 	snd.Add_sound();
-	snd.Play_bgm(ENUM_SOUND::INTRO);
+	//snd.Play_bgm(ENUM_SOUND::INTRO);
 
 	return false;
 }
