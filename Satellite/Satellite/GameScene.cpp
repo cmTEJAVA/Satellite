@@ -111,7 +111,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 	GetClientRect(hWnd, &m_rcClient);
 
-	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Test/bullet unit.png";
+	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Test/bullet unit.bmp";
 	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Test/tesla.png";
 
 
@@ -132,7 +132,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_test_player.OnCreatplayerimg
 	(
 		Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 },
-		L"Resorce/Test/ss3.png",
+		L"Resorce/Test/ss3.bmp",
 		1.f, 16, 0.6f
 	);
 
@@ -141,8 +141,8 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(
 			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 }, 100,
-			m_arrUnitszPath[int(ENUM_UNIT::TESLA_UNIT)],
-			0.6f, 1, 0.6f, 0.01f, 0.02f
+			m_arrUnitszPath[int(ENUM_UNIT::BULLET_UNIT)],
+			0.8f, 1, 0.6f, 0.01f, 0.02f
 		);
 	}
 
