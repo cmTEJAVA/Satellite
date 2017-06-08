@@ -137,8 +137,8 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(
 			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },120,
-			L"Resorce/Test/ss3.png",
-			0.6f, 16, 0.6f
+			L"Resorce/Test/tesla.png",
+			0.6f, 1, 0.6f
 			);
 	}
 

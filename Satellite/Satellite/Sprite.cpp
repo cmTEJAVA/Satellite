@@ -37,6 +37,7 @@ void CSprite::draw(HDC hdc)
 
 bool CSprite::Update(float time)
 {
+	if (m_drawframenum <= 1) return true;
 	m_updatetime += time;
 	if (m_updatetime > m_oneframetime) {
 		m_updatetime = 0;
