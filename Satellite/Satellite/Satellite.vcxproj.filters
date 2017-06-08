@@ -58,9 +58,6 @@
     <Filter Include="FrameWork&amp;Scene\Scene\Menu">
       <UniqueIdentifier>{8499592d-18b2-4a85-9916-d743f931b42b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FrameWork&amp;Scene\Scene\TEST">
-      <UniqueIdentifier>{e84acbf3-b6fe-46a5-8f43-bc1084bcbe73}</UniqueIdentifier>
-    </Filter>
     <Filter Include="FrameWork&amp;Scene\Scene\Game">
       <UniqueIdentifier>{91994b32-ea84-4e5e-b7d4-c08a7b6fb054}</UniqueIdentifier>
     </Filter>
@@ -126,9 +123,6 @@
     <ClInclude Include="MenuScene.h">
       <Filter>FrameWork&amp;Scene\Scene\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="TestScene.h">
-      <Filter>FrameWork&amp;Scene\Scene\TEST</Filter>
-    </ClInclude>
     <ClInclude Include="Sound.h">
       <Filter>Sound</Filter>
     </ClInclude>
@@ -158,6 +152,9 @@
     </ClInclude>
     <ClInclude Include="ChildScene.h">
       <Filter>FrameWork&amp;Scene\Scene_Child</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>FrameWork&amp;Scene\Scene\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -200,9 +197,6 @@
     <ClCompile Include="MenuScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene\Menu</Filter>
     </ClCompile>
-    <ClCompile Include="TestScene.cpp">
-      <Filter>FrameWork&amp;Scene\Scene\TEST</Filter>
-    </ClCompile>
     <ClCompile Include="Sound.cpp">
       <Filter>Sound</Filter>
     </ClCompile>
@@ -232,6 +226,9 @@
     </ClCompile>
     <ClCompile Include="ChildScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene_Child</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>FrameWork&amp;Scene\Scene\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

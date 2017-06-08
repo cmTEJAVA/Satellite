@@ -4,13 +4,14 @@
 #include "Button.h"
 #include "Bullet.h"
 #include <list>
-class CTestScene :
+
+class CGameScene :
 	public CScene
 {
 	CBitmapObject		m_bmp_backimg;
 
 	CPlayer				m_test_player;
-	
+
 	LPCTSTR				m_arrUnitszPath[int(ENUM_UNIT::END)];
 	std::list<CUnit>	m_listUnits;
 	std::list<CBullet>	m_listBullets;
@@ -20,8 +21,8 @@ class CTestScene :
 
 
 public:
-	CTestScene();
-	virtual ~CTestScene();
+	CGameScene();
+	virtual ~CGameScene();
 	virtual void Update() override;
 
 	virtual void Draw(HDC hDC)override;

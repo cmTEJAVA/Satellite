@@ -1,19 +1,19 @@
 #include "stdafx.h"
 #include "GameFrameWork.h"
 #include "MenuScene.h"
-#include "TestScene.h"
+#include "GameScene.h"
 
 
-CTestScene::CTestScene()
+CGameScene::CGameScene()
 {
 }
 
 
-CTestScene::~CTestScene()
+CGameScene::~CGameScene()
 {
 }
 
-void CTestScene::Update()
+void CGameScene::Update()
 {
 
 	m_test_player.Update();
@@ -23,7 +23,7 @@ void CTestScene::Update()
 
 }
 
-void CTestScene::Draw(HDC hDC)
+void CGameScene::Draw(HDC hDC)
 {
 	//FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(GRAY_BRUSH));
 	m_bmp_backimg.draw(hDC);
@@ -37,7 +37,7 @@ void CTestScene::Draw(HDC hDC)
 		q.draw(hDC);
 }
 
-bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
+bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 {
 
 	switch (message)
@@ -61,8 +61,8 @@ bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 					return false;
 					break;
 				case 1:
-				//	m_Framework->ChangeScene(ENUM_SCENE::TITLE3D);
-				//	retrun;
+					//	m_Framework->ChangeScene(ENUM_SCENE::TITLE3D);
+					//	retrun;
 					return false;
 					break;
 				default:
@@ -105,7 +105,7 @@ bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 }
 
 
-bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
+bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
 
@@ -120,7 +120,7 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_arrbutton[0].SetPos(Point{ 50,20 });
 	m_arrbutton[1].OnCreatCimg(L"Resorce/button/option.png");
 	m_arrbutton[1].SetObjRECT(RECT{ -20,-20,20,20 });
-	m_arrbutton[1].SetPos(Point{ m_rcClient.right-30,m_rcClient.bottom - 30 });
+	m_arrbutton[1].SetPos(Point{ m_rcClient.right - 30,m_rcClient.bottom - 30 });
 
 
 
@@ -130,20 +130,20 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 
 	m_test_player.OnCreatplayerimg
-		(
-			Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 },
-			L"Resorce/Test/ss3.png",
-			1.f, 16, 0.6f
-			);
+	(
+		Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 },
+		L"Resorce/Test/ss3.png",
+		1.f, 16, 0.6f
+	);
 
 
 	for (int i = 0; i < 1; i++) {
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(
-			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },100,
-		m_arrUnitszPath[int(ENUM_UNIT::TESLA_UNIT)],
-			0.6f, 1, 0.6f,0.01f,0.02f
-			);
+			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 }, 100,
+			m_arrUnitszPath[int(ENUM_UNIT::TESLA_UNIT)],
+			0.6f, 1, 0.6f, 0.01f, 0.02f
+		);
 	}
 
 
@@ -151,7 +151,7 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	return true;
 }
 
-void CTestScene::ReleaseObjects()
+void CGameScene::ReleaseObjects()
 {
 	CScene::ReleaseObjects();
 

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "GameFrameWork.h"
 #include "Logo.h"
-#include "TestScene.h"
+#include "GameScene.h"
 #include "MenuScene.h"
 #include "HELPScene.h"
 #include "Logo3DScene.h"
@@ -142,7 +142,7 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 	case ENUM_SCENE::TEST:
 		snd.Play_effect(ENUM_SOUND::CLICK);
 
-		m_Scenes = new CTestScene;
+		m_Scenes = new CGameScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
 	case ENUM_SCENE::MENU:
