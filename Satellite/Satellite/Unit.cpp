@@ -21,9 +21,17 @@ void CUnit::draw(HDC hdc)
 void CUnit::Update()
 {
 
+	m_imgUnit.Update();
+
 	m_fRadianUnit += m_fradianspeed;
 	if (m_fRadianUnit >= PI * 2) {
 		m_fRadianUnit = 0;
 	}
-	m_imgUnit.Update();
+	
+	if (m_fspeed > 0) {
+		Point tmp = m_imgUnit.Getpos();
+		tmp.rotation(m_ptmidpos, m_fspeed);
+		m_imgUnit.SetPos(tmp);
+	}
+
 }

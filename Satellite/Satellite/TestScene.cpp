@@ -18,6 +18,8 @@ void CTestScene::Update()
 	m_test_sprite.Update();
 	m_test_player.Update();
 
+	for (auto&q : m_listUnits)
+		q.Update();
 
 }
 
@@ -29,7 +31,10 @@ void CTestScene::Draw(HDC hDC)
 	m_test_player.draw(hDC);
 
 
-	for(auto&q:m_arrbutton)
+	for (auto&q : m_arrbutton)
+		q.draw(hDC);
+
+	for (auto&q : m_listUnits)
 		q.draw(hDC);
 }
 
@@ -126,6 +131,17 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 			L"Resorce/Test/ss3.png",
 			1.f, 16, 0.6f
 			);
+
+
+	for (int i = 0; i < 1; i++) {
+		m_listUnits.push_back(CUnit{});
+		m_listUnits.back().OnCreatUnit(
+			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },120,
+			L"Resorce/Test/ss3.png",
+			0.6f, 16, 0.6f
+			);
+	}
+
 
 
 	return true;

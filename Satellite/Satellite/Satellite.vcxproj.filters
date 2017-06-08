@@ -55,14 +55,14 @@
     <Filter Include="Scene\Game">
       <UniqueIdentifier>{91994b32-ea84-4e5e-b7d4-c08a7b6fb054}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\GameMoveObject\Player">
-      <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scene\Help">
       <UniqueIdentifier>{d8d82bdd-d0b8-4bb4-a302-94297f0190ab}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\GameMoveObject\Unit">
       <UniqueIdentifier>{90c7415b-ddf2-40fe-b51b-a80720813bbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\GameMoveObject\Unit\Player">
+      <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -124,13 +124,13 @@
       <Filter>GameObject\button</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>GameObject\GameMoveObject\Player</Filter>
+      <Filter>GameObject\GameMoveObject\Unit\Player</Filter>
     </ClInclude>
     <ClInclude Include="HelpScene.h">
       <Filter>Scene\Help</Filter>
     </ClInclude>
     <ClInclude Include="Unit.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>GameObject\GameMoveObject\Unit</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -183,13 +183,13 @@
       <Filter>GameObject\button</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>GameObject\GameMoveObject\Player</Filter>
+      <Filter>GameObject\GameMoveObject\Unit\Player</Filter>
     </ClCompile>
     <ClCompile Include="HelpScene.cpp">
       <Filter>Scene\Help</Filter>
     </ClCompile>
     <ClCompile Include="Unit.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>GameObject\GameMoveObject\Unit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

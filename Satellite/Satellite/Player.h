@@ -9,10 +9,10 @@ public:
 	CPlayer();
 	~CPlayer();
 	virtual void draw(HDC hdc) override;
-	void OnCreatplayerimg(const Point& pos,const LPCTSTR& pStream
+	void OnCreatplayerimg(const Point& midpos,const LPCTSTR& pStream
 		,float imgsizerate,int spriteframeN,float frameupdatetime
-		,float radianspeed=0.01,float speed=2.f) {
-		CUnit::OnCreatUnit(pos, pStream, imgsizerate, spriteframeN, frameupdatetime, radianspeed, speed);
+		,float radianspeed=0.01,float speed=0.f) {
+		CUnit::OnCreatUnit(midpos,0, pStream, imgsizerate, spriteframeN, frameupdatetime, radianspeed, speed);
 		m_life = 1;
 	}
 	void attack(float fPerdmg = 0.05f) { m_life = max(0.f, m_life - fPerdmg); };
