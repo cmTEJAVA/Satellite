@@ -30,7 +30,7 @@ protected:
 
 	CGameFrameWork	*	m_Framework{ nullptr };
 	HWND				m_hWnd{ nullptr };
-	CChildScene			*	m_ChildScenes{ nullptr };
+	CChildScene		*	m_ChildScenes{ nullptr };
 
 };
 

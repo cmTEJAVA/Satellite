@@ -15,6 +15,10 @@ CGameScene::~CGameScene()
 
 void CGameScene::Update()
 {
+	if (m_ChildScenes) {
+		m_ChildScenes->Update();
+		return;
+	}
 
 	m_test_player.Update();
 
@@ -30,8 +34,9 @@ void CGameScene::Draw(HDC hDC)
 	m_test_player.draw(hDC);
 
 
-	for (auto&q : m_arrbutton)
-		q.draw(hDC);
+	m_arrbutton[0].draw(hDC);
+	if (!m_ChildScenes)
+		m_arrbutton[1].draw(hDC);
 
 	for (auto&q : m_listUnits)
 		q.draw(hDC);
@@ -60,10 +65,17 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 				switch (i)
 				{
 				case 0:
+					if (m_ChildScenes) {
+						PopChildScene();
+					}
+					else {
+
 					m_Framework->ChangeScene(ENUM_SCENE::MENU);
+					}
 					return false;
 					break;
 				case 1:
+					if(!m_ChildScenes)
 						ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
 					//	retrun;
 					return false;
@@ -102,6 +114,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	}
 
 
+	if (m_ChildScenes)m_ChildScenes->Mouse(message, wParam, lParam);
 
 
 	return false;
@@ -118,9 +131,9 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Test/tesla.png";
 
 
-	m_arrbutton[0].OnCreatCimg(L"Resorce/Menu/exit button.png");
-	m_arrbutton[0].SetObjRECT(RECT{ -50,-20,50,20 });
-	m_arrbutton[0].SetPos(Point{ 50,20 });
+	m_arrbutton[0].OnCreatCimg(L"Resorce/Test/go-back-arrow.png");
+	m_arrbutton[0].SetObjRECT(RECT{ -15,-15,15,15 });
+	m_arrbutton[0].SetPos(Point{ 20,20 });
 	m_arrbutton[1].OnCreatCimg(L"Resorce/button/option.png");
 	m_arrbutton[1].SetObjRECT(RECT{ -20,-20,20,20 });
 	m_arrbutton[1].SetPos(Point{ m_rcClient.right - 30,m_rcClient.bottom - 30 });
