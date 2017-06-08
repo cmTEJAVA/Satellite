@@ -13,17 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="GameFrameWork">
-      <UniqueIdentifier>{4e9afde5-8381-4d56-bf3f-d42f505aa9e4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObject">
       <UniqueIdentifier>{4b02fee5-f24f-418d-b74d-08444da61aff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{42aa3568-a178-4302-a9b6-583e534f5ebc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\Logo">
-      <UniqueIdentifier>{03000b2d-536d-4906-9e11-47358595ed63}</UniqueIdentifier>
     </Filter>
     <Filter Include="operator">
       <UniqueIdentifier>{1614eec8-a926-4b1e-92e7-a4c4f0ee945f}</UniqueIdentifier>
@@ -40,23 +31,11 @@
     <Filter Include="GameObject\BitmapObject\Sprite">
       <UniqueIdentifier>{3080e330-f2af-4b8f-b6d6-e188625ba59b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\Menu">
-      <UniqueIdentifier>{8499592d-18b2-4a85-9916-d743f931b42b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\TEST">
-      <UniqueIdentifier>{e84acbf3-b6fe-46a5-8f43-bc1084bcbe73}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sound">
       <UniqueIdentifier>{a8e16326-cfb5-43cd-aa83-978113c4a52d}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\button">
       <UniqueIdentifier>{9ab20356-7e31-4c56-b82a-1e6351eaa722}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\Game">
-      <UniqueIdentifier>{91994b32-ea84-4e5e-b7d4-c08a7b6fb054}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\Help">
-      <UniqueIdentifier>{d8d82bdd-d0b8-4bb4-a302-94297f0190ab}</UniqueIdentifier>
     </Filter>
     <Filter Include="GameObject\GameMoveObject\Unit">
       <UniqueIdentifier>{90c7415b-ddf2-40fe-b51b-a80720813bbd}</UniqueIdentifier>
@@ -64,8 +43,38 @@
     <Filter Include="GameObject\GameMoveObject\Unit\Player">
       <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scene\WrapLogo">
+    <Filter Include="GameObject\GameMoveObject\Bullet">
+      <UniqueIdentifier>{22b43b42-a7d8-490c-b6a7-bc223fff27cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene">
+      <UniqueIdentifier>{21d9346b-f85e-4d3d-a1f7-df203ff21716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene">
+      <UniqueIdentifier>{42aa3568-a178-4302-a9b6-583e534f5ebc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene\Logo">
+      <UniqueIdentifier>{03000b2d-536d-4906-9e11-47358595ed63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene\Menu">
+      <UniqueIdentifier>{8499592d-18b2-4a85-9916-d743f931b42b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene\TEST">
+      <UniqueIdentifier>{e84acbf3-b6fe-46a5-8f43-bc1084bcbe73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene\Game">
+      <UniqueIdentifier>{91994b32-ea84-4e5e-b7d4-c08a7b6fb054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene\Help">
+      <UniqueIdentifier>{d8d82bdd-d0b8-4bb4-a302-94297f0190ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene\WrapLogo">
       <UniqueIdentifier>{cb87aa29-b244-41f7-9157-c97018bc7786}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene_Child">
+      <UniqueIdentifier>{84d8b9f5-1585-4af8-af24-4d0afafa7cac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork&amp;Scene\GameFrameWork">
+      <UniqueIdentifier>{4e9afde5-8381-4d56-bf3f-d42f505aa9e4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -85,13 +94,13 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameFrameWork.h">
-      <Filter>GameFrameWork</Filter>
+      <Filter>FrameWork&amp;Scene\GameFrameWork</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Scene</Filter>
+      <Filter>FrameWork&amp;Scene\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Logo.h">
-      <Filter>Scene\Logo</Filter>
+      <Filter>FrameWork&amp;Scene\Scene\Logo</Filter>
     </ClInclude>
     <ClInclude Include="operator.h">
       <Filter>operator</Filter>
@@ -115,10 +124,10 @@
       <Filter>GameObject\BitmapObject\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="MenuScene.h">
-      <Filter>Scene\Menu</Filter>
+      <Filter>FrameWork&amp;Scene\Scene\Menu</Filter>
     </ClInclude>
     <ClInclude Include="TestScene.h">
-      <Filter>Scene\TEST</Filter>
+      <Filter>FrameWork&amp;Scene\Scene\TEST</Filter>
     </ClInclude>
     <ClInclude Include="Sound.h">
       <Filter>Sound</Filter>
@@ -130,19 +139,25 @@
       <Filter>GameObject\GameMoveObject\Unit\Player</Filter>
     </ClInclude>
     <ClInclude Include="HelpScene.h">
-      <Filter>Scene\Help</Filter>
+      <Filter>FrameWork&amp;Scene\Scene\Help</Filter>
     </ClInclude>
     <ClInclude Include="Unit.h">
       <Filter>GameObject\GameMoveObject\Unit</Filter>
-    </ClInclude>
-    <ClInclude Include="Logo3DScene.h">
-      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>Point</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>Point</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>GameObject\GameMoveObject\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Logo3DScene.h">
+      <Filter>FrameWork&amp;Scene\Scene\WrapLogo</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildScene.h">
+      <Filter>FrameWork&amp;Scene\Scene_Child</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -153,13 +168,13 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameFrameWork.cpp">
-      <Filter>GameFrameWork</Filter>
+      <Filter>FrameWork&amp;Scene\GameFrameWork</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Scene</Filter>
+      <Filter>FrameWork&amp;Scene\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Logo.cpp">
-      <Filter>Scene\Logo</Filter>
+      <Filter>FrameWork&amp;Scene\Scene\Logo</Filter>
     </ClCompile>
     <ClCompile Include="operator.cpp">
       <Filter>operator</Filter>
@@ -183,10 +198,10 @@
       <Filter>GameObject\BitmapObject\Sprite</Filter>
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
-      <Filter>Scene\Menu</Filter>
+      <Filter>FrameWork&amp;Scene\Scene\Menu</Filter>
     </ClCompile>
     <ClCompile Include="TestScene.cpp">
-      <Filter>Scene\TEST</Filter>
+      <Filter>FrameWork&amp;Scene\Scene\TEST</Filter>
     </ClCompile>
     <ClCompile Include="Sound.cpp">
       <Filter>Sound</Filter>
@@ -198,19 +213,25 @@
       <Filter>GameObject\GameMoveObject\Unit\Player</Filter>
     </ClCompile>
     <ClCompile Include="HelpScene.cpp">
-      <Filter>Scene\Help</Filter>
+      <Filter>FrameWork&amp;Scene\Scene\Help</Filter>
     </ClCompile>
     <ClCompile Include="Unit.cpp">
       <Filter>GameObject\GameMoveObject\Unit</Filter>
-    </ClCompile>
-    <ClCompile Include="Logo3DScene.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
       <Filter>Point</Filter>
     </ClCompile>
     <ClCompile Include="Vector.cpp">
       <Filter>Point</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>GameObject\GameMoveObject\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Logo3DScene.cpp">
+      <Filter>FrameWork&amp;Scene\Scene\WrapLogo</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildScene.cpp">
+      <Filter>FrameWork&amp;Scene\Scene_Child</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

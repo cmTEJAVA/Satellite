@@ -36,7 +36,7 @@ void CPlayer::draw(HDC hdc)
 	DeleteObject(hpen); hpen = nullptr;
 
 	if (m_life < 1) {
-	hpen = CreatePen(PS_SOLID, 2, RGB(100, 0, 0));
+	hpen = CreatePen(PS_SOLID, 2, RGB(50+205*(1-m_life), 0, 0));
 	oldpen = (HPEN)SelectObject(hdc, hpen);
 
 

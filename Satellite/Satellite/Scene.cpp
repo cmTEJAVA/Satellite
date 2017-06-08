@@ -39,3 +39,14 @@ bool CScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 void CScene::ReleaseObjects()
 {
 }
+
+void CScene::PopChildScene()
+{
+
+	if (m_ChildScenes) delete m_ChildScenes;
+	m_ChildScenes = nullptr;
+}
+
+void CScene::ChangeChildScene(ENUM_SCENE iID)
+{
+}

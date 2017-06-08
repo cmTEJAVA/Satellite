@@ -2,18 +2,23 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Button.h"
+#include "Bullet.h"
 #include <list>
 class CTestScene :
 	public CScene
 {
 	CBitmapObject		m_bmp_backimg;
-	CSprite				m_test_sprite;
+
 	CPlayer				m_test_player;
 	
+	LPCTSTR				m_arrUnitszPath[int(ENUM_UNIT::END)];
 	std::list<CUnit>	m_listUnits;
+	std::list<CBullet>	m_listBullets;
 
 	Cbutton				m_arrbutton[2];
 	RECT				m_rcClient;
+
+
 public:
 	CTestScene();
 	virtual ~CTestScene();

@@ -45,6 +45,11 @@ enum class ENUM_SCENE
 	END
 };
 
+enum class ENUM_SCENE_CHILD
+{
+	EDIT,
+	END
+};
 enum class ENUM_SOUND
 {
 	LOGO
@@ -59,3 +64,14 @@ enum class ENUM_SOUND
 	, ATTACK
 	, TEST
 };
+
+
+enum class ENUM_UNIT
+{
+	BULLET_UNIT
+	, TESLA_UNIT
+	, END
+};
+
+
+//szPath define

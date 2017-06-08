@@ -150,7 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BitmapObject.h" />
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="ChildScene.h" />
     <ClInclude Include="GameMoveObject.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="HelpScene.h" />
@@ -176,7 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitmapObject.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ChildScene.cpp" />
     <ClCompile Include="GameMoveObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="HelpScene.cpp" />

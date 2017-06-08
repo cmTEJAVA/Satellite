@@ -15,7 +15,7 @@ CTestScene::~CTestScene()
 
 void CTestScene::Update()
 {
-	m_test_sprite.Update();
+
 	m_test_player.Update();
 
 	for (auto&q : m_listUnits)
@@ -27,7 +27,6 @@ void CTestScene::Draw(HDC hDC)
 {
 	//FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(GRAY_BRUSH));
 	m_bmp_backimg.draw(hDC);
-	m_test_sprite.draw(hDC);
 	m_test_player.draw(hDC);
 
 
@@ -46,7 +45,6 @@ bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_LBUTTONUP:
 	{
 
-		m_test_player.attack();
 
 		for (int i = 0; i < 2; i++) {
 			RECT tmp = m_arrbutton[i].GetObjRECT();
@@ -63,8 +61,9 @@ bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 					return false;
 					break;
 				case 1:
-					m_Framework->ChangeScene(ENUM_SCENE::TITLE3D);
-
+				//	m_Framework->ChangeScene(ENUM_SCENE::TITLE3D);
+				//	retrun;
+					return false;
 					break;
 				default:
 					break;
@@ -75,6 +74,7 @@ bool CTestScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 				return false;
 			}
 		}
+		m_test_player.attack();
 	}
 	break;
 	case WM_RBUTTONUP:
@@ -111,12 +111,16 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 	GetClientRect(hWnd, &m_rcClient);
 
+	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Test/bullet unit.png";
+	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Test/tesla.png";
+
+
 	m_arrbutton[0].OnCreatCimg(L"Resorce/Menu/exit button.png");
 	m_arrbutton[0].SetObjRECT(RECT{ -50,-20,50,20 });
 	m_arrbutton[0].SetPos(Point{ 50,20 });
-	m_arrbutton[1].OnCreatCimg(L"null");
-	m_arrbutton[1].SetObjRECT(RECT{ -50,-20,50,20 });
-	m_arrbutton[1].SetPos(Point{ m_rcClient.right-50,m_rcClient.bottom - 20 });
+	m_arrbutton[1].OnCreatCimg(L"Resorce/button/option.png");
+	m_arrbutton[1].SetObjRECT(RECT{ -20,-20,20,20 });
+	m_arrbutton[1].SetPos(Point{ m_rcClient.right-30,m_rcClient.bottom - 30 });
 
 
 
@@ -124,9 +128,6 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_bmp_backimg.OnCreatCimg(L"Resorce/Test/testback.jpg");
 	m_bmp_backimg.SetObjRECT(m_rcClient);
 
-	m_test_sprite.OnCreatCimg(L"Resorce/Test/Spritepngtest.png");
-	m_test_sprite.OnCreatSprite(2.f, 4, 0.3f);
-	m_test_sprite.SetPos(Point{ 100,100 });
 
 	m_test_player.OnCreatplayerimg
 		(
@@ -140,8 +141,8 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(
 			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },100,
-			L"Resorce/Test/tesla.png",
-			0.6f, 1, 0.6f
+		m_arrUnitszPath[int(ENUM_UNIT::TESLA_UNIT)],
+			0.6f, 1, 0.6f,0.01f,0.02f
 			);
 	}
 

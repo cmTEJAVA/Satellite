@@ -21,10 +21,15 @@ public:
 	virtual void ReleaseObjects();
 
 
+	void PopChildScene();
+
+	void ChangeChildScene(ENUM_SCENE iID);
 
 protected:
 
 	CGameFrameWork	*	m_Framework{ nullptr };
 	HWND				m_hWnd{ nullptr };
+	CScene			*	m_ChildScenes{ nullptr };
+
 };
 
