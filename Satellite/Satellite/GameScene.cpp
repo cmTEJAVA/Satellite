@@ -38,8 +38,9 @@ void CGameScene::Draw(HDC hDC)
 	if (!m_ChildScenes)
 		m_arrbutton[1].draw(hDC);
 
-	for (auto&q : m_listUnits)
+	for (auto&q : m_listUnits) {
 		q.draw(hDC);
+	}
 
 	if (m_ChildScenes)m_ChildScenes->Draw(hDC);
 
@@ -47,7 +48,11 @@ void CGameScene::Draw(HDC hDC)
 
 bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 {
-
+	if (m_ChildScenes) {
+		if (m_ChildScenes->Mouse(message, wParam, lParam)) {
+			return true;
+		}
+	}
 	switch (message)
 	{
 	case WM_LBUTTONUP:
@@ -80,6 +85,11 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 						ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
 						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITMAX, 1, 0);
 						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITSIZE, 0, 100);
+
+						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITMAX, 2, 0);
+						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 0, (LPARAM)m_arrUnitszPath[0]);
+						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
+				
 
 					}
 					//	retrun;
@@ -119,7 +129,6 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	}
 
 
-	if (m_ChildScenes)m_ChildScenes->Mouse(message, wParam, lParam);
 
 
 	return false;

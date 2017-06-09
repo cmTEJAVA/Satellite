@@ -19,7 +19,7 @@ void Cbutton::draw(HDC hdc)
 	if(m_cimg.IsNull())
 		FillRect(hdc, &rctmp, (HBRUSH)GetStockObject(GRAY_BRUSH));
 	else {
-		m_cimg.Draw(hdc, rctmp);
+		CBitmapObject::draw(hdc);
 	}
 
 }

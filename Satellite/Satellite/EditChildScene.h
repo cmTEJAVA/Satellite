@@ -1,22 +1,29 @@
 #pragma once
 #include "ChildScene.h"
 #include <vector>
+#include "Button.h"
 
 enum class ENUM_CHILD_MESSGE
 {
 	SETORBITMAX,
 	SETORBITSIZE,
+	SETUNITMAX,
+	SETUNITPATH,
 	FLASE
 };
 
 class CEditChildScene :
 	public CChildScene
 {
-	RECT m_rcClinet;
+	RECT m_rcClient;
+	RECT m_rcEditWindow;
 
 	std::vector<RECT> m_vOrbit;
 	
-	size_t m_iSelectOrbit{0};
+	std::vector<Cbutton>m_vUnits;
+
+	
+	char m_iSelectOrbit{-1 };
 
 
 public:
@@ -29,6 +36,7 @@ public:
 
 	virtual bool Keyboard(UINT message, WPARAM wParam) override;
 
+	//메세지가 처리 되지 않았으면 false가 반환
 	virtual bool Mouse(UINT message, WPARAM wParam, LPARAM lParam) override;
 
 	virtual bool Initialize(CScene* pparentScene, HWND hWnd) override;
