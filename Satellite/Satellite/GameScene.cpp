@@ -22,6 +22,7 @@ void CGameScene::Update()
 
 	m_test_player.Update();
 
+
 	for (auto&q : m_listUnits)
 		q.Update();
 
@@ -158,7 +159,6 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 		L"Resorce/Test/ss3.bmp",
 		1.f, 16, 0.6f
 	);
-
 
 	for (int i = 0; i < 1; i++) {
 		m_listUnits.push_back(CUnit{});

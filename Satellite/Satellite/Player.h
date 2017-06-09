@@ -18,5 +18,6 @@ public:
 	void attack(float fPerdmg = 0.05f) { m_life = max(0.f, m_life - fPerdmg); };
 	void cure(float fPerdmg = 0.05f) { m_life = min(1.f, m_life + fPerdmg); };
 	void Update()override;
+	float GetLife() { return m_life; }
 };
 
