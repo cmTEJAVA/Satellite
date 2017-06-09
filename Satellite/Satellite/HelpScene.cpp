@@ -63,9 +63,9 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_bmpHELP[0].OnCreatCimg(L"Resorce/Test/help1.bmp");
 	m_bmpHELP[1].OnCreatCimg(L"Resorce/Test/help2.bmp");
 	m_bmpHELP[2].OnCreatCimg(L"Resorce/Test/help3.bmp");
-	m_arrbutton[0].OnCreatCimg(L"null");
-	m_arrbutton[1].OnCreatCimg(L"null");
-	m_arrbutton[2].OnCreatCimg(L"Resorce/Test/go-back-arrow.png");
+	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow left.png");
+	m_arrbutton[1].OnCreatCimg(L"Resorce/button/green arrow right.png");
+	m_arrbutton[2].OnCreatCimg(L"Resorce/button/green arrow back.png");
 	for (auto & q : m_arrbutton) {
 		q.SetObjRECT(RECT{-50,-20,50,20});
 	}

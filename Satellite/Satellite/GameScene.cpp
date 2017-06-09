@@ -52,7 +52,7 @@ void CGameScene::Update()
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITSIZE, 0, 100);
 
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITMAX, 2, 0);
-				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 0, (LPARAM)m_arrUnitszPath[0]);
+				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 0, (LPARAM)L"Resorce/button/bullet unit button.png");
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
 
 
@@ -138,7 +138,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Test/tesla.png";
 
 
-	m_arrbutton[0].OnCreatCimg(L"Resorce/Test/go-back-arrow.png");
+	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
 	m_arrbutton[0].SetObjRECT(RECT{ -15,-15,15,15 });
 	m_arrbutton[0].SetPos(Point{ 20,20 });
 	m_arrbutton[1].OnCreatCimg(L"Resorce/button/option.png");
