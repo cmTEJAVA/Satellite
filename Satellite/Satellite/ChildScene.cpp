@@ -39,3 +39,8 @@ bool CChildScene::Initialize(CScene * pparentScene, HWND hWnd)
 void CChildScene::ReleaseObjects()
 {
 }
+
+UINT CChildScene::GetSceneMessge(ENUM_CHILD_MESSGE message, WPARAM wParam, LPARAM lParam)
+{
+	return 0;
+}

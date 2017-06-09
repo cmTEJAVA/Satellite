@@ -2,6 +2,8 @@
 
 class CScene;
 
+enum class ENUM_CHILD_MESSGE;
+
 class CChildScene
 {
 public:
@@ -20,6 +22,7 @@ public:
 
 	virtual void ReleaseObjects();
 
+	virtual UINT GetSceneMessge(ENUM_CHILD_MESSGE message, WPARAM wParam, LPARAM lParam);
 protected:
 
 	CScene		*	m_parentScene{ nullptr };

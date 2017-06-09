@@ -2,7 +2,7 @@
 #include "GameFrameWork.h"
 #include "MenuScene.h"
 #include "GameScene.h"
-
+#include "EditChildScene.h"
 
 CGameScene::CGameScene()
 {
@@ -75,8 +75,13 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 					return false;
 					break;
 				case 1:
-					if(!m_ChildScenes)
+					if (!m_ChildScenes) {
+
 						ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
+						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITMAX, 1, 0);
+						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITSIZE, 0, 100);
+
+					}
 					//	retrun;
 					return false;
 					break;
