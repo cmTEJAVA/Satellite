@@ -160,7 +160,7 @@
       <Filter>FrameWork&amp;Scene\Scene\Game</Filter>
     </ClInclude>
     <ClInclude Include="EditChildScene.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>FrameWork&amp;Scene\Scene_Child\EditScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -237,7 +237,7 @@
       <Filter>FrameWork&amp;Scene\Scene\Game</Filter>
     </ClCompile>
     <ClCompile Include="EditChildScene.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>FrameWork&amp;Scene\Scene_Child\EditScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

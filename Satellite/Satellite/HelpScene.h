@@ -11,6 +11,9 @@ class CHELPScene :
 
 	Cbutton m_arrbutton[3];//0:< 1:> 2:menu
 
+	RECT rcClient;
+
+
 public:
 	CHELPScene();
 	virtual ~CHELPScene()override;

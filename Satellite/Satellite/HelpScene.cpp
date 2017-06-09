@@ -18,6 +18,8 @@ void CHELPScene::Update()
 
 void CHELPScene::Draw(HDC hDC)
 {
+	FillRect(hDC, &rcClient, (HBRUSH)GetStockObject(WHITE_BRUSH));
+
 	m_bmpHELP[m_sizeHELPindx].draw(hDC);
 	
 	if(m_sizeHELPindx!=0)m_arrbutton[0].draw(hDC);
@@ -29,7 +31,6 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
 
-	RECT rcClient;
 	GetClientRect(hWnd, &rcClient);
 
 	m_sizeHELPindx = 0;
@@ -38,13 +39,15 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_bmpHELP[2].OnCreatCimg(L"Resorce/Test/help3.bmp");
 	m_arrbutton[0].OnCreatCimg(L"null");
 	m_arrbutton[1].OnCreatCimg(L"null");
-	m_arrbutton[2].OnCreatCimg(L"Resorce/Menu/exit button.png");
+	m_arrbutton[2].OnCreatCimg(L"Resorce/Test/go-back-arrow.png");
 	for (auto & q : m_arrbutton) {
 		q.SetObjRECT(RECT{-50,-20,50,20});
 	}
+	m_arrbutton[2].SetObjRECT(RECT{ -20,-20,20,20 });
+
 	m_arrbutton[0].SetPos(Point{ 70,rcClient.bottom-50});
 	m_arrbutton[1].SetPos(Point{ rcClient.right-70,rcClient.bottom - 50 });
-	m_arrbutton[2].SetPos(Point{50,20});
+	m_arrbutton[2].SetPos(Point{30,30});
 
 	for (auto & q:m_bmpHELP) {
 		q.SetObjRECT(rcClient);
