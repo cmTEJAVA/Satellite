@@ -23,3 +23,25 @@ void Cbutton::draw(HDC hdc)
 	}
 
 }
+
+void Cbutton::SetMouseMove(const POINT & mouse)
+{
+	RECT tmp = GetObjRECT();
+	SetOn(false);
+
+	if (PtInRect(&tmp, mouse)) {
+		SetOn(true);
+	}
+}
+
+void Cbutton::SetMouseLUp(const POINT & mouse)
+{
+	RECT tmp = GetObjRECT();
+	SetOn(false);
+	Setselect(false);
+
+	if (PtInRect(&tmp, mouse)) {
+		SetOn(true);
+		Setselect(true);
+	}
+}

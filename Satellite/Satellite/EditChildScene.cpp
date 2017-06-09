@@ -60,7 +60,7 @@ void CEditChildScene::Draw(HDC hDC)
 	for (int i = 0; i < m_vUnits.size(); i++) {
 		HPEN hpenselect=nullptr;
 		HPEN hpenselectold= nullptr;
-		if (m_iSelectOrbit == i) {
+		if (m_vUnits[i].Getselect()) {
 			hpenselect = CreatePen(PS_SOLID, 3, RGB(255, 150, 0));
 			hpenselectold=(HPEN)SelectObject(hDC, hpenselect);
 
@@ -70,7 +70,7 @@ void CEditChildScene::Draw(HDC hDC)
 		RECT rctmp = m_testbutt.GetObjRECT();
 		m_testbutt.draw(hDC);
 		Rectangle(hDC, rctmp.left, rctmp.top, rctmp.right, rctmp.bottom);
-		if (m_iSelectOrbit == i) {
+		if (m_vUnits[i].Getselect()) {
 			SelectObject(hDC, hpenselectold);
 			DeleteObject(hpenselect);
 			hpenselect = nullptr;
@@ -97,37 +97,20 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 	case WM_MOUSEMOVE:
 	{
-		for (auto& m_testbutt : m_vUnits)
-		{
 
-			RECT tmp = m_testbutt.GetObjRECT();
-			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			m_testbutt.SetOn(false);
-
-			if (PtInRect(&tmp, ptmouse)) {
-				m_testbutt.SetOn(true);
-			}
+		for (auto &button : m_vUnits) {
+			button.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
+
 	}	
 
 	break;
 	case WM_LBUTTONUP:
 
-		for (int i = 0; i < m_vUnits.size(); i++) {
-			Cbutton &m_testbutt = m_vUnits[i];
-
-
-			RECT tmp = m_testbutt.GetObjRECT();
-			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			m_testbutt.SetOn(false);
-
-			if (PtInRect(&tmp, ptmouse)) {
-				m_testbutt.SetOn(true);
-				m_testbutt.Setselect(true);
-				m_iSelectOrbit = i;
-				return true;
-			}
+		for (auto &button : m_vUnits) {
+			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
+	
 
 
 		break;

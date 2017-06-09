@@ -8,13 +8,6 @@ class Cbutton :
 	bool m_bselect;
 	
 
-
-public:
-	Cbutton();
-	virtual ~Cbutton();
-	virtual void draw(HDC hdc);
-	
-
 	void SetOn(bool q) {
 		m_bon = q;
 
@@ -27,19 +20,27 @@ public:
 		}
 
 	}
+
+
+public:
+	Cbutton();
+	virtual ~Cbutton();
+	virtual void draw(HDC hdc);
+	
+
+	bool GetOn() {
+		return m_bon;
+	}
+	bool Getselect() {
+		return m_bselect;
+	}
+
 	void Setselect(bool q) {
 		m_bselect = q;
 	}
 
-	bool GetOn(bool q) {
-		return m_bon;
-	}
-	bool Getselect(bool q) {
-		return m_bselect;
-	}
-
-
-
+	void SetMouseMove(const POINT& mouse);
+	void SetMouseLUp(const POINT& mouse);
 
 };
 

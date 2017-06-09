@@ -14,6 +14,32 @@ CHELPScene::~CHELPScene()
 
 void CHELPScene::Update()
 {
+	for (int i = 0; i < 3; i++) {
+		if (!m_arrbutton[i].Getselect())continue;
+		switch (i)
+		{
+		case 0:
+			m_sizeHELPindx = max(0, int(m_sizeHELPindx - 1));
+			m_arrbutton[i].Setselect(false);
+			break;
+
+		case 1:
+			m_sizeHELPindx = min(HELP_IMG_N - 1, m_sizeHELPindx + 1);
+			m_arrbutton[i].Setselect(false);
+
+			break;
+
+		case 2:
+			m_Framework->ChangeScene(ENUM_SCENE::MENU);
+			
+			break;
+
+		default:
+			break;
+		}
+		return;
+	}
+
 }
 
 void CHELPScene::Draw(HDC hDC)
@@ -62,54 +88,16 @@ bool CHELPScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_LBUTTONUP:
 	{
-		
-
-		for (int i = 0; i < 3;i++) {
-			RECT tmp = m_arrbutton[i].GetObjRECT();
-			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			m_arrbutton[i].SetOn(false);
-
-			if (PtInRect(&tmp, ptmouse)) {
-				m_arrbutton[i].SetOn(true);
-
-				switch (i)
-				{
-				case 0:
-					m_sizeHELPindx=max(0,int(m_sizeHELPindx-1));
-					break;
-
-				case 1:
-					m_sizeHELPindx = min(HELP_IMG_N-1, m_sizeHELPindx+1);
-
-					break;
-
-				case 2:
-					m_Framework->ChangeScene(ENUM_SCENE::MENU);
-					return false;
-					break;
-
-				default:
-					break;
-				}
-
-
-
-				return false;
-			}
+		for (auto & buttonq : m_arrbutton) {
+			buttonq.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
+
 	}
 		break;
 
 	case WM_MOUSEMOVE:
 		for (auto & buttonq:m_arrbutton) {
-			RECT tmp = buttonq.GetObjRECT();
-			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			buttonq.SetOn(false);
-
-			if (PtInRect(&tmp, ptmouse)) {
-				buttonq.SetOn(true);
-				return false;
-			}
+			buttonq.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
 		break;
 

@@ -23,8 +23,6 @@ class CEditChildScene :
 	std::vector<Cbutton>m_vUnits;
 
 	
-	char m_iSelectOrbit{-1 };
-
 
 public:
 	CEditChildScene();

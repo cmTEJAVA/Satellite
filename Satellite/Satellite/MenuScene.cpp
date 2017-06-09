@@ -22,6 +22,28 @@ void CMenuScene::Update()
 	}
 	
 	m_titletextpng.SetPos(Point{ 0.f,(float)(sin(m_fradian)*5.0)-9.0f });
+
+
+	for (int i = 0; i < m_listbutton.size(); i++) {
+		if (!m_listbutton[i].Getselect())continue;
+		switch (i)
+		{
+		case 0:
+			m_Framework->ChangeScene(ENUM_SCENE::TEST);
+			break;
+		case 1:
+			m_Framework->ChangeScene(ENUM_SCENE::HELP);
+			break;
+		case 2:
+			PostQuitMessage(NULL);
+			break;
+		default:
+			break;
+		}
+		return;
+
+	}
+
 }
 
 void CMenuScene::Draw(HDC hDC)
@@ -69,14 +91,8 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		for (auto& m_testbutt : m_listbutton)
 		{
-
-			RECT tmp = m_testbutt.GetObjRECT();
-			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			m_testbutt.SetOn(false);
-
-			if (PtInRect(&tmp, ptmouse)) {
-				m_testbutt.SetOn(true);
-			}
+			
+			m_testbutt.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
 	}	break;
 
@@ -84,40 +100,10 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_LBUTTONUP:
 	{
 
+		POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
 		for (int i = 0; i < 3; i++) {
-			RECT tmp = m_listbutton[i].GetObjRECT();
-			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			m_listbutton[i].SetOn(false);
-
-			if (PtInRect(&tmp, ptmouse)) {
-				m_listbutton[i].SetOn(true);
-
-				switch (i)
-				{
-				case 0:
-
-					m_Framework->ChangeScene(ENUM_SCENE::TEST);
-					break;
-
-				case 1:
-
-					m_Framework->ChangeScene(ENUM_SCENE::HELP);
-
-					break;
-
-				case 2:
-					PostQuitMessage(NULL);
-					return false;
-					break;
-
-				default:
-					break;
-				}
-
-
-
-				return false;
-			}
+			m_listbutton[i].SetMouseLUp(ptmouse);
+			
 		}
 
 

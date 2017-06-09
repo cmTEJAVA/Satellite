@@ -17,13 +17,54 @@ void CGameScene::Update()
 {
 	if (m_ChildScenes) {
 		m_ChildScenes->Update();
-		return;
+		//return;
 	}
 
 	m_test_player.Update();
 
 	for (auto&q : m_listUnits)
 		q.Update();
+
+
+	for (int i = 0; i < 2; i++) {
+		if (!m_arrbutton[i].Getselect()) continue;
+		switch (i)
+		{
+		case 0:
+			if (m_ChildScenes) {
+				m_arrbutton[i].Setselect(false);
+				PopChildScene();
+			}
+			else {
+
+				m_arrbutton[i].Setselect(false);
+				m_Framework->ChangeScene(ENUM_SCENE::MENU);
+
+			}
+
+			break;
+		case 1:
+			if (!m_ChildScenes) {
+				m_arrbutton[i].Setselect(false);
+
+				ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
+				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITMAX, 1, 0);
+				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITSIZE, 0, 100);
+
+				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITMAX, 2, 0);
+				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 0, (LPARAM)m_arrUnitszPath[0]);
+				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
+
+
+			}
+			//	retrun;
+
+			break;
+		default:
+			break;
+		}
+		return;
+	}
 
 }
 
@@ -57,53 +98,11 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_LBUTTONUP:
 	{
-
-
-		for (int i = 0; i < 2; i++) {
-			RECT tmp = m_arrbutton[i].GetObjRECT();
-			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			m_arrbutton[i].SetOn(false);
-
-			if (PtInRect(&tmp, ptmouse)) {
-				m_arrbutton[i].SetOn(true);
-
-				switch (i)
-				{
-				case 0:
-					if (m_ChildScenes) {
-						PopChildScene();
-					}
-					else {
-
-					m_Framework->ChangeScene(ENUM_SCENE::MENU);
-					}
-					return false;
-					break;
-				case 1:
-					if (!m_ChildScenes) {
-
-						ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
-						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITMAX, 1, 0);
-						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITSIZE, 0, 100);
-
-						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITMAX, 2, 0);
-						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 0, (LPARAM)m_arrUnitszPath[0]);
-						m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
-				
-
-					}
-					//	retrun;
-					return false;
-					break;
-				default:
-					break;
-				}
-
-
-
-				return false;
-			}
+		for (auto & button : m_arrbutton) {
+			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
+
+
 		m_test_player.attack();
 	}
 	break;
@@ -113,14 +112,8 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 	case WM_MOUSEMOVE:
 		for (auto & buttonq : m_arrbutton) {
-			RECT tmp = buttonq.GetObjRECT();
-			POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-			buttonq.SetOn(false);
+			buttonq.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
 
-			if (PtInRect(&tmp, ptmouse)) {
-				buttonq.SetOn(true);
-				return false;
-			}
 		}
 		break;
 
