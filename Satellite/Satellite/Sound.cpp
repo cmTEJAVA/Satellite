@@ -23,7 +23,7 @@ Sound_Func::~Sound_Func()
 		pSound[i]->release();
 	}
 
-	delete[] pChannel;
+
 
 	pSystem->release();
 	pSystem->close();
