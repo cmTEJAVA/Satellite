@@ -76,7 +76,7 @@ bool CSprite::drawRotatImage(HDC hdc, float fradian)
 		SelectObject(transhdc, oldbmp);
 		SelectObject(transhdc, oldbr);
 		DeleteObject(ff00ffbr);
-		DeleteObject(oldbmp);
+		DeleteObject(transhbmp);
 		DeleteDC(transhdc);
 		//		m_cimg.TransparentBlt(hdc,)
 		return true;
@@ -101,7 +101,7 @@ bool CSprite::drawRotatImage(HDC hdc, float fradian)
 
 	HDC testdc = CreateCompatibleDC(hdc);
 	HBITMAP testbmp = CreateCompatibleBitmap(hdc, ptbacktmpsize.x, ptbacktmpsize.y);
-	auto old = SelectObject(testdc, testbmp);
+	auto testold = SelectObject(testdc, testbmp);
 
 	BitBlt(testdc, 0, 0, ptbacktmpsize.x, ptbacktmpsize.y, hdc, rcbacktmp.left, rcbacktmp.top, SRCCOPY);
 
@@ -173,7 +173,7 @@ bool CSprite::drawRotatImage(HDC hdc, float fradian)
 
 
 	DeleteObject
-		(SelectObject(testdc, old))
+		(SelectObject(testdc, testold))
 		;
 	DeleteDC(testdc);
 

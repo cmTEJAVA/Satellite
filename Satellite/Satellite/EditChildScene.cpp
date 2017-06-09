@@ -61,7 +61,7 @@ void CEditChildScene::Draw(HDC hDC)
 		HPEN hpenselect=nullptr;
 		HPEN hpenselectold= nullptr;
 		if (m_iSelectOrbit == i) {
-			HPEN hpenselect = CreatePen(PS_SOLID, 3, RGB(255, 150, 0));
+			hpenselect = CreatePen(PS_SOLID, 3, RGB(255, 150, 0));
 			hpenselectold=(HPEN)SelectObject(hDC, hpenselect);
 
 		}
