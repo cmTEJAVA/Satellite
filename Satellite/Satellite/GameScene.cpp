@@ -16,6 +16,14 @@ CGameScene::~CGameScene()
 
 void CGameScene::Update()
 {
+	if ( m_test_player.GetLife() <= 0.f&&m_ChildScenes ) {
+		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_GOVER::GETCHANGESCENE_MENU,0,0)) {
+			m_Framework->ChangeScene(ENUM_SCENE::MENU);
+			//return;
+		}
+		return;
+
+	}
 	m_Gametime++;
 	if (m_Gametime > 50) {
 		plusEnemy();
@@ -33,10 +41,6 @@ void CGameScene::Update()
 		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT, (WPARAM)&testorbit, (LPARAM)&testunitid)) {
 			plusUnit((ENUM_UNIT)testunitid, testorbit);
 
-		}
-		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_GOVER::GETCHANGESCENE_MENU, (WPARAM)&testorbit, (LPARAM)&testunitid)) {
-			m_Framework->ChangeScene(ENUM_SCENE::MENU);
-			return;
 		}
 
 
