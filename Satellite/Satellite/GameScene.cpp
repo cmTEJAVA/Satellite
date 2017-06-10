@@ -25,7 +25,7 @@ void CGameScene::Update()
 
 	}
 	m_Gametime++;
-	if (m_Gametime > 50) {
+	if (m_Gametime > 25) {
 		plusEnemy();
 		m_Gametime = 0;
 	}
@@ -36,10 +36,10 @@ void CGameScene::Update()
 		//return;
 
 
-		int testorbit;
+		Point tmppos;
 		int testunitid;
-		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT, (WPARAM)&testorbit, (LPARAM)&testunitid)) {
-			plusUnit((ENUM_UNIT)testunitid, testorbit);
+		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT, (WPARAM)&tmppos, (LPARAM)&testunitid)) {
+			plusUnit((ENUM_UNIT)testunitid, tmppos);
 
 		}
 
@@ -229,7 +229,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 
 	for (int i = 0; i < 1; i++) {
-		plusUnit(ENUM_UNIT::BULLET_UNIT, m_vOrbit[0]);
+		plusUnit( ENUM_UNIT::BULLET_UNIT, Point{ m_rcClient.right / 2 + 100,m_rcClient.bottom / 2 });
 	}
 
 	RECT playerimgtmprect = m_test_player.m_imgUnit.GetObjRECT();

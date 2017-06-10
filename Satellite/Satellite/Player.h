@@ -14,7 +14,7 @@ public:
 	void OnCreatplayerimg(const Point& midpos,const LPCTSTR& pStream
 		,float imgsizerate,int spriteframeN,float frameupdatetime
 		,float radianspeed=0.01,float speed=0.f) {
-		CUnit::OnCreatUnit(midpos,0, pStream, imgsizerate, spriteframeN, frameupdatetime, radianspeed, speed);
+		CUnit::OnCreatUnit(midpos,midpos, pStream, imgsizerate, spriteframeN, frameupdatetime, radianspeed, speed);
 		m_life = 1;
 		m_liveimgPath = pStream;
 	}

@@ -36,7 +36,7 @@ public:
 		pos.rotation(m_tergetPos,(rand()%628)/100.0f);
 
 		m_listEnemys.push_back(CEnemy());
-		m_listEnemys.back().Oncreat(rand()%30+10, pos, m_tergetPos, speed+5.f);
+		m_listEnemys.back().Oncreat(rand()%30+10, pos, m_tergetPos, speed+5.f,0.05);
 	
 	}
 
@@ -44,7 +44,7 @@ public:
 		int returni = 0;
 		for (auto & enemy : m_listEnemys) {
 			int tmp = enemy.m_Pos.distance(m_tergetPos);
-			tmp -= enemy.m_size+m_tergetSize;
+			tmp -= enemy.m_size+m_tergetSize-10;
 			if (abs(tmp)<5) {
 				enemy.m_isShow = false;
 				returni++;

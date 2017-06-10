@@ -17,13 +17,13 @@ public:
 	CUnit();
 	~CUnit();
 	virtual void draw(HDC hdc) override;
-	void OnCreatUnit(const Point& midpos, const int radius
+	void OnCreatUnit(const Point& pos, const Point& midpos
 		, const LPCTSTR& pStream
 		, float imgsizerate, int spriteframeN, float frameupdatetime
 		, float radianspeed = 0.01, float speed = 0.02f) {
+		m_imgUnit.SetPos(pos);
 		m_imgUnit.OnCreatCimg(pStream);
 		m_imgUnit.OnCreatSprite(imgsizerate, spriteframeN, frameupdatetime);
-		m_imgUnit.SetPos(Point{ midpos.x+ radius,midpos.y});
 		m_ptmidpos = midpos;
 	//	SetObjRECT(m_imgUnit.GetObjRECT());
 	//	SetPos(pos);
@@ -37,7 +37,7 @@ public:
 		m_unitID = id;
 	}
 	ENUM_BULLET GetBullet() {
-		if (m_ibullettime < 10)return ENUM_BULLET::END;
+		if (m_ibullettime < 7)return ENUM_BULLET::END;
 		switch (m_unitID)
 		{
 		case ENUM_UNIT::BULLET_UNIT:

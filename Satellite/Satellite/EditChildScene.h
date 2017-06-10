@@ -30,6 +30,9 @@ class CEditChildScene :
 
 	int m_selectOrbit{ -1 };
 	
+	Point m_ptmouseOrbit;
+
+
 	std::vector<idUnit>m_vinsert_ID_Units;
 
 

@@ -142,9 +142,14 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 			int tmpsize = (m_vOrbit[i].bottom - m_vOrbit[i].top)/2;
 			tmpsize -= size;
 			tmpsize=abs(tmpsize);
-			if (tmpsize <=10)
+			if (tmpsize <=15)
 			{
+				mousetmp= Point{ LOWORD(lParam),HIWORD(lParam) };
 				m_selectOrbit = i;
+				m_ptmouseOrbit = mousetmp- midpos;
+				m_ptmouseOrbit.normalize();
+				m_ptmouseOrbit=m_ptmouseOrbit*((m_vOrbit[i].bottom - m_vOrbit[i].top) / 2);
+				m_ptmouseOrbit = m_ptmouseOrbit + midpos;
 				return true;
 			}
 
@@ -239,10 +244,12 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 
 	case ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT:
 	if(m_vinsert_ID_Units.size()){
+	//	if (m_selectOrbit < 0)return false;
 		RECT tmp = m_vOrbit[m_vinsert_ID_Units.back().orbit];
 		int size = tmp.right - tmp.left;
 		size /= 2;
-		*((int *)wParam) = size;
+		((Point *)wParam)->x= m_ptmouseOrbit.x;
+		((Point *)wParam)->y= m_ptmouseOrbit.y;
 		*((int *)lParam) = m_vinsert_ID_Units.back().unitID;
 
 		m_vinsert_ID_Units.pop_back();
