@@ -7,7 +7,7 @@ class CEnemy
 	Point		m_Dir;
 	Point		m_tergetPos;
 	float		m_Speed;
-
+	float		m_life; // 0~1
 public:
 	bool m_isShow;
 	int			m_size;
@@ -24,6 +24,7 @@ public:
 		m_tergetPos = tergetPos;
 		m_Speed = speed;
 		m_size = size;
+		m_life = 1;
 	}
 	void SetTergetPos(const Point& pos) {
 		m_tergetPos = pos;
