@@ -1,27 +1,30 @@
 #pragma once
-#include "Scene.h"
-#include "BitmapObject.h"
+#include "ChildScene.h"
+#include <vector>
 #include "Button.h"
-
-#define GameOver_IMG_N 2
+#include "BitmapObject.h"
+#include "GameFrameWork.h"
 
 class CGameOverScene :
-	public CScene
+	public CChildScene
 {
-	CBitmapObject m_bmpGameOver;
-	size_t m_sizeGameOverindx;
-
-	Cbutton m_arrbutton[2];//0:menu 1:exit
-
-	RECT rcClient;
-
+	RECT m_rcClient;
+	CBitmapObject m_back;
+	Cbutton m_button[2];
+	CGameFrameWork m_FrameWork;
 
 public:
 	CGameOverScene();
-	virtual ~CGameOverScene()override;
-	virtual void Update()override;
-	virtual void Draw(HDC hDC)override;
-	virtual bool Initialize(CGameFrameWork* pFramework, HWND hWnd)override;
+	virtual ~CGameOverScene() override;
 
+	virtual void Update() override;
+
+	virtual void Draw(HDC hDC) override;
+
+	//메세지가 처리 되지 않았으면 false가 반환
 	virtual bool Mouse(UINT message, WPARAM wParam, LPARAM lParam) override;
+
+	virtual bool Initialize(CScene* pparentScene, HWND hWnd) override;
+
 };
+

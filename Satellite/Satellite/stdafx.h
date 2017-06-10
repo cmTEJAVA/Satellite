@@ -47,8 +47,9 @@ enum class ENUM_SCENE
 
 enum class ENUM_SCENE_CHILD
 {
-	EDIT,
-	END
+	EDIT
+	, END
+	, GameOver
 };
 enum class ENUM_SOUND
 {

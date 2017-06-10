@@ -85,8 +85,7 @@ void CGameScene::Update()
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITMAX, 2, 0);
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 0, (LPARAM)L"Resorce/button/bullet unit button.png");
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
-
-
+				
 			}
 			//	retrun;
 
@@ -96,6 +95,12 @@ void CGameScene::Update()
 		}
 		return;
 	}
+
+	if (m_test_player.GetLife() <= 0.f)
+	{
+		ChangeChildScene(ENUM_SCENE_CHILD::GameOver);
+	}
+
 
 }
 

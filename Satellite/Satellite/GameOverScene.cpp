@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "GameFrameWork.h"
 #include "GameOverScene.h"
+
 
 CGameOverScene::CGameOverScene()
 {
@@ -14,79 +14,71 @@ CGameOverScene::~CGameOverScene()
 void CGameOverScene::Update()
 {
 	for (int i = 0; i < 2; i++) {
-		if (!m_arrbutton[i].Getselect())continue;
+		if (!m_button[i].Getselect())continue;
 		switch (i)
 		{
 		case 0:
-			m_Framework->ChangeScene(ENUM_SCENE::MENU);
+			m_FrameWork.ChangeScene(ENUM_SCENE::MENU);
 			break;
 
 		case 1:
-			//게임종료
+			// xx
 			break;
-
 
 		default:
 			break;
 		}
 		return;
 	}
-
 }
 
 void CGameOverScene::Draw(HDC hDC)
 {
-	FillRect(hDC, &rcClient, (HBRUSH)GetStockObject(WHITE_BRUSH));
+	FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(WHITE_BRUSH));
 
-	m_bmpGameOver.draw(hDC);
-
-	m_arrbutton[0].draw(hDC);
-	m_arrbutton[1].draw(hDC);
-}
-
-bool CGameOverScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
-{
-	if (!CScene::Initialize(pFramework, hWnd)) return false;
-
-	GetClientRect(hWnd, &rcClient);
-
-	m_sizeGameOverindx = 0;
-	m_bmpGameOver.OnCreatCimg(L"Resorce/Game/game over.png");
-	
-	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
-	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
-
-	for (auto & q : m_arrbutton) {
-		q.SetObjRECT(RECT{ -20,-20,20,20 });
-	}
-
-	m_arrbutton[0].SetPos(Point{ 30,rcClient.bottom - 300 });
-	m_arrbutton[1].SetPos(Point{ rcClient.right - 30,rcClient.bottom - 300 });
-
-	return false;
+	m_back.draw(hDC);
+	m_button[0].draw(hDC);
+	m_button[1].draw(hDC);
 }
 
 bool CGameOverScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
 	{
-	case WM_LBUTTONUP:
-	{
-		for (auto & buttonq : m_arrbutton) {
-			buttonq.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
-		}
-
-	}
-	break;
 
 	case WM_MOUSEMOVE:
-		for (auto & buttonq : m_arrbutton) {
+		for (auto &buttonq : m_button) {
 			buttonq.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
-		break;
+	break;
+
+	case WM_LBUTTONUP:
+		for (auto & buttonq : m_button) {
+			buttonq.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
+		}
+	break;
 
 	default:
+		return false;
 		break;
 	}
+	return false;
+
+}
+
+bool CGameOverScene::Initialize(CScene * pparentScene, HWND hWnd)
+{
+	CChildScene::Initialize(pparentScene, hWnd);
+	GetClientRect(hWnd, &m_rcClient);
+
+	m_back.OnCreatCimg(L"Resorce/Game/game over.png");
+	m_button[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
+	m_button[1].OnCreatCimg(L"Resorce/button/green arrow re.png");
+	for (auto & q : m_button) {
+		q.SetObjRECT(RECT{ -30,-30,30,30 });
+	}
+	m_button[0].SetPos(Point{ 220,m_rcClient.bottom - 100 });
+	m_button[1].SetPos(Point{ m_rcClient.right - 220, m_rcClient.bottom - 100 });
+
 	return false;
 }

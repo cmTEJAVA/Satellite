@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Scene.h"
 #include "EditChildScene.h"
+#include "GameOverScene.h"
 
 CScene::CScene()
 {
@@ -42,7 +43,6 @@ void CScene::ReleaseObjects()
 
 void CScene::PopChildScene()
 {
-
 	if (m_ChildScenes) delete m_ChildScenes;
 	m_ChildScenes = nullptr;
 }
@@ -55,9 +55,15 @@ void CScene::ChangeChildScene(ENUM_SCENE_CHILD iID)
 	case ENUM_SCENE_CHILD::EDIT:
 		m_ChildScenes = new CEditChildScene;
 		m_ChildScenes->Initialize(this, m_hWnd);
-	
 
 		break;
+
+	case ENUM_SCENE_CHILD::GameOver:
+		m_ChildScenes = new CGameOverScene;
+		m_ChildScenes->Initialize(this, m_hWnd);
+
+		break;
+
 
 	default:
 		break;
