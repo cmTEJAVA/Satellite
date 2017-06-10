@@ -3,7 +3,7 @@
 #include <vector>
 #include "Button.h"
 
-enum class ENUM_CHILD_MESSGE
+enum class ENUM_CHILD_MESSGE_EDIT
 {
 	SETORBITMAX,
 	SETORBITSIZE,
@@ -48,7 +48,7 @@ public:
 
 	virtual bool Initialize(CScene* pparentScene, HWND hWnd) override;
 
-	virtual UINT GetSceneMessge(ENUM_CHILD_MESSGE message, WPARAM wParam, LPARAM lParam) override;
+	virtual UINT GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam) override;
 
 };
 

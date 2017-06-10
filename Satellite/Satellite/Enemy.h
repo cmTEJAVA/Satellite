@@ -7,9 +7,10 @@ class CEnemy
 	Point		m_Dir;
 	Point		m_tergetPos;
 	float		m_Speed;
-	int			m_size;
 
 public:
+	bool m_isShow;
+	int			m_size;
 	Point		m_Pos;
 	float		m_fRadianUnit;
 	CEnemy();

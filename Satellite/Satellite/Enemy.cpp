@@ -6,6 +6,7 @@ CEnemy::CEnemy()
 {
 	m_fRadianUnit = 0;
 	m_Speed = 1;
+	m_isShow = true;
 }
 
 

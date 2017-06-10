@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Scene.h"
 #include "GameOverScene.h"
 
 
@@ -13,23 +14,24 @@ CGameOverScene::~CGameOverScene()
 
 void CGameOverScene::Update()
 {
-	for (int i = 0; i < 2; i++) {
-		if (!m_button[i].Getselect())continue;
-		switch (i)
-		{
-		case 0:
-			m_FrameWork.ChangeScene(ENUM_SCENE::MENU);
-			break;
+	//for (int i = 0; i < 2; i++) {
+	//	if (!m_button[i].Getselect())continue;
+	//	switch (i)
+	//	{
+	//	case 0:
+	//		//m_parentScene->ChangeScene(ENUM_SCENE::MENU);
+	//		//m_FrameWork.ChangeScene(ENUM_SCENE::MENU);
+	//		break;
 
-		case 1:
-			// xx
-			break;
+	//	case 1:
+	//		// xx
+	//		break;
 
-		default:
-			break;
-		}
-		return;
-	}
+	//	default:
+	//		break;
+	//	}
+	//	return;
+	//}
 }
 
 void CGameOverScene::Draw(HDC hDC)
@@ -79,6 +81,24 @@ bool CGameOverScene::Initialize(CScene * pparentScene, HWND hWnd)
 	}
 	m_button[0].SetPos(Point{ 220,m_rcClient.bottom - 100 });
 	m_button[1].SetPos(Point{ m_rcClient.right - 220, m_rcClient.bottom - 100 });
+
+	return false;
+}
+
+UINT CGameOverScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
+{
+
+	switch ((ENUM_CHILD_MESSGE_GOVER)message)
+	{
+	case ENUM_CHILD_MESSGE_GOVER::GETCHANGESCENE_MENU:
+		if (m_button[0].Getselect()) {
+			return true;
+
+		}
+		break;
+	default:
+		break;
+	}
 
 	return false;
 }

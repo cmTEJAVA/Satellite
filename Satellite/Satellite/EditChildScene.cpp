@@ -189,12 +189,12 @@ bool CEditChildScene::Initialize(CScene * pparentScene, HWND hWnd)
 	return false;
 }
 
-UINT CEditChildScene::GetSceneMessge(ENUM_CHILD_MESSGE message, WPARAM wParam, LPARAM lParam)
+UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 {
 
-	switch (message)
+	switch ((ENUM_CHILD_MESSGE_EDIT)message)
 	{
-	case ENUM_CHILD_MESSGE::SETORBITMAX:
+	case ENUM_CHILD_MESSGE_EDIT::SETORBITMAX:
 	{
 		m_vOrbit.clear();
 		for (int i = 0; i < wParam; i++) {
@@ -202,7 +202,7 @@ UINT CEditChildScene::GetSceneMessge(ENUM_CHILD_MESSGE message, WPARAM wParam, L
 		}
 	}
 		break;
-	case ENUM_CHILD_MESSGE::SETORBITSIZE:
+	case ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE:
 	{
 		LONG tmp = lParam;
 		m_vOrbit[wParam] = 
@@ -210,13 +210,13 @@ UINT CEditChildScene::GetSceneMessge(ENUM_CHILD_MESSGE message, WPARAM wParam, L
 			,WIDTH / 2 + tmp,HEIGHT / 2 + tmp };
 	}
 		break;
-	case ENUM_CHILD_MESSGE::SETUNITMAX:
+	case ENUM_CHILD_MESSGE_EDIT::SETUNITMAX:
 		m_vUnits.clear();
 		for (int i = 0; i < wParam; i++) {
 			m_vUnits.push_back(Cbutton{});
 		}
 		break;
-	case ENUM_CHILD_MESSGE::SETUNITPATH:
+	case ENUM_CHILD_MESSGE_EDIT::SETUNITPATH:
 	{
 		m_vUnits[wParam].OnCreatCimg(
 			(LPCTSTR)lParam
@@ -237,7 +237,7 @@ UINT CEditChildScene::GetSceneMessge(ENUM_CHILD_MESSGE message, WPARAM wParam, L
 	}
 		break;
 
-	case ENUM_CHILD_MESSGE::GETINSERTUNIT:
+	case ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT:
 	if(m_vinsert_ID_Units.size()){
 		RECT tmp = m_vOrbit[m_vinsert_ID_Units.back().orbit];
 		int size = tmp.right - tmp.left;

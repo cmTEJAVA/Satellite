@@ -23,6 +23,8 @@ class CGameScene :
 	Cbutton				m_arrbutton[2];
 	RECT				m_rcClient;
 
+	size_t m_Gametime;
+
 	void plusUnit(ENUM_UNIT ID,int sizeOrbit) {
 		switch (ID)
 		{
@@ -56,7 +58,7 @@ class CGameScene :
 		//m_listBullets.back().m_bulletimg.SetPos(Point{ rand() % m_rcClient.right,rand() % m_rcClient.bottom });
 	}
 	void plusEnemy() {
-		m_EnemyManager.insertEnemy(Point{ rand() % m_rcClient.right,rand() % m_rcClient.bottom }, rand()%5/10+0.5f);
+		m_EnemyManager.insertEnemy(rand()%5/10+0.5f);
 	}
 
 public:

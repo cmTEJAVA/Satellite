@@ -5,13 +5,20 @@
 #include "BitmapObject.h"
 #include "GameFrameWork.h"
 
+enum class ENUM_CHILD_MESSGE_GOVER
+{
+	GETCHANGESCENE_MENU//return true시 메뉴로 바꿈
+};
+
 class CGameOverScene :
 	public CChildScene
 {
 	RECT m_rcClient;
 	CBitmapObject m_back;
 	Cbutton m_button[2];
-	CGameFrameWork m_FrameWork;
+	//CGameFrameWork m_FrameWork;
+
+
 
 public:
 	CGameOverScene();
@@ -25,6 +32,8 @@ public:
 	virtual bool Mouse(UINT message, WPARAM wParam, LPARAM lParam) override;
 
 	virtual bool Initialize(CScene* pparentScene, HWND hWnd) override;
+
+	virtual UINT GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam);
 
 };
 
