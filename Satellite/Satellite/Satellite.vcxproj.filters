@@ -43,6 +43,9 @@
     <Filter Include="GameObject\GameMoveObject\Unit\Player">
       <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\GameMoveObject\Bullet">
+      <UniqueIdentifier>{22b43b42-a7d8-490c-b6a7-bc223fff27cb}</UniqueIdentifier>
+    </Filter>
     <Filter Include="FrameWork&amp;Scene">
       <UniqueIdentifier>{21d9346b-f85e-4d3d-a1f7-df203ff21716}</UniqueIdentifier>
     </Filter>
@@ -73,13 +76,8 @@
     <Filter Include="FrameWork&amp;Scene\Scene_Child\EditScene">
       <UniqueIdentifier>{c9c73491-503c-4504-a72e-a008cf3a6fbb}</UniqueIdentifier>
     </Filter>
-<<<<<<< HEAD
     <Filter Include="FrameWork&amp;Scene\Scene_Child\GameOver">
       <UniqueIdentifier>{41a0ce82-ab9f-4e4c-af0a-3661e3256c7a}</UniqueIdentifier>
-=======
-    <Filter Include="BulletManager">
-      <UniqueIdentifier>{22b43b42-a7d8-490c-b6a7-bc223fff27cb}</UniqueIdentifier>
->>>>>>> a0e08578d7483b05a372bc83e94570fa0dc8434e
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +150,9 @@
     <ClInclude Include="Vector.h">
       <Filter>Point</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>GameObject\GameMoveObject\Bullet</Filter>
+    </ClInclude>
     <ClInclude Include="Logo3DScene.h">
       <Filter>FrameWork&amp;Scene\Scene\WrapLogo</Filter>
     </ClInclude>
@@ -164,13 +165,8 @@
     <ClInclude Include="EditChildScene.h">
       <Filter>FrameWork&amp;Scene\Scene_Child\EditScene</Filter>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="GameOverScene.h">
       <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
-=======
-    <ClInclude Include="BulletManager.h">
-      <Filter>BulletManager</Filter>
->>>>>>> a0e08578d7483b05a372bc83e94570fa0dc8434e
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -234,6 +230,9 @@
     <ClCompile Include="Vector.cpp">
       <Filter>Point</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>GameObject\GameMoveObject\Bullet</Filter>
+    </ClCompile>
     <ClCompile Include="Logo3DScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene\WrapLogo</Filter>
     </ClCompile>
@@ -246,13 +245,8 @@
     <ClCompile Include="EditChildScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene_Child\EditScene</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="GameOverScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
-=======
-    <ClCompile Include="BulletManager.cpp">
-      <Filter>BulletManager</Filter>
->>>>>>> a0e08578d7483b05a372bc83e94570fa0dc8434e
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
