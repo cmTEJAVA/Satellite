@@ -36,7 +36,7 @@ void CGameOverScene::Update()
 
 void CGameOverScene::Draw(HDC hDC)
 {
-	FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(WHITE_BRUSH));
+	//FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(WHITE_BRUSH));
 
 	m_back.draw(hDC);
 	m_button[0].draw(hDC);
