@@ -31,6 +31,7 @@ void CGameScene::Update()
 
 
 
+	m_BulletManager.Update();
 
 	m_test_player.Update();
 
@@ -97,7 +98,11 @@ void CGameScene::Draw(HDC hDC)
 		q.draw(hDC);
 	}
 
+	m_BulletManager.draw(hDC);
+
 	if (m_ChildScenes)m_ChildScenes->Draw(hDC);
+
+
 
 }
 
@@ -118,6 +123,8 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 
 		m_test_player.attack();
+
+		plusBullet();
 	}
 	break;
 	case WM_RBUTTONUP:
@@ -129,6 +136,8 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 			buttonq.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
 
 		}
+		break;
+	case WM_LBUTTONDOWN:
 		break;
 
 	default:
@@ -147,7 +156,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
 
 	GetClientRect(hWnd, &m_rcClient);
-
+	m_BulletManager.OnCreateBulletImg();
 	m_vOrbit.push_back(100);
 
 	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Test/bullet unit.bmp";

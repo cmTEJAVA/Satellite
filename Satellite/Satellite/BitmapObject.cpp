@@ -27,7 +27,6 @@ void CBitmapObject::drawalpha(HDC hdc, BYTE ifalpha)
 void CBitmapObject::draw(HDC hdc)
 {
 
-
 	RECT rctmp = GetObjRECT();
 	if (m_isBMP) {
 		m_cimg.TransparentBlt(hdc, rctmp, m_delRGB);
@@ -35,5 +34,16 @@ void CBitmapObject::draw(HDC hdc)
 	else {
 
 	m_cimg.Draw(hdc, rctmp);
+	}
+}
+
+void CBitmapObject::draw(HDC hdc, RECT rectDest)
+{
+	if (m_isBMP) {
+		m_cimg.TransparentBlt(hdc, rectDest, m_delRGB);
+	}
+	else {
+
+		m_cimg.Draw(hdc, rectDest);
 	}
 }

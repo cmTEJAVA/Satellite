@@ -150,7 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BitmapObject.h" />
-    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ChildScene.h" />
     <ClInclude Include="EditChildScene.h" />
@@ -179,7 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BitmapObject.cpp" />
-    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ChildScene.cpp" />
     <ClCompile Include="EditChildScene.cpp" />

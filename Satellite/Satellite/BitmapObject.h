@@ -78,6 +78,7 @@ public:
 	}
 	void drawalpha(HDC hdc, BYTE  ifalpha);
 	virtual void draw(HDC hdc) override;
+	void draw(HDC hdc, RECT rectDest);
 
 	void Setmidpos(const RECT& rc) {
 

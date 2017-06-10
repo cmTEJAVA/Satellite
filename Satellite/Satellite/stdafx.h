@@ -73,5 +73,13 @@ enum class ENUM_UNIT
 	, END
 };
 
+enum class ENUM_BULLET
+{
+	STANDARD
+//	,LASER
+	, END
+};
+
+
 
 //szPath define

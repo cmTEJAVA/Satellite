@@ -2,7 +2,7 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Button.h"
-#include "Bullet.h"
+#include "BulletManager.h"
 #include <list>
 #include <vector>
 
@@ -15,7 +15,7 @@ class CGameScene :
 
 	LPCTSTR				m_arrUnitszPath[int(ENUM_UNIT::END)];
 	std::list<CUnit>	m_listUnits;
-	std::list<CBullet>	m_listBullets;
+	CBulletManager  	m_BulletManager;
 	std::vector<int>	m_vOrbit;
 
 	Cbutton				m_arrbutton[2];
@@ -43,6 +43,16 @@ class CGameScene :
 		default:
 			break;
 		}
+	}
+
+	void plusBullet() {
+		Point pos{ m_rcClient.right/2, m_rcClient.bottom/2 };
+		Point dir{  rand()%10-5,rand() % 10 - 5 };
+		dir.normalize();
+		m_BulletManager.insertbullet(ENUM_BULLET::STANDARD, pos, dir);
+		//m_listBullets.push_back(CBulletManager{});
+		//m_listBullets.back().OnCreate();
+		//m_listBullets.back().m_bulletimg.SetPos(Point{ rand() % m_rcClient.right,rand() % m_rcClient.bottom });
 	}
 
 public:
