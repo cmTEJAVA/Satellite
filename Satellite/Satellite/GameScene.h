@@ -4,6 +4,7 @@
 #include "Button.h"
 #include "Bullet.h"
 #include <list>
+#include <vector>
 
 class CGameScene :
 	public CScene
@@ -15,9 +16,11 @@ class CGameScene :
 	LPCTSTR				m_arrUnitszPath[int(ENUM_UNIT::END)];
 	std::list<CUnit>	m_listUnits;
 	std::list<CBullet>	m_listBullets;
+	std::vector<int>	m_vOrbit;
 
 	Cbutton				m_arrbutton[2];
 	RECT				m_rcClient;
+
 
 
 public:

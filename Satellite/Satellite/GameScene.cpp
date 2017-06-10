@@ -18,7 +18,23 @@ void CGameScene::Update()
 	if (m_ChildScenes) {
 		m_ChildScenes->Update();
 		//return;
+
+
+		int testorbit;
+		int testunitid;
+		if (m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::GETINSERTUNIT, (WPARAM)&testorbit, (LPARAM)&testunitid)) {
+			m_listUnits.push_back(CUnit{});
+			m_listUnits.back().OnCreatUnit(
+				Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 }, testorbit,
+				m_arrUnitszPath[testunitid],
+				0.8f, 1, 0.6f, 0.01f, 0.02f
+				);
+		}
+
 	}
+
+
+
 
 	m_test_player.Update();
 
@@ -135,6 +151,8 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
 
 	GetClientRect(hWnd, &m_rcClient);
+
+	m_vOrbit.push_back(100);
 
 	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Test/bullet unit.bmp";
 	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Test/tesla.png";

@@ -9,7 +9,13 @@ enum class ENUM_CHILD_MESSGE
 	SETORBITSIZE,
 	SETUNITMAX,
 	SETUNITPATH,
+	GETINSERTUNIT,
 	FLASE
+};
+
+struct idUnit{
+	int orbit;
+	int unitID;
 };
 
 class CEditChildScene :
@@ -24,6 +30,8 @@ class CEditChildScene :
 
 	int m_selectOrbit{ -1 };
 	
+	std::vector<idUnit>m_vinsert_ID_Units;
+
 
 public:
 	CEditChildScene();

@@ -13,6 +13,17 @@ CEditChildScene::~CEditChildScene()
 
 void CEditChildScene::Update()
 {
+	for (int i = 0; i < m_vUnits.size(); i++) {
+		if (m_vUnits[i].Getselect() && (m_selectOrbit >= 0)) {
+			m_vinsert_ID_Units.push_back(idUnit());
+			m_vinsert_ID_Units.back().unitID = i;
+			m_vinsert_ID_Units.back().orbit = m_selectOrbit;
+
+			m_selectOrbit = -1;
+
+			m_vUnits[i].Setselect(false);
+		}
+	}
 
 }
 
@@ -121,11 +132,6 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	break;
 	case WM_LBUTTONUP:
 	{
-
-		for (auto &button : m_vUnits) {
-			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
-		}
-
 		Point mousetmp{ LOWORD(lParam),HIWORD(lParam) };
 		Point midpos{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
 		
@@ -144,6 +150,11 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 
 		}
+		for (auto &button : m_vUnits) {
+			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
+		}
+
+		
 
 	}
 	
@@ -225,6 +236,23 @@ UINT CEditChildScene::GetSceneMessge(ENUM_CHILD_MESSGE message, WPARAM wParam, L
 			,ltmp });
 	}
 		break;
+
+	case ENUM_CHILD_MESSGE::GETINSERTUNIT:
+	if(m_vinsert_ID_Units.size()){
+		RECT tmp = m_vOrbit[m_vinsert_ID_Units.back().orbit];
+		int size = tmp.right - tmp.left;
+		size /= 2;
+		*((int *)wParam) = size;
+		*((int *)lParam) = m_vinsert_ID_Units.back().unitID;
+
+		m_vinsert_ID_Units.pop_back();
+
+		return true;
+	}
+	
+		break;
+
+
 	default:
 		break;
 	}
