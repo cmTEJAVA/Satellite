@@ -27,6 +27,7 @@ public:
 
 	void SetPos(const Point& q) { m_ptpos = q; }
 	const Point Getpos()const { return m_ptpos; }
+	Point * Getposptr() { return &m_ptpos; }
 
 	bool BoxCollision_posconst(const RECT& rcObj);
 

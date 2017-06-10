@@ -73,15 +73,6 @@ void CGameScene::Update()
 		}
 			break;
 
-		case ENUM_BULLET::LASER:
-		{
-			Point ptpostmp = q.m_imgUnit.Getpos();
-			Point ptdirtmp = ptpostmp;
-			ptdirtmp = ptdirtmp - Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
-			ptdirtmp.normalize();
-			plusBullet(ENUM_BULLET::LASER, ptpostmp, ptdirtmp);
-		}
-		break;
 		default:
 			break;
 		}

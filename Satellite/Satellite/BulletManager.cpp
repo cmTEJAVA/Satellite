@@ -19,6 +19,8 @@ void CBulletManager::draw(HDC hdc)
 		RECT rctmp = tmp+cirB.m_Pos.GetPOINT();
 		m_bullet[0].draw(hdc, rctmp);
 	}
+	
+
 }
 
 void CBulletManager::Update()

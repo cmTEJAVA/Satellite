@@ -77,6 +77,38 @@ void CBitmapObject::draw(HDC hdc,RECT rectDest, float fradian)
 	}
 }
 
+void CBitmapObject::draw(HDC hdc, POINT rotPivot, float rot)
+{
+	RECT rcSorce = GetObjRECT();
+	POINT arr[3];
+	NewFunction(rcSorce, arr, rot);
+	for (int i = 0; i < 3; i++) {
+		arr[i] =arr[i] + rotPivot;
+	}
+	if (m_isBMP) {
+		HDC transhdc = CreateCompatibleDC(hdc);
+		HBITMAP transhbmp = CreateCompatibleBitmap(hdc, WIDTH, HEIGHT);
+		HBITMAP oldbmp = (HBITMAP)SelectObject(transhdc, transhbmp);
+		HBRUSH ff00ffbr = CreateSolidBrush(m_delRGB);
+		HBRUSH oldbr = (HBRUSH)SelectObject(transhdc, ff00ffbr);
+
+		RECT tmp{ 0,0, WIDTH, HEIGHT };
+
+		FillRect(transhdc, &tmp, ff00ffbr);
+		m_cimg.PlgBlt(transhdc, arr);
+		TransparentBlt(hdc, 0, 0, WIDTH, HEIGHT, transhdc, 0, 0, WIDTH, HEIGHT, m_delRGB);
+
+
+		SelectObject(transhdc, oldbmp);
+		SelectObject(transhdc, oldbr);
+		DeleteObject(ff00ffbr);
+		DeleteObject(transhbmp);
+		DeleteDC(transhdc);
+		//		m_cimg.TransparentBlt(hdc,)
+		return;
+	}
+}
+
 void CBitmapObject::NewFunction(RECT rcSorce, POINT * arr, const float & fradian)
 {
 

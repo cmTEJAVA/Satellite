@@ -61,11 +61,8 @@ class CGameScene :
 		}
 	}
 
-	void plusBullet(ENUM_BULLET id,const Point& pos, const Point& dir) {
-		m_BulletManager.insertbullet(id, pos, dir,5.f);
-		//m_listBullets.push_back(CBulletManager{});
-		//m_listBullets.back().OnCreate();
-		//m_listBullets.back().m_bulletimg.SetPos(Point{ rand() % m_rcClient.right,rand() % m_rcClient.bottom });
+	void plusBullet(ENUM_BULLET id, const Point& pos, const Point& dir) {
+		m_BulletManager.insertbullet(id, pos, dir, 5.f);
 	}
 	void plusEnemy() {
 		m_EnemyManager.insertEnemy(rand()%5/10+0.5f);

@@ -6,13 +6,13 @@ class CUnit :
 {
 	ENUM_UNIT m_unitID;
 
-	float	m_fRadianUnit;
-	float	m_fradianspeed;
 	Point	m_ptmidpos;
 	int		m_iRadius;//¹ÝÁö¸§
 
 	int		m_ibullettime;
 public:
+	float	m_fRadianUnit;
+	float	m_fradianspeed;
 	CSprite m_imgUnit;
 	CUnit();
 	~CUnit();
@@ -44,10 +44,11 @@ public:
 			m_ibullettime = 0;
 			return ENUM_BULLET::STANDARD;
 			break;
-		case ENUM_UNIT::LASER_UNIT:
-			m_ibullettime = 0;
-			return ENUM_BULLET::LASER;
-			break;
+	//	case ENUM_UNIT::LASER_UNIT:
+	//		if (m_ibullettime < 30)return ENUM_BULLET::END;
+	//		m_ibullettime = 0;
+	//		return ENUM_BULLET::LASER;
+	//		break;
 		//case ENUM_UNIT::TESLA_UNIT:
 		//	break;
 		//case ENUM_UNIT::END:

@@ -10,3 +10,10 @@ LaserBullet::LaserBullet()
 LaserBullet::~LaserBullet()
 {
 }
+
+void LaserBullet::Update()
+{
+
+
+}
+
