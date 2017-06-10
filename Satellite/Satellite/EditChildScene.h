@@ -28,6 +28,7 @@ class CEditChildScene :
 	
 	std::vector<Cbutton>m_vUnits;
 
+	int m_OnOrbit{ -1 };
 	int m_selectOrbit{ -1 };
 	
 	Point m_ptmouseOrbit;

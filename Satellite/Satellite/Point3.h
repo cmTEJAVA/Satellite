@@ -92,7 +92,7 @@ public:
 	//	float y1 = HEIGHT / 2 * (1 - rate);
 	//	return Point{ x1 + (x)* rate , y1 + (y)* rate };
 //	return Point{ (x),(y)};
-		Point tmp{ (x / z),(y / z)};
+		Point tmp{ (x ),(y )};
 		return tmp;
 	}
 

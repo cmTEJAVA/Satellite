@@ -2,9 +2,11 @@
 #include "BitmapObject.h"
 #include <list>
 #include "CirBullet.h"
+#include "LaserBullet.h"
 class CBulletManager
 {
 	std::list<CirBullet> m_listCirBullet;
+	std::list<LaserBullet> m_listLaserBullet;
 	RECT m_rcClent;
 	Point m_ptmid;
 public:
@@ -43,6 +45,11 @@ public:
 		default:
 			break;
 		}
+	}
+	void insertlaserbullet(Point* unitpos) {
+
+		m_listLaserBullet.push_back(LaserBullet());
+		m_listLaserBullet.back().Oncreat(unitpos);
 	}
 
 

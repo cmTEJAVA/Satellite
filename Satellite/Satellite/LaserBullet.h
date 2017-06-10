@@ -4,13 +4,17 @@
 struct LaserBullet
 {
 
-	CUnit * m_ptrUnit;
+	Point * m_ptrUnit;
+	int m_maxtime;
+	int m_time;
 	bool isShow;
 
 	LaserBullet();
 	~LaserBullet();
 
-	void Oncreat(CUnit * unit) {
+	void Oncreat(Point * unit,int maxtime=10) {
+		m_time = 0;
+		m_maxtime = maxtime;
 		m_ptrUnit = unit;
 	}
 	void Update();

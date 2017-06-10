@@ -67,14 +67,14 @@ void CEditChildScene::Draw(HDC hDC)
 	for (int i = 0; i < m_vOrbit.size(); i++) {
 		HPEN hpenselect = nullptr;
 		HPEN hpenselectold = nullptr;
-		if (m_selectOrbit==i) {
+		if (m_OnOrbit ==i) {
 			hpenselect = CreatePen(PS_SOLID, 3, RGB(255, 150, 0));
 			hpenselectold = (HPEN)SelectObject(hDC, hpenselect);
 
 		}
 		//m_selectOrbbit
 		Ellipse(hDC, m_vOrbit[i].left, m_vOrbit[i].top, m_vOrbit[i].right, m_vOrbit[i].bottom);
-		if (m_selectOrbit==i) {
+		if (m_OnOrbit ==i) {
 			SelectObject(hDC, hpenselectold);
 			DeleteObject(hpenselect);
 			hpenselect = nullptr;
@@ -122,7 +122,25 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 	case WM_MOUSEMOVE:
 	{
+		Point mousetmp{ LOWORD(lParam),HIWORD(lParam) };
+		Point midpos{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
 
+		mousetmp = mousetmp - midpos;
+		int size = mousetmp.length();
+		m_OnOrbit = -1;
+		for (int i = 0; i < m_vOrbit.size(); i++) {
+			int tmpsize = (m_vOrbit[i].bottom - m_vOrbit[i].top) / 2;
+			tmpsize -= size;
+			tmpsize = abs(tmpsize);
+			if (tmpsize <= 15)
+			{
+				mousetmp = Point{ LOWORD(lParam),HIWORD(lParam) };
+				m_OnOrbit = i;
+				return true;
+			}
+
+
+		}
 		for (auto &button : m_vUnits) {
 			button.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
@@ -155,6 +173,7 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 
 		}
+
 		for (auto &button : m_vUnits) {
 			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}

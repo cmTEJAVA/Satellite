@@ -44,11 +44,11 @@ public:
 			m_ibullettime = 0;
 			return ENUM_BULLET::STANDARD;
 			break;
-	//	case ENUM_UNIT::LASER_UNIT:
-	//		if (m_ibullettime < 30)return ENUM_BULLET::END;
-	//		m_ibullettime = 0;
-	//		return ENUM_BULLET::LASER;
-	//		break;
+		case ENUM_UNIT::LASER_UNIT:
+			if (m_ibullettime < 30)return ENUM_BULLET::END;
+			m_ibullettime = 0;
+			return ENUM_BULLET::LASER;
+			break;
 		//case ENUM_UNIT::TESLA_UNIT:
 		//	break;
 		//case ENUM_UNIT::END:
@@ -56,7 +56,7 @@ public:
 		default:
 			break;
 		}
-
+		return ENUM_BULLET::END;
 	}
 
 	void Update()override;

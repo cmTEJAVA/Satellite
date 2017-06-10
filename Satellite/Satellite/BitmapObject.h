@@ -80,7 +80,8 @@ public:
 	virtual void draw(HDC hdc) override;
 	void draw(HDC hdc, RECT rectDest);
 	void draw(HDC hdc, RECT rectDest, float rot);
-	void draw(HDC hdc, POINT rotPivot,float rot);
+	void draw(HDC hdc, POINT ptPivot, float rot);
+	void draw(HDC hdc, POINT* inarr);
 
 	void Setmidpos(const RECT& rc) {
 
