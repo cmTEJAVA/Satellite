@@ -22,15 +22,17 @@ void CGameOverScene::Update()
 	if (m_ftitleHmoveradian >= 2 * PI) {
 		m_ftitleHmoveradian = 0;
 	}
-	m_back.SetPos(Point{ (float)(cos(m_ftitleHmoveradian)*2.0),(float)(sin(m_ftitleVmoveradian)*5.0) });
-
+	m_back[0].SetPos(Point{ (float)(cos(m_ftitleHmoveradian)*2.0),(float)(sin(m_ftitleVmoveradian)*5.0) });
+	//m_back[1].SetPos(Point{ (float)(cos(m_ftitleHmoveradian)*2.0),(float)(sin(m_ftitleVmoveradian)*5.0) });
 }
 
 void CGameOverScene::Draw(HDC hDC)
 {
 	//FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(WHITE_BRUSH));
 
-	m_back.draw(hDC);
+	m_back[0].draw(hDC);
+	m_back[1].draw(hDC);
+
 	m_button[0].draw(hDC);
 	m_button[1].draw(hDC);
 }
@@ -67,14 +69,16 @@ bool CGameOverScene::Initialize(CScene * pparentScene, HWND hWnd)
 
 	m_ftitleVmoveradian=0;
 	m_ftitleHmoveradian=0;
-	m_back.OnCreatCimg(L"Resorce/Game/game over.png");
+	m_back[0].OnCreatCimg(L"Resorce/Game/game over.png");
+	m_back[1].OnCreatCimg(L"Resorce/Game/game over back.png");
+
 	m_button[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
 	m_button[1].OnCreatCimg(L"Resorce/button/green arrow re.png");
 	for (auto & q : m_button) {
-		q.SetObjRECT(RECT{ -30,-30,30,30 });
+		q.SetObjRECT(RECT{ -25,-25,25,25 });
 	}
-	m_button[0].SetPos(Point{ 220,m_rcClient.bottom - 100 });
-	m_button[1].SetPos(Point{ m_rcClient.right - 220, m_rcClient.bottom - 100 });
+	m_button[0].SetPos(Point{ 50,m_rcClient.top + 50 });
+	m_button[1].SetPos(Point{ m_rcClient.right - 50, m_rcClient.top + 50 });
 
 	return false;
 }
