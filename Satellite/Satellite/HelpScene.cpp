@@ -67,12 +67,12 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_arrbutton[1].OnCreatCimg(L"Resorce/button/green arrow right.png");
 	m_arrbutton[2].OnCreatCimg(L"Resorce/button/green arrow back.png");
 	for (auto & q : m_arrbutton) {
-		q.SetObjRECT(RECT{-50,-20,50,20});
+		q.SetObjRECT(RECT{-20,-20,20,20});
 	}
 	m_arrbutton[2].SetObjRECT(RECT{ -20,-20,20,20 });
 
-	m_arrbutton[0].SetPos(Point{ 70,rcClient.bottom-50});
-	m_arrbutton[1].SetPos(Point{ rcClient.right-70,rcClient.bottom - 50 });
+	m_arrbutton[0].SetPos(Point{ 30,rcClient.bottom-30});
+	m_arrbutton[1].SetPos(Point{ rcClient.right-30,rcClient.bottom - 30 });
 	m_arrbutton[2].SetPos(Point{30,30});
 
 	for (auto & q:m_bmpHELP) {

@@ -23,12 +23,8 @@ void CGameScene::Update()
 		int testorbit;
 		int testunitid;
 		if (m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::GETINSERTUNIT, (WPARAM)&testorbit, (LPARAM)&testunitid)) {
-			m_listUnits.push_back(CUnit{});
-			m_listUnits.back().OnCreatUnit(
-				Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 }, testorbit,
-				m_arrUnitszPath[testunitid],
-				0.8f, 1, 0.6f, 0.01f, 0.02f
-				);
+			plusUnit((ENUM_UNIT)testunitid, testorbit);
+
 		}
 
 	}
@@ -66,7 +62,7 @@ void CGameScene::Update()
 
 				ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITMAX, 1, 0);
-				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITSIZE, 0, 100);
+				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETORBITSIZE, 0, m_vOrbit[0]);
 
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITMAX, 2, 0);
 				m_ChildScenes->GetSceneMessge(ENUM_CHILD_MESSGE::SETUNITPATH, 0, (LPARAM)L"Resorce/button/bullet unit button.png");
@@ -183,12 +179,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 
 	for (int i = 0; i < 1; i++) {
-		m_listUnits.push_back(CUnit{});
-		m_listUnits.back().OnCreatUnit(
-			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 }, 100,
-			m_arrUnitszPath[int(ENUM_UNIT::BULLET_UNIT)],
-			0.8f, 1, 0.6f, 0.01f, 0.02f
-		);
+		plusUnit(ENUM_UNIT::BULLET_UNIT, m_vOrbit[0]);
 	}
 
 
