@@ -108,9 +108,10 @@ void CGameScene::Draw(HDC hDC)
 {
 	//FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(GRAY_BRUSH));
 	m_bmp_backimg.draw(hDC);
+
+	m_EnemyManager.draw(hDC);
+
 	m_test_player.draw(hDC);
-
-
 
 	m_arrbutton[0].draw(hDC);
 	if (!m_ChildScenes)
@@ -121,7 +122,6 @@ void CGameScene::Draw(HDC hDC)
 	}
 
 	m_BulletManager.draw(hDC);
-	m_EnemyManager.draw(hDC);
 
 	if (m_ChildScenes)m_ChildScenes->Draw(hDC);
 

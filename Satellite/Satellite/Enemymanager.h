@@ -12,7 +12,7 @@ public:
 	~CEnemymanager();
 	void OnCreatEnemy(const Point& tergetpos) {
 
-		m_imgEnemy.OnCreatCimg(L"Resorce/Test/testEnemy.bmp");
+		m_imgEnemy.OnCreatCimg(L"Resorce/Test/enemy1.bmp");
 		m_imgEnemy.Setsizerate(0.5f);
 		m_imgEnemy.Setmidpos(m_imgEnemy.GetObjRECT());
 	//	m_imgEnemy.OnCreatSprite(0.5f, 1, 0);
