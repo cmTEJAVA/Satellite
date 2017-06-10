@@ -30,7 +30,7 @@ void CGameScene::Update()
 	}
 
 
-
+	m_EnemyManager.Update();
 	m_BulletManager.Update();
 
 	m_test_player.Update();
@@ -121,6 +121,7 @@ void CGameScene::Draw(HDC hDC)
 	}
 
 	m_BulletManager.draw(hDC);
+	m_EnemyManager.draw(hDC);
 
 	if (m_ChildScenes)m_ChildScenes->Draw(hDC);
 
@@ -145,7 +146,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 
 		m_test_player.attack();
-
+		plusEnemy();
 	}
 	break;
 	case WM_RBUTTONUP:
@@ -178,6 +179,8 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 	GetClientRect(hWnd, &m_rcClient);
 	m_BulletManager.OnCreateBulletImg();
+	m_EnemyManager.OnCreatEnemy(Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 });
+
 	m_vOrbit.push_back(100);
 
 	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Test/bullet unit.bmp";

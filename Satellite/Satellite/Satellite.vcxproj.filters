@@ -85,6 +85,12 @@
     <Filter Include="GameObject\bullet">
       <UniqueIdentifier>{ad6fea13-6720-4c25-8494-ab1c289633f2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\GameMoveObject\Unit\Enemy">
+      <UniqueIdentifier>{f281a41a-0022-47d6-98e3-efc2d04b269c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\EnemyManager">
+      <UniqueIdentifier>{32cc563b-aee1-4981-9f37-257f22f9b9e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -177,6 +183,12 @@
     <ClInclude Include="CirBullet.h">
       <Filter>GameObject\bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>GameObject\GameMoveObject\Unit\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemymanager.h">
+      <Filter>Manager\EnemyManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -259,6 +271,12 @@
     </ClCompile>
     <ClCompile Include="CirBullet.cpp">
       <Filter>GameObject\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>GameObject\GameMoveObject\Unit\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemymanager.cpp">
+      <Filter>Manager\EnemyManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

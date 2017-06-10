@@ -79,6 +79,7 @@ public:
 	void drawalpha(HDC hdc, BYTE  ifalpha);
 	virtual void draw(HDC hdc) override;
 	void draw(HDC hdc, RECT rectDest);
+	void draw(HDC hdc, RECT rectDest,float rot);
 
 	void Setmidpos(const RECT& rc) {
 
@@ -89,5 +90,8 @@ public:
 	//	m_rcobjsize = RECT{ 0,0,m_bmpsize.x,m_bmpsize.y };
 		
 	}
+
+	void NewFunction(RECT rcSorce, POINT  *arr, const float& fradian);
+
 };
 

@@ -11,7 +11,6 @@ class CSprite :
 
 	const RECT NewFunction2(POINT  *arr);
 
-	void NewFunction(RECT rcSorce, POINT  *arr, const float& fradian);
 public:
 	CSprite();
 	~CSprite();

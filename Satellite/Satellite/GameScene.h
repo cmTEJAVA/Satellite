@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Button.h"
 #include "BulletManager.h"
+#include "Enemymanager.h"
 #include <list>
 #include <vector>
 
@@ -16,6 +17,7 @@ class CGameScene :
 	LPCTSTR				m_arrUnitszPath[int(ENUM_UNIT::END)];
 	std::list<CUnit>	m_listUnits;
 	CBulletManager  	m_BulletManager;
+	CEnemymanager	 	m_EnemyManager;
 	std::vector<int>	m_vOrbit;
 
 	Cbutton				m_arrbutton[2];
@@ -52,6 +54,9 @@ class CGameScene :
 		//m_listBullets.push_back(CBulletManager{});
 		//m_listBullets.back().OnCreate();
 		//m_listBullets.back().m_bulletimg.SetPos(Point{ rand() % m_rcClient.right,rand() % m_rcClient.bottom });
+	}
+	void plusEnemy() {
+		m_EnemyManager.insertEnemy(Point{ rand() % m_rcClient.right,rand() % m_rcClient.bottom }, rand()%5/10+0.5f);
 	}
 
 public:

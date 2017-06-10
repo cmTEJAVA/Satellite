@@ -47,3 +47,61 @@ void CBitmapObject::draw(HDC hdc, RECT rectDest)
 		m_cimg.Draw(hdc, rectDest);
 	}
 }
+
+void CBitmapObject::draw(HDC hdc,RECT rectDest, float fradian)
+{
+	RECT rcSorce = rectDest;
+	POINT arr[3];
+	NewFunction(rcSorce, arr, fradian);
+	if (m_isBMP) {
+		HDC transhdc = CreateCompatibleDC(hdc);
+		HBITMAP transhbmp = CreateCompatibleBitmap(hdc, WIDTH, HEIGHT);
+		HBITMAP oldbmp = (HBITMAP)SelectObject(transhdc, transhbmp);
+		HBRUSH ff00ffbr = CreateSolidBrush(m_delRGB);
+		HBRUSH oldbr = (HBRUSH)SelectObject(transhdc, ff00ffbr);
+
+		RECT tmp{ 0,0, WIDTH, HEIGHT };
+
+		FillRect(transhdc, &tmp, ff00ffbr);
+		m_cimg.PlgBlt(transhdc, arr);
+		TransparentBlt(hdc, 0, 0, WIDTH, HEIGHT, transhdc, 0, 0, WIDTH, HEIGHT, m_delRGB);
+
+
+		SelectObject(transhdc, oldbmp);
+		SelectObject(transhdc, oldbr);
+		DeleteObject(ff00ffbr);
+		DeleteObject(transhbmp);
+		DeleteDC(transhdc);
+		//		m_cimg.TransparentBlt(hdc,)
+		return;
+	}
+}
+
+void CBitmapObject::NewFunction(RECT rcSorce, POINT * arr, const float & fradian)
+{
+
+	POINT ptsorcepos{ rcSorce.right + rcSorce.left
+		,rcSorce.bottom + rcSorce.top };
+	ptsorcepos.x /= 2;
+	ptsorcepos.y /= 2;
+	rcSorce.left -= ptsorcepos.x;
+	rcSorce.right -= ptsorcepos.x;
+	rcSorce.top -= ptsorcepos.y;
+	rcSorce.bottom -= ptsorcepos.y;
+
+	arr[0] = POINT{ rcSorce.left,rcSorce.top };
+	arr[1] = POINT{ rcSorce.right,rcSorce.top };
+	arr[2] = POINT{ rcSorce.left,rcSorce.bottom };
+
+	float cosx = cos(fradian);
+	float sinx = sin(fradian);
+	for (int i = 0; i < 3; i++) {
+		auto tmp = arr[i];
+		arr[i].x = tmp.x*cosx + tmp.y*sinx;
+		arr[i].y = -tmp.x*sinx + tmp.y*cosx;
+	}
+
+	for (int i = 0; i < 3; i++) {
+		arr[i] = arr[i] + ptsorcepos;
+	}
+}

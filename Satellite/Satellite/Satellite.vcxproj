@@ -155,6 +155,8 @@
     <ClInclude Include="ChildScene.h" />
     <ClInclude Include="CirBullet.h" />
     <ClInclude Include="EditChildScene.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemymanager.h" />
     <ClInclude Include="GameMoveObject.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverScene.h" />
@@ -186,6 +188,8 @@
     <ClCompile Include="ChildScene.cpp" />
     <ClCompile Include="CirBullet.cpp" />
     <ClCompile Include="EditChildScene.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemymanager.cpp" />
     <ClCompile Include="GameMoveObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverScene.cpp" />

@@ -223,32 +223,3 @@ const RECT CSprite::NewFunction2(POINT  *arr)
 	}
 	return tmp;
 }
-
-void CSprite::NewFunction(RECT rcSorce, POINT  *arr, const float& fradian)
-{
-
-	POINT ptsorcepos{ rcSorce.right + rcSorce.left
-		,rcSorce.bottom + rcSorce.top };
-	ptsorcepos.x /= 2;
-	ptsorcepos.y /= 2;
-	rcSorce.left -= ptsorcepos.x;
-	rcSorce.right -= ptsorcepos.x;
-	rcSorce.top -= ptsorcepos.y;
-	rcSorce.bottom -= ptsorcepos.y;
-
-	arr[0] = POINT{ rcSorce.left,rcSorce.top };
-	arr[1] = POINT{ rcSorce.right,rcSorce.top };
-	arr[2] = POINT{ rcSorce.left,rcSorce.bottom };
-
-	float cosx = cos(fradian);
-	float sinx = sin(fradian);
-	for (int i = 0; i < 3; i++) {
-		auto tmp = arr[i];
-		arr[i].x = tmp.x*cosx + tmp.y*sinx;
-		arr[i].y = -tmp.x*sinx + tmp.y*cosx;
-	}
-
-	for (int i = 0; i < 3; i++) {
-		arr[i] = arr[i] + ptsorcepos;
-	}
-}
