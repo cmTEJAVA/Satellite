@@ -71,8 +71,8 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	}
 	m_arrbutton[2].SetObjRECT(RECT{ -20,-20,20,20 });
 
-	m_arrbutton[0].SetPos(Point{ 30,rcClient.bottom-30});
-	m_arrbutton[1].SetPos(Point{ rcClient.right-30,rcClient.bottom - 30 });
+	m_arrbutton[0].SetPos(Point{ 30,rcClient.bottom-300});
+	m_arrbutton[1].SetPos(Point{ rcClient.right-30,rcClient.bottom - 300 });
 	m_arrbutton[2].SetPos(Point{30,30});
 
 	for (auto & q:m_bmpHELP) {

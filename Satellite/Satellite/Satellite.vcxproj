@@ -156,6 +156,7 @@
     <ClInclude Include="EditChildScene.h" />
     <ClInclude Include="GameMoveObject.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="HelpScene.h" />
     <ClInclude Include="Logo.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="EditChildScene.cpp" />
     <ClCompile Include="GameMoveObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="Logo.cpp" />

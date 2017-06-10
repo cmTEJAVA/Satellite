@@ -76,6 +76,9 @@
     <Filter Include="FrameWork&amp;Scene\Scene_Child\EditScene">
       <UniqueIdentifier>{c9c73491-503c-4504-a72e-a008cf3a6fbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene_Child\GameOver">
+      <UniqueIdentifier>{41a0ce82-ab9f-4e4c-af0a-3661e3256c7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -162,6 +165,9 @@
     <ClInclude Include="EditChildScene.h">
       <Filter>FrameWork&amp;Scene\Scene_Child\EditScene</Filter>
     </ClInclude>
+    <ClInclude Include="GameOverScene.h">
+      <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -238,6 +244,9 @@
     </ClCompile>
     <ClCompile Include="EditChildScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene_Child\EditScene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
