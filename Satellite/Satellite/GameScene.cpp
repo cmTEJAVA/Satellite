@@ -21,7 +21,7 @@ void CGameScene::Update()
 	}
 
 	m_test_player.Update();
-	m_destroyed_player.Update();
+
 
 	for (auto&q : m_listUnits)
 		q.Update();
@@ -75,8 +75,6 @@ void CGameScene::Draw(HDC hDC)
 	m_bmp_backimg.draw(hDC);
 	m_test_player.draw(hDC);
 
-	if(m_test_player.GetLife() <= 0)
-		m_destroyed_player.draw(hDC);
 
 
 	m_arrbutton[0].draw(hDC);
@@ -163,12 +161,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 		1.f, 16, 0.6f
 	);
 
-	m_destroyed_player.OnCreatplayerimg
-	(
-		Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 },
-		L"Resorce/Test/ss4.bmp",
-		1.f, 16, 0.6f
-	);
+	m_test_player.Setdestroyedimg(L"Resorce/Test/ss4.bmp");
 
 
 	for (int i = 0; i < 1; i++) {

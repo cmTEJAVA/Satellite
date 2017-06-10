@@ -11,7 +11,6 @@ class CGameScene :
 	CBitmapObject		m_bmp_backimg;
 
 	CPlayer				m_test_player;
-	CPlayer				m_destroyed_player;
 
 	LPCTSTR				m_arrUnitszPath[int(ENUM_UNIT::END)];
 	std::list<CUnit>	m_listUnits;

@@ -15,6 +15,18 @@ public:
 	CBitmapObject();
 	~CBitmapObject();
 
+	void releaseCimg() {
+		m_cimg.Destroy();
+	}
+	void loadCimg(const LPCTSTR& pStream) {
+		m_cimg.Load(pStream);
+		if (m_cimg.IsNull()) {
+			m_cimg.Load(L"Resorce/Menu/button.png");
+			m_isBMP = false;
+
+		}
+	}
+
 	void OnCreatCimg(const LPCTSTR& pStream) {
 
 		CString strResult = PathFindExtension(pStream);
