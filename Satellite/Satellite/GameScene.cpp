@@ -26,13 +26,48 @@ void CGameScene::Update()
 		return;
 
 	}
-	m_Gametime++;
-	if (m_Gametime > 25) {
-		plusEnemy();
-		m_Gametime = 0;
+
+	for (int i = 0; i < 2; i++) {
+		if (!m_arrbutton[i].Getselect()) continue;
+		switch (i)
+		{
+		case 0:
+			if (m_ChildScenes) {
+				m_arrbutton[i].Setselect(false);
+				PopChildScene();
+				m_bPause = false;
+			}
+			else {
+
+				m_arrbutton[i].Setselect(false);
+				m_Framework->ChangeScene(ENUM_SCENE::MENU);
+
+			}
+
+			break;
+		case 1:
+			if (!m_ChildScenes) {
+				m_arrbutton[i].Setselect(false);
+
+				ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
+				m_bPause = true;
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITMAX, 1, 0);
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE, 0, m_vOrbit[0]);
+
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITMAX, int(ENUM_UNIT::END), 0);
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 0, (LPARAM)L"Resorce/button/bullet unit button.png");
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 2, (LPARAM)m_arrUnitszPath[2]);
+				
+			}
+			//	retrun;
+
+			break;
+		default:
+			break;
+		}
+		return;
 	}
-
-
 	if (m_ChildScenes) {
 		m_ChildScenes->Update();
 		//return;
@@ -47,6 +82,15 @@ void CGameScene::Update()
 
 
 	}
+	if (m_bPause) return;
+
+
+	m_Gametime++;
+	if (m_Gametime > 25) {
+		plusEnemy();
+		m_Gametime = 0;
+	}
+
 
 
 	m_EnemyManager.Update();
@@ -84,49 +128,11 @@ void CGameScene::Update()
 
 	}
 
-	for (int i = 0; i < 2; i++) {
-		if (!m_arrbutton[i].Getselect()) continue;
-		switch (i)
-		{
-		case 0:
-			if (m_ChildScenes) {
-				m_arrbutton[i].Setselect(false);
-				PopChildScene();
-			}
-			else {
-
-				m_arrbutton[i].Setselect(false);
-				m_Framework->ChangeScene(ENUM_SCENE::MENU);
-
-			}
-
-			break;
-		case 1:
-			if (!m_ChildScenes) {
-				m_arrbutton[i].Setselect(false);
-
-				ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITMAX, 1, 0);
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE, 0, m_vOrbit[0]);
-
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITMAX, int(ENUM_UNIT::END), 0);
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 0, (LPARAM)L"Resorce/button/bullet unit button.png");
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 2, (LPARAM)m_arrUnitszPath[2]);
-				
-			}
-			//	retrun;
-
-			break;
-		default:
-			break;
-		}
-		return;
-	}
-
 	if (m_test_player.GetLife() <= 0.f)
 	{
 		ChangeChildScene(ENUM_SCENE_CHILD::GameOver);
+		m_bPause = false;
+
 	}
 
 
@@ -137,19 +143,20 @@ void CGameScene::Draw(HDC hDC)
 	//FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(GRAY_BRUSH));
 	m_bmp_backimg.draw(hDC);
 
-	m_EnemyManager.draw(hDC);
 
 	m_test_player.draw(hDC);
-	if(m_test_player.GetLife() <= 0.f)
+	if(m_test_player.GetLife() > 0.f)
 		m_arrbutton[0].draw(hDC);
 	if (!m_ChildScenes)
 		m_arrbutton[1].draw(hDC);
+	
+	m_BulletManager.draw(hDC);
 
 	for (auto&q : m_listUnits) {
 		q.draw(hDC);
 	}
 
-	m_BulletManager.draw(hDC);
+	m_EnemyManager.draw(hDC);
 
 	if (m_ChildScenes)m_ChildScenes->Draw(hDC);
 
@@ -204,7 +211,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
-
+	m_bPause = false;
 	GetClientRect(hWnd, &m_rcClient);
 	m_Gametime = 0;
 	m_vOrbit.push_back(100);

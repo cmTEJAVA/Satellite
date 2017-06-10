@@ -16,7 +16,7 @@ void CEnemymanager::draw(HDC hdc)
 
 	for (auto& enemy : m_listEnemys)
 	{
-		//m_imgEnemy.SetPos(enemy.m_Pos);
+		enemy.UpdateDraw();
 		m_imgEnemy.draw(hdc, enemy.GetDrawRECT(), enemy.m_fRadianUnit);
 	}
 }

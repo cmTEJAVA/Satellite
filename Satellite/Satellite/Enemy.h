@@ -30,6 +30,14 @@ public:
 		m_tergetPos = pos;
 	}
 	void Update();
+	void UpdateDraw() {
+
+		m_fRadianUnit += m_fradianspeed;
+		if (m_fRadianUnit >= PI * 2) {
+			m_fRadianUnit = 0;
+		}
+
+	}
 	RECT GetDrawRECT() {
 		return RECT{
 			LONG(m_Pos.x-m_size),

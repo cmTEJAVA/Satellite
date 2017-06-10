@@ -14,19 +14,19 @@ CUnit::~CUnit()
 void CUnit::draw(HDC hdc)
 {
 
-	m_imgUnit.drawRotatImage(hdc, m_fRadianUnit);
-
-}
-
-void CUnit::Update()
-{
-
 	m_imgUnit.Update();
 	m_ibullettime++;
 	m_fRadianUnit += m_fradianspeed;
 	if (m_fRadianUnit >= PI * 2) {
 		m_fRadianUnit = 0;
 	}
+
+	m_imgUnit.drawRotatImage(hdc, m_fRadianUnit);
+
+}
+
+void CUnit::Update()
+{
 	
 	if (m_fspeed > 0) {
 		Point tmp = m_imgUnit.Getpos();

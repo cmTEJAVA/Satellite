@@ -23,6 +23,8 @@ class CGameScene :
 	Cbutton				m_arrbutton[2];
 	RECT				m_rcClient;
 
+	bool m_bPause;
+
 	size_t m_Gametime;
 
 	void plusUnit(ENUM_UNIT ID,const Point& pos) {
