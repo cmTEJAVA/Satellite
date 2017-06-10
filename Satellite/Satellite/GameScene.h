@@ -47,6 +47,15 @@ class CGameScene :
 				);
 			m_listUnits.back().SetID(ENUM_UNIT::TESLA_UNIT);
 			break;
+		case ENUM_UNIT::LASER_UNIT:
+			m_listUnits.push_back(CUnit{});
+			m_listUnits.back().OnCreatUnit(pos,
+				Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
+				m_arrUnitszPath[int(ENUM_UNIT::LASER_UNIT)],
+				0.5f, 1, 0.6f, 0.01f, 0.02f
+				);
+			m_listUnits.back().SetID(ENUM_UNIT::LASER_UNIT);
+			break;
 		default:
 			break;
 		}

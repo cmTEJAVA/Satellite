@@ -230,6 +230,7 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 		sizetmp /= 2;
 		int interval=10;
 		sizetmp -= interval;
+	
 		m_vUnits[wParam].SetObjRECT(RECT{ -sizetmp,-sizetmp,sizetmp,sizetmp });
 		LONG ltmp = m_rcEditWindow.bottom + m_rcEditWindow.top;
 		ltmp /= 2;

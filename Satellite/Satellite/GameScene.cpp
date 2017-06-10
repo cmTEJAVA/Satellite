@@ -103,9 +103,10 @@ void CGameScene::Update()
 				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITMAX, 1, 0);
 				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE, 0, m_vOrbit[0]);
 
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITMAX, 2, 0);
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITMAX, int(ENUM_UNIT::END), 0);
 				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 0, (LPARAM)L"Resorce/button/bullet unit button.png");
 				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 2, (LPARAM)m_arrUnitszPath[2]);
 				
 			}
 			//	retrun;
@@ -204,6 +205,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Test/bullet unit.bmp";
 	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Test/tesla.png";
+	m_arrUnitszPath[(int)ENUM_UNIT::LASER_UNIT] = L"Resorce/Game/laser unit.bmp";
 
 
 	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
