@@ -13,38 +13,14 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="GameObject">
-      <UniqueIdentifier>{4b02fee5-f24f-418d-b74d-08444da61aff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="operator">
       <UniqueIdentifier>{1614eec8-a926-4b1e-92e7-a4c4f0ee945f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Point">
       <UniqueIdentifier>{9549f899-5e3d-49f9-8c1a-1c58b7f7a512}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\GameMoveObject">
-      <UniqueIdentifier>{5b532f66-1e0f-4ff9-a286-52b5022f0db6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\BitmapObject">
-      <UniqueIdentifier>{e91d5eb5-215e-4277-813f-e01a1ac8caba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\BitmapObject\Sprite">
-      <UniqueIdentifier>{3080e330-f2af-4b8f-b6d6-e188625ba59b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Sound">
       <UniqueIdentifier>{a8e16326-cfb5-43cd-aa83-978113c4a52d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\button">
-      <UniqueIdentifier>{9ab20356-7e31-4c56-b82a-1e6351eaa722}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\GameMoveObject\Unit">
-      <UniqueIdentifier>{90c7415b-ddf2-40fe-b51b-a80720813bbd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\GameMoveObject\Unit\Player">
-      <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\GameMoveObject\Bullet">
-      <UniqueIdentifier>{22b43b42-a7d8-490c-b6a7-bc223fff27cb}</UniqueIdentifier>
     </Filter>
     <Filter Include="FrameWork&amp;Scene">
       <UniqueIdentifier>{21d9346b-f85e-4d3d-a1f7-df203ff21716}</UniqueIdentifier>
@@ -82,14 +58,41 @@
     <Filter Include="Manager">
       <UniqueIdentifier>{2691adfa-f5a0-4166-a1ec-a7eef5e49cc3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObject\bullet">
-      <UniqueIdentifier>{ad6fea13-6720-4c25-8494-ab1c289633f2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObject\GameMoveObject\Unit\Enemy">
-      <UniqueIdentifier>{f281a41a-0022-47d6-98e3-efc2d04b269c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Manager\EnemyManager">
       <UniqueIdentifier>{32cc563b-aee1-4981-9f37-257f22f9b9e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\BulletManager">
+      <UniqueIdentifier>{48f7e94c-3c74-49fe-965d-22d6a2fdb99f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject">
+      <UniqueIdentifier>{59cc3067-2f75-41f4-8dfe-1b9bf4d894ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\GameObject">
+      <UniqueIdentifier>{4b02fee5-f24f-418d-b74d-08444da61aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\GameObject\GameMoveObject">
+      <UniqueIdentifier>{5b532f66-1e0f-4ff9-a286-52b5022f0db6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\GameObject\GameMoveObject\Unit">
+      <UniqueIdentifier>{90c7415b-ddf2-40fe-b51b-a80720813bbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\GameObject\GameMoveObject\Unit\Player">
+      <UniqueIdentifier>{5ac1e9a2-07c4-4d03-bfd0-72182ff703db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\GameObject\BitmapObject">
+      <UniqueIdentifier>{e91d5eb5-215e-4277-813f-e01a1ac8caba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\GameObject\BitmapObject\Sprite">
+      <UniqueIdentifier>{3080e330-f2af-4b8f-b6d6-e188625ba59b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\GameObject\button">
+      <UniqueIdentifier>{9ab20356-7e31-4c56-b82a-1e6351eaa722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\bullet">
+      <UniqueIdentifier>{ad6fea13-6720-4c25-8494-ab1c289633f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\Enemy">
+      <UniqueIdentifier>{f281a41a-0022-47d6-98e3-efc2d04b269c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -127,16 +130,16 @@
       <Filter>Point</Filter>
     </ClInclude>
     <ClInclude Include="GameMoveObject.h">
-      <Filter>GameObject\GameMoveObject</Filter>
+      <Filter>EmptyObject\GameObject\GameMoveObject</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>GameObject</Filter>
+      <Filter>EmptyObject\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="BitmapObject.h">
-      <Filter>GameObject\BitmapObject</Filter>
+      <Filter>EmptyObject\GameObject\BitmapObject</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
-      <Filter>GameObject\BitmapObject\Sprite</Filter>
+      <Filter>EmptyObject\GameObject\BitmapObject\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="MenuScene.h">
       <Filter>FrameWork&amp;Scene\Scene\Menu</Filter>
@@ -145,16 +148,16 @@
       <Filter>Sound</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>GameObject\button</Filter>
+      <Filter>EmptyObject\GameObject\button</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>GameObject\GameMoveObject\Unit\Player</Filter>
+      <Filter>EmptyObject\GameObject\GameMoveObject\Unit\Player</Filter>
     </ClInclude>
     <ClInclude Include="HelpScene.h">
       <Filter>FrameWork&amp;Scene\Scene\Help</Filter>
     </ClInclude>
     <ClInclude Include="Unit.h">
-      <Filter>GameObject\GameMoveObject\Unit</Filter>
+      <Filter>EmptyObject\GameObject\GameMoveObject\Unit</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>Point</Filter>
@@ -177,17 +180,17 @@
     <ClInclude Include="GameOverScene.h">
       <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
     </ClInclude>
-    <ClInclude Include="BulletManager.h">
-      <Filter>Manager</Filter>
-    </ClInclude>
     <ClInclude Include="CirBullet.h">
-      <Filter>GameObject\bullet</Filter>
+      <Filter>EmptyObject\bullet</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>GameObject\GameMoveObject\Unit\Enemy</Filter>
+      <Filter>EmptyObject\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Enemymanager.h">
       <Filter>Manager\EnemyManager</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>Manager\BulletManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -216,16 +219,16 @@
       <Filter>Point</Filter>
     </ClCompile>
     <ClCompile Include="GameMoveObject.cpp">
-      <Filter>GameObject\GameMoveObject</Filter>
+      <Filter>EmptyObject\GameObject\GameMoveObject</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>GameObject</Filter>
+      <Filter>EmptyObject\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="BitmapObject.cpp">
-      <Filter>GameObject\BitmapObject</Filter>
+      <Filter>EmptyObject\GameObject\BitmapObject</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
-      <Filter>GameObject\BitmapObject\Sprite</Filter>
+      <Filter>EmptyObject\GameObject\BitmapObject\Sprite</Filter>
     </ClCompile>
     <ClCompile Include="MenuScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene\Menu</Filter>
@@ -234,16 +237,16 @@
       <Filter>Sound</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>GameObject\button</Filter>
+      <Filter>EmptyObject\GameObject\button</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>GameObject\GameMoveObject\Unit\Player</Filter>
+      <Filter>EmptyObject\GameObject\GameMoveObject\Unit\Player</Filter>
     </ClCompile>
     <ClCompile Include="HelpScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene\Help</Filter>
     </ClCompile>
     <ClCompile Include="Unit.cpp">
-      <Filter>GameObject\GameMoveObject\Unit</Filter>
+      <Filter>EmptyObject\GameObject\GameMoveObject\Unit</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
       <Filter>Point</Filter>
@@ -266,17 +269,17 @@
     <ClCompile Include="GameOverScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
     </ClCompile>
-    <ClCompile Include="BulletManager.cpp">
-      <Filter>Manager</Filter>
-    </ClCompile>
     <ClCompile Include="CirBullet.cpp">
-      <Filter>GameObject\bullet</Filter>
+      <Filter>EmptyObject\bullet</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>GameObject\GameMoveObject\Unit\Enemy</Filter>
+      <Filter>EmptyObject\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Enemymanager.cpp">
       <Filter>Manager\EnemyManager</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Manager\BulletManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
