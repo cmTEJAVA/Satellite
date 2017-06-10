@@ -77,7 +77,7 @@ enum class ENUM_UNIT
 enum class ENUM_BULLET
 {
 	STANDARD
-//	,LASER
+	,LASER
 	, END
 };
 

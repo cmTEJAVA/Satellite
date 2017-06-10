@@ -94,6 +94,12 @@
     <Filter Include="EmptyObject\Enemy">
       <UniqueIdentifier>{f281a41a-0022-47d6-98e3-efc2d04b269c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EmptyObject\bullet\LaserBullet">
+      <UniqueIdentifier>{00c18ad9-a421-4c5e-bed6-16120cc0dad9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\bullet\CirBullet">
+      <UniqueIdentifier>{9dd89eb2-f5e1-4831-abae-84fae77181f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -180,9 +186,6 @@
     <ClInclude Include="GameOverScene.h">
       <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
     </ClInclude>
-    <ClInclude Include="CirBullet.h">
-      <Filter>EmptyObject\bullet</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>EmptyObject\Enemy</Filter>
     </ClInclude>
@@ -191,6 +194,12 @@
     </ClInclude>
     <ClInclude Include="BulletManager.h">
       <Filter>Manager\BulletManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CirBullet.h">
+      <Filter>EmptyObject\bullet\CirBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="LaserBullet.h">
+      <Filter>EmptyObject\bullet\LaserBullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -269,9 +278,6 @@
     <ClCompile Include="GameOverScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
     </ClCompile>
-    <ClCompile Include="CirBullet.cpp">
-      <Filter>EmptyObject\bullet</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>EmptyObject\Enemy</Filter>
     </ClCompile>
@@ -280,6 +286,12 @@
     </ClCompile>
     <ClCompile Include="BulletManager.cpp">
       <Filter>Manager\BulletManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CirBullet.cpp">
+      <Filter>EmptyObject\bullet\CirBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="LaserBullet.cpp">
+      <Filter>EmptyObject\bullet\LaserBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

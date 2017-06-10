@@ -44,6 +44,10 @@ public:
 			m_ibullettime = 0;
 			return ENUM_BULLET::STANDARD;
 			break;
+		case ENUM_UNIT::LASER_UNIT:
+			m_ibullettime = 0;
+			return ENUM_BULLET::LASER;
+			break;
 		//case ENUM_UNIT::TESLA_UNIT:
 		//	break;
 		//case ENUM_UNIT::END:

@@ -162,6 +162,7 @@
     <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="HelpScene.h" />
+    <ClInclude Include="LaserBullet.h" />
     <ClInclude Include="Logo.h" />
     <ClInclude Include="Logo3DScene.h" />
     <ClInclude Include="Matrix.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="HelpScene.cpp" />
+    <ClCompile Include="LaserBullet.cpp" />
     <ClCompile Include="Logo.cpp" />
     <ClCompile Include="Logo3DScene.cpp" />
     <ClCompile Include="Matrix.cpp" />

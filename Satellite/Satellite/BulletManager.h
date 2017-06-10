@@ -5,6 +5,7 @@
 class CBulletManager
 {
 	std::list<CirBullet> m_listCirBullet;
+	std::list<CirBullet> m_listLaserBullet;
 	RECT m_rcClent;
 public:
 	CBitmapObject m_bullet[(int)ENUM_BULLET::END];
@@ -27,6 +28,10 @@ public:
 		case ENUM_BULLET::STANDARD:
 			m_listCirBullet.push_back(CirBullet());
 			m_listCirBullet.back().Oncreat(pos, dir, speed);
+			break;
+		case ENUM_BULLET::LASER:
+			//m_listLaserBullet.push_back(CirBullet());
+			//m_listLaserBullet.back().Oncreat(pos, dir, speed);
 			break;
 		default:
 			break;
