@@ -79,9 +79,6 @@
     <Filter Include="FrameWork&amp;Scene\Scene_Child\GameOver">
       <UniqueIdentifier>{41a0ce82-ab9f-4e4c-af0a-3661e3256c7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Manager">
-      <UniqueIdentifier>{2691adfa-f5a0-4166-a1ec-a7eef5e49cc3}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -165,11 +162,11 @@
     <ClInclude Include="EditChildScene.h">
       <Filter>FrameWork&amp;Scene\Scene_Child\EditScene</Filter>
     </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
     <ClInclude Include="GameOverScene.h">
       <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
-    </ClInclude>
-    <ClInclude Include="BulletManager.h">
-      <Filter>Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -245,11 +242,11 @@
     <ClCompile Include="EditChildScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene_Child\EditScene</Filter>
     </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="GameOverScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene_Child\GameOver</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletManager.cpp">
-      <Filter>Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
