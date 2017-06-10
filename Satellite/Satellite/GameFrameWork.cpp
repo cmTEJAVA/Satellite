@@ -139,7 +139,7 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		m_Scenes = new CLogoScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
-	case ENUM_SCENE::TEST:
+	case ENUM_SCENE::GAME:
 		snd.Play_effect(ENUM_SOUND::CLICK);
 
 		m_Scenes = new CGameScene;

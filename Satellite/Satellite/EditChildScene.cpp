@@ -47,7 +47,7 @@ void CEditChildScene::Draw(HDC hDC)
 	BLENDFUNCTION bf;
 	bf.BlendOp = AC_SRC_OVER;
 	bf.BlendFlags = 0;
-	bf.SourceConstantAlpha = (255/4);
+	bf.SourceConstantAlpha = (255/5);
 	bf.AlphaFormat = 0;
 	AlphaBlend(hDC, 0, 0, m_rcClient.right, m_rcClient.bottom, alphahdc, 0, 0, m_rcClient.right, m_rcClient.bottom, bf);
 

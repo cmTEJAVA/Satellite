@@ -17,8 +17,10 @@ CGameScene::~CGameScene()
 void CGameScene::Update()
 {
 	if ( m_test_player.GetLife() <= 0.f&&m_ChildScenes ) {
-		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_GOVER::GETCHANGESCENE_MENU,0,0)) {
-			m_Framework->ChangeScene(ENUM_SCENE::MENU);
+		m_ChildScenes->Update();
+		ENUM_SCENE changeID;
+		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_GOVER::GETCHANGESCENE,(WPARAM)&changeID,0)) {
+			m_Framework->ChangeScene(changeID);
 			//return;
 		}
 		return;
@@ -164,7 +166,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 		}
 
 
-		//m_test_player.attack();
+		m_test_player.attack();
 		//plusEnemy();
 	}
 	break;

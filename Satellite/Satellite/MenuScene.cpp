@@ -29,7 +29,7 @@ void CMenuScene::Update()
 		switch (i)
 		{
 		case 0:
-			m_Framework->ChangeScene(ENUM_SCENE::TEST);
+			m_Framework->ChangeScene(ENUM_SCENE::GAME);
 			break;
 		case 1:
 			m_Framework->ChangeScene(ENUM_SCENE::HELP);

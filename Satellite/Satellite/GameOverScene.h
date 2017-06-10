@@ -7,7 +7,7 @@
 
 enum class ENUM_CHILD_MESSGE_GOVER
 {
-	GETCHANGESCENE_MENU//return true시 메뉴로 바꿈
+	GETCHANGESCENE//return true시 메뉴로 바꿈
 };
 
 class CGameOverScene :
@@ -17,7 +17,8 @@ class CGameOverScene :
 	CBitmapObject m_back;
 	Cbutton m_button[2];
 	//CGameFrameWork m_FrameWork;
-
+	float m_ftitleVmoveradian;
+	float m_ftitleHmoveradian;
 
 
 public:

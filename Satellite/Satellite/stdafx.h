@@ -39,7 +39,6 @@ enum class ENUM_SCENE
 	TITLE,
 	MENU,
 	GAME,
-	TEST,
 	HELP,
 	TITLE3D,
 	END

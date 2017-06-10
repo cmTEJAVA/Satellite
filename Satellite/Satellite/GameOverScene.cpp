@@ -14,24 +14,16 @@ CGameOverScene::~CGameOverScene()
 
 void CGameOverScene::Update()
 {
-	//for (int i = 0; i < 2; i++) {
-	//	if (!m_button[i].Getselect())continue;
-	//	switch (i)
-	//	{
-	//	case 0:
-	//		//m_parentScene->ChangeScene(ENUM_SCENE::MENU);
-	//		//m_FrameWork.ChangeScene(ENUM_SCENE::MENU);
-	//		break;
+	m_ftitleVmoveradian += 0.5;
+	if (m_ftitleVmoveradian >= 2 * PI) {
+		m_ftitleVmoveradian = 0;
+	}
+	m_ftitleHmoveradian += 0.7;
+	if (m_ftitleHmoveradian >= 2 * PI) {
+		m_ftitleHmoveradian = 0;
+	}
+	m_back.SetPos(Point{ (float)(cos(m_ftitleHmoveradian)*2.0),(float)(sin(m_ftitleVmoveradian)*5.0) });
 
-	//	case 1:
-	//		// xx
-	//		break;
-
-	//	default:
-	//		break;
-	//	}
-	//	return;
-	//}
 }
 
 void CGameOverScene::Draw(HDC hDC)
@@ -73,6 +65,8 @@ bool CGameOverScene::Initialize(CScene * pparentScene, HWND hWnd)
 	CChildScene::Initialize(pparentScene, hWnd);
 	GetClientRect(hWnd, &m_rcClient);
 
+	m_ftitleVmoveradian=0;
+	m_ftitleHmoveradian=0;
 	m_back.OnCreatCimg(L"Resorce/Game/game over.png");
 	m_button[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
 	m_button[1].OnCreatCimg(L"Resorce/button/green arrow re.png");
@@ -90,10 +84,14 @@ UINT CGameOverScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 
 	switch ((ENUM_CHILD_MESSGE_GOVER)message)
 	{
-	case ENUM_CHILD_MESSGE_GOVER::GETCHANGESCENE_MENU:
+	case ENUM_CHILD_MESSGE_GOVER::GETCHANGESCENE:
 		if (m_button[0].Getselect()) {
+			*(ENUM_SCENE *)wParam = ENUM_SCENE::MENU;
 			return true;
-
+		}
+		if (m_button[1].Getselect()) {
+			*(ENUM_SCENE *)wParam = ENUM_SCENE::GAME;
+			return true;
 		}
 		break;
 	default:
