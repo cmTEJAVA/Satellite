@@ -36,9 +36,26 @@ void CGameScene::Update()
 	m_test_player.Update();
 
 
-	for (auto&q : m_listUnits)
-		q.Update();
+	for (auto&q : m_listUnits) {
 
+		q.Update();
+		
+		switch (q.GetBullet())
+		{
+		case ENUM_BULLET::STANDARD:
+		{
+			Point ptpostmp = q.m_imgUnit.Getpos();
+			Point ptdirtmp= ptpostmp;
+			ptdirtmp = ptdirtmp - Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
+			ptdirtmp.normalize();
+			plusBullet(ENUM_BULLET::STANDARD,ptpostmp, ptdirtmp);
+		}
+			break;
+		default:
+			break;
+		}
+
+	}
 
 	for (int i = 0; i < 2; i++) {
 		if (!m_arrbutton[i].Getselect()) continue;
@@ -124,7 +141,6 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 		m_test_player.attack();
 
-		plusBullet();
 	}
 	break;
 	case WM_RBUTTONUP:

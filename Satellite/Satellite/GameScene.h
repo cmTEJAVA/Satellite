@@ -31,6 +31,7 @@ class CGameScene :
 				m_arrUnitszPath[int(ENUM_UNIT::BULLET_UNIT)],
 				0.8f, 1, 0.6f, 0.01f, 0.02f
 				);
+			m_listUnits.back().SetID(ENUM_UNIT::BULLET_UNIT);
 			break;
 		case ENUM_UNIT::TESLA_UNIT:
 			m_listUnits.push_back(CUnit{});
@@ -39,17 +40,15 @@ class CGameScene :
 				m_arrUnitszPath[int(ENUM_UNIT::TESLA_UNIT)],
 				0.7f, 1, 0.6f, 0.01f, 0.02f
 				);
+			m_listUnits.back().SetID(ENUM_UNIT::TESLA_UNIT);
 			break;
 		default:
 			break;
 		}
 	}
 
-	void plusBullet() {
-		Point pos{ m_rcClient.right/2, m_rcClient.bottom/2 };
-		Point dir{  rand()%10-5,rand() % 10 - 5 };
-		dir.normalize();
-		m_BulletManager.insertbullet(ENUM_BULLET::STANDARD, pos, dir);
+	void plusBullet(ENUM_BULLET id,const Point& pos, const Point& dir) {
+		m_BulletManager.insertbullet(id, pos, dir,5.f);
 		//m_listBullets.push_back(CBulletManager{});
 		//m_listBullets.back().OnCreate();
 		//m_listBullets.back().m_bulletimg.SetPos(Point{ rand() % m_rcClient.right,rand() % m_rcClient.bottom });

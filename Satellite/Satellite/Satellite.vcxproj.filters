@@ -82,6 +82,9 @@
     <Filter Include="Manager">
       <UniqueIdentifier>{2691adfa-f5a0-4166-a1ec-a7eef5e49cc3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject\bullet">
+      <UniqueIdentifier>{ad6fea13-6720-4c25-8494-ab1c289633f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -171,6 +174,9 @@
     <ClInclude Include="BulletManager.h">
       <Filter>Manager</Filter>
     </ClInclude>
+    <ClInclude Include="CirBullet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -250,6 +256,9 @@
     </ClCompile>
     <ClCompile Include="BulletManager.cpp">
       <Filter>Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CirBullet.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

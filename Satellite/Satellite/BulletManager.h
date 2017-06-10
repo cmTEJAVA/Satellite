@@ -1,15 +1,11 @@
 #pragma once
 #include "BitmapObject.h"
 #include <list>
-
-struct CirBullet {
-	Point m_Pos;
-	Point m_Dir;
-};
-
+#include "CirBullet.h"
 class CBulletManager
 {
 	std::list<CirBullet> m_listCirBullet;
+	RECT m_rcClent;
 public:
 	CBitmapObject m_bullet[(int)ENUM_BULLET::END];
 	
@@ -23,14 +19,14 @@ public:
 		RECT tmp = m_bullet[(int)ENUM_BULLET::STANDARD].GetObjRECT();
 		m_bullet[(int)ENUM_BULLET::STANDARD].Setmidpos(tmp);
 		m_bullet[(int)ENUM_BULLET::STANDARD].SetPos(Point{ 0,0 });
+		m_rcClent = RECT{ 0,0,WIDTH,HEIGHT };
 	}
-	void insertbullet(ENUM_BULLET ID,Point pos,Point dir) {
+	void insertbullet(ENUM_BULLET ID,const Point& pos,const Point& dir,float speed) {
 		switch (ID)
 		{
 		case ENUM_BULLET::STANDARD:
 			m_listCirBullet.push_back(CirBullet());
-			m_listCirBullet.back().m_Pos = pos;
-			m_listCirBullet.back().m_Dir = dir;
+			m_listCirBullet.back().Oncreat(pos, dir, speed);
 			break;
 		default:
 			break;

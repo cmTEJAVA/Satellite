@@ -25,7 +25,15 @@ void CBulletManager::Update()
 {
 	for (auto &cirB : m_listCirBullet)
 	{
-		cirB.m_Pos += cirB.m_Dir*2.f;
+		if (!PtInRect(&m_rcClent, cirB.m_Pos.GetPOINT()))
+		{
+			cirB.isShow = false;
+		}
+		
+		cirB.Update();
+
+
 	}
-	
+	m_listCirBullet.remove_if([](CirBullet bullet) {return !bullet.isShow; });
+
 }

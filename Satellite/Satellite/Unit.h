@@ -4,11 +4,14 @@
 class CUnit :
 	public CGameMoveObject
 {
+	ENUM_UNIT m_unitID;
 
 	float	m_fRadianUnit;
 	float	m_fradianspeed;
 	Point	m_ptmidpos;
 	int		m_iRadius;//¹ÝÁö¸§
+
+	int		m_ibullettime;
 public:
 	CSprite m_imgUnit;
 	CUnit();
@@ -28,7 +31,29 @@ public:
 		SetSpeed(speed);
 		m_fradianspeed = radianspeed;
 		m_fRadianUnit = 0;
+		m_ibullettime = 0;
 	}
+	void SetID(ENUM_UNIT id) {
+		m_unitID = id;
+	}
+	ENUM_BULLET GetBullet() {
+		if (m_ibullettime < 5)return ENUM_BULLET::END;
+		switch (m_unitID)
+		{
+		case ENUM_UNIT::BULLET_UNIT:
+			m_ibullettime = 0;
+			return ENUM_BULLET::STANDARD;
+			break;
+		//case ENUM_UNIT::TESLA_UNIT:
+		//	break;
+		//case ENUM_UNIT::END:
+		//	break;
+		default:
+			break;
+		}
+
+	}
+
 	void Update()override;
 
 };

@@ -71,6 +71,7 @@ public:
 		
 		return Point3(other.z*y-z*other.y,z*other.x-x*other.z,x*other.y-y*other.x);
 	}
+
 	const float inner(const Point3& other) {
 		return x*other.x + y*other.y + z*other.z;
 	}

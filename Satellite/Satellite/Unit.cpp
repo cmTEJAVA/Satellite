@@ -22,7 +22,7 @@ void CUnit::Update()
 {
 
 	m_imgUnit.Update();
-
+	m_ibullettime++;
 	m_fRadianUnit += m_fradianspeed;
 	if (m_fRadianUnit >= PI * 2) {
 		m_fRadianUnit = 0;
@@ -33,5 +33,6 @@ void CUnit::Update()
 		tmp.rotation(m_ptmidpos, m_fspeed);
 		m_imgUnit.SetPos(tmp);
 	}
+
 
 }
