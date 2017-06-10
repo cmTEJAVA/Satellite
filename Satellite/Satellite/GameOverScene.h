@@ -14,7 +14,7 @@ class CGameOverScene :
 	public CChildScene
 {
 	RECT m_rcClient;
-	CBitmapObject m_back;
+	CBitmapObject m_back[2];
 	Cbutton m_button[2];
 	//CGameFrameWork m_FrameWork;
 	float m_ftitleVmoveradian;
