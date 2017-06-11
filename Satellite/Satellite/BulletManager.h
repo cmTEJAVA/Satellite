@@ -3,12 +3,15 @@
 #include <list>
 #include "CirBullet.h"
 #include "LaserBullet.h"
+#include "Enemymanager.h"
 class CBulletManager
 {
 	std::list<CirBullet> m_listCirBullet;
 	std::list<LaserBullet> m_listLaserBullet;
 	RECT m_rcClent;
 	Point m_ptmid;
+	CEnemymanager * m_ptrEnemeyManager;
+
 public:
 	CBitmapObject m_bullet[(int)ENUM_BULLET::END];
 	
@@ -16,6 +19,7 @@ public:
 	~CBulletManager() ;
 	void draw(HDC hdc) ;
 	void Update() ;
+	void OnCreate(CEnemymanager * ptrEnemeyManager);
 	void OnCreateBulletImg() {
 		m_bullet[(int)ENUM_BULLET::STANDARD].Setsizerate(0.2f);
 		m_bullet[(int)ENUM_BULLET::STANDARD].OnCreatCimg(L"Resorce/Game/bullet.png");

@@ -38,6 +38,18 @@ public:
 		}
 
 	}
+	void Drawlife(HDC hdc);
+	void damage(float fPerdmg = 0.05f) {
+		m_life = max(0.f, m_life - fPerdmg);
+		if (m_life == 0.f) {
+			m_Speed = 0;
+			m_isShow = false;
+			//m_imgUnit.releaseCimg();
+			//m_imgUnit.loadCimg(m_destroyedimgPath);
+		}
+	};
+
+
 	RECT GetDrawRECT() {
 		return RECT{
 			LONG(m_Pos.x-m_size),

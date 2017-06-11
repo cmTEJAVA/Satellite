@@ -84,9 +84,10 @@ void CGameScene::Update()
 	}
 	if (m_bPause) return;
 
+	//이 이후로 게임진행 업데이트
 
 	m_Gametime++;
-	if (m_Gametime > 25) {
+	if (m_Gametime > 50) {
 		plusEnemy();
 		m_Gametime = 0;
 	}
@@ -254,6 +255,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	playersize /= 2;
 	m_BulletManager.OnCreateBulletImg();
 	m_EnemyManager.OnCreatEnemy(Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 },playersize);
+	m_BulletManager.OnCreate(&m_EnemyManager);
 
 
 	return true;

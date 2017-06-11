@@ -54,8 +54,12 @@ void CBulletManager::Update()
 		
 		cirB.Update();
 
+		if (m_ptrEnemeyManager->damageCirBullet(cirB.m_Pos)) {
+			cirB.isShow = false;
+		}
 
 	}
+
 	m_listCirBullet.remove_if([](CirBullet bullet) {return !bullet.isShow; });
 
 	for (auto &cirB : m_listLaserBullet)
@@ -64,4 +68,9 @@ void CBulletManager::Update()
 	}
 	m_listLaserBullet.remove_if([](LaserBullet bullet) {return !bullet.isShow; });
 
+}
+
+void CBulletManager::OnCreate(CEnemymanager * ptrEnemeyManager)
+{
+	m_ptrEnemeyManager = ptrEnemeyManager;
 }
