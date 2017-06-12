@@ -151,16 +151,16 @@ void CGameScene::Draw(HDC hDC)
 	if (!m_ChildScenes)
 		m_arrbutton[1].draw(hDC);
 	
-	m_BulletManager.draw(hDC);
-
-	for (auto&q : m_listUnits) {
-		q.draw(hDC);
-	}
 
 	m_EnemyManager.draw(hDC);
 
 	if (m_ChildScenes)m_ChildScenes->Draw(hDC);
 
+	m_BulletManager.draw(hDC);
+
+	for (auto&q : m_listUnits) {
+		q.draw(hDC);
+	}
 
 
 }
