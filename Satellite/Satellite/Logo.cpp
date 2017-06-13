@@ -1,10 +1,16 @@
 #include "stdafx.h"
 #include "GameFrameWork.h"
 #include "Logo.h"
+#include "Sound.h"
 
+Sound_Func		m_snd_logo;
 
 CLogoScene::CLogoScene()
 {
+	m_snd_logo.Add_sound();
+	m_snd_logo.Play_effect(ENUM_SOUND::LOGO);
+	m_snd_logo.Play_effect(ENUM_SOUND::LOGO2);
+
 }
 
 

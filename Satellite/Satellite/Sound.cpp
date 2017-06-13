@@ -32,11 +32,34 @@ Sound_Func::~Sound_Func()
 
 void Sound_Func::Add_sound()
 {
+
+	pSystem->createSound(
+		"Sound/VIOLA_SKILL1.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::LOGO]
+	);
+
+	pSystem->createSound(
+		"Sound/VIOLA_SKILL2.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::LOGO2]
+	);
+
 	pSystem->createStream(
-		"Sound/BENDY+AND+THE+INK+MACHINE+(Build+Our+Machine).mp3"
+		"Sound/lens.mp3"
 		, FMOD_LOOP_NORMAL | FMOD_2D
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::INTRO]
+	);
+
+
+	pSystem->createStream(
+		"Sound/Waterflame - Jumper.mp3"
+		, FMOD_LOOP_NORMAL | FMOD_2D
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::BACK]
 	);
 
 	pSystem->createSound(
@@ -60,6 +83,10 @@ void Sound_Func::Play_bgm(ENUM_SOUND type)
 {
 	pSystem->playSound(pSound[(int)type]
 		, nullptr, false, &pChannel[(int)type]);
+
+	if(type == ENUM_SOUND::INTRO)
+	pChannel[(int)type]->setVolume(0.5f);
+
 }
 
 void Sound_Func::Play_effect(ENUM_SOUND type)
@@ -72,7 +99,6 @@ void Sound_Func::Play_effect(ENUM_SOUND type)
 void Sound_Func::Stop_bgm(ENUM_SOUND type)
 {
 	bool bPlaying;
-	pChannel[(int)type]->isPlaying(&bPlaying);
 	pChannel[(int)type]->isPlaying(&bPlaying);
 	if (bPlaying)
 		pChannel[(int)type]->stop();

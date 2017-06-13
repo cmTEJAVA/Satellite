@@ -16,6 +16,7 @@ class CGameOverScene :
 	RECT m_rcClient;
 	CBitmapObject m_back[2];
 	Cbutton m_button[2];
+	
 	//CGameFrameWork m_FrameWork;
 	float m_ftitleVmoveradian;
 	float m_ftitleHmoveradian;

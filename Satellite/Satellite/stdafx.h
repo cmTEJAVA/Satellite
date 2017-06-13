@@ -61,6 +61,7 @@ enum class ENUM_SCENE_CHILD
 enum class ENUM_SOUND
 {
 	LOGO
+	, LOGO2
 	, INTRO
 	, BACK
 	, CLICK
@@ -88,7 +89,18 @@ enum class ENUM_BULLET
 	,LASER
 	, END
 };
-
-
-
 //szPath define
+
+
+// sound
+enum class ENUM_INTRO_BGM
+{
+	OFF
+	, ON
+};
+
+enum class ENUM_BACK_BGM
+{
+	OFF
+	, ON
+};
