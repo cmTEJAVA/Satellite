@@ -37,6 +37,9 @@ void CMenuScene::Update()
 		case 2:
 			PostQuitMessage(NULL);
 			break;
+		case 3:
+			m_Framework->ChangeScene(ENUM_SCENE::TEST);
+			break;
 		default:
 			break;
 		}
@@ -67,9 +70,17 @@ bool CMenuScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 		Cbutton m_testbutt;
 		m_listbutton.push_back(m_testbutt);
 	}
+	m_listbutton.push_back(Cbutton());
+
 	m_listbutton[0].OnCreatCimg(L"Resorce/Menu/start button.png");
 	m_listbutton[1].OnCreatCimg(L"Resorce/Menu/help button.png");
 	m_listbutton[2].OnCreatCimg(L"Resorce/Menu/exit button.png");
+
+	//test
+	m_listbutton[3].OnCreatCimg(L"asdf");
+	m_listbutton[3].SetObjRECT(RECT{ -60 * 2,-20 * 2,60 * 2,20 * 2 });
+	m_listbutton[3].SetPos(Point{ 100, 500 });
+
 
 	for (int i = 0; i < 3; i++) {
 		
@@ -101,7 +112,7 @@ bool CMenuScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 
 		POINT ptmouse{ LOWORD(lParam),HIWORD(lParam) };
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 3+1; i++) {
 			m_listbutton[i].SetMouseLUp(ptmouse);
 			
 		}

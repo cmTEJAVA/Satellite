@@ -8,6 +8,11 @@ class CEnemy
 	Point		m_tergetPos;
 	float		m_Speed;
 	float		m_life; // 0~1
+
+	char ID;
+	char ID2;
+
+
 public:
 	bool m_isShow;
 	int			m_size;
@@ -25,6 +30,27 @@ public:
 		m_Speed = speed;
 		m_size = size;
 		m_life = 1;
+
+
+		Point enmytmp = m_Pos;
+		enmytmp = enmytmp - m_tergetPos;
+		float enemytmpradian = (2 * PI + atan2(enmytmp.y, enmytmp.x));
+		int asdf = enemytmpradian / DIVIDE_RADIAN;
+
+		asdf %= DIVIDE_N;
+		ID = asdf;
+
+
+		float ID2floatradian = DIVIDE_RADIAN*((float)ID + 0.5f);
+		if (enemytmpradian > 2 * PI) {
+			enemytmpradian -= 2 * PI;
+		}
+		
+		ID2 = (enemytmpradian < ID2floatradian ? ID - 1 : ID + 1);
+		ID2 = (ID2+ DIVIDE_N) % DIVIDE_N;
+
+
+
 	}
 	void SetTergetPos(const Point& pos) {
 		m_tergetPos = pos;
@@ -58,6 +84,13 @@ public:
 			LONG(m_Pos.y+m_size)
 
 		};
+	}
+
+	bool istrueOnID(const char& tmp) {
+		if (ID == -1 || ID == tmp || ID2 == tmp) {
+			return true;
+		}
+		return false;
 	}
 
 };

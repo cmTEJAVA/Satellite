@@ -7,6 +7,9 @@ CEnemy::CEnemy()
 	m_fRadianUnit = 0;
 	m_Speed = 1;
 	m_isShow = true;
+
+	ID = -1;
+	ID2 = -1;
 }
 
 
@@ -20,6 +23,13 @@ void CEnemy::Update()
 	m_Dir.normalize();
 
 	m_Pos += m_Dir*m_Speed;
+
+	if (ID > 0) {
+		if (m_Pos.distance(m_tergetPos)<g_DIVIDE_MAX_SIZE) {
+			ID = -1;
+		}
+	}
+
 }
 
 void CEnemy::Drawlife(HDC hdc)

@@ -2,11 +2,14 @@
 #include "Enemy.h"
 #include <list>
 #include "Sprite.h"
+#include "CirBullet.h"
 class CEnemymanager
 {
 	Point m_tergetPos;
 	int m_tergetSize;
 	std::list<CEnemy> m_listEnemys;
+	//std::vector<std::list<CEnemy*>> m_vlistenemys;
+	//std::list<CEnemy*> m_listEnemys;
 	RECT m_rcClient{ 0,0,WIDTH,HEIGHT };
 
 public:
@@ -38,7 +41,7 @@ public:
 		pos.rotation(m_tergetPos,(rand()%628)/100.0f);
 
 		m_listEnemys.push_back(CEnemy());
-		m_listEnemys.back().Oncreat(rand()%30+10, pos, m_tergetPos, speed,0.05);
+		m_listEnemys.back().Oncreat(rand()% (ENEMY_MAX_R_SIZE-10) +10, pos, m_tergetPos, speed,0.05);
 	
 	}
 
@@ -56,13 +59,29 @@ public:
 		return returni;
 	}
 
-	bool damageCirBullet(const Point& pos) {
+	//bool damageCirBullet(const Point& pos) {
+	//	for (auto &enemy : m_listEnemys) {
+	//		if (!PtInRect(&m_rcClient, enemy.m_Pos.GetPOINT())) continue;
+	//		float tmpdistance;
+	//		tmpdistance=pos.distance(enemy.m_Pos);
+	//		if (tmpdistance <= enemy.m_size) {
+	//			enemy.damage(0.34);
+	//			return true;
+	//		}
+
+
+	//	}
+	//	return false;
+	//}
+
+	bool damageCirBullet(CirBullet * ptrbullet) {
 		for (auto &enemy : m_listEnemys) {
 			if (!PtInRect(&m_rcClient, enemy.m_Pos.GetPOINT())) continue;
+			if (!enemy.istrueOnID(ptrbullet->ID))continue;
 			float tmpdistance;
-			tmpdistance=pos.distance(enemy.m_Pos);
+			tmpdistance = ptrbullet->m_Pos.distance(enemy.m_Pos);
 			if (tmpdistance <= enemy.m_size) {
-				enemy.damage(0.34);
+				enemy.damage(0.1);
 				return true;
 			}
 

@@ -100,6 +100,9 @@
     <Filter Include="EmptyObject\bullet\CirBullet">
       <UniqueIdentifier>{9dd89eb2-f5e1-4831-abae-84fae77181f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork&amp;Scene\Scene\Test">
+      <UniqueIdentifier>{943fa479-c60a-4524-83df-415eae450958}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -201,6 +204,9 @@
     <ClInclude Include="LaserBullet.h">
       <Filter>EmptyObject\bullet\LaserBullet</Filter>
     </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>FrameWork&amp;Scene\Scene\Test</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -292,6 +298,9 @@
     </ClCompile>
     <ClCompile Include="LaserBullet.cpp">
       <Filter>EmptyObject\bullet\LaserBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>FrameWork&amp;Scene\Scene\Test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

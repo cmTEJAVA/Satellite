@@ -5,6 +5,7 @@
 #include "MenuScene.h"
 #include "HELPScene.h"
 #include "Logo3DScene.h"
+#include "TestScene.h"
 #include "Sound.h"
 
 Sound_Func snd;
@@ -27,6 +28,7 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 	ChangeScene(ENUM_SCENE::TITLE);
 	snd.Add_sound();
 	//snd.Play_bgm(ENUM_SOUND::INTRO);
+	g_DIVIDE_MAX_SIZE = 100;//(ENEMY_MAX_R_SIZE / cos((PI - DIVIDE_RADIAN) / 2));
 
 	return false;
 }
@@ -163,6 +165,11 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		m_Scenes = new CLogo3DScene;
 		m_Scenes->Initialize(this, m_hWnd);
 
+		break;
+	case ENUM_SCENE::TEST:
+
+		m_Scenes = new CTestScene;
+		m_Scenes->Initialize(this, m_hWnd);
 		break;
 
 	default:

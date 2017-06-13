@@ -54,11 +54,12 @@ void CBulletManager::Update()
 		
 		cirB.Update();
 
-		if (m_ptrEnemeyManager->damageCirBullet(cirB.m_Pos)) {
+		if (m_ptrEnemeyManager->damageCirBullet(&cirB)) {
 			cirB.isShow = false;
 		}
 
 	}
+
 
 	m_listCirBullet.remove_if([](CirBullet bullet) {return !bullet.isShow; });
 

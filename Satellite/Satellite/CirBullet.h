@@ -8,6 +8,9 @@ struct CirBullet
 
 	bool isShow;
 
+	char ID;
+
+
 	CirBullet();
 	~CirBullet();
 
@@ -15,6 +18,12 @@ struct CirBullet
 		m_Pos = pos;
 		m_Dir = dir;
 		m_Speed = speed;
+
+		float enemytmpradian = (2 * PI + atan2(dir.y, dir.x));
+		int asdf = enemytmpradian / DIVIDE_RADIAN;
+
+		asdf %= DIVIDE_N;
+		ID = asdf;
 	}
 	void Update();
 };

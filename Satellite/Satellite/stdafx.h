@@ -29,10 +29,17 @@
 #define PI 3.141592
 #define RADIAN(X) ((PI / 180) * X)
 
+#define DIVIDE_N 100//몇개로 나눌껀지 물어보는애
+#define DIVIDE_RADIAN ((2 * PI) / DIVIDE_N)
+
+#define ENEMY_MAX_R_SIZE 40
+
+
 #define GAMEFPS			int(1000 / 60)
 
 #define SOUND_TYPE 20
 
+extern float g_DIVIDE_MAX_SIZE;
 
 enum class ENUM_SCENE
 {
@@ -41,6 +48,7 @@ enum class ENUM_SCENE
 	GAME,
 	HELP,
 	TITLE3D,
+	TEST,
 	END
 };
 
