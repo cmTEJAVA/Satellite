@@ -32,7 +32,6 @@ Sound_Func::~Sound_Func()
 
 void Sound_Func::Add_sound()
 {
-
 	pSystem->createSound(
 		"Sound/VIOLA_SKILL1.mp3"
 		, FMOD_DEFAULT | FMOD_LOOP_OFF
@@ -48,13 +47,12 @@ void Sound_Func::Add_sound()
 	);
 
 	pSystem->createStream(
-		"Sound/lens.mp3"
+		"Sound/479319_-Electroman-adventures.mp3"
 		, FMOD_LOOP_NORMAL | FMOD_2D
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::INTRO]
 	);
-
-
+	
 	pSystem->createStream(
 		"Sound/Waterflame - Jumper.mp3"
 		, FMOD_LOOP_NORMAL | FMOD_2D
@@ -69,14 +67,12 @@ void Sound_Func::Add_sound()
 		, &pSound[(int)ENUM_SOUND::CLICK]
 	);
 
-
 	pSystem->createSound(
 		"Sound/gaster_blaster_sound_effect.mp3"
 		, FMOD_DEFAULT | FMOD_LOOP_OFF
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::TEST]
 	);
-
 }
 
 void Sound_Func::Play_bgm(ENUM_SOUND type)
