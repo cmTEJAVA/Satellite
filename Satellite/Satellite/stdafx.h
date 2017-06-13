@@ -53,6 +53,7 @@ enum class ENUM_SCENE_CHILD
 enum class ENUM_SOUND
 {
 	LOGO
+	, LOGO2
 	, INTRO
 	, BACK
 	, CLICK

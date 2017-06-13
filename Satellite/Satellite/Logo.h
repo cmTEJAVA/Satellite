@@ -1,6 +1,8 @@
 #pragma once
 #include "Scene.h"
 #include "BitmapObject.h"
+
+
 class CLogoScene :
 	public CScene
 {
@@ -24,6 +26,7 @@ private:
 	float m_fFade{ 0.f };
 	float m_fMaxFade{ 2.f };
 	
-	CBitmapObject m_bmplogo;
+	CBitmapObject	m_bmplogo;
+
 };
 
