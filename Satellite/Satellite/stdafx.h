@@ -70,9 +70,9 @@ enum class ENUM_SOUND
 	, ELECTRIC
 	, BULLET
 	, SHOCKWAVE	
-	, EXPLOSION
-	, ATTACK
-	, TEST
+	, EXPLOSION		// enemy
+	, ATTACK		// player
+	, GAME_OVER
 };
 
 
