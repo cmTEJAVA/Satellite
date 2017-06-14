@@ -175,6 +175,7 @@
     <ClInclude Include="GameFrameWork.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Satellite.h" />
+    <ClInclude Include="ShockwaveBullet.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="stdafx.h" />
@@ -209,6 +210,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="GameFrameWork.cpp" />
     <ClCompile Include="Satellite.cpp" />
+    <ClCompile Include="ShockwaveBullet.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stdafx.cpp">

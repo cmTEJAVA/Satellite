@@ -124,6 +124,11 @@ void CGameScene::Update()
 			m_BulletManager.insertlaserbullet(q.m_imgUnit.Getposptr());
 		}
 		break;
+		case ENUM_BULLET::SHOCKWAVE:
+		{
+			//m_BulletManager.insertlaserbullet(q.m_imgUnit.Getposptr());
+		}
+		break;
 		default:
 			break;
 		}
@@ -155,14 +160,23 @@ void CGameScene::Draw(HDC hDC)
 
 	m_EnemyManager.draw(hDC);
 
-	if (m_ChildScenes)m_ChildScenes->Draw(hDC);
-
 	m_BulletManager.draw(hDC);
+
+	if (m_ChildScenes) {
+		if(m_test_player.GetLife() > 0.f)
+			m_ChildScenes->Draw(hDC);
+	}
+	
+
 
 	for (auto&q : m_listUnits) {
 		q.draw(hDC);
 	}
 
+	
+
+	if (m_test_player.GetLife() <= 0.f)
+		m_ChildScenes->Draw(hDC);
 
 }
 

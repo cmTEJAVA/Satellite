@@ -88,11 +88,14 @@
     <Filter Include="EmptyObject\GameObject\button">
       <UniqueIdentifier>{9ab20356-7e31-4c56-b82a-1e6351eaa722}</UniqueIdentifier>
     </Filter>
-    <Filter Include="EmptyObject\bullet">
-      <UniqueIdentifier>{ad6fea13-6720-4c25-8494-ab1c289633f2}</UniqueIdentifier>
+    <Filter Include="FrameWork&amp;Scene\Scene\Test">
+      <UniqueIdentifier>{943fa479-c60a-4524-83df-415eae450958}</UniqueIdentifier>
     </Filter>
     <Filter Include="EmptyObject\Enemy">
       <UniqueIdentifier>{f281a41a-0022-47d6-98e3-efc2d04b269c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\bullet">
+      <UniqueIdentifier>{ad6fea13-6720-4c25-8494-ab1c289633f2}</UniqueIdentifier>
     </Filter>
     <Filter Include="EmptyObject\bullet\LaserBullet">
       <UniqueIdentifier>{00c18ad9-a421-4c5e-bed6-16120cc0dad9}</UniqueIdentifier>
@@ -100,8 +103,8 @@
     <Filter Include="EmptyObject\bullet\CirBullet">
       <UniqueIdentifier>{9dd89eb2-f5e1-4831-abae-84fae77181f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FrameWork&amp;Scene\Scene\Test">
-      <UniqueIdentifier>{943fa479-c60a-4524-83df-415eae450958}</UniqueIdentifier>
+    <Filter Include="EmptyObject\bullet\ShockwaveBullet">
+      <UniqueIdentifier>{37d77ec4-cb73-447c-beb6-9e664a94cdaa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +210,9 @@
     <ClInclude Include="TestScene.h">
       <Filter>FrameWork&amp;Scene\Scene\Test</Filter>
     </ClInclude>
+    <ClInclude Include="ShockwaveBullet.h">
+      <Filter>EmptyObject\bullet\ShockwaveBullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -301,6 +307,9 @@
     </ClCompile>
     <ClCompile Include="TestScene.cpp">
       <Filter>FrameWork&amp;Scene\Scene\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="ShockwaveBullet.cpp">
+      <Filter>EmptyObject\bullet\ShockwaveBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

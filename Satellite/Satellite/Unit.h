@@ -37,10 +37,10 @@ public:
 		m_unitID = id;
 	}
 	ENUM_BULLET GetBullet() {
-		if (m_ibullettime < 7)return ENUM_BULLET::END;
 		switch (m_unitID)
 		{
 		case ENUM_UNIT::BULLET_UNIT:
+			if (m_ibullettime < 7)return ENUM_BULLET::END;
 			m_ibullettime = 0;
 			return ENUM_BULLET::STANDARD;
 			break;
@@ -48,6 +48,11 @@ public:
 			if (m_ibullettime < 40)return ENUM_BULLET::END;
 			m_ibullettime = 0;
 			return ENUM_BULLET::LASER;
+			break;
+		case ENUM_UNIT::SHOCKWAVE_UNIT:
+			if (m_ibullettime < 40)return ENUM_BULLET::END;
+			m_ibullettime = 0;
+			return ENUM_BULLET::SHOCKWAVE;
 			break;
 		//case ENUM_UNIT::TESLA_UNIT:
 		//	break;

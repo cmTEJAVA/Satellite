@@ -89,6 +89,8 @@ enum class ENUM_BULLET
 {
 	STANDARD
 	,LASER
+	, SHOCKWAVE
+
 	, END
 };
 //szPath define

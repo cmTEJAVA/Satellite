@@ -74,44 +74,7 @@ public:
 	//	return false;
 	//}
 
-	bool damageCirBullet(CirBullet * ptrbullet) {
-		for (auto &enemy : m_listEnemys) {
-			if (!PtInRect(&m_rcClient, enemy.m_Pos.GetPOINT())) continue;
-			if (!enemy.istrueOnID(ptrbullet->ID))continue;
-			float tmpdistance;
-			tmpdistance = ptrbullet->m_Pos.distance(enemy.m_Pos);
-			if (tmpdistance <= enemy.m_size) {
-				enemy.damage(0.3);
-				return true;
-			}
-
-
-		}
-		return false;
-	} 
-
-	void damageLaserBullet(Point bullet) {
-		Point midpt{ WIDTH / 2,HEIGHT / 2 };
-		bullet=bullet - midpt;
-		bullet.normalize();
-		for (auto &enemy : m_listEnemys) {
-			if (!PtInRect(&m_rcClient, enemy.m_Pos.GetPOINT())) continue;
-			
-			Point tmp = enemy.m_Pos;
-			tmp = tmp - midpt;
-
-			float distance = abs(bullet.y*tmp.x - bullet.x*tmp.y);
-
-			//if (!enemy.istrueOnID(ptrbullet->ID))continue;
-			//float tmpdistance;
-			//tmpdistance = ptrbullet->m_Pos.distance(enemy.m_Pos);
-			if (distance <= 20) {
-				enemy.damage(0.05);
-			}
-
-
-		}
-	}
-
+	bool damageCirBullet(CirBullet * ptrbullet);
+	void damageLaserBullet(Point bullet);
 };
 
