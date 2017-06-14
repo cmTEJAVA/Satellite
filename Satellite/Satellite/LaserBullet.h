@@ -12,11 +12,7 @@ struct LaserBullet
 	LaserBullet();
 	~LaserBullet();
 
-	void Oncreat(Point * unit,int maxtime=30) {
-		m_time = 0;
-		m_maxtime = maxtime;
-		m_ptrUnit = unit;
-	}
+	void Oncreat(Point * unit, int maxtime = 30);
 	void Update();
 };
 
