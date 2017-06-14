@@ -25,8 +25,8 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 	m_hInstance = hInstance;
 	::GetClientRect(hWnd, &m_rcClient);
 	
-	ChangeScene(ENUM_SCENE::TITLE);
 	snd.Add_sound();
+	ChangeScene(ENUM_SCENE::TITLE);
 	g_DIVIDE_MAX_SIZE = 100;//(ENEMY_MAX_R_SIZE / cos((PI - DIVIDE_RADIAN) / 2));
 
 	return false;
@@ -139,6 +139,9 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 	case ENUM_SCENE::TITLE:
 		m_Scenes = new CLogoScene;
 		m_Scenes->Initialize(this, m_hWnd);
+
+		snd.Play_effect(ENUM_SOUND::LOGO);
+		snd.Play_effect(ENUM_SOUND::LOGO2);
 		break;
 	case ENUM_SCENE::GAME:	
 		if (m_intro_bgm) // 인트로 노래 끄기

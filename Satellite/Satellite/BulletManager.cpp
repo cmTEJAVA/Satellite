@@ -66,6 +66,9 @@ void CBulletManager::Update()
 	for (auto &cirB : m_listLaserBullet)
 	{
 		cirB.Update();
+
+		m_ptrEnemeyManager->damageLaserBullet(*(cirB.m_ptrUnit));
+		
 	}
 	m_listLaserBullet.remove_if([](LaserBullet bullet) {return !bullet.isShow; });
 

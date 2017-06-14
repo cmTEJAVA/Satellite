@@ -28,27 +28,27 @@ void CTestScene::Update()
 void CTestScene::Draw(HDC hdc)
 {
 	FillRect(hdc, &m_rcClient, (HBRUSH)GetStockObject(WHITE_BRUSH));
-	//float tmp = (2 * PI) / DIVIDE_N;
-	//Point pttmp{ m_rcClient.right,m_rcClient.bottom / 2 };
-	//Point ptmidtmp{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
-	//for (int i = 0; i < DIVIDE_N; i++) {
-	//	MoveToEx(hdc, ptmidtmp.x, ptmidtmp.y, nullptr);
+	float tmp = (2 * PI) / DIVIDE_N;
+	Point pttmp{ m_rcClient.right,m_rcClient.bottom / 2 };
+	Point ptmidtmp{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
+	for (int i = 0; i < DIVIDE_N; i++) {
+		MoveToEx(hdc, ptmidtmp.x, ptmidtmp.y, nullptr);
 
-	//	//Point pttmp{ m_rcClient.right,m_rcClient.bottom / 2 };
-	//	pttmp.rotation(ptmidtmp, tmp);
-	//	LineTo(hdc, pttmp.x, pttmp.y);
-	//}
+		//Point pttmp{ m_rcClient.right,m_rcClient.bottom / 2 };
+		pttmp.rotation(ptmidtmp, tmp);
+		LineTo(hdc, pttmp.x, pttmp.y);
+	}
 
-	//HPEN hpen = CreatePen(PS_SOLID, 1, RGB(0, 255, 255));
-	//HPEN oldpen = (HPEN)SelectObject(hdc, hpen);
-	//pttmp.rotation(ptmidtmp, tmp/2);
-	//for (int i = 0; i < DIVIDE_N; i++) {
-	//	MoveToEx(hdc, ptmidtmp.x, ptmidtmp.y, nullptr);
+	HPEN hpen = CreatePen(PS_SOLID, 1, RGB(0, 255, 255));
+	HPEN oldpen = (HPEN)SelectObject(hdc, hpen);
+	pttmp.rotation(ptmidtmp, tmp/2);
+	for (int i = 0; i < DIVIDE_N; i++) {
+		MoveToEx(hdc, ptmidtmp.x, ptmidtmp.y, nullptr);
 
-	//	//Point pttmp{ m_rcClient.right,m_rcClient.bottom / 2 };
-	//	pttmp.rotation(ptmidtmp, tmp);
-	//	LineTo(hdc, pttmp.x, pttmp.y);
-	//}
+		//Point pttmp{ m_rcClient.right,m_rcClient.bottom / 2 };
+		pttmp.rotation(ptmidtmp, tmp);
+		LineTo(hdc, pttmp.x, pttmp.y);
+	}
 
 
 
@@ -90,7 +90,7 @@ bool CTestScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 	GetClientRect(hWnd, &m_rcClient);
 	float radian = (2 * PI) / DIVIDE_N;
-	maxdistance = ENEMY_MAX_R_SIZE / cos((PI - radian) / 2);
+	maxdistance = 100;//ENEMY_MAX_R_SIZE / cos((PI - radian) / 2);
 	insertEnemy();
 	return false;
 }

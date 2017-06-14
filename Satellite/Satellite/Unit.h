@@ -45,7 +45,7 @@ public:
 			return ENUM_BULLET::STANDARD;
 			break;
 		case ENUM_UNIT::LASER_UNIT:
-			if (m_ibullettime < 30)return ENUM_BULLET::END;
+			if (m_ibullettime < 40)return ENUM_BULLET::END;
 			m_ibullettime = 0;
 			return ENUM_BULLET::LASER;
 			break;

@@ -29,7 +29,7 @@
 #define PI 3.141592
 #define RADIAN(X) ((PI / 180) * X)
 
-#define DIVIDE_N 100//몇개로 나눌껀지 물어보는애
+#define DIVIDE_N 20//몇개로 나눌껀지 물어보는애
 #define DIVIDE_RADIAN ((2 * PI) / DIVIDE_N)
 
 #define ENEMY_MAX_R_SIZE 40
