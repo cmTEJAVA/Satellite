@@ -61,7 +61,7 @@ void Sound_Func::Add_sound()
 	);
 
 	pSystem->createSound(
-		"Sound/Click.wav"
+		"Sound/button click.mp3"
 		, FMOD_DEFAULT | FMOD_LOOP_OFF
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::CLICK]

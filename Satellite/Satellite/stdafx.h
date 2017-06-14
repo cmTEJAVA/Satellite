@@ -63,8 +63,8 @@ enum class ENUM_SOUND
 {
 	LOGO
 	, LOGO2
-	, INTRO
-	, BACK
+	, INTRO			// bgm
+	, BACK			// bgm
 	, CLICK
 	, LASER
 	, ELECTRIC
@@ -72,7 +72,7 @@ enum class ENUM_SOUND
 	, SHOCKWAVE	
 	, EXPLOSION		// enemy
 	, ATTACK		// player
-	, GAME_OVER
+	, GAME_OVER		// bgm
 };
 
 
