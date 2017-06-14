@@ -58,6 +58,7 @@ enum class ENUM_SCENE_CHILD
 	, END
 	, GameOver
 };
+
 enum class ENUM_SOUND
 {
 	LOGO
