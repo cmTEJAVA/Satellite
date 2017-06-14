@@ -11,5 +11,7 @@ struct ShockwaveBullet
 	~ShockwaveBullet();
 
 	void Oncreat(Point * unit, int size =50);
+
+	void draw(HDC hdc);
 };
 

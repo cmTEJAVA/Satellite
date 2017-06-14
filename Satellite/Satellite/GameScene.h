@@ -66,6 +66,9 @@ class CGameScene :
 				0.4f, 1, 0.6f, 0.01f, 0.02f
 				);
 			m_listUnits.back().SetID(ENUM_UNIT::SHOCKWAVE_UNIT);
+
+			m_BulletManager.insertShockbullet(m_listUnits.back().m_imgUnit.Getposptr());
+
 			break;
 		default:
 			break;

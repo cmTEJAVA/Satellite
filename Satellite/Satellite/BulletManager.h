@@ -2,12 +2,14 @@
 #include "BitmapObject.h"
 #include <list>
 #include "CirBullet.h"
+#include "ShockwaveBullet.h"
 #include "LaserBullet.h"
 #include "Enemymanager.h"
 class CBulletManager
 {
 	std::list<CirBullet> m_listCirBullet;
 	std::list<LaserBullet> m_listLaserBullet;
+	std::list<ShockwaveBullet> m_listShockBullet;
 	RECT m_rcClent;
 	Point m_ptmid;
 	CEnemymanager * m_ptrEnemeyManager;
@@ -54,6 +56,11 @@ public:
 
 		m_listLaserBullet.push_back(LaserBullet());
 		m_listLaserBullet.back().Oncreat(unitpos);
+	}
+	void insertShockbullet(Point* unitpos,int size=50) {
+
+		m_listShockBullet.push_back(ShockwaveBullet());
+		m_listShockBullet.back().Oncreat(unitpos,size);
 	}
 
 

@@ -124,10 +124,6 @@ void CGameScene::Update()
 			m_BulletManager.insertlaserbullet(q.m_imgUnit.Getposptr());
 		}
 		break;
-		case ENUM_BULLET::SHOCKWAVE:
-		{
-			//m_BulletManager.insertlaserbullet(q.m_imgUnit.Getposptr());
-		}
 		break;
 		default:
 			break;

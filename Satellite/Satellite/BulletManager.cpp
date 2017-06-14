@@ -40,6 +40,10 @@ void CBulletManager::draw(HDC hdc)
 
 		m_bullet[1].draw(hdc,arr);
 	}
+	for (auto &ShockB : m_listShockBullet)
+	{
+		ShockB.draw(hdc);
+	}
 
 }
 

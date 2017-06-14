@@ -48,12 +48,12 @@ public:
 			if (m_ibullettime < 40)return ENUM_BULLET::END;
 			m_ibullettime = 0;
 			return ENUM_BULLET::LASER;
-			break;
+			break;/*
 		case ENUM_UNIT::SHOCKWAVE_UNIT:
 			if (m_ibullettime < 40)return ENUM_BULLET::END;
 			m_ibullettime = 0;
 			return ENUM_BULLET::SHOCKWAVE;
-			break;
+			break;*/
 		//case ENUM_UNIT::TESLA_UNIT:
 		//	break;
 		//case ENUM_UNIT::END:
