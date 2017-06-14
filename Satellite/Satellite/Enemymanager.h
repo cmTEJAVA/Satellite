@@ -19,7 +19,7 @@ public:
 	void OnCreatEnemy(const Point& tergetpos,int tergetSize) {
 		m_tergetSize = tergetSize;
 
-		m_imgEnemy.OnCreatCimg(L"Resorce/Test/enemy1.bmp");
+		m_imgEnemy.OnCreatCimg(L"Resorce/Game/enemy1.bmp");
 		m_imgEnemy.Setsizerate(0.5f);
 		m_imgEnemy.Setmidpos(m_imgEnemy.GetObjRECT());
 	//	m_imgEnemy.OnCreatSprite(0.5f, 1, 0);

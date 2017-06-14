@@ -70,11 +70,7 @@ void CGameFrameWork::Key_Down(WPARAM wParam)
 	switch (wParam)
 	{
 	case VK_SPACE:
-		snd.Play_effect(ENUM_SOUND::TEST);
-		break;
-	case VK_F1:
 		snd.Play_effect(ENUM_SOUND::CLICK);
-
 		break;
 	}
 
@@ -144,6 +140,7 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		snd.Play_effect(ENUM_SOUND::LOGO2);
 		break;
 	case ENUM_SCENE::GAME:	
+		snd.Play_effect(ENUM_SOUND::CLICK);
 		if (m_intro_bgm) // 인트로 노래 끄기
 		{
 			snd.Stop_bgm(ENUM_SOUND::INTRO);
@@ -151,7 +148,6 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		}
 		snd.Play_bgm(ENUM_SOUND::BACK);
 		m_back_bgm = (bool)ENUM_BACK_BGM::ON;
-
 		m_Scenes = new CGameScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
@@ -159,7 +155,6 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 
 		if (m_back_bgm)
 			snd.Stop_bgm(ENUM_SOUND::BACK);
-
 		if (!m_intro_bgm) // 인트로 노래 켜기
 		{
 			snd.Play_bgm(ENUM_SOUND::INTRO);
@@ -167,7 +162,6 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		}
 		else // 켜져있으면 소리만
 			snd.Play_effect(ENUM_SOUND::CLICK);
-
 		m_Scenes = new CMenuScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
@@ -175,16 +169,14 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		snd.Play_effect(ENUM_SOUND::CLICK);
 		m_Scenes = new CHELPScene;
 		m_Scenes->Initialize(this, m_hWnd);
-
 		break;
 
 	case ENUM_SCENE::TITLE3D:
 		m_Scenes = new CLogo3DScene;
 		m_Scenes->Initialize(this, m_hWnd);
-
 		break;
-	case ENUM_SCENE::TEST:
 
+	case ENUM_SCENE::TEST:
 		m_Scenes = new CTestScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;

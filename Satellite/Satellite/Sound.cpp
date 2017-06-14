@@ -32,7 +32,6 @@ Sound_Func::~Sound_Func()
 
 void Sound_Func::Add_sound()
 {
-
 	pSystem->createSound(
 		"Sound/VIOLA_SKILL1.mp3"
 		, FMOD_DEFAULT | FMOD_LOOP_OFF
@@ -48,13 +47,12 @@ void Sound_Func::Add_sound()
 	);
 
 	pSystem->createStream(
-		"Sound/lens.mp3"
+		"Sound/Fez - Adventure.mp3"
 		, FMOD_LOOP_NORMAL | FMOD_2D
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::INTRO]
 	);
-
-
+	
 	pSystem->createStream(
 		"Sound/Waterflame - Jumper.mp3"
 		, FMOD_LOOP_NORMAL | FMOD_2D
@@ -63,18 +61,10 @@ void Sound_Func::Add_sound()
 	);
 
 	pSystem->createSound(
-		"Sound/Click.wav"
+		"Sound/button click.mp3"
 		, FMOD_DEFAULT | FMOD_LOOP_OFF
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::CLICK]
-	);
-
-
-	pSystem->createSound(
-		"Sound/gaster_blaster_sound_effect.mp3"
-		, FMOD_DEFAULT | FMOD_LOOP_OFF
-		, nullptr
-		, &pSound[(int)ENUM_SOUND::TEST]
 	);
 
 }
@@ -84,8 +74,7 @@ void Sound_Func::Play_bgm(ENUM_SOUND type)
 	pSystem->playSound(pSound[(int)type]
 		, nullptr, false, &pChannel[(int)type]);
 
-	if(type == ENUM_SOUND::INTRO)
-	pChannel[(int)type]->setVolume(0.5f);
+	pChannel[(int)type]->setVolume(0.7f);
 
 }
 

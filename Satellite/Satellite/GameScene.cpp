@@ -217,8 +217,8 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_Gametime = 0;
 	m_vOrbit.push_back(100);
 
-	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Test/bullet unit.bmp";
-	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Test/tesla.png";
+	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Game/bullet unit.bmp";
+	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Game/tesla.png";
 	m_arrUnitszPath[(int)ENUM_UNIT::LASER_UNIT] = L"Resorce/Game/laser unit.bmp";
 
 
@@ -232,18 +232,18 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 
 
-	m_bmp_backimg.OnCreatCimg(L"Resorce/Test/testback.jpg");
+	m_bmp_backimg.OnCreatCimg(L"Resorce/Game/testback.jpg");
 	m_bmp_backimg.SetObjRECT(m_rcClient);
 
 
 	m_test_player.OnCreatplayerimg
 	(
 		Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 },
-		L"Resorce/Test/ss3.bmp",
+		L"Resorce/Game/ss3.bmp",
 		1.f, 16, 0.6f
 	);
 
-	m_test_player.Setdestroyedimg(L"Resorce/Test/ss4.bmp");
+	m_test_player.Setdestroyedimg(L"Resorce/Game/ss4.bmp");
 
 
 	for (int i = 0; i < 1; i++) {

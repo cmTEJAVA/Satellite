@@ -58,20 +58,21 @@ enum class ENUM_SCENE_CHILD
 	, END
 	, GameOver
 };
+
 enum class ENUM_SOUND
 {
 	LOGO
 	, LOGO2
-	, INTRO
-	, BACK
+	, INTRO			// bgm
+	, BACK			// bgm
 	, CLICK
 	, LASER
 	, ELECTRIC
 	, BULLET
 	, SHOCKWAVE	
-	, EXPLOSION
-	, ATTACK
-	, TEST
+	, EXPLOSION		// enemy
+	, ATTACK		// player
+	, GAME_OVER		// bgm
 };
 
 
