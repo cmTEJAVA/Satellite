@@ -81,6 +81,7 @@ enum class ENUM_UNIT
 	BULLET_UNIT
 	, TESLA_UNIT
 	, LASER_UNIT
+	, SHOCKWAVE_UNIT
 	, END
 };
 

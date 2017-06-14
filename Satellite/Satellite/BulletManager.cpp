@@ -61,7 +61,7 @@ void CBulletManager::Update()
 	}
 
 
-	m_listCirBullet.remove_if([](CirBullet bullet) {return !bullet.isShow; });
+	m_listCirBullet.remove_if([](CirBullet& bullet) {return !bullet.isShow; });
 
 	for (auto &cirB : m_listLaserBullet)
 	{
@@ -70,7 +70,7 @@ void CBulletManager::Update()
 		m_ptrEnemeyManager->damageLaserBullet(*(cirB.m_ptrUnit));
 		
 	}
-	m_listLaserBullet.remove_if([](LaserBullet bullet) {return !bullet.isShow; });
+	m_listLaserBullet.remove_if([](LaserBullet& bullet) {return !bullet.isShow; });
 
 }
 

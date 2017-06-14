@@ -26,7 +26,7 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 	::GetClientRect(hWnd, &m_rcClient);
 	
 	snd.Add_sound();
-	ChangeScene(ENUM_SCENE::TITLE);
+	ChangeScene(ENUM_SCENE::GAME);
 	g_DIVIDE_MAX_SIZE = 100;//(ENEMY_MAX_R_SIZE / cos((PI - DIVIDE_RADIAN) / 2));
 
 	return false;

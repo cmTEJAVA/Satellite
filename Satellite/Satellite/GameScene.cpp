@@ -56,8 +56,9 @@ void CGameScene::Update()
 
 				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITMAX, int(ENUM_UNIT::END), 0);
 				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 0, (LPARAM)L"Resorce/button/bullet unit button.png");
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 1, (LPARAM)m_arrUnitszPath[1]);
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 2, (LPARAM)m_arrUnitszPath[2]);
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 1, (LPARAM)L"Resorce/button/tesla unit button.png");
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 2, (LPARAM)L"Resorce/button/laser unit button.png");
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 3, (LPARAM)L"Resorce/button/shock wave unit button.png");
 				
 			}
 			//	retrun;
@@ -192,7 +193,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_MOUSEMOVE:
 		for (auto & buttonq : m_arrbutton) {
 			buttonq.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
-
+	
 		}
 		break;
 	case WM_LBUTTONDOWN:
@@ -220,6 +221,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Game/bullet unit.bmp";
 	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Game/tesla.png";
 	m_arrUnitszPath[(int)ENUM_UNIT::LASER_UNIT] = L"Resorce/Game/laser unit.bmp";
+	m_arrUnitszPath[(int)ENUM_UNIT::SHOCKWAVE_UNIT] = L"Resorce/Game/shock wave unit.png";
 
 
 	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
@@ -247,7 +249,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 
 	for (int i = 0; i < 1; i++) {
-		plusUnit( ENUM_UNIT::BULLET_UNIT, Point{ m_rcClient.right / 2 + 100,m_rcClient.bottom / 2 });
+		plusUnit( ENUM_UNIT::LASER_UNIT, Point{ m_rcClient.right / 2 + 100,m_rcClient.bottom / 2 });
 	}
 
 	RECT playerimgtmprect = m_test_player.m_imgUnit.GetObjRECT();
