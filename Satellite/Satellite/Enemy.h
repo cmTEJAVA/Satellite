@@ -9,6 +9,12 @@ class CEnemy
 	float		m_Speed;
 	float		m_life; // 0~1
 
+	//CSprite;
+	float m_oneframetime;
+	float m_updatetime;
+	int m_framenum;
+	//CSprite;
+
 	char ID;
 	char ID2;
 
@@ -19,6 +25,8 @@ class CEnemy
 	//Unit에의해 움직임
 
 public:
+	int m_drawframenum;
+
 	bool		m_isShow;
 
 
@@ -38,6 +46,7 @@ public:
 		m_size = size;
 		m_life = 1;
 
+		SetSprite(10, 5);
 
 		Point enmytmp = m_Pos;
 		enmytmp = enmytmp - m_tergetPos;
@@ -107,5 +116,14 @@ public:
 		m_UnitMovemaxTime= maxtime;
 		m_isUnitMove=true;
 	}
+
+	void SetSprite( int imgN, float frametime) {
+
+
+		m_framenum = imgN;
+		m_oneframetime = frametime;
+		
+	}
+
 };
 

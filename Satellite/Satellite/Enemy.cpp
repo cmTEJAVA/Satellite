@@ -10,6 +10,12 @@ CEnemy::CEnemy()
 	m_isUnitMove = false;
 	ID = -1;
 	ID2 = -1;
+
+
+	m_framenum = 0;
+	m_oneframetime = 0;
+	m_drawframenum = 0;
+	m_updatetime = 0;
 }
 
 
@@ -19,6 +25,8 @@ CEnemy::~CEnemy()
 
 void CEnemy::Update()
 {
+
+
 	if (m_isUnitMove) {
 		m_Pos += m_UnitDir*m_Speed;
 
@@ -48,6 +56,20 @@ void CEnemy::Update()
 		}
 	}
 
+
+
+	if (m_framenum <= 1) return;
+	m_updatetime++;
+	if (m_updatetime > m_oneframetime) {
+		m_updatetime = 0;
+		m_drawframenum++;
+
+	}
+	if (m_drawframenum >= m_framenum) {
+		m_drawframenum = 0;
+		return;
+
+	}
 }
 
 void CEnemy::Drawlife(HDC hdc)

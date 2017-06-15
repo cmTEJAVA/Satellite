@@ -13,13 +13,14 @@ class CEnemymanager
 	RECT m_rcClient{ 0,0,WIDTH,HEIGHT };
 
 public:
-	CBitmapObject m_imgEnemy;
+	CSprite m_imgEnemy;
 	CEnemymanager();
 	~CEnemymanager();
 	void OnCreatEnemy(const Point& tergetpos,int tergetSize) {
 		m_tergetSize = tergetSize;
 
-		m_imgEnemy.OnCreatCimg(L"Resorce/Game/enemy1.bmp");
+		m_imgEnemy.OnCreatCimg(L"Resorce/Game/enemy sprite.bmp");
+		m_imgEnemy.OnCreatSprite(0.5, 10, 0.6);
 		m_imgEnemy.Setsizerate(0.5f);
 		m_imgEnemy.Setmidpos(m_imgEnemy.GetObjRECT());
 	//	m_imgEnemy.OnCreatSprite(0.5f, 1, 0);
@@ -59,20 +60,9 @@ public:
 		return returni;
 	}
 
-	//bool damageCirBullet(const Point& pos) {
-	//	for (auto &enemy : m_listEnemys) {
-	//		if (!PtInRect(&m_rcClient, enemy.m_Pos.GetPOINT())) continue;
-	//		float tmpdistance;
-	//		tmpdistance=pos.distance(enemy.m_Pos);
-	//		if (tmpdistance <= enemy.m_size) {
-	//			enemy.damage(0.34);
-	//			return true;
-	//		}
+	RECT GetSorceRECT(int i = 0) {
 
-
-	//	}
-	//	return false;
-	//}
+	}
 
 	bool damageCirBullet(CirBullet * ptrbullet);
 	void damageLaserBullet(Point bullet);

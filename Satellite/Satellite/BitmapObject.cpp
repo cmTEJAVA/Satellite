@@ -48,6 +48,9 @@ void CBitmapObject::draw(HDC hdc, RECT rectDest)
 	}
 }
 
+
+
+
 void CBitmapObject::draw(HDC hdc,RECT rectDest, float fradian)
 {
 	RECT rcSorce = rectDest;

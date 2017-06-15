@@ -35,6 +35,20 @@ void CSprite::draw(HDC hdc)
 
 }
 
+void CSprite::draw(HDC hdc, RECT rectDest, size_t frameN)
+{
+
+
+	m_cimg.TransparentBlt(hdc,
+		rectDest.left, rectDest.top,
+		rectDest.right - rectDest.left, rectDest.bottom - rectDest.top
+
+		, m_spritesize.x*(frameN), 0
+		, m_spritesize.x, m_spritesize.y
+		,m_delRGB
+		);
+}
+
 bool CSprite::Update(float time)
 {
 	if (m_framenum <= 1) return true;

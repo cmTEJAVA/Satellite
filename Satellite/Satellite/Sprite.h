@@ -27,6 +27,7 @@ public:
 		Setsizerate(rate);
 	}
 	virtual void draw(HDC hdc) override;
+	void draw(HDC hdc,RECT rectDest,size_t frameN);
 	bool Update(float time = 0.2);
 
 	bool drawRotatImage(HDC hdc, float fradian);

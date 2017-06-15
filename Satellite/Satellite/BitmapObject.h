@@ -79,6 +79,7 @@ public:
 	void drawalpha(HDC hdc, BYTE  ifalpha);
 	virtual void draw(HDC hdc) override;
 	void draw(HDC hdc, RECT rectDest);
+
 	void draw(HDC hdc, RECT rectDest, float rot);
 	void draw(HDC hdc, POINT ptPivot, float rot);
 	void draw(HDC hdc, POINT* inarr);
