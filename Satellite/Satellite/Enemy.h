@@ -46,7 +46,7 @@ public:
 		m_size = size;
 		m_life = 1;
 
-		SetSprite(10, 5);
+		SetSprite(20, 2);
 
 		Point enmytmp = m_Pos;
 		enmytmp = enmytmp - m_tergetPos;

@@ -7,9 +7,13 @@
 #include <list>
 #include <vector>
 
+class Sound_Func;
+
 class CGameScene :
 	public CScene
 {
+	Sound_Func			*snd_game;
+
 	CBitmapObject		m_bmp_backimg;
 
 	CPlayer				m_test_player;

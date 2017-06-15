@@ -4,14 +4,18 @@
 #include "GameScene.h"
 #include "EditChildScene.h"
 #include "GameOverScene.h"
+#include "Sound.h"
 
 CGameScene::CGameScene()
 {
+	snd_game = new Sound_Func;
+	snd_game->Add_sound();
 }
 
 
 CGameScene::~CGameScene()
 {
+	delete snd_game;
 }
 
 void CGameScene::Update()
@@ -116,11 +120,13 @@ void CGameScene::Update()
 			ptdirtmp = ptdirtmp - Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
 			ptdirtmp.normalize();
 			plusBullet(ENUM_BULLET::STANDARD,ptpostmp, ptdirtmp);
+			snd_game->Play_effect(ENUM_SOUND::BULLET);
 		}
 			break;
 
 		case ENUM_BULLET::LASER:
 		{
+			snd_game->Play_effect(ENUM_SOUND::LASER);
 			m_BulletManager.insertlaserbullet(q.m_imgUnit.Getposptr());
 		}
 		break;

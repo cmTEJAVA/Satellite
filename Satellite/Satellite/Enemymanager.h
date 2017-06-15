@@ -20,7 +20,7 @@ public:
 		m_tergetSize = tergetSize;
 
 		m_imgEnemy.OnCreatCimg(L"Resorce/Game/enemy sprite.bmp");
-		m_imgEnemy.OnCreatSprite(0.5, 10, 0.6);
+		m_imgEnemy.OnCreatSprite(0.5, 20, 0.6);
 		m_imgEnemy.Setsizerate(0.5f);
 		m_imgEnemy.Setmidpos(m_imgEnemy.GetObjRECT());
 	//	m_imgEnemy.OnCreatSprite(0.5f, 1, 0);

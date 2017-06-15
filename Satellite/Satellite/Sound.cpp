@@ -67,6 +67,19 @@ void Sound_Func::Add_sound()
 		, &pSound[(int)ENUM_SOUND::CLICK]
 	);
 
+	pSystem->createSound(
+		"Sound/bullet sound.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::BULLET]
+	);
+
+	pSystem->createSound(
+		"Sound/laser sound.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::LASER]
+	);
 }
 
 void Sound_Func::Play_bgm(ENUM_SOUND type)
