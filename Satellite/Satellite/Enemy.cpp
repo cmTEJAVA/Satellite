@@ -7,7 +7,7 @@ CEnemy::CEnemy()
 	m_fRadianUnit = 0;
 	m_Speed = 1;
 	m_isShow = true;
-
+	m_isUnitMove = false;
 	ID = -1;
 	ID2 = -1;
 }
@@ -19,14 +19,32 @@ CEnemy::~CEnemy()
 
 void CEnemy::Update()
 {
-	m_Dir = m_tergetPos- m_Pos;
-	m_Dir.normalize();
+	if (m_isUnitMove) {
+		m_Pos += m_UnitDir*m_Speed;
 
-	m_Pos += m_Dir*m_Speed;
+		if (m_UnitMovemaxTime == 0) {
+			m_isUnitMove = false;
+			return;
+		}
+		m_Dir = m_Pos-m_tergetPos;
+		m_Dir.normalize();
 
-	if (ID > 0) {
-		if (m_Pos.distance(m_tergetPos)<g_DIVIDE_MAX_SIZE) {
-			ID = -1;
+		m_Pos += m_Dir*(m_Speed*(1-1.f/(float)m_UnitMovemaxTime));
+		m_UnitMovemaxTime=max(0, m_UnitMovemaxTime-1);
+
+	}
+
+	if (!m_isUnitMove) {
+
+		m_Dir = m_tergetPos - m_Pos;
+		m_Dir.normalize();
+
+		m_Pos += m_Dir*m_Speed;
+
+		if (ID > 0) {
+			if (m_Pos.distance(m_tergetPos) < g_DIVIDE_MAX_SIZE) {
+				ID = -1;
+			}
 		}
 	}
 

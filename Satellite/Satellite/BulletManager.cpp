@@ -49,6 +49,7 @@ void CBulletManager::draw(HDC hdc)
 
 void CBulletManager::Update()
 {
+
 	for (auto &cirB : m_listCirBullet)
 	{
 		if (!PtInRect(&m_rcClent, cirB.m_Pos.GetPOINT()))
@@ -75,6 +76,18 @@ void CBulletManager::Update()
 		
 	}
 	m_listLaserBullet.remove_if([](LaserBullet& bullet) {return !bullet.isShow; });
+
+
+
+
+	for (auto &shockB : m_listShockBullet)
+	{
+		shockB.Update();
+
+		m_ptrEnemeyManager->damageShockBullet(*(shockB.m_ptrUnit),shockB.m_size);
+
+	}
+	//m_listShockBullet.remove_if([](ShockwaveBullet& bullet) {return !bullet.isShow; });
 
 }
 

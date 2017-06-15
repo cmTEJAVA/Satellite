@@ -12,9 +12,16 @@ class CEnemy
 	char ID;
 	char ID2;
 
+	//Unit에의해 움직임
+	Point		m_UnitDir;
+	bool		m_isUnitMove;
+	size_t		m_UnitMovemaxTime;
+	//Unit에의해 움직임
 
 public:
-	bool m_isShow;
+	bool		m_isShow;
+
+
 	int			m_size;
 	Point		m_Pos;
 	float		m_fRadianUnit;
@@ -93,5 +100,12 @@ public:
 		return false;
 	}
 
+	void SetUnitMove(const Point& Unitdir,size_t maxtime) {
+
+		m_UnitDir= Unitdir;
+		m_UnitDir.normalize();
+		m_UnitMovemaxTime= maxtime;
+		m_isUnitMove=true;
+	}
 };
 

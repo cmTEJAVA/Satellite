@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Enemymanager.h"
+#include "Point3.h"
 
 
 CEnemymanager::CEnemymanager()
@@ -77,4 +78,27 @@ void CEnemymanager::damageLaserBullet(Point bullet) {
 
 
 	}
+}
+
+void CEnemymanager::damageShockBullet(Point bullet, int size)
+{
+
+	for (auto &enemy : m_listEnemys) {
+		if (!PtInRect(&m_rcClient, enemy.m_Pos.GetPOINT())) continue;
+
+		float tmpdistance;
+		tmpdistance = bullet.distance(enemy.m_Pos);
+		if (tmpdistance <= enemy.m_size+ size) {
+			enemy.damage(0.005);
+			Point3 tmpdir;
+			tmpdir.x = enemy.m_Pos.x- m_tergetPos.x;
+			tmpdir.y= enemy.m_Pos.y- m_tergetPos.y;
+			tmpdir=tmpdir.cross(Point3{ 0.f,0.f,1.f });
+			enemy.SetUnitMove(Point{ tmpdir.x,tmpdir.y }, 20);
+			continue;
+		}
+
+
+	}
+	return;
 }

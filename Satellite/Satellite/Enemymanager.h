@@ -76,5 +76,6 @@ public:
 
 	bool damageCirBullet(CirBullet * ptrbullet);
 	void damageLaserBullet(Point bullet);
+	void damageShockBullet(Point bullet,int size);
 };
 
