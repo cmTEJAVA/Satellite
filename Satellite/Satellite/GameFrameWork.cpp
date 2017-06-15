@@ -8,15 +8,15 @@
 #include "TestScene.h"
 #include "Sound.h"
 
-Sound_Func snd;
-
 CGameFrameWork::CGameFrameWork()
 {
+	snd = new Sound_Func;
 }
 
 
 CGameFrameWork::~CGameFrameWork()
 {
+	delete snd;
 }
 
 bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
@@ -25,7 +25,7 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 	m_hInstance = hInstance;
 	::GetClientRect(hWnd, &m_rcClient);
 	
-	snd.Add_sound();
+	snd->Add_sound();
 	ChangeScene(ENUM_SCENE::TITLE);
 	g_DIVIDE_MAX_SIZE = 100;//(ENEMY_MAX_R_SIZE / cos((PI - DIVIDE_RADIAN) / 2));
 
@@ -70,7 +70,7 @@ void CGameFrameWork::Key_Down(WPARAM wParam)
 	switch (wParam)
 	{
 	case VK_SPACE:
-		snd.Play_effect(ENUM_SOUND::CLICK);
+		snd->Play_effect(ENUM_SOUND::CLICK);
 		break;
 	}
 
@@ -136,17 +136,17 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		m_Scenes = new CLogoScene;
 		m_Scenes->Initialize(this, m_hWnd);
 
-		snd.Play_effect(ENUM_SOUND::LOGO);
-		snd.Play_effect(ENUM_SOUND::LOGO2);
+		snd->Play_effect(ENUM_SOUND::LOGO);
+		snd->Play_effect(ENUM_SOUND::LOGO2);
 		break;
 	case ENUM_SCENE::GAME:	
-		snd.Play_effect(ENUM_SOUND::CLICK);
+		snd->Play_effect(ENUM_SOUND::CLICK);
 		if (m_intro_bgm) // 인트로 노래 끄기
 		{
-			snd.Stop_bgm(ENUM_SOUND::INTRO);
+			snd->Stop_bgm(ENUM_SOUND::INTRO);
 			m_intro_bgm = (bool)ENUM_INTRO_BGM::OFF;
 		}
-		snd.Play_bgm(ENUM_SOUND::BACK);
+		snd->Play_bgm(ENUM_SOUND::BACK);
 		m_back_bgm = (bool)ENUM_BACK_BGM::ON;
 		m_Scenes = new CGameScene;
 		m_Scenes->Initialize(this, m_hWnd);
@@ -154,19 +154,19 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 	case ENUM_SCENE::MENU:
 
 		if (m_back_bgm)
-			snd.Stop_bgm(ENUM_SOUND::BACK);
+			snd->Stop_bgm(ENUM_SOUND::BACK);
 		if (!m_intro_bgm) // 인트로 노래 켜기
 		{
-			snd.Play_bgm(ENUM_SOUND::INTRO);
+			snd->Play_bgm(ENUM_SOUND::INTRO);
 			m_intro_bgm = (bool)ENUM_INTRO_BGM::ON;;
 		}
 		else // 켜져있으면 소리만
-			snd.Play_effect(ENUM_SOUND::CLICK);
+			snd->Play_effect(ENUM_SOUND::CLICK);
 		m_Scenes = new CMenuScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
 	case ENUM_SCENE::HELP:
-		snd.Play_effect(ENUM_SOUND::CLICK);
+		snd->Play_effect(ENUM_SOUND::CLICK);
 		m_Scenes = new CHELPScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;

@@ -1,15 +1,19 @@
 #include "stdafx.h"
 #include "GameFrameWork.h"
 #include "HELPScene.h"
+#include "Sound.h"
 
 
 CHELPScene::CHELPScene()
 {
+	snd2 = new Sound_Func;
+	snd2->Add_sound();
 }
 
 
 CHELPScene::~CHELPScene()
 {
+	delete snd2;
 }
 
 void CHELPScene::Update()
@@ -19,19 +23,19 @@ void CHELPScene::Update()
 		switch (i)
 		{
 		case 0:
+			snd2->Play_effect(ENUM_SOUND::CLICK);
 			m_sizeHELPindx = max(0, int(m_sizeHELPindx - 1));
 			m_arrbutton[i].Setselect(false);
 			break;
 
 		case 1:
+			snd2->Play_effect(ENUM_SOUND::CLICK);
 			m_sizeHELPindx = min(HELP_IMG_N - 1, m_sizeHELPindx + 1);
 			m_arrbutton[i].Setselect(false);
-
 			break;
 
 		case 2:
 			m_Framework->ChangeScene(ENUM_SCENE::MENU);
-			
 			break;
 
 		default:

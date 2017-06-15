@@ -1,6 +1,7 @@
 #pragma once
 
 class CScene;
+class Sound_Func;
 
 class CGameFrameWork
 {
@@ -43,7 +44,7 @@ private:
 	HBITMAP m_hOldBit{ nullptr };
 
 	RECT			m_rcClient{};
-
+	Sound_Func		*snd;
 	CScene			*m_Scenes;
 	//int				 m_nCurrentScene{ 0 };
 	//CScene			*m_pCurrentScene{ nullptr };

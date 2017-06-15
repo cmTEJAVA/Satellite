@@ -2,17 +2,19 @@
 #include "Scene.h"
 #include "BitmapObject.h"
 #include "Button.h"
+
+class Sound_Func;
+
 #define HELP_IMG_N 3
 class CHELPScene :
 	public CScene
 {
 	CBitmapObject m_bmpHELP[HELP_IMG_N];
 	size_t m_sizeHELPindx;
-
 	Cbutton m_arrbutton[3];//0:< 1:> 2:menu
-
 	RECT rcClient;
 
+	Sound_Func		*snd2;
 
 public:
 	CHELPScene();
