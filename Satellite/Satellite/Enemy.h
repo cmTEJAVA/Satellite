@@ -18,6 +18,13 @@ class CEnemy
 	int m_framenum;
 	//CSprite;
 
+	//CSprite;
+	float		m_Shockoneframetime;
+	float		m_Shockupdatetime;
+	float		m_ShockMaxTime;
+	int			m_Shockframenum;
+	//CSprite;
+
 	char ID;
 	char ID2;
 
@@ -30,11 +37,13 @@ class CEnemy
 
 public:
 	int m_drawframenum;
+	int m_Shockdrawframenum;
 
 	bool		m_isShow;
 
 	TeslaLaser * m_tergetBullet;
 	bool		m_isterget;
+	bool		m_isTesla;
 
 	int			m_size;
 	Point		m_Pos;
@@ -53,6 +62,7 @@ public:
 		m_life = 1;
 
 		SetSprite(20, 2);
+		SetSprite_Tesla(5, 2);
 
 		Point enmytmp = m_Pos;
 		enmytmp = enmytmp - m_tergetPos;
@@ -130,6 +140,18 @@ public:
 		m_framenum = imgN;
 		m_oneframetime = frametime;
 		
+	}
+	void SetSprite_Tesla(int imgN, float frametime) {
+		m_Shockoneframetime= frametime;
+		m_Shockupdatetime=0;
+		m_ShockMaxTime=4;
+		m_Shockframenum = imgN;
+		m_Shockdrawframenum = 0;
+	}
+
+	void SetTeslaShock() {
+		m_isTesla = true;
+		m_ShockMaxTime = 4;
 	}
 
 };

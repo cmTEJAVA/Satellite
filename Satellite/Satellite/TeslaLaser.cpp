@@ -18,7 +18,7 @@ void TeslaLaser::draw(HDC hdc)
 {
 	if (!m_isShow) return;
 
-	HPEN hpen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+	HPEN hpen = CreatePen(PS_SOLID, 2, RGB(255, 255, 0));
 	HPEN oldpen = (HPEN)SelectObject(hdc, hpen);
 
 	MoveToEx(hdc, m_pos.x, m_pos.y, nullptr);
@@ -43,6 +43,7 @@ void TeslaLaser::update()
 		m_ptrEnemy->m_isterget = false;
 		m_ptrEnemy->m_tergetBullet = nullptr;
 		m_ptrEnemy->damage(0.02);
+		m_ptrEnemy->SetTeslaShock();
 		return;
 	}
 	dir.normalize();

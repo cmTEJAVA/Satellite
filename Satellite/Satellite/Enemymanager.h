@@ -15,6 +15,7 @@ class CEnemymanager
 
 public:
 	CSprite m_imgEnemy;
+	CSprite m_imgEnemyTesla;
 	CEnemymanager();
 	~CEnemymanager();
 	void OnCreatEnemy(const Point& tergetpos,int tergetSize) {
@@ -24,6 +25,12 @@ public:
 		m_imgEnemy.OnCreatSprite(0.5, 20, 0.6);
 		m_imgEnemy.Setsizerate(0.5f);
 		m_imgEnemy.Setmidpos(m_imgEnemy.GetObjRECT());
+
+		m_imgEnemyTesla.OnCreatCimg(L"Resorce/Game/tesla stprite.bmp");
+		m_imgEnemyTesla.OnCreatSprite(1.f, 5, 0.6);
+		m_imgEnemyTesla.Setsizerate(1.f);
+		m_imgEnemyTesla.Setmidpos(m_imgEnemy.GetObjRECT());
+
 	//	m_imgEnemy.OnCreatSprite(0.5f, 1, 0);
 
 

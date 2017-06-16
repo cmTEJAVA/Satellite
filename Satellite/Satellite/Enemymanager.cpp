@@ -23,6 +23,9 @@ void CEnemymanager::draw(HDC hdc)
 		m_imgEnemy.draw(hdc, enemy.GetDrawRECT(),enemy.m_drawframenum);
 		//m_imgEnemy.draw(hdc, enemy.GetDrawRECT(), enemy.m_fRadianUnit);
 		enemy.Drawlife(hdc);
+		if (enemy.m_isTesla) {
+			m_imgEnemyTesla.draw(hdc, enemy.GetDrawRECT(), enemy.m_Shockdrawframenum);
+		}
 	}
 }
 

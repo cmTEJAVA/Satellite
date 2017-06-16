@@ -18,6 +18,7 @@ CEnemy::CEnemy()
 	m_updatetime = 0;
 	m_tergetBullet = nullptr;
 	m_isterget = false;
+	m_isTesla = false;
 }
 
 
@@ -31,8 +32,28 @@ CEnemy::~CEnemy()
 
 void CEnemy::Update()
 {
+	if (m_isTesla) {
 
+		if (m_Shockframenum >= 1) {
+			
+			m_Shockupdatetime++;
+			if (m_Shockupdatetime > m_Shockoneframetime) {
+				m_Shockupdatetime = 0;
+				m_Shockdrawframenum++;
 
+			}
+			if (m_Shockdrawframenum >= m_Shockframenum) {
+				m_Shockdrawframenum = 0;
+				m_ShockMaxTime--;
+				if (m_ShockMaxTime <= 0) {
+					m_isTesla = false;
+				}
+				return;
+
+			}
+		}
+	}
+	
 	if (m_isUnitMove) {
 		m_Pos += m_UnitDir*m_Speed;
 
@@ -48,7 +69,7 @@ void CEnemy::Update()
 
 	}
 
-	if (!m_isUnitMove) {
+	if (!m_isUnitMove&&!m_isTesla) {
 
 		m_Dir = m_tergetPos - m_Pos;
 		m_Dir.normalize();
