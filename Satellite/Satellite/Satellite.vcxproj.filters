@@ -219,11 +219,11 @@
     <ClInclude Include="ShockwaveBullet.h">
       <Filter>EmptyObject\bullet\ShockwaveBullet</Filter>
     </ClInclude>
-    <ClInclude Include="TeslaLaser.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Tesla.h">
       <Filter>EmptyObject\bullet\Tesla</Filter>
+    </ClInclude>
+    <ClInclude Include="TeslaLaser.h">
+      <Filter>EmptyObject\bullet\Tesla\TeslaLaser</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -323,11 +323,11 @@
     <ClCompile Include="ShockwaveBullet.cpp">
       <Filter>EmptyObject\bullet\ShockwaveBullet</Filter>
     </ClCompile>
-    <ClCompile Include="TeslaLaser.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Tesla.cpp">
       <Filter>EmptyObject\bullet\Tesla</Filter>
+    </ClCompile>
+    <ClCompile Include="TeslaLaser.cpp">
+      <Filter>EmptyObject\bullet\Tesla\TeslaLaser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

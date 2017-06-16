@@ -57,7 +57,7 @@ public:
 				returni++;
 			}
 		}
-		m_listEnemys.remove_if([](CEnemy enemy) {return !enemy.m_isShow; });
+		m_listEnemys.remove_if([](CEnemy& enemy) {return !enemy.m_isShow; });
 		return returni;
 	}
 

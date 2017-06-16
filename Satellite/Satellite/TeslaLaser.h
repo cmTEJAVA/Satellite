@@ -14,6 +14,7 @@ public:
 		m_ptrEnemy = ptrEnemy;
 		m_pos = pos;
 		m_speed = speed;
+		m_isShow = true;
 	}
 	void draw(HDC hdc);
 	void update();

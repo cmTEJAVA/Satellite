@@ -52,7 +52,7 @@ class CGameScene :
 				0.7f, 1, 0.6f, 0.01f, 0.02f
 				);
 			m_listUnits.back().SetID(ENUM_UNIT::TESLA_UNIT);
-			m_BulletManager.insertTeslabullet(m_listUnits.back().m_imgUnit.Getposptr());
+			m_BulletManager.insertTeslabullet(m_listUnits.back().m_imgUnit.Getposptr(),120);
 
 			break;
 		case ENUM_UNIT::LASER_UNIT:

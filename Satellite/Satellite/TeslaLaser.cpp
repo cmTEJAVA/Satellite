@@ -4,7 +4,7 @@
 
 TeslaLaser::TeslaLaser()
 {
-	m_isShow = true;
+//	m_isShow = true;
 	m_speed = 2;
 
 }
@@ -18,7 +18,7 @@ void TeslaLaser::draw(HDC hdc)
 {
 	if (!m_isShow) return;
 
-	HPEN hpen = CreatePen(PS_SOLID, 1, RGB(255, 255, 0));
+	HPEN hpen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
 	HPEN oldpen = (HPEN)SelectObject(hdc, hpen);
 
 	MoveToEx(hdc, m_pos.x, m_pos.y, nullptr);
@@ -40,7 +40,9 @@ void TeslaLaser::update()
 	Point dir = m_ptrEnemy->m_Pos - m_pos;
 	if (dir.length()<10) {
 		m_isShow = false;
-		m_ptrEnemy->damage(0.01);
+		m_ptrEnemy->m_isterget = false;
+		m_ptrEnemy->m_tergetBullet = nullptr;
+		m_ptrEnemy->damage(0.02);
 		return;
 	}
 	dir.normalize();

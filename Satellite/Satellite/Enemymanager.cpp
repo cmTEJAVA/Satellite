@@ -32,6 +32,8 @@ void CEnemymanager::Update()
 	{
 		enemy.Update();
 	}
+	//m_listEnemys.remove_if([](CEnemy& enemy) {return !enemy.m_isShow; });
+
 }
 
 bool CEnemymanager::damageCirBullet(CirBullet * ptrbullet) {
