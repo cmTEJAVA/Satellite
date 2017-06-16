@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Enemy.h"
-
+#include "TeslaLaser.h"
 
 CEnemy::CEnemy()
 {
@@ -16,11 +16,17 @@ CEnemy::CEnemy()
 	m_oneframetime = 0;
 	m_drawframenum = 0;
 	m_updatetime = 0;
+	m_tergetBullet = nullptr;
+	m_isterget = false;
 }
 
 
 CEnemy::~CEnemy()
 {
+	if (m_tergetBullet) {
+		m_tergetBullet->m_isShow = false;
+		m_tergetBullet->m_ptrEnemy = nullptr;
+	}
 }
 
 void CEnemy::Update()

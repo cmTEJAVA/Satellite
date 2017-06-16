@@ -1,5 +1,8 @@
 #pragma once
 #include "Point.h"
+
+class TeslaLaser;
+
 class CEnemy 
 {
 
@@ -24,11 +27,14 @@ class CEnemy
 	size_t		m_UnitMovemaxTime;
 	//Unit에의해 움직임
 
+
 public:
 	int m_drawframenum;
 
 	bool		m_isShow;
 
+	TeslaLaser * m_tergetBullet;
+	bool		m_isterget;
 
 	int			m_size;
 	Point		m_Pos;
@@ -65,6 +71,7 @@ public:
 		ID2 = (enemytmpradian < ID2floatradian ? ID - 1 : ID + 1);
 		ID2 = (ID2+ DIVIDE_N) % DIVIDE_N;
 
+		m_isterget = false;
 
 
 	}

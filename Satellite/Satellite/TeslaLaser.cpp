@@ -6,6 +6,7 @@ TeslaLaser::TeslaLaser()
 {
 	m_isShow = true;
 	m_speed = 2;
+
 }
 
 
@@ -36,8 +37,7 @@ void TeslaLaser::update()
 {
 	if (!m_isShow) return;
 
-	Point dir = m_ptrEnemy->m_Pos;
-	dir = dir - m_pos;
+	Point dir = m_ptrEnemy->m_Pos - m_pos;
 	if (dir.length()<10) {
 		m_isShow = false;
 		m_ptrEnemy->damage(0.01);

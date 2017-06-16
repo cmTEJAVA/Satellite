@@ -3,13 +3,18 @@
 #include "Enemy.h"
 class TeslaLaser
 {
-	CEnemy * m_ptrEnemy;//End;
 	Point m_pos;
 	float m_speed;
 public:
+	CEnemy *m_ptrEnemy;//End;
 	bool m_isShow;
 	TeslaLaser();
 	~TeslaLaser();
+	void OnCreat(CEnemy * ptrEnemy, Point pos, float speed) {
+		m_ptrEnemy = ptrEnemy;
+		m_pos = pos;
+		m_speed = speed;
+	}
 	void draw(HDC hdc);
 	void update();
 };

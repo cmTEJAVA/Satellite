@@ -62,13 +62,13 @@ public:
 		m_listLaserBullet.push_back(LaserBullet());
 		m_listLaserBullet.back().Oncreat(unitpos);
 	}
-	void insertShockbullet(Point* unitpos,int size=50) {
+	void insertShockbullet(Point * unitpos,int size=50) {
 
 		m_listShockBullet.push_back(ShockwaveBullet());
 		m_listShockBullet.back().Oncreat(unitpos,size);
 	}
 
-	void insertTeslabullet(Point* unitpos, int size = 50) {
+	void insertTeslabullet(Point * unitpos, int size = 50) {
 
 		m_listTesla.push_back(Tesla());
 		m_listTesla.back().Oncreat(unitpos, size);

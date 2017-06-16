@@ -106,6 +106,12 @@
     <Filter Include="EmptyObject\bullet\ShockwaveBullet">
       <UniqueIdentifier>{37d77ec4-cb73-447c-beb6-9e664a94cdaa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EmptyObject\bullet\Tesla">
+      <UniqueIdentifier>{449a0c5f-5af5-42a3-9314-68853d072291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EmptyObject\bullet\Tesla\TeslaLaser">
+      <UniqueIdentifier>{81b2e001-e773-4f79-a164-c4e0d83b6a53}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -213,6 +219,12 @@
     <ClInclude Include="ShockwaveBullet.h">
       <Filter>EmptyObject\bullet\ShockwaveBullet</Filter>
     </ClInclude>
+    <ClInclude Include="TeslaLaser.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Tesla.h">
+      <Filter>EmptyObject\bullet\Tesla</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -310,6 +322,12 @@
     </ClCompile>
     <ClCompile Include="ShockwaveBullet.cpp">
       <Filter>EmptyObject\bullet\ShockwaveBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="TeslaLaser.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Tesla.cpp">
+      <Filter>EmptyObject\bullet\Tesla</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

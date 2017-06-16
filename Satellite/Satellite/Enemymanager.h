@@ -3,6 +3,7 @@
 #include <list>
 #include "Sprite.h"
 #include "CirBullet.h"
+#include "TeslaLaser.h"
 class CEnemymanager
 {
 	Point m_tergetPos;

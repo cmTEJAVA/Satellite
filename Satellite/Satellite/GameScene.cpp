@@ -130,6 +130,12 @@ void CGameScene::Update()
 			m_BulletManager.insertlaserbullet(q.m_imgUnit.Getposptr());
 		}
 		break;
+		//case ENUM_BULLET::TESLA:
+		//{
+		//	m_BulletManager.insertTeslabullet(q.m_imgUnit.Getposptr());
+		//
+		//
+		//}
 		break;
 		default:
 			break;
