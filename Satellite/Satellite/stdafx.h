@@ -90,7 +90,7 @@ enum class ENUM_BULLET
 	STANDARD
 	,LASER
 	, SHOCKWAVE
-
+	, TESLA
 	, END
 };
 //szPath define

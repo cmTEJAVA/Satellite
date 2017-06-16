@@ -102,3 +102,7 @@ void CEnemymanager::damageShockBullet(Point bullet, int size)
 	}
 	return;
 }
+
+void CEnemymanager::targetTeslaBullet(Point bullet, int size, std::list<TeslaLaser>* v_laser)
+{
+}

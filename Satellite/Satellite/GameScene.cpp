@@ -151,7 +151,20 @@ void CGameScene::Draw(HDC hDC)
 {
 	//FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(GRAY_BRUSH));
 	m_bmp_backimg.draw(hDC);
+	{
+		HBRUSH oldbr = (HBRUSH)SelectObject(hDC, GetStockObject(NULL_BRUSH));
+		HPEN hpen = CreatePen(PS_SOLID, 2, RGB(0, 0, 70));
+		HPEN oldpen = (HPEN)SelectObject(hDC, hpen);
+		POINT mid{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
 
+		for (int & q : m_vOrbit) {
+			Ellipse(hDC, mid.x - q, mid.y - q, mid.x + q, mid.y + q);
+		}
+
+		SelectObject(hDC, oldbr);
+		SelectObject(hDC, oldpen);
+		DeleteObject(hpen);
+	}
 
 	m_test_player.draw(hDC);
 	if(m_test_player.GetLife() > 0.f)
@@ -165,9 +178,11 @@ void CGameScene::Draw(HDC hDC)
 	m_BulletManager.draw(hDC);
 
 	if (m_ChildScenes) {
-		if(m_test_player.GetLife() > 0.f)
+		if (m_test_player.GetLife() > 0.f) {
 			m_ChildScenes->Draw(hDC);
+		}
 	}
+	
 	
 
 

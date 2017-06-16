@@ -66,6 +66,7 @@ public:
 
 	bool damageCirBullet(CirBullet * ptrbullet);
 	void damageLaserBullet(Point bullet);
-	void damageShockBullet(Point bullet,int size);
+	void damageShockBullet(Point bullet, int size);
+	void targetTeslaBullet(Point bullet,int size,std::list<TeslaLaser> * v_laser);
 };
 

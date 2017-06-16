@@ -4,12 +4,17 @@
 #include "CirBullet.h"
 #include "ShockwaveBullet.h"
 #include "LaserBullet.h"
+#include "Tesla.h"
+#include "TeslaLaser.h"
 #include "Enemymanager.h"
 class CBulletManager
 {
 	std::list<CirBullet> m_listCirBullet;
 	std::list<LaserBullet> m_listLaserBullet;
 	std::list<ShockwaveBullet> m_listShockBullet;
+	std::list<Tesla> m_listTesla;
+	std::list<TeslaLaser> m_listTeslaBullet;
+
 	RECT m_rcClent;
 	Point m_ptmid;
 	CEnemymanager * m_ptrEnemeyManager;
@@ -63,6 +68,11 @@ public:
 		m_listShockBullet.back().Oncreat(unitpos,size);
 	}
 
+	void insertTeslabullet(Point* unitpos, int size = 50) {
+
+		m_listTesla.push_back(Tesla());
+		m_listTesla.back().Oncreat(unitpos, size);
+	}
 
 };
 

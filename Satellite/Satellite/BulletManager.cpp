@@ -45,6 +45,11 @@ void CBulletManager::draw(HDC hdc)
 		ShockB.draw(hdc);
 	}
 
+	for (auto &tTeslaB : m_listTeslaBullet)
+	{
+		tTeslaB.draw(hdc);
+	}
+
 }
 
 void CBulletManager::Update()
@@ -88,6 +93,19 @@ void CBulletManager::Update()
 
 	}
 	//m_listShockBullet.remove_if([](ShockwaveBullet& bullet) {return !bullet.isShow; });
+
+	for (auto & teslaB : m_listTesla) {
+		m_ptrEnemeyManager->targetTeslaBullet(*(teslaB.m_ptrUnit), teslaB.m_size, &m_listTeslaBullet);
+	}
+
+	for (auto &tTeslaL : m_listTeslaBullet)
+	{
+		tTeslaL.update();
+		//m_ptrEnemeyManager->damageShockBullet(*(shockB.m_ptrUnit), shockB.m_size);
+
+	}
+	m_listTeslaBullet.remove_if([](TeslaLaser& bullet) {return !bullet.m_isShow; });
+
 
 }
 
