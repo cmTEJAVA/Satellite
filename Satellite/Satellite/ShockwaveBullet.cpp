@@ -22,7 +22,11 @@ void ShockwaveBullet::Oncreat(Point * unit, int size)
 void ShockwaveBullet::Update()
 {
 	m_fradian += 0.2;
-	if (m_fradian >= PI * 2) m_fradian = 0;
+	if (m_fradian >= PI * 2)
+	{ 
+		PlaySound(L"sound/shock wave sound.wav", NULL, SND_ASYNC);
+		m_fradian = 0;
+	}
 }
 void ShockwaveBullet::draw(HDC hdc)
 {

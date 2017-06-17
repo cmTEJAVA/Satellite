@@ -185,8 +185,6 @@ void CEnemy::Drawlife(HDC hdc)
 
 		}
 
-
-
 		SelectObject(hdc, oldbr);
 		SelectObject(hdc, oldpen);
 		DeleteObject(hpen); hpen = nullptr;
@@ -194,7 +192,7 @@ void CEnemy::Drawlife(HDC hdc)
 }
 
 void CEnemy::SetTeslaShock() {
-	//PlaySound(L"sound/tesla sound.wav", NULL, SND_ASYNC);
+	PlaySound(L"sound/tesla sound.wav", NULL, SND_ASYNC);
 	m_isTesla = true;
 	m_ShockMaxTime = 4;
 }
