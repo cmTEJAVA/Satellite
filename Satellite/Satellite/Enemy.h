@@ -5,7 +5,6 @@ class TeslaLaser;
 
 class CEnemy 
 {
-
 	float		m_fradianspeed;
 	Point		m_Dir;
 	Point		m_tergetPos;

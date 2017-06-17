@@ -121,3 +121,9 @@ void Sound_Func::Stop_bgm(ENUM_SOUND type)
 	if (bPlaying)
 		pChannel[(int)type]->stop();
 }
+
+void Sound_Func::Stop_effect()
+{
+}
+
+

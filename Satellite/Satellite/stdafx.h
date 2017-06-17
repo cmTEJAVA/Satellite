@@ -23,6 +23,8 @@
 #include <math.h>
 #include <atlimage.h>
 
+#include <MMSystem.h>
+
 #define WIDTH 800
 #define HEIGHT 600
 
