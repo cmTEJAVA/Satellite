@@ -80,7 +80,7 @@ enum class ENUM_SOUND
 	, BACK			// bgm
 	, CLICK
 	, LASER
-	, ELECTRIC
+	, TESLA
 	, BULLET
 	, SHOCKWAVE	
 	, EXPLOSION		// enemy

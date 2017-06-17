@@ -66,6 +66,20 @@ void Sound_Func::Add_sound()
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::CLICK]
 	);
+	
+	pSystem->createSound(
+		"Sound/laser sound.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::LASER]
+	);
+
+	pSystem->createSound(
+		"Sound/tesla sound.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::TESLA]
+	);
 
 	pSystem->createSound(
 		"Sound/bullet sound.mp3"
@@ -75,11 +89,13 @@ void Sound_Func::Add_sound()
 	);
 
 	pSystem->createSound(
-		"Sound/laser sound.mp3"
+		"Sound/shoke wave sound.mp3"
 		, FMOD_DEFAULT | FMOD_LOOP_OFF
 		, nullptr
-		, &pSound[(int)ENUM_SOUND::LASER]
+		, &pSound[(int)ENUM_SOUND::SHOCKWAVE]
 	);
+
+
 }
 
 void Sound_Func::Play_bgm(ENUM_SOUND type)

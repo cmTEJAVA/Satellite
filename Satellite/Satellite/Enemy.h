@@ -36,6 +36,7 @@ class CEnemy
 
 
 public:
+
 	int m_drawframenum;
 	int m_Shockdrawframenum;
 
@@ -48,6 +49,7 @@ public:
 	int			m_size;
 	Point		m_Pos;
 	float		m_fRadianUnit;
+
 	CEnemy();
 	~CEnemy();
 
@@ -118,10 +120,7 @@ public:
 		m_Shockdrawframenum = 0;
 	}
 
-	void SetTeslaShock() {
-		m_isTesla = true;
-		m_ShockMaxTime = 4;
-	}
+	void SetTeslaShock();
 
 };
 
