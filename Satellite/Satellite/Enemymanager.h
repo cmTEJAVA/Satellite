@@ -26,7 +26,7 @@ public:
 		m_imgEnemy.Setsizerate(0.5f);
 		m_imgEnemy.Setmidpos(m_imgEnemy.GetObjRECT());
 
-		m_imgEnemyTesla.OnCreatCimg(L"Resorce/Game/tesla stprite.bmp");
+		m_imgEnemyTesla.OnCreatCimg(L"Resorce/Game/tesla sprite.png");
 		m_imgEnemyTesla.OnCreatSprite(1.f, 5, 0.6);
 		m_imgEnemyTesla.Setsizerate(1.f);
 		m_imgEnemyTesla.Setmidpos(m_imgEnemy.GetObjRECT());
