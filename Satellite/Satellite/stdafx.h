@@ -45,6 +45,7 @@
 #define PRICE_ORBIT 1000
 #define PRICE_ENEMY 20
 
+#define ORBIT_MAX 4
 
 #define GAMEFPS			int(1000 / 60)
 

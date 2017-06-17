@@ -6,6 +6,78 @@
 #include "GameOverScene.h"
 #include "Sound.h"
 
+void CGameScene::plusUnit(ENUM_UNIT ID, const Point & pos)
+{
+
+	int tmpdistans = pos.distance(Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 });
+
+	char OrvitID = -1;
+	for (int i = 0; i < m_vOrbit.size(); i++) {
+		int tmporbitsize = abs(tmpdistans - m_vOrbit[i]);
+		if (tmporbitsize < 10) {
+			OrvitID = i;
+			break;
+		}
+	}
+	if (OrvitID < 0) return;
+
+	if (m_vOrbitUnitN[OrvitID] >= (OrvitID+1) * 2) return;
+
+
+
+	switch (ID)
+	{
+	case ENUM_UNIT::BULLET_UNIT:
+		if (!m_MoneyManager.using_money(PRICE_UNIT_B))break;
+		m_listUnits.push_back(CUnit{});
+		m_listUnits.back().OnCreatUnit(pos,
+			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
+			m_arrUnitszPath[int(ENUM_UNIT::BULLET_UNIT)],
+			0.8f, 1, 0.6f, 0.01f, 0.02f
+			);
+		m_listUnits.back().SetID(ENUM_UNIT::BULLET_UNIT);
+		break;
+	case ENUM_UNIT::TESLA_UNIT:
+		if (!m_MoneyManager.using_money(PRICE_UNIT_T))break;
+		m_listUnits.push_back(CUnit{});
+		m_listUnits.back().OnCreatUnit(pos,
+			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
+			m_arrUnitszPath[int(ENUM_UNIT::TESLA_UNIT)],
+			0.7f, 1, 0.6f, 0.01f, 0.02f
+			);
+		m_listUnits.back().SetID(ENUM_UNIT::TESLA_UNIT);
+		m_BulletManager.insertTeslabullet(m_listUnits.back().m_imgUnit.Getposptr(), 120);
+
+		break;
+	case ENUM_UNIT::LASER_UNIT:
+		if (!m_MoneyManager.using_money(PRICE_UNIT_L))break;
+		m_listUnits.push_back(CUnit{});
+		m_listUnits.back().OnCreatUnit(pos,
+			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
+			m_arrUnitszPath[int(ENUM_UNIT::LASER_UNIT)],
+			0.5f, 1, 0.6f, 0.01f, 0.02f
+			);
+		m_listUnits.back().SetID(ENUM_UNIT::LASER_UNIT);
+		break;
+	case ENUM_UNIT::SHOCKWAVE_UNIT:
+		if (!m_MoneyManager.using_money(PRICE_UNIT_S))break;
+		m_listUnits.push_back(CUnit{});
+		m_listUnits.back().OnCreatUnit(pos,
+			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
+			m_arrUnitszPath[int(ENUM_UNIT::SHOCKWAVE_UNIT)],
+			0.4f, 1, 0.6f, 0.01f, 0.02f
+			);
+		m_listUnits.back().SetID(ENUM_UNIT::SHOCKWAVE_UNIT);
+
+		m_BulletManager.insertShockbullet(m_listUnits.back().m_imgUnit.Getposptr());
+
+		break;
+	default:
+		break;
+	}
+	m_vOrbitUnitN[OrvitID]++;
+}
+
 CGameScene::CGameScene()
 {
 	snd_game = new Sound_Func;
@@ -89,16 +161,18 @@ void CGameScene::Update()
 		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT, (WPARAM)&tmppos, (LPARAM)&testunitid)) {
 			
 			if (testunitid < 0) {
+				if (m_vOrbit.size() < m_vOrbitUnitN.size()) {
 
-				if (m_MoneyManager.using_money(PRICE_ORBIT)) {
-					int tmp = m_vOrbit.back() + ORBIT_DISTANCE;
-					m_vOrbit.push_back(tmp);
-					m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITMAX, m_vOrbit.size(), 0);
-					for (int i = 0; i < m_vOrbit.size(); i++) {
+					if (m_MoneyManager.using_money(PRICE_ORBIT)) {
+						int tmp = m_vOrbit.back() + ORBIT_DISTANCE;
+						m_vOrbit.push_back(tmp);
+						m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITMAX, m_vOrbit.size(), 0);
+						for (int i = 0; i < m_vOrbit.size(); i++) {
 
-						m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE, i, m_vOrbit[i]);
+							m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE, i, m_vOrbit[i]);
+						}
+
 					}
-
 				}
 			}
 			else
@@ -282,6 +356,9 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	GetClientRect(hWnd, &m_rcClient);
 	m_Gametime = 0;
 	m_vOrbit.push_back(100);
+	for (int i = 0; i < ORBIT_MAX; i++) {
+		m_vOrbitUnitN.push_back(0);
+	}
 
 	m_arrUnitszPath[(int)ENUM_UNIT::BULLET_UNIT] = L"Resorce/Game/bullet unit.bmp";
 	m_arrUnitszPath[(int)ENUM_UNIT::TESLA_UNIT] = L"Resorce/Game/tesla.png";
