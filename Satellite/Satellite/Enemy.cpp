@@ -68,6 +68,8 @@ void CEnemy::Update()
 {
 	if (m_isTesla) {
 
+		damage(0.003);
+
 		if (m_Shockframenum >= 1) {
 			
 			m_Shockupdatetime++;
@@ -103,7 +105,7 @@ void CEnemy::Update()
 
 	}
 
-	if (!m_isUnitMove&&!m_isTesla) {
+	if (!m_isUnitMove) {
 
 		m_Dir = m_tergetPos - m_Pos;
 		m_Dir.normalize();

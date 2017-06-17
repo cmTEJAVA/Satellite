@@ -18,7 +18,7 @@ void TeslaLaser::draw(HDC hdc)
 {
 	if (!m_isShow) return;
 
-	HPEN hpen = CreatePen(PS_SOLID, 2, RGB(255, 255, 0));
+	HPEN hpen = CreatePen(PS_SOLID, 2, RGB(100, 255, 255));
 	HPEN oldpen = (HPEN)SelectObject(hdc, hpen);
 
 	MoveToEx(hdc, m_pos.x, m_pos.y, nullptr);
