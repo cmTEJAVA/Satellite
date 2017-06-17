@@ -187,9 +187,14 @@ void CGameScene::Update()
 	//이 이후로 게임진행 업데이트
 
 	m_Gametime++;
-	if (m_Gametime > 50) {
+	if (m_Gametime > ENEMY_ADD_delta(m_stageLevel)) {
 		plusEnemy();
 		m_Gametime = 0;
+	}
+	m_Gametime_for_stage++;
+	if (m_Gametime_for_stage >STAGE_LEVEL_TERM) {
+		m_Gametime_for_stage = 0;
+		m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
 	}
 
 
@@ -271,15 +276,18 @@ void CGameScene::Draw(HDC hDC)
 	}
 
 	m_test_player.draw(hDC);
+
+
+	m_EnemyManager.draw(hDC);
+	m_BulletManager.draw(hDC);
+
 	if(m_test_player.GetLife() > 0.f)
 		m_arrbutton[0].draw(hDC);
 	if (!m_ChildScenes)
 		m_arrbutton[1].draw(hDC);
 	
 
-	m_EnemyManager.draw(hDC);
 
-	m_BulletManager.draw(hDC);
 
 	if (m_ChildScenes) {
 		if (m_test_player.GetLife() > 0.f) {
@@ -294,7 +302,30 @@ void CGameScene::Draw(HDC hDC)
 		q.draw(hDC);
 	}
 	m_MoneyManager.Draw(hDC);
+	//스테이지 그리기
+	{
+		HFONT myFont = CreateFont(15, 0, 0, 0, 800, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, L"Arial Rounded MT Bold");
+		HFONT oldFont = (HFONT)SelectObject(hDC, myFont);
 
+		COLORREF textColor;
+			textColor = RGB(255, 255, 255);
+
+
+		auto oldtxtcolor = SetTextColor(hDC, textColor);
+		auto oldBk = SetBkMode(hDC, TRANSPARENT);
+		//	SetBkMode(backDC, TRANSPARENT);
+		//score = 876543210;
+		CString strmoney;
+
+		strmoney.Format(L"%d", m_stageLevel);
+		strmoney = L"STAGE : " + strmoney;
+
+		DrawText(hDC, strmoney, lstrlen(strmoney), &m_rcClient, DT_TOP | DT_CENTER);
+
+		SelectObject(hDC, oldFont);
+		DeleteObject(myFont);
+		myFont = nullptr;
+	}
 	
 
 	if (m_test_player.GetLife() <= 0.f)
@@ -352,7 +383,9 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
+	m_stageLevel = 1;
 	m_bPause = false;
+	m_Gametime_for_stage=0;
 	GetClientRect(hWnd, &m_rcClient);
 	m_Gametime = 0;
 	m_vOrbit.push_back(100);

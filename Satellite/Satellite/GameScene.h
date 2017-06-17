@@ -30,12 +30,15 @@ class CGameScene :
 	std::vector<int>	m_vOrbit;
 	std::vector<int>	m_vOrbitUnitN;
 
+	unsigned char		m_stageLevel;
+
 	Cbutton				m_arrbutton[2];
 	RECT				m_rcClient;
 
 	bool m_bPause;
 
 	size_t m_Gametime;
+	size_t m_Gametime_for_stage;
 
 	void plusUnit(ENUM_UNIT ID, const Point& pos);
 
