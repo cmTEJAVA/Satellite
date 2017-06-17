@@ -9,6 +9,10 @@ class CEnemymanager
 	Point m_tergetPos;
 	int m_tergetSize;
 	std::list<CEnemy> m_listEnemys;
+
+	unsigned char m_delN;
+
+
 	//std::vector<std::list<CEnemy*>> m_vlistenemys;
 	//std::list<CEnemy*> m_listEnemys;
 	RECT m_rcClient{ 0,0,WIDTH,HEIGHT };
@@ -19,6 +23,7 @@ public:
 	CEnemymanager();
 	~CEnemymanager();
 	void OnCreatEnemy(const Point& tergetpos,int tergetSize) {
+		m_delN = 0;
 		m_tergetSize = tergetSize;
 
 		m_imgEnemy.OnCreatCimg(L"Resorce/Game/enemy sprite.bmp");
@@ -64,7 +69,6 @@ public:
 				returni++;
 			}
 		}
-		m_listEnemys.remove_if([](CEnemy& enemy) {return !enemy.m_isShow; });
 		return returni;
 	}
 
@@ -76,5 +80,11 @@ public:
 	void damageLaserBullet(Point bullet);
 	void damageShockBullet(Point bullet, int size);
 	void targetTeslaBullet(Point bullet,int size,std::list<TeslaLaser> * v_laser);
+
+	unsigned char GetDelN() {
+		auto tmp = m_delN;
+		m_delN = 0;
+		return tmp;
+	}
 };
 
