@@ -276,15 +276,18 @@ void CGameScene::Draw(HDC hDC)
 	}
 
 	m_test_player.draw(hDC);
+
+
+	m_EnemyManager.draw(hDC);
+	m_BulletManager.draw(hDC);
+
 	if(m_test_player.GetLife() > 0.f)
 		m_arrbutton[0].draw(hDC);
 	if (!m_ChildScenes)
 		m_arrbutton[1].draw(hDC);
 	
 
-	m_EnemyManager.draw(hDC);
 
-	m_BulletManager.draw(hDC);
 
 	if (m_ChildScenes) {
 		if (m_test_player.GetLife() > 0.f) {
