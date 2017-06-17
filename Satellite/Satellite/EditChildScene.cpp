@@ -265,7 +265,7 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 
 			m_vUnits.push_back(Cbutton{});// Ãß°¡ ±Ëµµadd orbit button.bmp
 			m_vUnits[wParam].OnCreatCimg(
-				L"Resorce/button/add orbit button.bmp"
+				L"Resorce/button/add orbit button.png"
 				);
 			LONG sizetmp = m_rcEditWindow.bottom - m_rcEditWindow.top;
 			sizetmp /= 2;

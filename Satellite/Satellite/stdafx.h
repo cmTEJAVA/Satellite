@@ -34,7 +34,7 @@
 
 #define ENEMY_MAX_R_SIZE 40
 
-#define ORBIT_DISTANCE 50
+#define ORBIT_DISTANCE 55
 
 #define GAMEFPS			int(1000 / 60)
 
