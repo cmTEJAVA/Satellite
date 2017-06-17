@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Enemy.h"
 #include "TeslaLaser.h"
+#include "Sound.h"
 
 CEnemy::CEnemy()
 {
@@ -19,6 +20,7 @@ CEnemy::CEnemy()
 	m_tergetBullet = nullptr;
 	m_isterget = false;
 	m_isTesla = false;
+
 }
 
 
@@ -191,4 +193,9 @@ void CEnemy::Drawlife(HDC hdc)
 		SelectObject(hdc, oldpen);
 		DeleteObject(hpen); hpen = nullptr;
 	}
+}
+
+void CEnemy::SetTeslaShock() {
+	m_isTesla = true;
+	m_ShockMaxTime = 4;
 }
