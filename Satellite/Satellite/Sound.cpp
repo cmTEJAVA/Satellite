@@ -93,7 +93,7 @@ void Sound_Func::Play_bgm(ENUM_SOUND type)
 
 void Sound_Func::Play_effect(ENUM_SOUND type)
 {
-	//pSystem->update();
+	pSystem->update();
 	pSystem->playSound(pSound[(int)type]
 		, nullptr, false, nullptr);
 }
