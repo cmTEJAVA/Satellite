@@ -30,6 +30,40 @@ CEnemy::~CEnemy()
 	}
 }
 
+void CEnemy::Oncreat(int size, const Point & pos, const Point & tergetPos, float speed, float radianspeed)
+{
+	m_fradianspeed = radianspeed;
+	m_Pos = pos;
+	m_tergetPos = tergetPos;
+	m_Speed = speed;
+	m_size = size;
+	m_life = 1;
+
+	SetSprite(20, 2);
+	SetSprite_Tesla(5, 2);
+
+	Point enmytmp = m_Pos;
+	enmytmp = enmytmp - m_tergetPos;
+	float enemytmpradian = (2 * PI + atan2(enmytmp.y, enmytmp.x));
+	int asdf = enemytmpradian / DIVIDE_RADIAN;
+
+	asdf %= DIVIDE_N;
+	ID = asdf;
+
+
+	float ID2floatradian = DIVIDE_RADIAN*((float)ID + 0.5f);
+	if (enemytmpradian > 2 * PI) {
+		enemytmpradian -= 2 * PI;
+	}
+
+	ID2 = (enemytmpradian < ID2floatradian ? ID - 1 : ID + 1);
+	ID2 = (ID2 + DIVIDE_N) % DIVIDE_N;
+
+	m_isterget = false;
+
+
+}
+
 void CEnemy::Update()
 {
 	if (m_isTesla) {
@@ -130,6 +164,12 @@ void CEnemy::Drawlife(HDC hdc)
 		POINT a2{ cos(ftmp + 2 * PI*m_life)*size	,sin(ftmp + 2 * PI*m_life)*size };
 		POINT a1{ cos(ftmp + 0)*size				,sin(ftmp + 0)*size };
 
+		if (m_life > 0.5&&(a1.x <= a2.x|| a1.y >= a2.y)) {
+
+		}
+		else {
+
+
 		Arc(hdc,
 			tmp.x - size,
 			tmp.y - size,
@@ -141,6 +181,7 @@ void CEnemy::Drawlife(HDC hdc)
 			tmp.y + a2.y
 			);
 
+		}
 
 
 

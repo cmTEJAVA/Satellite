@@ -55,8 +55,11 @@ void CGameScene::Update()
 
 				ChangeChildScene(ENUM_SCENE_CHILD::EDIT);
 				m_bPause = true;
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITMAX, 1, 0);
-				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE, 0, m_vOrbit[0]);
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITMAX, m_vOrbit.size(), 0);
+				for (int i = 0; i < m_vOrbit.size(); i++) {
+
+				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE, i, m_vOrbit[i]);
+				}
 
 				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITMAX, int(ENUM_UNIT::END), 0);
 				m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETUNITPATH, 0, (LPARAM)L"Resorce/button/bullet unit button.png");
@@ -81,7 +84,13 @@ void CGameScene::Update()
 		Point tmppos;
 		int testunitid;
 		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT, (WPARAM)&tmppos, (LPARAM)&testunitid)) {
-			plusUnit((ENUM_UNIT)testunitid, tmppos);
+
+			if (testunitid < 0) {
+				int tmp = m_vOrbit.back()+ ORBIT_DISTANCE;
+				m_vOrbit.push_back(tmp);
+			}
+			else
+				plusUnit((ENUM_UNIT)testunitid, tmppos);
 
 		}
 
@@ -286,7 +295,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 
 	for (int i = 0; i < 1; i++) {
-		plusUnit( ENUM_UNIT::LASER_UNIT, Point{ m_rcClient.right / 2 + 100,m_rcClient.bottom / 2 });
+		plusUnit( ENUM_UNIT::TESLA_UNIT, Point{ m_rcClient.right / 2 + 100,m_rcClient.bottom / 2 });
 	}
 
 	RECT playerimgtmprect = m_test_player.m_imgUnit.GetObjRECT();

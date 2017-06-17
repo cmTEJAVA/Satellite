@@ -14,6 +14,28 @@ CEditChildScene::~CEditChildScene()
 void CEditChildScene::Update()
 {
 	for (int i = 0; i < m_vUnits.size(); i++) {
+		if (i == m_vUnits.size() - 1&& m_vUnits[i].Getselect()) {
+			m_vinsert_ID_Units.push_back(idUnit());
+			m_vinsert_ID_Units.back().unitID = -1;//orbit일 경우 사이즈를 가지고?
+			m_vinsert_ID_Units.back().orbit = m_vOrbit.size();
+
+			RECT tmp = m_vOrbit.back();
+
+			m_vOrbit.push_back(RECT{});
+		
+			tmp.left -= ORBIT_DISTANCE;
+			tmp.top -= ORBIT_DISTANCE;
+			tmp.bottom += ORBIT_DISTANCE;
+			tmp.right += ORBIT_DISTANCE;
+			m_vOrbit.back() = tmp;
+
+			m_selectOrbit = -1;
+
+			m_vUnits[i].Setselect(false);
+			continue;
+		}
+
+
 		if (m_vUnits[i].Getselect() && (m_selectOrbit >= 0)) {
 			m_vinsert_ID_Units.push_back(idUnit());
 			m_vinsert_ID_Units.back().unitID = i;
@@ -238,6 +260,28 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 		m_vUnits.clear();
 		for (int i = 0; i < wParam; i++) {
 			m_vUnits.push_back(Cbutton{});
+		}
+		{
+
+			m_vUnits.push_back(Cbutton{});// 추가 궤도add orbit button.bmp
+			m_vUnits[wParam].OnCreatCimg(
+				L"Resorce/button/add orbit button.bmp"
+				);
+			LONG sizetmp = m_rcEditWindow.bottom - m_rcEditWindow.top;
+			sizetmp /= 2;
+			int interval = 10;
+			sizetmp -= interval;
+
+			m_vUnits[wParam].SetObjRECT(RECT{ -sizetmp,-sizetmp,sizetmp,sizetmp });
+			LONG ltmp = m_rcEditWindow.bottom + m_rcEditWindow.top;
+			ltmp /= 2;
+
+
+			m_vUnits[wParam].SetPos(
+				Point{
+				((int)(wParam)* 2 + 1)*(sizetmp + interval)
+				,ltmp });
+
 		}
 		break;
 	case ENUM_CHILD_MESSGE_EDIT::SETUNITPATH:

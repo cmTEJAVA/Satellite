@@ -51,40 +51,9 @@ public:
 	CEnemy();
 	~CEnemy();
 
-	void Oncreat(int size,const Point& pos, const Point& tergetPos, float speed
+	void Oncreat(int size, const Point& pos, const Point& tergetPos, float speed
 		, float radianspeed = 0.01
-		) {
-		m_fradianspeed = radianspeed;
-		m_Pos = pos;
-		m_tergetPos = tergetPos;
-		m_Speed = speed;
-		m_size = size;
-		m_life = 1;
-
-		SetSprite(20, 2);
-		SetSprite_Tesla(5, 2);
-
-		Point enmytmp = m_Pos;
-		enmytmp = enmytmp - m_tergetPos;
-		float enemytmpradian = (2 * PI + atan2(enmytmp.y, enmytmp.x));
-		int asdf = enemytmpradian / DIVIDE_RADIAN;
-
-		asdf %= DIVIDE_N;
-		ID = asdf;
-
-
-		float ID2floatradian = DIVIDE_RADIAN*((float)ID + 0.5f);
-		if (enemytmpradian > 2 * PI) {
-			enemytmpradian -= 2 * PI;
-		}
-		
-		ID2 = (enemytmpradian < ID2floatradian ? ID - 1 : ID + 1);
-		ID2 = (ID2+ DIVIDE_N) % DIVIDE_N;
-
-		m_isterget = false;
-
-
-	}
+		);
 	void SetTergetPos(const Point& pos) {
 		m_tergetPos = pos;
 	}

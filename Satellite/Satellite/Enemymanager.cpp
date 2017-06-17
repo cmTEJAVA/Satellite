@@ -110,19 +110,28 @@ void CEnemymanager::damageShockBullet(Point bullet, int size)
 
 void CEnemymanager::targetTeslaBullet(Point bullet, int size, std::list<TeslaLaser>* v_laser)
 {
+	Point midpt{ WIDTH / 2,HEIGHT / 2 };
 	Point bullettmppos{ bullet };
 
 	for (auto &enemy : m_listEnemys) {
 		if (!PtInRect(&m_rcClient, enemy.m_Pos.GetPOINT())) continue;
 		if (enemy.m_isterget) continue;
+		if (enemy.m_isTesla) continue;
 		float tmpdistance;
 		tmpdistance = bullet.distance(enemy.m_Pos);
 		if (tmpdistance <= enemy.m_size + size) {
 			
 
+			Point tmp = enemy.m_Pos - bullettmppos;
+			Point tmpbullet = bullet- midpt;
+			tmp.normalize();
+			tmpbullet.normalize();
+			if (tmp.inner(tmpbullet) < cos(PI/4)) continue;
+
+
 			enemy.m_isterget = true;
 			v_laser->push_back(TeslaLaser());
-			v_laser->back().OnCreat(&enemy, bullet, 2.f);
+			v_laser->back().OnCreat(&enemy, bullet, 5.f);
 			enemy.m_tergetBullet = &v_laser->back();
 
 		}
