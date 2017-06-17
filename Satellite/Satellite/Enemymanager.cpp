@@ -35,6 +35,10 @@ void CEnemymanager::Update()
 	{
 		enemy.Update();
 	}
+	auto tmp = m_listEnemys.size();
+	m_listEnemys.remove_if([](CEnemy& enemy) {return !enemy.m_isShow; });
+	tmp -= m_listEnemys.size();
+	m_delN += tmp;
 	//m_listEnemys.remove_if([](CEnemy& enemy) {return !enemy.m_isShow; });
 
 }

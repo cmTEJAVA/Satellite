@@ -20,6 +20,9 @@ CGameScene::~CGameScene()
 
 void CGameScene::Update()
 {
+	m_MoneyManager.Update(m_ChildScenes);
+
+
 	if ( m_test_player.GetLife() <= 0.f&&m_ChildScenes ) {
 		m_ChildScenes->Update();
 		ENUM_SCENE changeID;
@@ -84,10 +87,19 @@ void CGameScene::Update()
 		Point tmppos;
 		int testunitid;
 		if (m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT, (WPARAM)&tmppos, (LPARAM)&testunitid)) {
-
+			
 			if (testunitid < 0) {
-				int tmp = m_vOrbit.back()+ ORBIT_DISTANCE;
-				m_vOrbit.push_back(tmp);
+
+				if (m_MoneyManager.using_money(PRICE_ORBIT)) {
+					int tmp = m_vOrbit.back() + ORBIT_DISTANCE;
+					m_vOrbit.push_back(tmp);
+					m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITMAX, m_vOrbit.size(), 0);
+					for (int i = 0; i < m_vOrbit.size(); i++) {
+
+						m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETORBITSIZE, i, m_vOrbit[i]);
+					}
+
+				}
 			}
 			else
 				plusUnit((ENUM_UNIT)testunitid, tmppos);
@@ -107,6 +119,8 @@ void CGameScene::Update()
 	}
 
 
+	m_MoneyManager.plus_money(m_EnemyManager.GetDelN()*PRICE_ENEMY);
+//	m_EnemyManager.GetDelN();
 
 	m_EnemyManager.Update();
 	m_BulletManager.Update();
@@ -160,7 +174,6 @@ void CGameScene::Update()
 	}
 
 
-	m_MoneyManager.Update();
 
 }
 
@@ -233,12 +246,13 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 		}
 
 
-		m_test_player.attack();
-		//plusEnemy();
+		//m_MoneyManager.plus_money(rand() % 500);
 	}
 	break;
 	case WM_RBUTTONUP:
-		m_test_player.cure();
+		//m_MoneyManager.using_money(1000);
+		//
+		//m_test_player.cure();
 		break;
 
 	case WM_MOUSEMOVE:
@@ -301,9 +315,9 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_test_player.Setdestroyedimg(L"Resorce/Game/ss4.bmp");
 
 
-	for (int i = 0; i < 1; i++) {
-		plusUnit( ENUM_UNIT::TESLA_UNIT, Point{ m_rcClient.right / 2 + 100,m_rcClient.bottom / 2 });
-	}
+	//for (int i = 0; i < 1; i++) {
+	//	plusUnit( ENUM_UNIT::TESLA_UNIT, Point{ m_rcClient.right / 2 + 100,m_rcClient.bottom / 2 });
+	//}
 
 	RECT playerimgtmprect = m_test_player.m_imgUnit.GetObjRECT();
 	int playersize= playerimgtmprect.right- playerimgtmprect.left;

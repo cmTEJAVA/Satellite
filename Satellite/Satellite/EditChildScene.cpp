@@ -19,15 +19,15 @@ void CEditChildScene::Update()
 			m_vinsert_ID_Units.back().unitID = -1;//orbit일 경우 사이즈를 가지고?
 			m_vinsert_ID_Units.back().orbit = m_vOrbit.size();
 
-			RECT tmp = m_vOrbit.back();
-
-			m_vOrbit.push_back(RECT{});
-		
-			tmp.left -= ORBIT_DISTANCE;
-			tmp.top -= ORBIT_DISTANCE;
-			tmp.bottom += ORBIT_DISTANCE;
-			tmp.right += ORBIT_DISTANCE;
-			m_vOrbit.back() = tmp;
+			//RECT tmp = m_vOrbit.back();
+			//
+			//m_vOrbit.push_back(RECT{});
+			//
+			//tmp.left -= ORBIT_DISTANCE;
+			//tmp.top -= ORBIT_DISTANCE;
+			//tmp.bottom += ORBIT_DISTANCE;
+			//tmp.right += ORBIT_DISTANCE;
+			//m_vOrbit.back() = tmp;
 
 			m_selectOrbit = -1;
 
@@ -309,11 +309,14 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 	case ENUM_CHILD_MESSGE_EDIT::GETINSERTUNIT:
 	if(m_vinsert_ID_Units.size()){
 	//	if (m_selectOrbit < 0)return false;
+
+		if(m_vinsert_ID_Units.back().unitID>=0){
 		RECT tmp = m_vOrbit[m_vinsert_ID_Units.back().orbit];
 		int size = tmp.right - tmp.left;
 		size /= 2;
 		((Point *)wParam)->x= m_ptmouseOrbit.x;
 		((Point *)wParam)->y= m_ptmouseOrbit.y;
+		}
 		*((int *)lParam) = m_vinsert_ID_Units.back().unitID;
 
 		m_vinsert_ID_Units.pop_back();

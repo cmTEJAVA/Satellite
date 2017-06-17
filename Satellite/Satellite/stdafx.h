@@ -38,9 +38,21 @@
 
 #define ORBIT_DISTANCE 55
 
+#define MONEY_TERM 30
+
+#define PRICE_UNIT_B 300
+#define PRICE_UNIT_T 500
+#define PRICE_UNIT_S 600
+#define PRICE_UNIT_L 400
+#define PRICE_ORBIT 1000
+#define PRICE_ENEMY 20
+
+
 #define GAMEFPS			int(1000 / 60)
 
 #define SOUND_TYPE 20
+
+
 
 extern float g_DIVIDE_MAX_SIZE;
 
