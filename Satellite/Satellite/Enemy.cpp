@@ -166,7 +166,7 @@ void CEnemy::Drawlife(HDC hdc)
 		POINT a2{ cos(ftmp + 2 * PI*m_life)*size	,sin(ftmp + 2 * PI*m_life)*size };
 		POINT a1{ cos(ftmp + 0)*size				,sin(ftmp + 0)*size };
 
-		if (m_life > 0.5&&(a1.x <= a2.x|| a1.y >= a2.y)) {
+		if (m_life > 0.9&&(a1.x <= a2.x|| a1.y >= a2.y)) {
 
 		}
 		else {
