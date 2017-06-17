@@ -22,6 +22,19 @@ void CSprite::draw(HDC hdc)
 	//return;
 	RECT rctmp = GetObjRECT();
 
+	if (m_isBMP) {
+		m_cimg.TransparentBlt(hdc,
+			rctmp.left, rctmp.top,
+			rctmp.right - rctmp.left, rctmp.bottom - rctmp.top
+
+			, m_spritesize.x*(m_drawframenum), 0
+			, m_spritesize.x, m_spritesize.y
+			,m_delRGB
+			);
+
+	}
+
+	else
 	m_cimg.Draw(hdc,
 		rctmp.left, rctmp.top,
 		rctmp.right - rctmp.left, rctmp.bottom - rctmp.top

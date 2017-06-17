@@ -160,6 +160,8 @@ void CGameScene::Update()
 	}
 
 
+	m_MoneyManager.Update();
+
 }
 
 void CGameScene::Draw(HDC hDC)
@@ -204,11 +206,14 @@ void CGameScene::Draw(HDC hDC)
 	for (auto&q : m_listUnits) {
 		q.draw(hDC);
 	}
+	m_MoneyManager.Draw(hDC);
 
 	
 
 	if (m_test_player.GetLife() <= 0.f)
 		m_ChildScenes->Draw(hDC);
+
+
 
 }
 
@@ -272,10 +277,12 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow back.png");
 	m_arrbutton[0].SetObjRECT(RECT{ -15,-15,15,15 });
-	m_arrbutton[0].SetPos(Point{ 20,20 });
+	//m_arrbutton[0].SetPos(Point{ 20,20 });
+	m_arrbutton[0].SetPos(Point{ m_rcClient.right - 20, 20 });
+
 	m_arrbutton[1].OnCreatCimg(L"Resorce/button/option.png");
 	m_arrbutton[1].SetObjRECT(RECT{ -20,-20,20,20 });
-	m_arrbutton[1].SetPos(Point{ m_rcClient.right - 30,m_rcClient.bottom - 30 });
+	m_arrbutton[1].SetPos(Point{  30,m_rcClient.bottom - 30 });
 
 
 
@@ -304,7 +311,7 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_BulletManager.OnCreateBulletImg();
 	m_EnemyManager.OnCreatEnemy(Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 },playersize);
 	m_BulletManager.OnCreate(&m_EnemyManager);
-
+	m_MoneyManager.OnCreat();
 
 	return true;
 }
