@@ -112,6 +112,9 @@
     <Filter Include="EmptyObject\bullet\Tesla\TeslaLaser">
       <UniqueIdentifier>{81b2e001-e773-4f79-a164-c4e0d83b6a53}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Manager\MoneyManager">
+      <UniqueIdentifier>{086d115b-0ef5-4ce6-be8a-e1d2b701c5d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -225,6 +228,9 @@
     <ClInclude Include="TeslaLaser.h">
       <Filter>EmptyObject\bullet\Tesla\TeslaLaser</Filter>
     </ClInclude>
+    <ClInclude Include="MoneyManager.h">
+      <Filter>Manager\MoneyManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -328,6 +334,9 @@
     </ClCompile>
     <ClCompile Include="TeslaLaser.cpp">
       <Filter>EmptyObject\bullet\Tesla\TeslaLaser</Filter>
+    </ClCompile>
+    <ClCompile Include="MoneyManager.cpp">
+      <Filter>Manager\MoneyManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

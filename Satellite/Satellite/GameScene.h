@@ -4,6 +4,7 @@
 #include "Button.h"
 #include "BulletManager.h"
 #include "Enemymanager.h"
+#include "MoneyManager.h"
 #include <list>
 #include <vector>
 
@@ -20,8 +21,12 @@ class CGameScene :
 
 	LPCTSTR				m_arrUnitszPath[int(ENUM_UNIT::END)];
 	std::list<CUnit>	m_listUnits;
+
 	CBulletManager  	m_BulletManager;
 	CEnemymanager	 	m_EnemyManager;
+	CMoneyManager	 	m_MoneyManager;
+
+
 	std::vector<int>	m_vOrbit;
 
 	Cbutton				m_arrbutton[2];
