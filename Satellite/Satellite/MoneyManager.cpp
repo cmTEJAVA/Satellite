@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "MoneyManager.h"
-
+#include "Sound.h"
 
 CMoneyManager::CMoneyManager()
 {
@@ -9,6 +9,22 @@ CMoneyManager::CMoneyManager()
 
 CMoneyManager::~CMoneyManager()
 {
+}
+
+bool CMoneyManager::using_money(const unsigned int & usingM)
+{
+	ADDmoney_clear();
+	if (m_imoney >= usingM) {
+		m_imoney -= usingM;
+		return true;
+	}
+	else {
+		m_AccessError = true;
+
+		m_ptrSound->Play_effect(ENUM_SOUND::MONEY);
+
+		return false;
+	}
 }
 
 void CMoneyManager::Draw(HDC hdc)

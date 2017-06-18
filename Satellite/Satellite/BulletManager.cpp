@@ -109,7 +109,9 @@ void CBulletManager::Update()
 
 }
 
-void CBulletManager::OnCreate(CEnemymanager * ptrEnemeyManager)
+void CBulletManager::OnCreate(CEnemymanager * ptrEnemeyManager, Sound_Func* ptrS)
 {
+	m_ptrSound = ptrS;
+
 	m_ptrEnemeyManager = ptrEnemeyManager;
 }

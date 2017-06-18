@@ -1,5 +1,10 @@
 #pragma once
 #include "Sprite.h"
+
+
+class Sound_Func;
+
+
 class CMoneyManager
 {
 	RECT m_rcClient;
@@ -15,11 +20,14 @@ class CMoneyManager
 	bool m_AccessError;
 	int m_AccessErrorTime;
 
+	Sound_Func* m_ptrSound;
 
+	
 public:
 	CMoneyManager();
 	~CMoneyManager();
-	void OnCreat() {
+	void OnCreat(Sound_Func* ptrS) {
+		m_ptrSound = ptrS;
 		m_rcClient = RECT{ 30,0,WIDTH,HEIGHT };
 		m_spriteMoney.OnCreatCimg(L"Resorce/Test/moneysprite.bmp");
 		m_spriteMoney.OnCreatSprite(0.5f, 8, 0.1);
@@ -41,19 +49,7 @@ public:
 		m_iADD_money += plusM;
 		return true;
 	}
-	bool using_money(const unsigned int& usingM) {
-		ADDmoney_clear();
-		if (m_imoney >= usingM) {
-			m_imoney -= usingM;
-			return true;
-		}
-		else {
-			m_AccessError = true;
-			PlaySound(L"sound/no money.wav", NULL, SND_ASYNC);
-
-			return false;
-		}
-	}
+	bool using_money(const unsigned int& usingM);
 
 
 	void Draw(HDC hdc);
