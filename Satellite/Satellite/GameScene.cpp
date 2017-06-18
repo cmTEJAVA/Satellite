@@ -79,6 +79,23 @@ void CGameScene::plusUnit(ENUM_UNIT ID, const Point & pos)
 	m_vOrbitUnitN[OrvitID]++;
 }
 
+void CGameScene::Update_stageLevel()
+{
+	m_Gametime_for_stage++;
+	if (m_time_stageLevel_UP > 0) {
+		m_time_stageLevel_UP--;
+	}
+
+	if (m_Gametime_for_stage >STAGE_LEVEL_TERM) {
+		m_Gametime_for_stage = 0;
+		m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
+		if (m_stageLevel < STAGE_LEVEL_MAX) {
+			m_time_stageLevel_UP = MAX_TIME_STAGE_LEVEL_UP;
+		}
+	}
+
+}
+
 CGameScene::CGameScene()
 {
 	snd_game = new Sound_Func;
@@ -197,11 +214,8 @@ void CGameScene::Update()
 		plusEnemy();
 		m_Gametime = 0;
 	}
-	m_Gametime_for_stage++;
-	if (m_Gametime_for_stage >STAGE_LEVEL_TERM) {
-		m_Gametime_for_stage = 0;
-		m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
-	}
+
+	Update_stageLevel();
 
 
 	if (m_MoneyManager.plus_money(m_EnemyManager.GetDelN()*PRICE_ENEMY)) {
@@ -333,8 +347,11 @@ void CGameScene::Draw(HDC hDC)
 		HFONT oldFont = (HFONT)SelectObject(hDC, myFont);
 
 		COLORREF textColor;
-			textColor = RGB(255, 255, 255);
 
+		if(m_time_stageLevel_UP>0)
+			textColor = RGB(255, 50, 50);
+		else
+			textColor = RGB(255, 255, 255);
 
 		auto oldtxtcolor = SetTextColor(hDC, textColor);
 		auto oldBk = SetBkMode(hDC, TRANSPARENT);
@@ -343,7 +360,7 @@ void CGameScene::Draw(HDC hDC)
 		CString strmoney;
 
 		strmoney.Format(L"%d", m_stageLevel);
-		strmoney = L"STAGE : " + strmoney;
+		strmoney = L"STAGE " + strmoney;
 
 		DrawText(hDC, strmoney, lstrlen(strmoney), &m_rcClient, DT_TOP | DT_CENTER);
 
@@ -406,6 +423,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
+	m_time_stageLevel_UP = 0;
 	m_shake_radian = 0;
 	m_stageLevel = 1;
 	m_bPause = false;
