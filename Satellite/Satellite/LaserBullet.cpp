@@ -12,10 +12,10 @@ LaserBullet::~LaserBullet()
 {
 }
 
-void LaserBullet::Oncreat(Point * unit, int maxtime)
+void LaserBullet::Oncreat(Point * unit)
 {
 	m_time = 0;
-	m_maxtime = maxtime;
+	m_maxtime = lasermaxtime;
 	m_ptrUnit = unit;
 	isShow = true;
 }

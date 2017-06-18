@@ -1,6 +1,9 @@
 #pragma once
 #include "Point.h"
 #include "Unit.h"
+
+#define lasermaxtime 50
+
 struct LaserBullet
 {
 
@@ -12,7 +15,7 @@ struct LaserBullet
 	LaserBullet();
 	~LaserBullet();
 
-	void Oncreat(Point * unit, int maxtime = 30);
+	void Oncreat(Point * unit);
 	void Update();
 };
 
