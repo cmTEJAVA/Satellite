@@ -46,6 +46,8 @@ public:
 		}
 		else {
 			m_AccessError = true;
+			PlaySound(L"sound/no money.wav", NULL, SND_ASYNC);
+
 			return false;
 		}
 	}

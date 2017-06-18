@@ -61,7 +61,6 @@ void CMoneyManager::Update(bool Pause)
 
 
 	if (m_AccessError) {
-		PlaySound(L"sound/no money.wav", NULL, SND_ASYNC);
 		m_AccessErrorTime--;
 		if (m_AccessErrorTime < 0) {
 			m_AccessError = false;
