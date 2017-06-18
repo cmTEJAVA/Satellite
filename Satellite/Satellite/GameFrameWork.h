@@ -66,10 +66,6 @@ private:
 
 
 public:
-
 	bool m_intro_bgm = (bool)ENUM_INTRO_BGM::OFF;
-	bool m_back_bgm = (bool)ENUM_BACK_BGM::OFF;
-
-
 };
 

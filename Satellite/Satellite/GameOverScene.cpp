@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "Scene.h"
 #include "GameOverScene.h"
-#include "Sound.h"
-
 
 CGameOverScene::CGameOverScene()
 {	
@@ -97,11 +95,6 @@ UINT CGameOverScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 			*(ENUM_SCENE *)wParam = ENUM_SCENE::GAME;
 			return true;
 		}
-		break;
-
-	case ENUM_CHILD_MESSGE_GOVER::INIT_SOUND_PTR:
-		over_snd=(Sound_Func *)wParam;
-		over_snd->Play_bgm(ENUM_SOUND::GAMEOVER);
 		break;
 
 	default:

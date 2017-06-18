@@ -116,6 +116,13 @@ void Sound_Func::Add_sound()
 		, &pSound[(int)ENUM_SOUND::MONEY]
 	);
 
+	pSystem->createSound(
+		"Sound/stage up.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::STAGEUP]
+	);
+
 }
 
 void Sound_Func::Play_bgm(ENUM_SOUND type)
@@ -142,9 +149,3 @@ void Sound_Func::Stop_bgm(ENUM_SOUND type)
 	if (bPlaying)
 		pChannel[(int)type]->stop();
 }
-
-void Sound_Func::Stop_effect()
-{
-}
-
-

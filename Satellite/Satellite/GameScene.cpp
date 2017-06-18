@@ -261,8 +261,9 @@ void CGameScene::Update()
 
 	if (m_test_player.GetLife() <= 0.f)
 	{
+		snd_game->Stop_bgm(ENUM_SOUND::BACK);
+		snd_game->Play_bgm(ENUM_SOUND::GAMEOVER);
 		ChangeChildScene(ENUM_SCENE_CHILD::GameOver);
-		m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_GOVER::INIT_SOUND_PTR, (WPARAM)&snd_game, 0);
 		m_bPause = false;
 	}
 

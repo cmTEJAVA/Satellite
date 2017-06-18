@@ -135,33 +135,26 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 	case ENUM_SCENE::TITLE:
 		m_Scenes = new CLogoScene;
 		m_Scenes->Initialize(this, m_hWnd);
-
 		snd->Play_effect(ENUM_SOUND::LOGO);
 		snd->Play_effect(ENUM_SOUND::LOGO2);
 		break;
 	case ENUM_SCENE::GAME:	
 		snd->Play_effect(ENUM_SOUND::CLICK);
-		if (m_intro_bgm) // 인트로 노래 끄기
-		{
-			snd->Stop_bgm(ENUM_SOUND::INTRO);
-			m_intro_bgm = (bool)ENUM_INTRO_BGM::OFF;
-		}
+		snd->Stop_bgm(ENUM_SOUND::INTRO);
+		m_intro_bgm = (bool)ENUM_INTRO_BGM::OFF;
 		snd->Play_bgm(ENUM_SOUND::BACK);
-		m_back_bgm = (bool)ENUM_BACK_BGM::ON;
 		m_Scenes = new CGameScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
-	case ENUM_SCENE::MENU:
-
-		if (m_back_bgm)
-			snd->Stop_bgm(ENUM_SOUND::BACK);
-		if (!m_intro_bgm) // 인트로 노래 켜기
-		{
-			snd->Play_bgm(ENUM_SOUND::INTRO);
-			m_intro_bgm = (bool)ENUM_INTRO_BGM::ON;;
-		}
-		else // 켜져있으면 소리만
+	case ENUM_SCENE::MENU:		
+		if(m_intro_bgm)
 			snd->Play_effect(ENUM_SOUND::CLICK);
+		else
+		{
+			snd->Stop_bgm(ENUM_SOUND::BACK);
+			snd->Play_bgm(ENUM_SOUND::INTRO);
+			m_intro_bgm = (bool)ENUM_INTRO_BGM::ON;
+		}
 		m_Scenes = new CMenuScene;
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
