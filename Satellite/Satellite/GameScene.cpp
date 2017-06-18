@@ -28,7 +28,7 @@ void CGameScene::plusUnit(ENUM_UNIT ID, const Point & pos)
 	switch (ID)
 	{
 	case ENUM_UNIT::BULLET_UNIT:
-		if (!m_MoneyManager.using_money(PRICE_UNIT_B))break;
+		if (!m_MoneyManager.using_money(PRICE_UNIT_B))return;
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(pos,
 			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
@@ -38,7 +38,7 @@ void CGameScene::plusUnit(ENUM_UNIT ID, const Point & pos)
 		m_listUnits.back().SetID(ENUM_UNIT::BULLET_UNIT);
 		break;
 	case ENUM_UNIT::TESLA_UNIT:
-		if (!m_MoneyManager.using_money(PRICE_UNIT_T))break;
+		if (!m_MoneyManager.using_money(PRICE_UNIT_T))return;
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(pos,
 			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
@@ -50,7 +50,7 @@ void CGameScene::plusUnit(ENUM_UNIT ID, const Point & pos)
 
 		break;
 	case ENUM_UNIT::LASER_UNIT:
-		if (!m_MoneyManager.using_money(PRICE_UNIT_L))break;
+		if (!m_MoneyManager.using_money(PRICE_UNIT_L))return;
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(pos,
 			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
@@ -60,7 +60,7 @@ void CGameScene::plusUnit(ENUM_UNIT ID, const Point & pos)
 		m_listUnits.back().SetID(ENUM_UNIT::LASER_UNIT);
 		break;
 	case ENUM_UNIT::SHOCKWAVE_UNIT:
-		if (!m_MoneyManager.using_money(PRICE_UNIT_S))break;
+		if (!m_MoneyManager.using_money(PRICE_UNIT_S))return;
 		m_listUnits.push_back(CUnit{});
 		m_listUnits.back().OnCreatUnit(pos,
 			Point{ m_rcClient.right / 2 ,m_rcClient.bottom / 2 },
@@ -73,6 +73,7 @@ void CGameScene::plusUnit(ENUM_UNIT ID, const Point & pos)
 
 		break;
 	default:
+		return;
 		break;
 	}
 	m_vOrbitUnitN[OrvitID]++;
