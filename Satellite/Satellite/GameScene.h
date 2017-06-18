@@ -27,6 +27,7 @@ class CGameScene :
 	CMoneyManager	 	m_MoneyManager;
 
 
+
 	std::vector<int>	m_vOrbit;
 	std::vector<int>	m_vOrbitUnitN;
 

@@ -13,8 +13,8 @@ CEditChildScene::~CEditChildScene()
 
 void CEditChildScene::Update()
 {
-	for (int i = 0; i < m_vUnits.size(); i++) {
-		if (i == m_vUnits.size() - 1&& m_vUnits[i].Getselect()) {
+	for (int i = 0; i < m_vUnitButton.size(); i++) {
+		if (i == m_vUnitButton.size() - 1&& m_vUnitButton[i].Getselect()) {
 			m_vinsert_ID_Units.push_back(idUnit());
 			m_vinsert_ID_Units.back().unitID = -1;//orbit일 경우 사이즈를 가지고?
 			m_vinsert_ID_Units.back().orbit = m_vOrbit.size();
@@ -31,19 +31,19 @@ void CEditChildScene::Update()
 
 			m_selectOrbit = -1;
 
-			m_vUnits[i].Setselect(false);
+			m_vUnitButton[i].Setselect(false);
 			continue;
 		}
 
 
-		if (m_vUnits[i].Getselect() && (m_selectOrbit >= 0)) {
+		if (m_vUnitButton[i].Getselect() && (m_selectOrbit >= 0)) {
 			m_vinsert_ID_Units.push_back(idUnit());
 			m_vinsert_ID_Units.back().unitID = i;
 			m_vinsert_ID_Units.back().orbit = m_selectOrbit;
 
 			m_selectOrbit = -1;
 
-			m_vUnits[i].Setselect(false);
+			m_vUnitButton[i].Setselect(false);
 		}
 	}
 
@@ -61,7 +61,7 @@ void CEditChildScene::Draw(HDC hDC)
 	DrawText(alphahdc, asdf, lstrlen(asdf), &m_rcClient,DT_TOP|DT_LEFT);
 
 
-	Rectangle(alphahdc, m_rcEditWindow.left, m_rcEditWindow.top, m_rcEditWindow.right, m_rcEditWindow.bottom);
+	Rectangle(alphahdc, m_rcEditWindow.left, m_rcEditWindow.top, m_rcEditWindow.right, m_rcEditWindow.bottom+20);
 
 
 
@@ -104,31 +104,61 @@ void CEditChildScene::Draw(HDC hDC)
 		}
 	}
 
-	for (int i = 0; i < m_vUnits.size(); i++) {
+
+
+
+	HFONT myFont = CreateFont(20, 0, 0, 0, 800, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, L"Arial Narrow");
+	HFONT oldFont = (HFONT)SelectObject(hDC, myFont);
+
+	COLORREF textColor;
+	textColor = RGB(10, 10, 10);
+
+
+	auto oldtxtcolor = SetTextColor(hDC, textColor);
+	auto oldBk = SetBkMode(hDC, TRANSPARENT);
+
+
+	for (int i = 0; i < m_vUnitButton.size(); i++) {
 		HPEN hpenselect=nullptr;
 		HPEN hpenselectold= nullptr;
-		if (m_vUnits[i].Getselect()) {
+		if (m_vUnitButton[i].Getselect()) {
 			hpenselect = CreatePen(PS_SOLID, 3, RGB(255, 150, 0));
 			hpenselectold=(HPEN)SelectObject(hDC, hpenselect);
 
 		}
-		Cbutton &m_testbutt = m_vUnits[i];
+		Cbutton &m_testbutt = m_vUnitButton[i];
 
 		RECT rctmp = m_testbutt.GetObjRECT();
 		m_testbutt.draw(hDC);
 		Rectangle(hDC, rctmp.left, rctmp.top, rctmp.right, rctmp.bottom);
-		if (m_vUnits[i].Getselect()) {
+		if (m_vUnitButton[i].Getselect()) {
 			SelectObject(hDC, hpenselectold);
 			DeleteObject(hpenselect);
 			hpenselect = nullptr;
 
 		}
+
+		rctmp.top = rctmp.bottom;
+		rctmp.bottom = m_rcClient.bottom;
+
+		DrawText(hDC, m_arrstrUnitPRICE[i], lstrlen(m_arrstrUnitPRICE[i]), &rctmp, DT_TOP | DT_CENTER);
+
+
 	}
 
 
 	SelectObject(hDC, old);
 	SelectObject(hDC, oldpen);
 	DeleteObject(hpen);
+
+
+
+
+		SelectObject(hDC, oldFont);
+		DeleteObject(myFont);
+		myFont = nullptr;
+	
+
 
 }
 
@@ -163,7 +193,7 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 
 		}
-		for (auto &button : m_vUnits) {
+		for (auto &button : m_vUnitButton) {
 			button.SetMouseMove(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
 
@@ -196,7 +226,7 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 
 		}
 
-		for (auto &button : m_vUnits) {
+		for (auto &button : m_vUnitButton) {
 			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
 
@@ -231,6 +261,16 @@ bool CEditChildScene::Initialize(CScene * pparentScene, HWND hWnd)
 	tmp.bottom -= 30;
 	m_rcEditWindow = tmp;
 
+	m_arrstrUnitPRICE[(int)ENUM_UNIT::BULLET_UNIT].Format(L"%d", PRICE_UNIT_B);
+	m_arrstrUnitPRICE[(int)ENUM_UNIT::TESLA_UNIT].Format(L"%d", PRICE_UNIT_T);
+	m_arrstrUnitPRICE[(int)ENUM_UNIT::LASER_UNIT].Format(L"%d", PRICE_UNIT_L);
+	m_arrstrUnitPRICE[(int)ENUM_UNIT::SHOCKWAVE_UNIT].Format(L"%d", PRICE_UNIT_S);
+	m_arrstrUnitPRICE[(int)ENUM_UNIT::END].Format(L"%d", PRICE_ORBIT);
+
+	for (auto&q : m_arrstrUnitPRICE) {
+		q = L"★" + q;
+	}
+
 //	m_rcEditWindow
 	return false;
 }
@@ -257,14 +297,14 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 	}
 		break;
 	case ENUM_CHILD_MESSGE_EDIT::SETUNITMAX:
-		m_vUnits.clear();
+		m_vUnitButton.clear();
 		for (int i = 0; i < wParam; i++) {
-			m_vUnits.push_back(Cbutton{});
+			m_vUnitButton.push_back(Cbutton{});
 		}
 		{
 
-			m_vUnits.push_back(Cbutton{});// 추가 궤도add orbit button.bmp
-			m_vUnits[wParam].OnCreatCimg(
+			m_vUnitButton.push_back(Cbutton{});// 추가 궤도add orbit button.bmp
+			m_vUnitButton[wParam].OnCreatCimg(
 				L"Resorce/button/add orbit button.png"
 				);
 			LONG sizetmp = m_rcEditWindow.bottom - m_rcEditWindow.top;
@@ -272,12 +312,12 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 			int interval = 10;
 			sizetmp -= interval;
 
-			m_vUnits[wParam].SetObjRECT(RECT{ -sizetmp,-sizetmp,sizetmp,sizetmp });
+			m_vUnitButton[wParam].SetObjRECT(RECT{ -sizetmp,-sizetmp,sizetmp,sizetmp });
 			LONG ltmp = m_rcEditWindow.bottom + m_rcEditWindow.top;
 			ltmp /= 2;
 
 
-			m_vUnits[wParam].SetPos(
+			m_vUnitButton[wParam].SetPos(
 				Point{
 				((int)(wParam)* 2 + 1)*(sizetmp + interval)
 				,ltmp });
@@ -286,7 +326,7 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 	case ENUM_CHILD_MESSGE_EDIT::SETUNITPATH:
 	{
-		m_vUnits[wParam].OnCreatCimg(
+		m_vUnitButton[wParam].OnCreatCimg(
 			(LPCTSTR)lParam
 			);
 		LONG sizetmp = m_rcEditWindow.bottom - m_rcEditWindow.top;
@@ -294,12 +334,12 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 		int interval=10;
 		sizetmp -= interval;
 	
-		m_vUnits[wParam].SetObjRECT(RECT{ -sizetmp,-sizetmp,sizetmp,sizetmp });
+		m_vUnitButton[wParam].SetObjRECT(RECT{ -sizetmp,-sizetmp,sizetmp,sizetmp });
 		LONG ltmp = m_rcEditWindow.bottom + m_rcEditWindow.top;
 		ltmp /= 2;
 
 		
-		m_vUnits[wParam].SetPos(
+		m_vUnitButton[wParam].SetPos(
 			Point{ 
 			((int)(wParam)*2+1)*( sizetmp+ interval) 
 			,ltmp });

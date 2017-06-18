@@ -26,12 +26,14 @@ class CEditChildScene :
 
 	std::vector<RECT> m_vOrbit;
 	
-	std::vector<Cbutton>m_vUnits;
+	std::vector<Cbutton>m_vUnitButton;
 
 	int m_OnOrbit{ -1 };
 	int m_selectOrbit{ -1 };
 	
 	Point m_ptmouseOrbit;
+
+	CString				m_arrstrUnitPRICE[int(ENUM_UNIT::END) + 1];
 
 
 	std::vector<idUnit>m_vinsert_ID_Units;
