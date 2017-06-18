@@ -89,12 +89,18 @@ void Sound_Func::Add_sound()
 	);
 
 	pSystem->createSound(
-		"Sound/shoke wave sound.mp3"
+		"Sound/shock wave sound.mp3"
 		, FMOD_DEFAULT | FMOD_LOOP_OFF
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::SHOCKWAVE]
 	);
 
+	pSystem->createSound(
+		"Sound/explosion sound.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::EXPLOSION]
+	);
 
 }
 
@@ -103,7 +109,8 @@ void Sound_Func::Play_bgm(ENUM_SOUND type)
 	pSystem->playSound(pSound[(int)type]
 		, nullptr, false, &pChannel[(int)type]);
 
-	pChannel[(int)type]->setVolume(0.7f);
+	if(type == ENUM_SOUND::BACK)
+	pChannel[(int)type]->setVolume(0.5f);
 
 }
 

@@ -44,6 +44,8 @@ void CEnemymanager::Update()
 	auto tmp = m_listEnemys.size();
 	m_listEnemys.remove_if([](CEnemy& enemy) {return !enemy.m_isShow; });
 	tmp -= m_listEnemys.size();
+	if (tmp > 0)
+		m_ptrSound->Play_effect(ENUM_SOUND::EXPLOSION);
 	m_delN += tmp;
 	//m_listEnemys.remove_if([](CEnemy& enemy) {return !enemy.m_isShow; });
 
