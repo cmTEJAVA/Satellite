@@ -50,7 +50,7 @@ bool CEnemymanager::damageCirBullet(CirBullet * ptrbullet) {
 		float tmpdistance;
 		tmpdistance = ptrbullet->m_Pos.distance(enemy.m_Pos);
 		if (tmpdistance <= enemy.m_size) {
-			enemy.damage(0.2);
+			enemy.damage(ATK_UNIT_B);
 			return true;
 		}
 
@@ -82,7 +82,7 @@ void CEnemymanager::damageLaserBullet(Point bullet) {
 		//float tmpdistance;
 		//tmpdistance = ptrbullet->m_Pos.distance(enemy.m_Pos);
 		if (distance <= enemy.m_size) {
-			enemy.damage(0.02);
+			enemy.damage(ATK_UNIT_L);
 		}
 
 
@@ -98,7 +98,7 @@ void CEnemymanager::damageShockBullet(Point bullet, int size)
 		float tmpdistance;
 		tmpdistance = bullet.distance(enemy.m_Pos);
 		if (tmpdistance <= enemy.m_size+ size) {
-			enemy.damage(0.005);
+			enemy.damage(ATK_UNIT_S);
 			Point3 tmpdir;
 			tmpdir.x = enemy.m_Pos.x- m_tergetPos.x;
 			tmpdir.y= enemy.m_Pos.y- m_tergetPos.y;

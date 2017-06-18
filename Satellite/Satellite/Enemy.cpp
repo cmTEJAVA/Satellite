@@ -68,7 +68,7 @@ void CEnemy::Update()
 {
 	if (m_isTesla) {
 		
-		damage(0.003);
+		damage(ATK_UNIT_T);
 
 		if (m_Shockframenum >= 1) {
 			
@@ -110,7 +110,15 @@ void CEnemy::Update()
 		m_Dir = m_tergetPos - m_Pos;
 		m_Dir.normalize();
 
-		m_Pos += m_Dir*m_Speed;
+		if (m_isTesla) {
+			m_Pos += m_Dir*m_Speed*0.5f;
+
+		}
+		else {
+
+			m_Pos += m_Dir*m_Speed;
+			
+		}
 
 		if (ID > 0) {
 			if (m_Pos.distance(m_tergetPos) < g_DIVIDE_MAX_SIZE) {

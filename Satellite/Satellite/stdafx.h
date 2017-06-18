@@ -59,6 +59,11 @@
 	(((ENEMY_ADD_TIME_MIN-ENEMY_ADD_TIME_MAX)/(float)STAGE_LEVEL_MAX)*LEVEL+ENEMY_ADD_TIME_MAX)
 
 
+#define ATK_UNIT_B 0.2f
+#define ATK_UNIT_L 0.04f
+#define ATK_UNIT_S 0.005f
+#define ATK_UNIT_T 0.003f
+
 
 #define GAMEFPS			int(1000 / 60)
 
