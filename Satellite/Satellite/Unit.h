@@ -40,7 +40,7 @@ public:
 		switch (m_unitID)
 		{
 		case ENUM_UNIT::BULLET_UNIT:
-			if (m_ibullettime < 15)return ENUM_BULLET::END;
+			if (m_ibullettime < 10)return ENUM_BULLET::END;
 			m_ibullettime = 0;
 			return ENUM_BULLET::STANDARD;
 			break;
