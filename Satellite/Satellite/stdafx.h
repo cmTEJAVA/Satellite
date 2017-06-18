@@ -103,7 +103,8 @@ enum class ENUM_SOUND
 	, BULLET
 	, SHOCKWAVE	
 	, EXPLOSION		// enemy
-//	, GAME_OVER		// bgm
+	, GAMEOVER		// bgm
+	, MONEY
 };
 
 

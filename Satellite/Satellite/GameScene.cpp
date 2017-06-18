@@ -262,8 +262,8 @@ void CGameScene::Update()
 	if (m_test_player.GetLife() <= 0.f)
 	{
 		ChangeChildScene(ENUM_SCENE_CHILD::GameOver);
+		m_ChildScenes->GetSceneMessge((UINT)ENUM_CHILD_MESSGE_GOVER::INIT_SOUND_PTR, (WPARAM)&snd_game, 0);
 		m_bPause = false;
-
 	}
 
 
@@ -355,8 +355,6 @@ void CGameScene::Draw(HDC hDC)
 
 	if (m_test_player.GetLife() <= 0.f)
 		m_ChildScenes->Draw(hDC);
-
-
 
 }
 

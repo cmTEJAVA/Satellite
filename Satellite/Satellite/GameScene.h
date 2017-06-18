@@ -19,7 +19,7 @@ class CGameScene :
 {
 	Sound_Func			*snd_game;
 
-	CImage		m_bmp_backimg;
+	CImage				m_bmp_backimg;
 
 	CPlayer				m_test_player;
 

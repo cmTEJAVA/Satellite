@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "EditChildScene.h"
 #include "GameOverScene.h"
+#include "Sound.h"
 
 CScene::CScene()
 {

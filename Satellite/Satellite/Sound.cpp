@@ -102,6 +102,20 @@ void Sound_Func::Add_sound()
 		, &pSound[(int)ENUM_SOUND::EXPLOSION]
 	);
 
+	pSystem->createStream(
+		"Sound/game over.mp3"
+		, FMOD_LOOP_NORMAL | FMOD_2D
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::GAMEOVER]
+	);
+
+	pSystem->createSound(
+		"Sound/no money.mp3"
+		, FMOD_DEFAULT | FMOD_LOOP_OFF
+		, nullptr
+		, &pSound[(int)ENUM_SOUND::MONEY]
+	);
+
 }
 
 void Sound_Func::Play_bgm(ENUM_SOUND type)
