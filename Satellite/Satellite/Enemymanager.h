@@ -4,6 +4,9 @@
 #include "Sprite.h"
 #include "CirBullet.h"
 #include "TeslaLaser.h"
+
+class Sound_Func;
+
 class CEnemymanager
 {
 	Point m_tergetPos;
@@ -16,13 +19,15 @@ class CEnemymanager
 	//std::vector<std::list<CEnemy*>> m_vlistenemys;
 	//std::list<CEnemy*> m_listEnemys;
 	RECT m_rcClient{ 0,0,WIDTH,HEIGHT };
+	
+	Sound_Func* m_ptrSound;
 
 public:
 	CSprite m_imgEnemy;
 	CSprite m_imgEnemyTesla;
 	CEnemymanager();
 	~CEnemymanager();
-	void OnCreatEnemy(const Point& tergetpos,int tergetSize) {
+	void OnCreatEnemyManager(const Point& tergetpos,int tergetSize, Sound_Func* ptrS) {
 		m_delN = 0;
 		m_tergetSize = tergetSize;
 
@@ -40,6 +45,8 @@ public:
 
 
 		m_tergetPos = tergetpos;
+		m_ptrSound = ptrS;
+
 	}
 	void SetTergetPos(const Point& pos) {
 		for (auto& enemy : m_listEnemys)

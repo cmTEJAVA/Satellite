@@ -33,6 +33,7 @@ class CEnemy
 	size_t		m_UnitMovemaxTime;
 	//Unit에의해 움직임
 
+	bool		m_isTeslaSound;
 
 public:
 
@@ -51,6 +52,14 @@ public:
 
 	CEnemy();
 	~CEnemy();
+
+	bool GetTeslaSound() {
+		if (m_isTeslaSound) {
+			m_isTeslaSound = false;
+			return true;
+		}
+		return false;
+	}
 
 	void Oncreat(int size, const Point& pos, const Point& tergetPos, float speed
 		, float radianspeed = 0.01

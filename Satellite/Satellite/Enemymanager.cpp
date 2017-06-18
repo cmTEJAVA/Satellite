@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Enemymanager.h"
 #include "Point3.h"
+#include "Sound.h"
 
 
 CEnemymanager::CEnemymanager()
@@ -34,6 +35,11 @@ void CEnemymanager::Update()
 	for (auto& enemy : m_listEnemys)
 	{
 		enemy.Update();
+
+		if (enemy.GetTeslaSound()) {
+			m_ptrSound->Play_effect(ENUM_SOUND::TESLA);
+		}
+
 	}
 	auto tmp = m_listEnemys.size();
 	m_listEnemys.remove_if([](CEnemy& enemy) {return !enemy.m_isShow; });

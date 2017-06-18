@@ -19,6 +19,7 @@ CEnemy::CEnemy()
 	m_tergetBullet = nullptr;
 	m_isterget = false;
 	m_isTesla = false;
+	m_isTeslaSound = false;
 }
 
 
@@ -200,7 +201,9 @@ void CEnemy::Drawlife(HDC hdc)
 }
 
 void CEnemy::SetTeslaShock() {
-	PlaySound(L"sound/tesla sound.wav", NULL, SND_ASYNC);
+	//PlaySound(L"sound/tesla sound.wav", NULL, SND_ASYNC);
+	//Play_effect(ENUM_SOUND::TESLA) 
+	m_isTeslaSound = true;
 	m_isTesla = true;
 	m_ShockMaxTime = 4;
 }

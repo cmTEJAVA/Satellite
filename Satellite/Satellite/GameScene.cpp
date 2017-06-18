@@ -434,7 +434,9 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	int playersize= playerimgtmprect.right- playerimgtmprect.left;
 	playersize /= 2;
 	m_BulletManager.OnCreateBulletImg();
-	m_EnemyManager.OnCreatEnemy(Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 },playersize);
+	m_EnemyManager.OnCreatEnemyManager(
+		Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 }
+	,playersize, snd_game);
 	m_BulletManager.OnCreate(&m_EnemyManager);
 	m_MoneyManager.OnCreat();
 
