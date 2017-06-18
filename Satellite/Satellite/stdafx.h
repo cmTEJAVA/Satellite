@@ -105,6 +105,7 @@ enum class ENUM_SOUND
 	, EXPLOSION		// enemy
 	, GAMEOVER		// bgm
 	, MONEY
+	, STAGEUP
 };
 
 
@@ -130,12 +131,6 @@ enum class ENUM_BULLET
 
 // sound
 enum class ENUM_INTRO_BGM
-{
-	OFF
-	, ON
-};
-
-enum class ENUM_BACK_BGM
 {
 	OFF
 	, ON

@@ -5,12 +5,9 @@
 #include "BitmapObject.h"
 #include "GameFrameWork.h"
 
-class Sound_Func;
-
 enum class ENUM_CHILD_MESSGE_GOVER
 {
-	GETCHANGESCENE,//return true시 메뉴로 바꿈,
-	INIT_SOUND_PTR
+	GETCHANGESCENE,//return true시 메뉴로 바꿈
 };
 
 class CGameOverScene :
@@ -19,8 +16,6 @@ class CGameOverScene :
 	RECT m_rcClient;
 	CBitmapObject m_back[2];
 	Cbutton m_button[2];
-	
-	Sound_Func *over_snd;
 
 	//CGameFrameWork m_FrameWork;
 	float m_ftitleVmoveradian;
