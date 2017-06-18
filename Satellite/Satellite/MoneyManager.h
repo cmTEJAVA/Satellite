@@ -35,8 +35,11 @@ public:
 		m_imoney += m_iADD_money;
 	}
 
-	void plus_money(unsigned int plusM) {
+	bool plus_money(unsigned int plusM) {
+		if(plusM==0)return false;
+
 		m_iADD_money += plusM;
+		return true;
 	}
 	bool using_money(const unsigned int& usingM) {
 		ADDmoney_clear();

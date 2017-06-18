@@ -187,6 +187,11 @@ void CGameScene::Update()
 
 	//이 이후로 게임진행 업데이트
 
+	if (m_shake_radian > 0) {
+		m_shake_radian=max(m_shake_radian- DAMAGE_SHAKE_TERM,0);
+	}
+
+
 	m_Gametime++;
 	if (m_Gametime > ENEMY_ADD_delta(m_stageLevel)) {
 		plusEnemy();
@@ -199,16 +204,24 @@ void CGameScene::Update()
 	}
 
 
-	m_MoneyManager.plus_money(m_EnemyManager.GetDelN()*PRICE_ENEMY);
+	if (m_MoneyManager.plus_money(m_EnemyManager.GetDelN()*PRICE_ENEMY)) {
+		m_shake_radian = DAMAGE_SHAKE_TIME;
+
+	}
 //	m_EnemyManager.GetDelN();
 
 	m_EnemyManager.Update();
 	m_BulletManager.Update();
 	int attack=m_EnemyManager.attack();
-	m_test_player.attack(0.05*attack);
+	if (attack > 0) {
+
+		m_test_player.attack(0.05*attack);
+	}
 
 	m_test_player.Update();
-
+	if (m_test_player.IsDamage()) {
+		m_shake_radian = DAMAGE_SHAKE_TIME;
+	}
 
 	for (auto&q : m_listUnits) {
 
@@ -260,7 +273,18 @@ void CGameScene::Update()
 void CGameScene::Draw(HDC hDC)
 {
 	//FillRect(hDC, &m_rcClient, (HBRUSH)GetStockObject(GRAY_BRUSH));
-	m_bmp_backimg.draw(hDC);
+	RECT tmpClient = m_rcClient;
+
+	m_bmp_backimg.Draw(hDC, tmpClient);
+
+	if (m_shake_radian > 0) {
+
+		tmpClient.left+=	sin(m_shake_radian)*5;
+		tmpClient.right+=	sin(m_shake_radian)*5;
+		m_bmp_backimg.Draw(hDC, tmpClient);
+	}
+
+
 	{
 		HBRUSH oldbr = (HBRUSH)SelectObject(hDC, GetStockObject(NULL_BRUSH));
 		HPEN hpen = CreatePen(PS_SOLID, 2, RGB(0, 0, 70));
@@ -352,7 +376,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 		}
 
 
-		//m_MoneyManager.plus_money(rand() % 500);
+		m_test_player.attack(0);
 	}
 	break;
 	case WM_RBUTTONUP:
@@ -384,6 +408,7 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 {
 	if (!CScene::Initialize(pFramework, hWnd)) return false;
+	m_shake_radian = 0;
 	m_stageLevel = 1;
 	m_bPause = false;
 	m_Gametime_for_stage=0;
@@ -412,8 +437,8 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 
 
-	m_bmp_backimg.OnCreatCimg(L"Resorce/Game/testback.jpg");
-	m_bmp_backimg.SetObjRECT(m_rcClient);
+	m_bmp_backimg.Load(L"Resorce/Game/testback.jpg");
+//	m_bmp_backimg.SetObjRECT(m_rcClient);
 
 
 	m_test_player.OnCreatplayerimg

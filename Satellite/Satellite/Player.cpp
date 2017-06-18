@@ -4,6 +4,7 @@
 
 CPlayer::CPlayer()
 {
+	m_isDamage = false;
 }
 
 

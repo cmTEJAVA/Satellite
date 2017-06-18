@@ -7,6 +7,8 @@ class CPlayer :
 	LPCTSTR m_destroyedimgPath;
 	LPCTSTR m_liveimgPath;
 	float m_life;//1~0
+
+	bool m_isDamage;
 public:
 	CPlayer();
 	~CPlayer();
@@ -17,12 +19,14 @@ public:
 		CUnit::OnCreatUnit(midpos,midpos, pStream, imgsizerate, spriteframeN, frameupdatetime, radianspeed, speed);
 		m_life = 1;
 		m_liveimgPath = pStream;
+		m_isDamage = false;
 	}
 	void Setdestroyedimg(const LPCTSTR& pStream) {
 		m_destroyedimgPath = pStream;
 		
 	}
 	void attack(float fPerdmg = 0.05f) {
+		m_isDamage = true;
 		m_life = max(0.f, m_life - fPerdmg);
 		if (m_life == 0.f) {
 			m_imgUnit.releaseCimg();
@@ -39,5 +43,13 @@ public:
 	};
 	void Update()override;
 	float GetLife() { return m_life; }
+	bool IsDamage() { 
+		if (m_isDamage) {
+			m_isDamage = false;
+			return true;
+		}
+		return false;
+	
+	}
 };
 

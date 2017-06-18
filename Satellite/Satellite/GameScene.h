@@ -8,6 +8,10 @@
 #include <list>
 #include <vector>
 
+#define DAMAGE_SHAKE_TIME (3*PI*2)
+#define DAMAGE_SHAKE_TERM 0.7
+
+
 class Sound_Func;
 
 class CGameScene :
@@ -15,7 +19,7 @@ class CGameScene :
 {
 	Sound_Func			*snd_game;
 
-	CBitmapObject		m_bmp_backimg;
+	CImage		m_bmp_backimg;
 
 	CPlayer				m_test_player;
 
@@ -32,6 +36,8 @@ class CGameScene :
 	std::vector<int>	m_vOrbitUnitN;
 
 	unsigned char		m_stageLevel;
+
+	float				m_shake_radian;// SHAKE_TIME;
 
 	Cbutton				m_arrbutton[2];
 	RECT				m_rcClient;
