@@ -7,6 +7,11 @@
 #include "Tesla.h"
 #include "TeslaLaser.h"
 #include "Enemymanager.h"
+
+class Sound_Func;
+
+
+
 class CBulletManager
 {
 	std::list<CirBullet> m_listCirBullet;
@@ -19,6 +24,8 @@ class CBulletManager
 	Point m_ptmid;
 	CEnemymanager * m_ptrEnemeyManager;
 
+	Sound_Func* m_ptrSound;
+
 public:
 	CBitmapObject m_bullet[(int)ENUM_BULLET::END];
 	
@@ -26,7 +33,7 @@ public:
 	~CBulletManager() ;
 	void draw(HDC hdc) ;
 	void Update() ;
-	void OnCreate(CEnemymanager * ptrEnemeyManager);
+	void OnCreate(CEnemymanager * ptrEnemeyManager, Sound_Func* ptrS);
 	void OnCreateBulletImg() {
 		m_bullet[(int)ENUM_BULLET::STANDARD].Setsizerate(0.2f);
 		m_bullet[(int)ENUM_BULLET::STANDARD].OnCreatCimg(L"Resorce/Game/bullet.png");
@@ -65,7 +72,7 @@ public:
 	void insertShockbullet(Point * unitpos,int size=50) {
 
 		m_listShockBullet.push_back(ShockwaveBullet());
-		m_listShockBullet.back().Oncreat(unitpos,size);
+		m_listShockBullet.back().Oncreat(m_ptrSound,unitpos,size);
 	}
 
 	void insertTeslabullet(Point * unitpos, int size = 50) {

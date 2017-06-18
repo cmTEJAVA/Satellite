@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ShockwaveBullet.h"
 #include "operator.h"
+#include "Sound.h"
 
 ShockwaveBullet::ShockwaveBullet()
 {
@@ -13,8 +14,9 @@ ShockwaveBullet::~ShockwaveBullet()
 {
 }
 
-void ShockwaveBullet::Oncreat(Point * unit, int size)
+void ShockwaveBullet::Oncreat(Sound_Func* ptrS, Point * unit, int size)
 {
+	m_ptrSound = ptrS;
 	m_ptrUnit = unit;
 	m_size = size;
 	m_isShow = true;
@@ -24,7 +26,8 @@ void ShockwaveBullet::Update()
 	m_fradian += 0.2;
 	if (m_fradian >= PI * 2)
 	{ 
-		PlaySound(L"sound/shock wave sound.wav", NULL, SND_ASYNC);
+		m_ptrSound->Play_effect(ENUM_SOUND::SHOCKWAVE);
+
 		m_fradian = 0;
 	}
 }

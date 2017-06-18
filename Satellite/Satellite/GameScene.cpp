@@ -460,8 +460,8 @@ bool CGameScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_EnemyManager.OnCreatEnemyManager(
 		Point{ m_rcClient.right / 2,m_rcClient.bottom / 2 }
 	,playersize, snd_game);
-	m_BulletManager.OnCreate(&m_EnemyManager);
-	m_MoneyManager.OnCreat();
+	m_BulletManager.OnCreate(&m_EnemyManager, snd_game);
+	m_MoneyManager.OnCreat(snd_game);
 
 	return true;
 }
