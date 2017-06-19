@@ -12,7 +12,7 @@
 #define DAMAGE_SHAKE_TERM 0.7
 
 #define MAX_TIME_STAGE_LEVEL_UP 20
-#define MAX_LEVEL_SPEED 5.f
+#define MAX_LEVEL_SPEED 10.f
 
 class Sound_Func;
 
@@ -58,7 +58,7 @@ class CGameScene :
 		m_BulletManager.insertbullet(id, pos, dir, 5.f);
 	}
 	void plusEnemy() {
-		m_EnemyManager.insertEnemy(rand()%5/10+0.5f+float(m_stageLevel/ MAX_TIME_STAGE_LEVEL_UP)*MAX_LEVEL_SPEED);
+		m_EnemyManager.insertEnemy(rand()%5/10+0.5f+float(m_stageLevel/STAGE_LEVEL_MAX)*MAX_LEVEL_SPEED);
 	}
 
 	void Update_stageLevel();
