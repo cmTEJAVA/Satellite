@@ -174,6 +174,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 #pragma endregion
 	case WM_TIMER:
 		frame.Update();
+		frame.Update();
+		frame.Update();
 		InvalidateRect(hWnd, nullptr, false);
 		break;
 	case WM_MOUSEMOVE:

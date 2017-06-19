@@ -101,7 +101,7 @@ void CEnemy::Update()
 		m_Dir = m_Pos-m_tergetPos;
 		m_Dir.normalize();
 
-		m_Pos += m_Dir*(m_Speed*(1-1.f/(float)m_UnitMovemaxTime));
+		m_Pos += m_Dir*(0.5f*(1-1.f/(float)m_UnitMovemaxTime));
 		m_UnitMovemaxTime=max(0, m_UnitMovemaxTime-1);
 
 	}

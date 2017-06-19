@@ -58,7 +58,7 @@ class CGameScene :
 		m_BulletManager.insertbullet(id, pos, dir, 5.f);
 	}
 	void plusEnemy() {
-		m_EnemyManager.insertEnemy(rand()%5/10+0.5f+float(m_stageLevel/ MAX_TIME_STAGE_LEVEL_UP)*MAX_LEVEL_SPEED);
+		m_EnemyManager.insertEnemy(rand()%5/10+0.5f+((float)m_stageLevel/ (float)MAX_TIME_STAGE_LEVEL_UP)*MAX_LEVEL_SPEED);
 	}
 
 	void Update_stageLevel();

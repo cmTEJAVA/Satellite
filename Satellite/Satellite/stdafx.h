@@ -38,19 +38,21 @@
 
 #define ORBIT_DISTANCE 55
 
-#define MONEY_TERM 30
+#define MONEY_TERM 10
 
 #define PRICE_UNIT_B 300
 #define PRICE_UNIT_T 500
 #define PRICE_UNIT_S 600
 #define PRICE_UNIT_L 400
 #define PRICE_ORBIT 1000
-#define PRICE_ENEMY 20
+#define PRICE_ENEMY 70
+
+#define INIT_MONEY 1500
 
 #define ORBIT_MAX 4
 
 #define STAGE_LEVEL_MAX 20
-#define STAGE_LEVEL_TERM 1500
+#define STAGE_LEVEL_TERM 750
 
 #define ENEMY_ADD_TIME_MAX 100
 #define ENEMY_ADD_TIME_MIN 30
@@ -60,8 +62,9 @@
 
 
 #define ATK_UNIT_B 0.2f
-#define ATK_UNIT_L 0.03f
-#define ATK_UNIT_S 0.005f
+#define ATK_UNIT_L 0.1f
+
+#define ATK_UNIT_S 0.002f
 #define ATK_UNIT_T 0.003f
 
 
