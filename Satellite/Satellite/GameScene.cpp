@@ -343,7 +343,7 @@ void CGameScene::Draw(HDC hDC)
 	m_MoneyManager.Draw(hDC);
 	//스테이지 그리기
 	{
-		HFONT myFont = CreateFont(20, 0, 0, 0, 800, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, L"Consolas");
+		HFONT myFont = CreateFont(23, 0, 0, 0, 800, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, L"Consolas");
 		HFONT oldFont = (HFONT)SelectObject(hDC, myFont);
 
 		COLORREF textColor;

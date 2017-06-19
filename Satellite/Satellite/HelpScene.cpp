@@ -39,8 +39,7 @@ void CHELPScene::Update()
 			break;
 		}
 		return;
-	}
-
+	}	
 }
 
 void CHELPScene::Draw(HDC hDC)
@@ -51,7 +50,7 @@ void CHELPScene::Draw(HDC hDC)
 	
 	if(m_sizeHELPindx!=0)m_arrbutton[0].draw(hDC);
 	if (m_sizeHELPindx != HELP_IMG_N-1)m_arrbutton[1].draw(hDC);
-	m_arrbutton[2].draw(hDC);
+	if (m_sizeHELPindx == 0) m_arrbutton[2].draw(hDC);
 }
 
 bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
@@ -61,9 +60,9 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	GetClientRect(hWnd, &rcClient);
 
 	m_sizeHELPindx = 0;
-	m_bmpHELP[0].OnCreatCimg(L"Resorce/Test/help1.bmp");
-	m_bmpHELP[1].OnCreatCimg(L"Resorce/Test/help2.bmp");
-	m_bmpHELP[2].OnCreatCimg(L"Resorce/Test/help3.bmp");
+	m_bmpHELP[0].OnCreatCimg(L"Resorce/Help/help1.bmp");
+	m_bmpHELP[1].OnCreatCimg(L"Resorce/Help/help2.bmp");
+	m_bmpHELP[2].OnCreatCimg(L"Resorce/Help/help3.bmp");
 	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow left.png");
 	m_arrbutton[1].OnCreatCimg(L"Resorce/button/green arrow right.png");
 	m_arrbutton[2].OnCreatCimg(L"Resorce/button/green arrow back.png");
@@ -74,7 +73,7 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 	m_arrbutton[0].SetPos(Point{ 30,rcClient.bottom-300});
 	m_arrbutton[1].SetPos(Point{ rcClient.right-30,rcClient.bottom - 300 });
-	m_arrbutton[2].SetPos(Point{30,30});
+	m_arrbutton[2].SetPos(Point{ 30,rcClient.bottom - 300 });
 
 	for (auto & q:m_bmpHELP) {
 		q.SetObjRECT(rcClient);
@@ -94,10 +93,11 @@ bool CHELPScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_LBUTTONUP:
 	{
-		for (auto & buttonq : m_arrbutton) {
-			buttonq.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
+		for (int i = 0; i < 3; ++i)
+		{
+			if (m_sizeHELPindx != 0 && i == 2) break;
+			m_arrbutton[i].SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
-
 	}
 		break;
 
