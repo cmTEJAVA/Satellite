@@ -17,7 +17,7 @@ public:
 		,float imgsizerate,int spriteframeN,float frameupdatetime
 		,float radianspeed=0.01,float speed=0.f) {
 		CUnit::OnCreatUnit(midpos,midpos, pStream, imgsizerate, spriteframeN, frameupdatetime, radianspeed, speed);
-		m_life = 0.1f;
+		m_life = 1;
 		m_liveimgPath = pStream;
 		m_isDamage = false;
 	}

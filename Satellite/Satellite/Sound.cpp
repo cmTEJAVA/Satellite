@@ -129,10 +129,6 @@ void Sound_Func::Play_bgm(ENUM_SOUND type)
 {
 	pSystem->playSound(pSound[(int)type]
 		, nullptr, false, &pChannel[(int)type]);
-
-	if(type == ENUM_SOUND::BACK)
-	pChannel[(int)type]->setVolume(0.5f);
-
 }
 
 void Sound_Func::Play_effect(ENUM_SOUND type)
