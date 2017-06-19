@@ -91,6 +91,7 @@ void CGameScene::Update_stageLevel()
 		m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
 		if (m_stageLevel < STAGE_LEVEL_MAX) {
 			m_time_stageLevel_UP = MAX_TIME_STAGE_LEVEL_UP;
+			snd_game->Play_effect(ENUM_SOUND::STAGEUP);
 		}
 	}
 
@@ -389,8 +390,8 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
 
-
-		m_test_player.attack(0);
+		//m_stageLevel++;
+		//m_test_player.attack(0);
 	}
 	break;
 	case WM_RBUTTONUP:
