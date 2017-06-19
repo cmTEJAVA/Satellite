@@ -31,7 +31,7 @@ public:
 		m_rcClient = RECT{ 30,0,WIDTH,HEIGHT };
 		m_spriteMoney.OnCreatCimg(L"Resorce/Test/moneysprite.bmp");
 		m_spriteMoney.OnCreatSprite(0.5f, 8, 0.1);
-		m_imoney = 1500;
+		m_imoney = INIT_MONEY;
 		m_spriteMoney.SetPos(Point{ 15,15 });
 		m_gtime = 0;
 		m_iADD_money = 0;
