@@ -148,9 +148,7 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
 	case ENUM_SCENE::MENU:		
-		if(m_intro_bgm)
-			snd->Play_effect(ENUM_SOUND::CLICK);
-		else
+		if(!m_intro_bgm)
 		{
 			snd->Stop_bgm(ENUM_SOUND::BACK);
 			snd->Stop_bgm(ENUM_SOUND::GAMEOVER);
