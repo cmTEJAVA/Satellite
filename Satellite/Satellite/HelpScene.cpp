@@ -93,10 +93,11 @@ bool CHELPScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_LBUTTONUP:
 	{
-		for (auto & buttonq : m_arrbutton) {
-			buttonq.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
+		for (int i = 0; i < 3; ++i)
+		{
+			if (m_sizeHELPindx != 0 && i == 2) break;
+			m_arrbutton[i].SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
-
 	}
 		break;
 
