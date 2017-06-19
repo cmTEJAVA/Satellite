@@ -45,8 +45,9 @@
 #define PRICE_UNIT_S 600
 #define PRICE_UNIT_L 400
 #define PRICE_ORBIT 1000
-
 #define PRICE_ENEMY 25
+
+#define INIT_MONEY 1500
 
 #define ORBIT_MAX 4
 
