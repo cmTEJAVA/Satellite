@@ -98,14 +98,11 @@ void CGameScene::Update_stageLevel()
 
 CGameScene::CGameScene()
 {
-	snd_game = new Sound_Func;
-	snd_game->Add_sound();
 }
 
 
 CGameScene::~CGameScene()
 {
-	delete snd_game;
 }
 
 void CGameScene::Update()
@@ -275,6 +272,7 @@ void CGameScene::Update()
 
 	if (m_test_player.GetLife() <= 0.f)
 	{
+		snd_game->Play_effect(ENUM_SOUND::EXPLOSION);
 		snd_game->Stop_bgm(ENUM_SOUND::BACK);
 		snd_game->Play_bgm(ENUM_SOUND::GAMEOVER);
 		ChangeChildScene(ENUM_SCENE_CHILD::GameOver);
@@ -489,4 +487,9 @@ void CGameScene::ReleaseObjects()
 {
 	CScene::ReleaseObjects();
 
+}
+
+void CGameScene::snd_init(Sound_Func *ptrs)
+{
+	snd_game = ptrs;
 }

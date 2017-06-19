@@ -103,7 +103,7 @@ void Sound_Func::Add_sound()
 	);
 
 	pSystem->createStream(
-		"Sound/game over.mp3"
+		"Sound/479319_-Electroman-adventures.mp3"
 		, FMOD_LOOP_NORMAL | FMOD_2D
 		, nullptr
 		, &pSound[(int)ENUM_SOUND::GAMEOVER]

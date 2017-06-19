@@ -6,14 +6,11 @@
 
 CHELPScene::CHELPScene()
 {
-	snd2 = new Sound_Func;
-	snd2->Add_sound();
 }
 
 
 CHELPScene::~CHELPScene()
 {
-	delete snd2;
 }
 
 void CHELPScene::Update()
@@ -84,6 +81,11 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	}
 
 	return false;
+}
+
+void CHELPScene::snd_init(Sound_Func * ptrs)
+{
+	snd2 = ptrs;
 }
 
 bool CHELPScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)

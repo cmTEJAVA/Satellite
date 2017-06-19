@@ -74,5 +74,7 @@ public:
 	virtual bool Initialize(CGameFrameWork* pFramework, HWND hWnd)override;
 
 	virtual void ReleaseObjects()override;
+
+	virtual void snd_init(Sound_Func *ptrs) override;
 };
 
