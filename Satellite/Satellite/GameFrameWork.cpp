@@ -11,6 +11,7 @@
 CGameFrameWork::CGameFrameWork()
 {
 	snd = new Sound_Func;
+	snd->Add_sound();
 }
 
 
@@ -23,9 +24,7 @@ bool CGameFrameWork::Create(HWND hWnd, HINSTANCE hInstance)
 {
 	m_hWnd = hWnd;
 	m_hInstance = hInstance;
-	::GetClientRect(hWnd, &m_rcClient);
-	
-	snd->Add_sound();
+	::GetClientRect(hWnd, &m_rcClient);	
 	ChangeScene(ENUM_SCENE::TITLE);
 	g_DIVIDE_MAX_SIZE = 100;//(ENEMY_MAX_R_SIZE / cos((PI - DIVIDE_RADIAN) / 2));
 
@@ -141,9 +140,11 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 	case ENUM_SCENE::GAME:	
 		snd->Play_effect(ENUM_SOUND::CLICK);
 		snd->Stop_bgm(ENUM_SOUND::INTRO);
+		snd->Stop_bgm(ENUM_SOUND::GAMEOVER);
 		m_intro_bgm = (bool)ENUM_INTRO_BGM::OFF;
 		snd->Play_bgm(ENUM_SOUND::BACK);
 		m_Scenes = new CGameScene;
+		m_Scenes->snd_init(snd);
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
 	case ENUM_SCENE::MENU:		
@@ -152,6 +153,7 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 		else
 		{
 			snd->Stop_bgm(ENUM_SOUND::BACK);
+			snd->Stop_bgm(ENUM_SOUND::GAMEOVER);
 			snd->Play_bgm(ENUM_SOUND::INTRO);
 			m_intro_bgm = (bool)ENUM_INTRO_BGM::ON;
 		}
@@ -161,6 +163,7 @@ void CGameFrameWork::ChangeScene(ENUM_SCENE iID)
 	case ENUM_SCENE::HELP:
 		snd->Play_effect(ENUM_SOUND::CLICK);
 		m_Scenes = new CHELPScene;
+		m_Scenes->snd_init(snd);
 		m_Scenes->Initialize(this, m_hWnd);
 		break;
 

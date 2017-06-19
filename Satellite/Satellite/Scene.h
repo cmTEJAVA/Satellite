@@ -2,6 +2,7 @@
 #include "ChildScene.h"
 
 class CGameFrameWork;
+class Sound_Func;
 
 class CScene
 {
@@ -21,7 +22,8 @@ public:
 
 	virtual void ReleaseObjects();
 
-
+	virtual void snd_init(Sound_Func*ptrs);
+	
 	void PopChildScene();
 
 	void ChangeChildScene(ENUM_SCENE_CHILD iID);
@@ -31,6 +33,7 @@ protected:
 	CGameFrameWork	*	m_Framework{ nullptr };
 	HWND				m_hWnd{ nullptr };
 	CChildScene		*	m_ChildScenes{ nullptr };
+	Sound_Func		*	m_snd;
 
 };
 

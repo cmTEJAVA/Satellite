@@ -22,7 +22,7 @@ public:
 	virtual void Update()override;
 	virtual void Draw(HDC hDC)override;
 	virtual bool Initialize(CGameFrameWork* pFramework, HWND hWnd)override;
-
+	virtual void snd_init(Sound_Func * ptrs)override;
 	virtual bool Mouse(UINT message, WPARAM wParam, LPARAM lParam) override;
 };
 

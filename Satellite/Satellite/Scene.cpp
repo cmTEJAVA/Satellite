@@ -38,6 +38,11 @@ bool CScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	return true;
 }
 
+void CScene::snd_init(Sound_Func*ptrs)
+{
+	m_snd = ptrs;
+}
+
 void CScene::ReleaseObjects()
 {
 }
