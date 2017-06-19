@@ -29,7 +29,7 @@ bool CMoneyManager::using_money(const unsigned int & usingM)
 
 void CMoneyManager::Draw(HDC hdc)
 {
-	HFONT myFont = CreateFont(30, 0, 0, 0, 800, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, L"Arial Rounded MT Bold");
+	HFONT myFont = CreateFont(30, 0, 0, 0, 800, 0, 0, 0, DEFAULT_CHARSET, 0, 0, 0, 0, L"Consolas");
 	HFONT oldFont = (HFONT)SelectObject(hdc, myFont);
 
 	COLORREF textColor;
