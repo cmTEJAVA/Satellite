@@ -390,8 +390,8 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
 
-
-		m_test_player.attack(0);
+		//m_stageLevel++;
+		//m_test_player.attack(0);
 	}
 	break;
 	case WM_RBUTTONUP:
