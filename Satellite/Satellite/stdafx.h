@@ -47,7 +47,7 @@
 #define PRICE_ORBIT 1000
 #define PRICE_ENEMY 25
 
-#define INIT_MONEY 1500
+#define INIT_MONEY 10000
 
 #define ORBIT_MAX 4
 
@@ -63,7 +63,6 @@
 
 #define ATK_UNIT_B 0.2f
 #define ATK_UNIT_L 0.1f
-
 #define ATK_UNIT_S 0.002f
 #define ATK_UNIT_T 0.003f
 
