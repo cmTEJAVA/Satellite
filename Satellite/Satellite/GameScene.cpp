@@ -91,6 +91,7 @@ void CGameScene::Update_stageLevel()
 		m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
 		if (m_stageLevel < STAGE_LEVEL_MAX) {
 			m_time_stageLevel_UP = MAX_TIME_STAGE_LEVEL_UP;
+			snd_game->Play_effect(ENUM_SOUND::STAGEUP);
 		}
 	}
 
