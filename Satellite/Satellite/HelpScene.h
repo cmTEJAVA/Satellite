@@ -5,7 +5,7 @@
 
 class Sound_Func;
 
-#define HELP_IMG_N 3
+#define HELP_IMG_N 4
 class CHELPScene :
 	public CScene
 {
