@@ -57,8 +57,8 @@ void CEditChildScene::Draw(HDC hDC)
 	HBITMAP alphaoldbmp = (HBITMAP)SelectObject(alphahdc, alphahbmp);
 
 
-	TCHAR asdf[50] = L"EditChildScene";
-	DrawText(alphahdc, asdf, lstrlen(asdf), &m_rcClient,DT_TOP|DT_LEFT);
+//	TCHAR asdf[50] = L"EditChildScene";
+//	DrawText(alphahdc, asdf, lstrlen(asdf), &m_rcClient,DT_TOP|DT_LEFT);
 
 
 	Rectangle(alphahdc, m_rcEditWindow.left, m_rcEditWindow.top, m_rcEditWindow.right, m_rcEditWindow.bottom+20);
