@@ -63,6 +63,7 @@ class CGameScene :
 	}
 
 	void Update_stageLevel();
+	void stageLevelUp();
 
 
 public:

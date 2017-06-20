@@ -47,7 +47,7 @@
 #define PRICE_ORBIT 1000
 #define PRICE_ENEMY 25
 
-#define INIT_MONEY 10000
+#define INIT_MONEY 1500
 
 #define ORBIT_MAX 4
 

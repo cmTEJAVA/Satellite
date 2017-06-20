@@ -88,14 +88,19 @@ void CGameScene::Update_stageLevel()
 
 	if (m_Gametime_for_stage >STAGE_LEVEL_TERM) {
 		m_Gametime_for_stage = 0;
-		m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
-		if (m_stageLevel < STAGE_LEVEL_MAX) {
-			m_time_stageLevel_UP = MAX_TIME_STAGE_LEVEL_UP;
-			snd_game->Play_effect(ENUM_SOUND::STAGEUP);
-		}
+		stageLevelUp();
 	}
 
 }
+
+void CGameScene::stageLevelUp() {
+	m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
+	if (m_stageLevel < STAGE_LEVEL_MAX) {
+		m_time_stageLevel_UP = MAX_TIME_STAGE_LEVEL_UP;
+		snd_game->Play_effect(ENUM_SOUND::STAGEUP);
+	}
+}
+
 
 CGameScene::CGameScene()
 {
@@ -314,10 +319,13 @@ void CGameScene::Draw(HDC hDC)
 		DeleteObject(hpen);
 	}
 
-	m_test_player.draw(hDC);
+	//m_test_player.draw(hDC);
 
 
 	m_EnemyManager.draw(hDC);
+	m_test_player.draw(hDC);
+
+
 	m_BulletManager.draw(hDC);
 
 	if(m_test_player.GetLife() > 0.f)
@@ -496,29 +504,37 @@ void CGameScene::snd_init(Sound_Func *ptrs)
 
 bool CGameScene::Keyboard(UINT message, WPARAM wParam)
 {
-	switch (wParam)
+	switch (message)
 	{
-	case VK_F1:
-		m_test_player.cure();
+	case WM_KEYUP:
+		switch (wParam)
+		{
+		case VK_F1:
+			m_test_player.cure();
+			break;
+
+		case VK_F2:
+			m_test_player.attack();
+			break;
+
+		case VK_F3:
+			m_MoneyManager.plus_money(1000);
+			//m_test_player.attack();
+			break;
+
+		case VK_F4:
+			stageLevelUp();
+			break;
+
+
+		default:
+			return false;
+			break;
+		}
+
 		break;
-
-	case VK_F2:
-		m_test_player.attack();
-		break;
-
-	case VK_F3:
-		m_MoneyManager.plus_money(1000);
-		//m_test_player.attack();
-		break;
-
-	case VK_F4:
-		m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
-		break;
-
-
 	default:
-		return false;
 		break;
 	}
-
+	
 }

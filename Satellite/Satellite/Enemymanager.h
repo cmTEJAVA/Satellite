@@ -70,7 +70,7 @@ public:
 		int returni = 0;
 		for (auto & enemy : m_listEnemys) {
 			int tmp = enemy.m_Pos.distance(m_tergetPos);
-			tmp -= enemy.m_size+m_tergetSize-20;
+			tmp -= enemy.m_size+m_tergetSize-15;
 			if (abs(tmp)<5) {
 				enemy.m_isShow = false;
 				returni++;
