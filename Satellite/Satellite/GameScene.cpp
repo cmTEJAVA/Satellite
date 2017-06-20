@@ -389,14 +389,14 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 		for (auto & button : m_arrbutton) {
 			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
-		m_test_player.cure();
+		//m_test_player.cure();
 		//m_test_player.attack(0);
 	}
 	break;
 	case WM_RBUTTONUP:
 		//m_MoneyManager.using_money(1000);
 		//
-		m_stageLevel=min(20, m_stageLevel+1);
+		//m_stageLevel=min(20, m_stageLevel+1);
 		break;
 
 	case WM_MOUSEMOVE:
@@ -492,4 +492,32 @@ void CGameScene::ReleaseObjects()
 void CGameScene::snd_init(Sound_Func *ptrs)
 {
 	snd_game = ptrs;
+}
+
+bool CGameScene::Keyboard(UINT message, WPARAM wParam)
+{
+	switch (wParam)
+	{
+	case VK_F1:
+		m_test_player.cure();
+		break;
+
+	case VK_F2:
+		m_test_player.attack();
+		break;
+
+	case VK_F3:
+		m_MoneyManager.plus_money(1000);
+		//m_test_player.attack();
+		break;
+
+	case VK_F4:
+		m_stageLevel = min(STAGE_LEVEL_MAX, m_stageLevel + 1);
+		break;
+
+
+	default:
+		break;
+	}
+
 }
