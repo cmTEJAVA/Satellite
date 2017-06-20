@@ -53,6 +53,10 @@ public:
 	CEnemy();
 	~CEnemy();
 
+	float GetSpeed() {
+		return m_Speed;
+	}
+
 	bool GetTeslaSound() {
 		if (m_isTeslaSound) {
 			m_isTeslaSound = false;

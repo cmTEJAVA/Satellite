@@ -143,7 +143,7 @@ void CEnemymanager::targetTeslaBullet(Point bullet, int size, std::list<TeslaLas
 
 			enemy.m_isterget = true;
 			v_laser->push_back(TeslaLaser());
-			v_laser->back().OnCreat(&enemy, bullet, 7.f);
+			v_laser->back().OnCreat(&enemy, bullet, enemy.GetSpeed());
 			enemy.m_tergetBullet = &v_laser->back();
 
 		}

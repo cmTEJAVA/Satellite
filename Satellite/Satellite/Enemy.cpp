@@ -95,7 +95,7 @@ void CEnemy::Update()
 
 		float ftmpf = m_UnitMovemaxTime / 20.f;
 
-		m_Pos += m_UnitDir*(ftmpf*m_Speed);
+		m_Pos += m_UnitDir*(ftmpf*m_Speed*0.5f);
 
 		if (m_UnitMovemaxTime == 0) {
 			m_isUnitMove = false;
