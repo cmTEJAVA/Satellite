@@ -15,7 +15,7 @@ CHELPScene::~CHELPScene()
 
 void CHELPScene::Update()
 {
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < HELP_IMG_N; i++) {
 		if (!m_arrbutton[i].Getselect())continue;
 		switch (i)
 		{
@@ -63,6 +63,8 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_bmpHELP[0].OnCreatCimg(L"Resorce/Help/help1.bmp");
 	m_bmpHELP[1].OnCreatCimg(L"Resorce/Help/help2.bmp");
 	m_bmpHELP[2].OnCreatCimg(L"Resorce/Help/help3.bmp");
+	m_bmpHELP[3].OnCreatCimg(L"Resorce/Help/help4.bmp");
+
 	m_arrbutton[0].OnCreatCimg(L"Resorce/button/green arrow left.png");
 	m_arrbutton[1].OnCreatCimg(L"Resorce/button/green arrow right.png");
 	m_arrbutton[2].OnCreatCimg(L"Resorce/button/green arrow back.png");
@@ -94,7 +96,7 @@ bool CHELPScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_LBUTTONUP:
 	{
-		for (int i = 0; i < 3; ++i)
+		for (int i = 0; i < HELP_IMG_N; ++i)
 		{
 			if (m_sizeHELPindx != HELP_IMG_N - 1 && i == 2) break;
 			m_arrbutton[i].SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });

@@ -78,5 +78,9 @@ public:
 	virtual void ReleaseObjects()override;
 
 	virtual void snd_init(Sound_Func *ptrs) override;
+
+	virtual bool Keyboard(UINT message, WPARAM wParam)override;
+
+
 };
 

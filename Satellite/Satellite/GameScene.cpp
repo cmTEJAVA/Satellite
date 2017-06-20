@@ -517,6 +517,7 @@ bool CGameScene::Keyboard(UINT message, WPARAM wParam)
 
 
 	default:
+		return false;
 		break;
 	}
 
