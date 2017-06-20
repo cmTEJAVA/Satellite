@@ -18,9 +18,9 @@ class CEnemy
 	//CSprite;
 
 	//CSprite;
-//	float		m_Shockoneframetime;
-//	float		m_Shockupdatetime;
-	int			m_ShockMaxTime;
+	float		m_Shockoneframetime;
+	float		m_Shockupdatetime;
+	float		m_ShockMaxTime;
 	int			m_Shockframenum;
 	//CSprite;
 
@@ -120,13 +120,15 @@ public:
 		m_oneframetime = frametime;
 		
 	}
-	void SetSprite_Tesla(int imgN) {
-
+	void SetSprite_Tesla(int imgN, float frametime) {
+		m_Shockoneframetime= frametime;
+		m_Shockupdatetime=0;
+		m_ShockMaxTime=4;
 		m_Shockframenum = imgN;
 		m_Shockdrawframenum = 0;
 	}
 
-	void SetTeslaShock(int framemaxtime);
+	void SetTeslaShock();
 
 };
 

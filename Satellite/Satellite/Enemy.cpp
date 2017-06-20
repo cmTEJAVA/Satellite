@@ -41,7 +41,7 @@ void CEnemy::Oncreat(int size, const Point & pos, const Point & tergetPos, float
 	m_life = 1;
 
 	SetSprite(20, 2);
-	SetSprite_Tesla(5);
+	SetSprite_Tesla(5, 2);
 
 	Point enmytmp = m_Pos;
 	enmytmp = enmytmp - m_tergetPos;
@@ -71,26 +71,31 @@ void CEnemy::Update()
 		
 		damage(ATK_UNIT_T);
 
-		if (m_ShockMaxTime >0) {
-			/*
+		if (m_Shockframenum >= 1) {
+			
 			m_Shockupdatetime++;
 			if (m_Shockupdatetime > m_Shockoneframetime) {
 				m_Shockupdatetime = 0;
 				m_Shockdrawframenum++;
 
-			}*/
-			m_ShockMaxTime--;
-			if (m_ShockMaxTime <= 0) {
-				m_isTesla = false;
-				//return;
 			}
+			if (m_Shockdrawframenum >= m_Shockframenum) {
+				m_Shockdrawframenum = 0;
+				m_ShockMaxTime--;
+				if (m_ShockMaxTime <= 0) {
+					m_isTesla = false;
+				}
+				return;
 
-			
+			}
 		}
 	}
 	
 	if (m_isUnitMove) {
-		m_Pos += m_UnitDir*m_Speed;
+
+		float ftmpf = m_UnitMovemaxTime / 20.f;
+
+		m_Pos += m_UnitDir*(ftmpf*m_Speed);
 
 		if (m_UnitMovemaxTime == 0) {
 			m_isUnitMove = false;
@@ -99,10 +104,21 @@ void CEnemy::Update()
 		m_Dir = m_Pos-m_tergetPos;
 		m_Dir.normalize();
 
-		m_Pos += m_Dir*(0.5f);
-		//m_Pos += m_Dir*(0.5f*(1.f-1.f/(float)m_UnitMovemaxTime));
+		m_Pos += m_Dir*(m_Speed*ftmpf);
 		m_UnitMovemaxTime=max(0, m_UnitMovemaxTime-1);
 
+		m_Dir = m_tergetPos - m_Pos;
+		m_Dir.normalize();
+
+		if (m_isTesla) {
+			m_Pos += m_Dir*m_Speed*0.5f;
+
+		}
+		else {
+
+			m_Pos += m_Dir*m_Speed;
+
+		}
 	}
 
 	if (!m_isUnitMove) {
@@ -112,9 +128,12 @@ void CEnemy::Update()
 
 		if (m_isTesla) {
 			m_Pos += m_Dir*m_Speed*0.5f;
+
 		}
 		else {
+
 			m_Pos += m_Dir*m_Speed;
+			
 		}
 
 		if (ID > 0) {
@@ -196,10 +215,10 @@ void CEnemy::Drawlife(HDC hdc)
 	}
 }
 
-void CEnemy::SetTeslaShock(int framemaxtime) {
+void CEnemy::SetTeslaShock() {
 	//PlaySound(L"sound/tesla sound.wav", NULL, SND_ASYNC);
 	//Play_effect(ENUM_SOUND::TESLA) 
-	m_ShockMaxTime = framemaxtime;
 	m_isTeslaSound = true;
 	m_isTesla = true;
+	m_ShockMaxTime = 4;
 }

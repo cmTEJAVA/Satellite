@@ -50,7 +50,7 @@ void CHELPScene::Draw(HDC hDC)
 	
 	if(m_sizeHELPindx!=0)m_arrbutton[0].draw(hDC);
 	if (m_sizeHELPindx != HELP_IMG_N-1)m_arrbutton[1].draw(hDC);
-	if (m_sizeHELPindx == 0) m_arrbutton[2].draw(hDC);
+	if (m_sizeHELPindx == HELP_IMG_N - 1) m_arrbutton[2].draw(hDC);
 }
 
 bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
@@ -72,8 +72,9 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	m_arrbutton[2].SetObjRECT(RECT{ -20,-20,20,20 });
 
 	m_arrbutton[0].SetPos(Point{ 30,rcClient.bottom-300});
-	m_arrbutton[1].SetPos(Point{ rcClient.right-30,rcClient.bottom - 300 });
-	m_arrbutton[2].SetPos(Point{ 30,rcClient.bottom - 300 });
+	m_arrbutton[1].SetPos(Point{ rcClient.right - 30,rcClient.bottom - 300 });
+	m_arrbutton[2].SetPos(Point{ rcClient.right-30,rcClient.bottom - 300 });
+	//m_arrbutton[2].SetPos(Point{ 30,rcClient.bottom - 300 });
 
 	for (auto & q:m_bmpHELP) {
 		q.SetObjRECT(rcClient);
@@ -95,7 +96,7 @@ bool CHELPScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		for (int i = 0; i < 3; ++i)
 		{
-			if (m_sizeHELPindx != 0 && i == 2) break;
+			if (m_sizeHELPindx != HELP_IMG_N - 1 && i == 2) break;
 			m_arrbutton[i].SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
 	}

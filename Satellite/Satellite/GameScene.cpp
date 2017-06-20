@@ -389,15 +389,14 @@ bool CGameScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 		for (auto & button : m_arrbutton) {
 			button.SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });
 		}
-
-		//m_stageLevel++;
+		m_test_player.cure();
 		//m_test_player.attack(0);
 	}
 	break;
 	case WM_RBUTTONUP:
 		//m_MoneyManager.using_money(1000);
 		//
-		//m_test_player.cure();
+		m_stageLevel=min(20, m_stageLevel+1);
 		break;
 
 	case WM_MOUSEMOVE:
