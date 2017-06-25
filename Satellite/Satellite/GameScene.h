@@ -12,7 +12,7 @@
 #define DAMAGE_SHAKE_TERM 0.7
 
 #define MAX_TIME_STAGE_LEVEL_UP 20
-#define MAX_LEVEL_SPEED 10.f
+#define MAX_LEVEL_SPEED 5.f
 
 class Sound_Func;
 

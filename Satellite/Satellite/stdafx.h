@@ -62,7 +62,7 @@
 
 
 #define ATK_UNIT_B 0.2f
-#define ATK_UNIT_L 0.1f
+#define ATK_UNIT_L 0.04f
 #define ATK_UNIT_S 0.002f
 #define ATK_UNIT_T 0.003f
 
