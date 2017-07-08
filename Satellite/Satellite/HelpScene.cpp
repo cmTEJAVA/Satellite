@@ -15,7 +15,7 @@ CHELPScene::~CHELPScene()
 
 void CHELPScene::Update()
 {
-	for (int i = 0; i < HELP_IMG_N; i++) {
+	for (int i = 0; i < 3; i++) {
 		if (!m_arrbutton[i].Getselect())continue;
 		switch (i)
 		{
