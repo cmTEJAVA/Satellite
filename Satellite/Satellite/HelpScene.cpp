@@ -33,6 +33,7 @@ void CHELPScene::Update()
 
 		case 2:
 			m_Framework->ChangeScene(ENUM_SCENE::MENU);
+			//snd2->Play_effect(ENUM_SOUND::CLICK);
 			break;
 
 		default:
@@ -75,7 +76,7 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 
 	m_arrbutton[0].SetPos(Point{ 30,rcClient.bottom-300});
 	m_arrbutton[1].SetPos(Point{ rcClient.right - 30,rcClient.bottom - 300 });
-	m_arrbutton[2].SetPos(Point{ rcClient.right-30,rcClient.bottom - 300 });
+	m_arrbutton[2].SetPos(Point{ rcClient.left+30,rcClient.top + 30 });
 	//m_arrbutton[2].SetPos(Point{ 30,rcClient.bottom - 300 });
 
 	for (auto & q:m_bmpHELP) {
