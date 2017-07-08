@@ -15,25 +15,26 @@ CHELPScene::~CHELPScene()
 
 void CHELPScene::Update()
 {
-	for (int i = 0; i < 3; i++) {
-		if (!m_arrbutton[i].Getselect())continue;
-		switch (i)
+	int buttonid;
+	for (buttonid = 0; buttonid < HELP_BUTTON_N; buttonid++) {
+		if (!m_arrbutton[buttonid].Getselect())continue;
+		switch (buttonid)
 		{
 		case 0:
 			snd2->Play_effect(ENUM_SOUND::CLICK);
 			m_sizeHELPindx = max(0, int(m_sizeHELPindx - 1));
-			m_arrbutton[i].Setselect(false);
+			m_arrbutton[buttonid].Setselect(false);
 			break;
 
 		case 1:
 			snd2->Play_effect(ENUM_SOUND::CLICK);
 			m_sizeHELPindx = min(HELP_IMG_N - 1, m_sizeHELPindx + 1);
-			m_arrbutton[i].Setselect(false);
+			m_arrbutton[buttonid].Setselect(false);
 			break;
 
 		case 2:
+			snd2->Play_effect(ENUM_SOUND::CLICK);
 			m_Framework->ChangeScene(ENUM_SCENE::MENU);
-			//snd2->Play_effect(ENUM_SOUND::CLICK);
 			break;
 
 		default:
@@ -49,8 +50,11 @@ void CHELPScene::Draw(HDC hDC)
 
 	m_bmpHELP[m_sizeHELPindx].draw(hDC);
 	
+	//만약 첫 페이지가 아니라면 앞으로 버튼을 그린다.
 	if(m_sizeHELPindx!=0)m_arrbutton[0].draw(hDC);
-	if (m_sizeHELPindx != HELP_IMG_N-1)m_arrbutton[1].draw(hDC);
+	//만약 마지막 페이지가 아니라면 뒤로 버튼을 그린다.
+	if (m_sizeHELPindx != HELP_IMG_N - 1)m_arrbutton[1].draw(hDC);
+	//만약 마지막 페이지 라면 메뉴로 버튼을 그린다.
 	if (m_sizeHELPindx == HELP_IMG_N - 1) m_arrbutton[2].draw(hDC);
 }
 
@@ -72,7 +76,7 @@ bool CHELPScene::Initialize(CGameFrameWork * pFramework, HWND hWnd)
 	for (auto & q : m_arrbutton) {
 		q.SetObjRECT(RECT{-20,-20,20,20});
 	}
-	m_arrbutton[2].SetObjRECT(RECT{ -20,-20,20,20 });
+
 
 	m_arrbutton[0].SetPos(Point{ 30,rcClient.bottom-300});
 	m_arrbutton[1].SetPos(Point{ rcClient.right - 30,rcClient.bottom - 300 });
@@ -97,7 +101,7 @@ bool CHELPScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 	{
 	case WM_LBUTTONUP:
 	{
-		for (int i = 0; i < HELP_IMG_N; ++i)
+		for (int i = 0; i < HELP_BUTTON_N; ++i)
 		{
 			if (m_sizeHELPindx != HELP_IMG_N - 1 && i == 2) break;
 			m_arrbutton[i].SetMouseLUp(POINT{ LOWORD(lParam),HIWORD(lParam) });

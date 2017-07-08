@@ -6,12 +6,13 @@
 class Sound_Func;
 
 #define HELP_IMG_N 4
+#define HELP_BUTTON_N 3
 class CHELPScene :
 	public CScene
 {
 	CBitmapObject m_bmpHELP[HELP_IMG_N];
 	size_t m_sizeHELPindx;
-	Cbutton m_arrbutton[3];//0:< 1:> 2:menu
+	Cbutton m_arrbutton[HELP_BUTTON_N];//0:< 1:> 2:menu
 	RECT rcClient;
 
 	Sound_Func		*snd2;
