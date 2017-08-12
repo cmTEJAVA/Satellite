@@ -21,8 +21,18 @@ void CGameScene::plusUnit(ENUM_UNIT ID, const Point & pos)
 	}
 	if (OrvitID < 0) return;
 
-	if (m_vOrbitUnitN[OrvitID] >= (OrvitID+1) * 2) return;
+	//궤도가 가득차서 나가야하는부분.
+	if (m_vOrbitUnitN[OrvitID] >= (OrvitID + 1) * 2) 
+	{
+		snd_game->Play_effect(ENUM_SOUND::MONEY);
 
+		if (m_ChildScenes) {
+			m_ChildScenes->
+				GetSceneMessge((UINT)ENUM_CHILD_MESSGE_EDIT::SETERRORORBIT, (WPARAM)&OrvitID, (LPARAM)nullptr);
+			}
+
+		return;
+	}
 
 
 	switch (ID)

@@ -10,6 +10,7 @@ enum class ENUM_CHILD_MESSGE_EDIT
 	SETUNITMAX,
 	SETUNITPATH,
 	GETINSERTUNIT,
+	SETERRORORBIT,
 	FLASE
 };
 
@@ -30,6 +31,10 @@ class CEditChildScene :
 
 	int m_OnOrbit{ -1 };
 	int m_selectOrbit{ -1 };
+
+	int m_AccessErrorOrbit{ -1 };
+	int m_AccessErrorOrbittime{ -1 };
+
 	
 	Point m_ptmouseOrbit;
 

@@ -47,6 +47,14 @@ void CEditChildScene::Update()
 		}
 	}
 
+
+	if (m_AccessErrorOrbit>=0) {
+
+		m_AccessErrorOrbittime--;
+		if (m_AccessErrorOrbittime <= 0) {
+			m_AccessErrorOrbit = -1;
+		}
+	}
 }
 
 void CEditChildScene::Draw(HDC hDC)
@@ -89,14 +97,21 @@ void CEditChildScene::Draw(HDC hDC)
 	for (int i = 0; i < m_vOrbit.size(); i++) {
 		HPEN hpenselect = nullptr;
 		HPEN hpenselectold = nullptr;
-		if (m_OnOrbit ==i) {
+		if (m_AccessErrorOrbit == i) {
+
+			hpenselect = CreatePen(PS_SOLID, 3, RGB(255, 0, 0));
+			hpenselectold = (HPEN)SelectObject(hDC, hpenselect);
+
+
+		}
+		else if (m_OnOrbit ==i) {
 			hpenselect = CreatePen(PS_SOLID, 3, RGB(255, 150, 0));
 			hpenselectold = (HPEN)SelectObject(hDC, hpenselect);
 
 		}
 		//m_selectOrbbit
 		Ellipse(hDC, m_vOrbit[i].left, m_vOrbit[i].top, m_vOrbit[i].right, m_vOrbit[i].bottom);
-		if (m_OnOrbit ==i) {
+		if (m_OnOrbit ==i|| m_AccessErrorOrbit == i) {
 			SelectObject(hDC, hpenselectold);
 			DeleteObject(hpenselect);
 			hpenselect = nullptr;
@@ -205,7 +220,7 @@ bool CEditChildScene::Mouse(UINT message, WPARAM wParam, LPARAM lParam)
 		Point mousetmp{ LOWORD(lParam),HIWORD(lParam) };
 		Point midpos{ m_rcClient.right / 2,m_rcClient.bottom / 2 };
 		
-		mousetmp=mousetmp - midpos;
+		mousetmp = mousetmp - midpos;
 		int size = mousetmp.length();
 		m_selectOrbit = -1;
 		for (int i = 0; i < m_vOrbit.size();i++) {
@@ -364,6 +379,10 @@ UINT CEditChildScene::GetSceneMessge(UINT message, WPARAM wParam, LPARAM lParam)
 		return true;
 	}
 	
+		break;
+	case ENUM_CHILD_MESSGE_EDIT::SETERRORORBIT:
+		m_AccessErrorOrbit = *(char*)wParam;
+		m_AccessErrorOrbittime = 15;
 		break;
 
 
